@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open AI / Agentic Security Tools Catalog</title>
+  <meta name="description" content="Open catalog of AI, LLM, agentic, and MCP security tools with OWASP Agentic Applications mapping, framework compatibility, and scoring." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Open AI Security Tools Catalog">
+    <span class="brand-icon">🛡️</span>
+    <span>Open AI / Agentic Security Tools Catalog</span>
+    <span id="versionBadge" class="version-badge">v0.2</span>
+  </a>
+  <nav class="nav">
+    <a href="#catalog">Catalog</a>
+    <a href="#agentic-owasp">Agentic OWASP</a>
+    <a href="#matrix">Matrix</a>
+    <a href="#scoring">Scoring</a>
+    <a href="#contribute">Contribute</a>
+    <a href="https://genai.owasp.org/initiatives/agentic-security-initiative/" target="_blank" rel="noopener">OWASP ASI ↗</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="eyebrow">Open-source friendly · Hugging Face Static Space · Data-driven · Agentic-ready</div>
+    <h1>AI, LLM, agentic, and MCP security tools mapped to real security decisions.</h1>
+    <p>
+      A maintainable catalog for comparing guardrails, red-team tools, AI-SPM platforms,
+      agent/MCP security scanners, data security tools, and observability platforms.
+      v0.2 adds OWASP Agentic Applications mapping, Agentic Readiness Score, and MCP Security Score.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="#catalog">Explore catalog</a>
+      <a class="button" href="./data/tools.json" target="_blank" rel="noopener">Open tools.json</a>
+      <a class="button" href="#agentic-owasp">View Agentic OWASP mapping</a>
+    </div>
+    <div class="stats">
+      <div><strong id="statTools">—</strong><span>tools</span></div>
+      <div><strong id="statCategories">—</strong><span>categories</span></div>
+      <div><strong id="statFrameworks">—</strong><span>frameworks</span></div>
+      <div><strong id="statUpdated">—</strong><span>updated</span></div>
+    </div>
+  </section>
+
+  <section class="note">
+    <strong>Important:</strong> scores are heuristic and community-maintained. Use this as a shortlist and evaluation starting point,
+    not as a vendor certification. Re-validate claims, deployment options, legal terms, product status, and integration details during procurement or POC.
+  </section>
+
+  <section id="catalog" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Catalog</h2>
+        <p>Filter by category, vendor type, framework, deployment mode, Agentic OWASP risk, and target persona.</p>
+      </div>
+      <div class="view-buttons" role="group" aria-label="View mode">
+        <button id="gridView" class="active" type="button">Grid</button>
+        <button id="tableView" type="button">Table</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label class="control wide">
+        <span>Search</span>
+        <input id="search" placeholder="Search name, org, category, OWASP, ASI, MCP, framework…" />
+      </label>
+      <label class="control">
+        <span>Category</span>
+        <select id="categoryFilter"><option value="">All categories</option></select>
+      </label>
+      <label class="control">
+        <span>Vendor type</span>
+        <select id="typeFilter"><option value="">All types</option></select>
+      </label>
+      <label class="control">
+        <span>Framework</span>
+        <select id="frameworkFilter"><option value="">All frameworks</option></select>
+      </label>
+      <label class="control">
+        <span>Deployment</span>
+        <select id="deploymentFilter"><option value="">All modes</option></select>
+      </label>
+      <label class="control">
+        <span>Agentic OWASP</span>
+        <select id="agenticFilter"><option value="">All Agentic OWASP risks</option></select>
+      </label>
+      <label class="control">
+        <span>Score for</span>
+        <select id="personaFilter"></select>
+      </label>
+      <label class="control">
+        <span>Sort</span>
+        <select id="sortBy">
+          <option value="persona">Persona score</option>
+          <option value="agentic_readiness">Agentic Readiness</option>
+          <option value="mcp_security">MCP Security</option>
+          <option value="name">Name</option>
+          <option value="runtime">Runtime score</option>
+          <option value="red_team">Red-team score</option>
+          <option value="agent_security">Agent security score</option>
+          <option value="enterprise">Enterprise score</option>
+          <option value="self_host">Self-host score</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="result-line">
+      <span id="resultCount">—</span>
+      <button id="resetFilters" type="button">Reset filters</button>
+    </div>
+
+    <div id="cards" class="cards"></div>
+
+    <div id="tableWrap" class="table-wrap hidden">
+      <table class="tool-table">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Type</th>
+            <th>Primary categories</th>
+            <th>ASI risks</th>
+            <th>Frameworks</th>
+            <th>Agentic</th>
+            <th>MCP</th>
+            <th>Runtime</th>
+            <th>Red Team</th>
+            <th>Persona</th>
+          </tr>
+        </thead>
+        <tbody id="toolRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="agentic-owasp" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>OWASP Agentic Applications Top 10 / ASI mapping</h2>
+        <p>v0.2 maps tools against agent-specific risks such as goal hijack, tool misuse, identity abuse, agentic supply chain, memory poisoning, inter-agent communication, cascading failures, and rogue agents.</p>
+      </div>
+      <a class="button" href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/" target="_blank" rel="noopener">OWASP resource ↗</a>
+    </div>
+    <div id="agenticGrid" class="risk-grid"></div>
+  </section>
+
+  <section id="matrix" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Framework compatibility matrix</h2>
+        <p>native = official/direct integration, generic = API/wrapper-level integration, partial = possible with glue code.</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="matrix">
+        <thead id="matrixHead"></thead>
+        <tbody id="matrixBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="scoring" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Scoring model</h2>
+        <p>The project separates raw dimensions from persona weighting so the same tool can rank differently for CISO, AppSec, Red Team, MLOps, PM, startup builder, agent architect, or MCP security reviewer.</p>
+      </div>
+    </div>
+    <div id="dimensionGrid" class="dimension-grid"></div>
+    <details class="formula" open>
+      <summary>Persona score formula</summary>
+      <code>persona_score = weighted_average(selected_dimension_scores, persona_weights) × 20</code>
+      <p>Raw dimensions use a 1–5 scale. Persona score is normalized to 0–100 for easier comparison.</p>
+    </details>
+    <details class="formula" open>
+      <summary>Agentic Readiness Score</summary>
+      <p id="agenticFormula"></p>
+      <p>Use this score when selecting tools for autonomous agents, multi-step workflows, tool execution, delegated tasks, or production agent runtime control.</p>
+    </details>
+    <details class="formula" open>
+      <summary>MCP Security Score</summary>
+      <p id="mcpFormula"></p>
+      <p>Use this score when reviewing MCP clients, third-party MCP servers, tool permissions, server inventory, tool output sanitization, sandboxing, and MCP supply-chain exposure.</p>
+      <div id="mcpDimensionGrid" class="dimension-grid compact"></div>
+    </details>
+  </section>
+
+  <section id="contribute" class="panel contribute">
+    <h2>How to update and maintain</h2>
+    <div class="steps">
+      <div>
+        <h3>1. Add or edit a tool</h3>
+        <p>Edit <code>data/tools.json</code>. Keep each score between 1 and 5 and add a short <code>maintainer_notes</code> field explaining caveats.</p>
+      </div>
+      <div>
+        <h3>2. Map Agentic OWASP / ASI</h3>
+        <p>Add <code>agentic_owasp</code>, <code>agentic_scores</code>, and <code>mcp_scores</code>. Prefer conservative scoring unless the tool has evidence for runtime enforcement, MCP coverage, or agent identity controls.</p>
+      </div>
+      <div>
+        <h3>3. Validate before commit</h3>
+        <p>Run a JSON parse check, then open <code>index.html</code> locally. For larger projects, add a GitHub Action that validates schema, detects missing fields, and checks links.</p>
+      </div>
+      <div>
+        <h3>4. Deploy to Hugging Face</h3>
+        <p>Create a Hugging Face Space, choose Static SDK, and commit <code>README.md</code>, <code>index.html</code>, <code>styles.css</code>, <code>app.js</code>, and <code>data/tools.json</code>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Community-maintained catalog. Last updated from <code>data/tools.json</code>. Contributions welcome.</p>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>
