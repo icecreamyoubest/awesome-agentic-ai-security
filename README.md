@@ -1,11 +1,11 @@
 ---
-title: Open AI Agentic Security Tools Catalog
+title: Awesome Agentic AI Security
 emoji: 🛡️
 colorFrom: yellow
-colorTo: orange
+colorTo: red
 sdk: static
 pinned: false
-license: mit
+license: apache-2.0
 ---
 
 # Open AI / Agentic Security Tools Catalog
