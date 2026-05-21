@@ -12,11 +12,12 @@
   <a class="brand" href="#top" aria-label="Open AI Security Tools Catalog">
     <span class="brand-icon">🛡️</span>
     <span>Open AI / Agentic Security Tools Catalog</span>
-    <span id="versionBadge" class="version-badge">v0.2</span>
+    <span id="versionBadge" class="version-badge">v0.3</span>
   </a>
   <nav class="nav">
     <a href="#catalog">Catalog</a>
     <a href="#agentic-owasp">Agentic OWASP</a>
+    <a href="#lifecycle">Lifecycle</a>
     <a href="#matrix">Matrix</a>
     <a href="#scoring">Scoring</a>
     <a href="#contribute">Contribute</a>
@@ -31,7 +32,7 @@
     <p>
       A maintainable catalog for comparing guardrails, red-team tools, AI-SPM platforms,
       agent/MCP security scanners, data security tools, and observability platforms.
-      v0.2 adds OWASP Agentic Applications mapping, Agentic Readiness Score, and MCP Security Score.
+      v0.3 adds OWASP Agentic Applications mapping, Agentic Readiness Score, and MCP Security Score.
     </p>
     <div class="hero-actions">
       <a class="button primary" href="#catalog">Explore catalog</a>
@@ -85,6 +86,10 @@
         <select id="deploymentFilter"><option value="">All modes</option></select>
       </label>
       <label class="control">
+        <span>Lifecycle stage</span>
+        <select id="lifecycleFilter"><option value="">All stages</option></select>
+      </label>
+      <label class="control">
         <span>Agentic OWASP</span>
         <select id="agenticFilter"><option value="">All Agentic OWASP risks</option></select>
       </label>
@@ -98,6 +103,8 @@
           <option value="persona">Persona score</option>
           <option value="agentic_readiness">Agentic Readiness</option>
           <option value="mcp_security">MCP Security</option>
+          <option value="lifecycle_coverage">Lifecycle coverage</option>
+          <option value="supply_chain">Supply chain score</option>
           <option value="name">Name</option>
           <option value="runtime">Runtime score</option>
           <option value="red_team">Red-team score</option>
@@ -136,11 +143,22 @@
     </div>
   </section>
 
+  <section id="lifecycle" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>OWASP Agentic SecOps lifecycle coverage</h2>
+        <p>Maps tools to the OWASP AI Security Solutions Landscape lifecycle: scope and plan, augment/fine-tune data, develop and experiment, test and evaluate, release, deploy, operate, monitor, and govern.</p>
+      </div>
+      <a class="button" href="https://genai.owasp.org/ai-security-solutions-landscape/" target="_blank" rel="noopener">OWASP landscape ↗</a>
+    </div>
+    <div id="lifecycleGrid" class="risk-grid"></div>
+  </section>
+
   <section id="agentic-owasp" class="panel">
     <div class="panel-head">
       <div>
         <h2>OWASP Agentic Applications Top 10 / ASI mapping</h2>
-        <p>v0.2 maps tools against agent-specific risks such as goal hijack, tool misuse, identity abuse, agentic supply chain, memory poisoning, inter-agent communication, cascading failures, and rogue agents.</p>
+        <p>v0.3 maps tools against agent-specific risks such as goal hijack, tool misuse, identity abuse, agentic supply chain, memory poisoning, inter-agent communication, cascading failures, and rogue agents.</p>
       </div>
       <a class="button" href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/" target="_blank" rel="noopener">OWASP resource ↗</a>
     </div>
@@ -197,7 +215,7 @@
       </div>
       <div>
         <h3>2. Map Agentic OWASP / ASI</h3>
-        <p>Add <code>agentic_owasp</code>, <code>agentic_scores</code>, and <code>mcp_scores</code>. Prefer conservative scoring unless the tool has evidence for runtime enforcement, MCP coverage, or agent identity controls.</p>
+        <p>Add <code>agentic_owasp</code>, <code>lifecycle_stages</code>, <code>agentic_scores</code>, and <code>mcp_scores</code>. Prefer conservative scoring unless the tool has evidence for runtime enforcement, MCP coverage, agent identity controls, or specific OWASP lifecycle support.</p>
       </div>
       <div>
         <h3>3. Validate before commit</h3>

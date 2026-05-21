@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Open AI / Agentic Security Tools Catalog",
-    "description": "Open, maintainable catalog of AI, LLM, agentic, and MCP security tools with OWASP Agentic Applications mapping and scoring.",
+    "title": "Awesome Agentic AI Security Catalog",
+    "description": "Open, maintainable catalog of AI, LLM, agentic, MCP, and Agentic SecOps security tools with OWASP Agentic Applications Top 10 mapping, lifecycle coverage, and heuristic scoring.",
     "updated": "2026-05-21",
     "dimensions": {
       "red_team": "Red teaming and adversarial evaluation depth",
@@ -15,7 +15,9 @@
       "self_host": "Ability to run without sending data to a SaaS provider",
       "ease": "Ease of adoption for an engineering team",
       "agentic_readiness": "Composite readiness for autonomous agent workflows: goal integrity, tool security, identity, memory, runtime, audit, and multi-agent controls",
-      "mcp_security": "MCP server/client security coverage: inventory, third-party server risk, tool permissions, authn/authz, sanitization, audit, sandboxing, supply chain"
+      "mcp_security": "MCP server/client security coverage: inventory, third-party server risk, tool permissions, authn/authz, sanitization, audit, sandboxing, supply chain",
+      "lifecycle_coverage": "Breadth of coverage across the OWASP Agentic SecOps lifecycle stages",
+      "supply_chain": "Supply-chain, SBOM/AIBOM, dependency, model, plugin, prompt, and MCP server provenance coverage"
     },
     "score_scale": "1=weak or not primary; 3=usable/partial; 5=strong/default candidate",
     "personas": {
@@ -77,6 +79,15 @@
         "supply_chain": 1.0,
         "runtime": 0.9,
         "data_security": 0.8
+      },
+      "Agentic SecOps Lead": {
+        "agentic_readiness": 1.6,
+        "lifecycle_coverage": 1.5,
+        "runtime": 1.1,
+        "observability": 1.1,
+        "compliance": 1.0,
+        "enterprise": 1.0,
+        "mcp_security": 0.9
       }
     },
     "frameworks": [
@@ -95,6 +106,7 @@
       "Agent Security",
       "Agentic OWASP Mapping",
       "Agentic Runtime",
+      "Bot Defense",
       "CI/CD Evaluation",
       "Cloud Security",
       "Code Security",
@@ -103,8 +115,11 @@
       "Conversation Control",
       "Data Security",
       "Evaluation",
+      "Fraud",
+      "Governance",
       "Guardrails",
       "Guardrails Testing",
+      "Human-Agent Trust",
       "Identity & Access",
       "MCP Security",
       "Memory Security",
@@ -117,15 +132,16 @@
       "Red Teaming",
       "Runtime Defense",
       "Supply Chain",
-      "Tool Security"
+      "Tool Security",
+      "Vulnerability Management"
     ],
-    "version": "0.2.0",
+    "version": "0.3.0",
     "agentic_owasp": {
       "ASI01": "Agent Goal Hijack",
-      "ASI02": "Tool Misuse & Exploitation",
-      "ASI03": "Identity & Privilege Abuse",
+      "ASI02": "Tool Misuse and Exploitation",
+      "ASI03": "Identity and Privilege Abuse",
       "ASI04": "Agentic Supply Chain Vulnerabilities",
-      "ASI05": "Unexpected Code Execution",
+      "ASI05": "Unexpected Code Execution (RCE)",
       "ASI06": "Memory & Context Poisoning",
       "ASI07": "Insecure Inter-Agent Communication",
       "ASI08": "Cascading Failures",
@@ -176,10 +192,1132 @@
       "OWASP Top 10 for Agentic Applications 2026": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
       "OWASP Agentic Security Initiative": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
       "OWASP GenAI Security Project": "https://genai.owasp.org/",
-      "OWASP LLM Top 10": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
-    }
+      "OWASP LLM Top 10": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+      "OWASP AI Security Solutions Landscape Q2 2026": "https://genai.owasp.org/ai-security-solutions-landscape/"
+    },
+    "lifecycle_stages": {
+      "scope_plan": "Scope & Plan",
+      "augment_finetune_data": "Augment / Fine-tune Data",
+      "develop_experiment": "Develop & Experiment",
+      "test_evaluate": "Test & Evaluate",
+      "release": "Release",
+      "deploy": "Deploy",
+      "operate": "Operate",
+      "monitor": "Monitor",
+      "govern": "Govern"
+    },
+    "lifecycle_stage_descriptions": {
+      "scope_plan": "Threat model agents, non-human identities, tool scopes, delegation logic, memory isolation, and business goals before build.",
+      "augment_finetune_data": "Sanitize datasets, memory seeds, reasoning traces, RAG sources, provenance, and privacy controls.",
+      "develop_experiment": "Secure agent loops, tool wrappers, MCP contracts, plugin interfaces, and policy hooks in frameworks.",
+      "test_evaluate": "Run adversarial red-team tests, goal drift simulations, sandboxed tool-call tests, and multi-agent scenarios.",
+      "release": "Package and verify agent graphs, prompts, policies, memory snapshots, model/tool SBOMs, signatures, and trust registry entries.",
+      "deploy": "Enforce zero-trust communication, short-lived credentials, runtime guardrails, allowlists, and inter-agent authorization.",
+      "operate": "Detect runtime drift, memory mutation, task replay, hallucination loops, rogue behavior, plugin CVEs, and unsafe tool use.",
+      "monitor": "Correlate agent-step telemetry, tool calls, inter-agent messages, immutable logs, anomalies, and audit evidence.",
+      "govern": "Maintain agent registries, access reviews, lifecycle rotation, compliance evidence, alignment audits, and policy baselines."
+    },
+    "lifecycle_formula": "lifecycle_coverage = min(5, count(lifecycle_stages) / 9 * 5) with extra manual adjustment allowed for stage depth."
   },
   "tools": [
+    {
+      "id": "activefence-ai-security",
+      "name": "ActiveFence AI Security",
+      "org": "ActiveFence",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Content Safety",
+        "Guardrails",
+        "Observability",
+        "Runtime Defense"
+      ],
+      "description": "Trust and safety / AI security solution visible across OWASP Agentic SecOps lifecycle pages and ASI taxonomy support. Useful for content safety, abuse detection and runtime monitoring shortlist.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "AI Product",
+        "CISO",
+        "Trust & Safety"
+      ],
+      "scores": {
+        "red_team": 3,
+        "runtime": 4,
+        "agent_security": 3,
+        "data_security": 3,
+        "observability": 4,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 4,
+        "supply_chain": 1,
+        "lifecycle_coverage": 3.3,
+        "agentic_readiness": 3.1,
+        "mcp_security": 2.2
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Focus scoring on safety/runtime monitoring; MCP and identity scores should be validated.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 3,
+        "identity_control": 2,
+        "memory_security": 3,
+        "runtime_enforcement": 4,
+        "auditability": 4,
+        "multi_agent_coverage": 2,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI06",
+        "ASI09",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 1,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 2,
+        "authn_authz": 2,
+        "input_output_sanitization": 4,
+        "audit_trace": 4,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [
+        "scope_plan",
+        "test_evaluate",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "art",
+      "name": "Adversarial Robustness Toolbox",
+      "org": "IBM / Trusted AI",
+      "vendor_type": "open_source",
+      "license": "MIT",
+      "category": [
+        "Adversarial ML",
+        "Model Robustness"
+      ],
+      "description": "Library for adversarial attacks and defenses including evasion, poisoning, extraction and inference attacks.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "AutoGen": "generic"
+      },
+      "owasp": [
+        "LLM03: Supply Chain Vulnerabilities",
+        "LLM04: Data and Model Poisoning"
+      ],
+      "atlas": [
+        "Evasion",
+        "Model Attack"
+      ],
+      "deployment": [
+        "ci",
+        "local",
+        "research"
+      ],
+      "targets": [
+        "ML Security Researcher",
+        "Model Risk"
+      ],
+      "scores": {
+        "red_team": 4,
+        "runtime": 1,
+        "agent_security": 1,
+        "data_security": 2,
+        "observability": 1,
+        "compliance": 3,
+        "enterprise": 3,
+        "oss_maturity": 5,
+        "self_host": 5,
+        "ease": 2,
+        "agentic_readiness": 1.1,
+        "mcp_security": 1.1,
+        "supply_chain": 1,
+        "lifecycle_coverage": 1
+      },
+      "url": "https://github.com/Trusted-AI/adversarial-robustness-toolbox",
+      "docs": "https://adversarial-robustness-toolbox.readthedocs.io/",
+      "maintainer_notes": "Classical adversarial ML focus; useful for ML security labs rather than LLM app runtime guardrails.",
+      "agentic_scores": {
+        "goal_integrity": 1,
+        "tool_security": 1,
+        "identity_control": 1,
+        "memory_security": 1,
+        "runtime_enforcement": 1,
+        "auditability": 2,
+        "multi_agent_coverage": 1,
+        "mcp_security": 1
+      },
+      "agentic_owasp": [],
+      "mcp_scores": {
+        "server_inventory": 1,
+        "third_party_server_risk": 1,
+        "tool_permissioning": 1,
+        "authn_authz": 1,
+        "input_output_sanitization": 1,
+        "audit_trace": 2,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [],
+      "source_basis": [
+        "Original community catalog"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "agentic-radar",
+      "name": "Agentic Radar",
+      "org": "splxAI / community",
+      "vendor_type": "open_source",
+      "license": "Open source",
+      "category": [
+        "Agent Security",
+        "Agentic OWASP Mapping",
+        "MCP Security",
+        "Supply Chain",
+        "Tool Security"
+      ],
+      "description": "Static security scanner for agentic applications, MCP servers and tool chains across common agent frameworks.",
+      "frameworks": {
+        "LangChain/LangGraph": "native",
+        "CrewAI": "native",
+        "AutoGen": "native",
+        "MCP": "native",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM03: Supply Chain Vulnerabilities",
+        "LLM06: Excessive Agency"
+      ],
+      "atlas": [
+        "Discovery",
+        "Privilege Escalation"
+      ],
+      "deployment": [
+        "ci",
+        "local"
+      ],
+      "targets": [
+        "Agent Developer",
+        "AppSec",
+        "Security Engineer"
+      ],
+      "scores": {
+        "red_team": 3,
+        "runtime": 1,
+        "agent_security": 5,
+        "data_security": 2,
+        "observability": 2,
+        "compliance": 3,
+        "enterprise": 3,
+        "oss_maturity": 3,
+        "self_host": 5,
+        "ease": 4,
+        "agentic_readiness": 2.8,
+        "mcp_security": 3.5,
+        "supply_chain": 5,
+        "lifecycle_coverage": 3.9
+      },
+      "url": "https://github.com/splx-ai/agentic-radar",
+      "docs": "https://github.com/splx-ai/agentic-radar",
+      "maintainer_notes": "Good fit for MCP/agent supply-chain inventory; verify active repo URL and rule coverage.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 4,
+        "identity_control": 2,
+        "memory_security": 2,
+        "runtime_enforcement": 2,
+        "auditability": 3,
+        "multi_agent_coverage": 3,
+        "mcp_security": 5
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI04",
+        "ASI05",
+        "ASI07",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 5,
+        "third_party_server_risk": 5,
+        "tool_permissioning": 4,
+        "authn_authz": 2,
+        "input_output_sanitization": 2,
+        "audit_trace": 3,
+        "sandboxing": 2,
+        "supply_chain": 5
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "aws-bedrock-guardrails",
+      "name": "Amazon Bedrock Guardrails",
+      "org": "AWS",
+      "vendor_type": "cloud",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Guardrails",
+        "Identity & Access",
+        "Runtime Defense"
+      ],
+      "description": "Managed guardrails for Bedrock applications with topic denial, content filters, sensitive information filters and grounding checks.",
+      "frameworks": {
+        "LangChain/LangGraph": "native",
+        "LlamaIndex": "native",
+        "CrewAI": "generic",
+        "AutoGen": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM02: Sensitive Information Disclosure",
+        "LLM09: Misinformation"
+      ],
+      "atlas": [
+        "Defense Evasion"
+      ],
+      "deployment": [
+        "cloud",
+        "runtime"
+      ],
+      "targets": [
+        "AWS Platform",
+        "AppSec",
+        "Compliance"
+      ],
+      "scores": {
+        "red_team": 1,
+        "runtime": 5,
+        "agent_security": 3,
+        "data_security": 4,
+        "observability": 3,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 4,
+        "agentic_readiness": 3.5,
+        "mcp_security": 3.0,
+        "supply_chain": 1,
+        "lifecycle_coverage": 2.8
+      },
+      "url": "https://aws.amazon.com/bedrock/guardrails/",
+      "docs": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+      "maintainer_notes": "Strong for Bedrock-native apps; less relevant outside AWS runtime.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 3,
+        "identity_control": 4,
+        "memory_security": 3,
+        "runtime_enforcement": 5,
+        "auditability": 4,
+        "multi_agent_coverage": 2,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI06",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
+        "authn_authz": 4,
+        "input_output_sanitization": 4,
+        "audit_trace": 4,
+        "sandboxing": 3,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "azure-content-safety",
+      "name": "Azure AI Content Safety / Prompt Shields",
+      "org": "Microsoft Azure",
+      "vendor_type": "cloud",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Content Safety",
+        "Guardrails",
+        "Identity & Access",
+        "Runtime Defense"
+      ],
+      "description": "Managed content safety APIs and prompt shield features for detecting harmful content, jailbreaks and protected material risks.",
+      "frameworks": {
+        "Semantic Kernel": "native",
+        "AutoGen": "native",
+        "LangChain/LangGraph": "native",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM02: Sensitive Information Disclosure",
+        "LLM10: Unbounded Consumption"
+      ],
+      "atlas": [
+        "Defense Evasion"
+      ],
+      "deployment": [
+        "cloud",
+        "runtime"
+      ],
+      "targets": [
+        "AppSec",
+        "Compliance",
+        "Enterprise AI Platform"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 5,
+        "agent_security": 4,
+        "data_security": 4,
+        "observability": 3,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 4,
+        "agentic_readiness": 3.7,
+        "mcp_security": 3.2,
+        "supply_chain": 1,
+        "lifecycle_coverage": 2.8
+      },
+      "url": "https://azure.microsoft.com/en-us/products/ai-services/ai-content-safety",
+      "docs": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/",
+      "maintainer_notes": "Best for Azure-native stacks; limited portability/self-hosting.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 3,
+        "identity_control": 4,
+        "memory_security": 3,
+        "runtime_enforcement": 5,
+        "auditability": 4,
+        "multi_agent_coverage": 3,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI05",
+        "ASI06",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
+        "authn_authz": 4,
+        "input_output_sanitization": 5,
+        "audit_trace": 4,
+        "sandboxing": 3,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "calypsoai",
+      "name": "CalypsoAI / F5 AI Security",
+      "org": "F5 / CalypsoAI",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Guardrails",
+        "Observability",
+        "Runtime Defense",
+        "Tool Security"
+      ],
+      "description": "Enterprise AI guardrails platform for prompt scanning, policy enforcement, data protection and AI security observability.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "OpenAI Agents SDK": "generic",
+        "CrewAI": "generic",
+        "MCP": "gateway"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM02: Sensitive Information Disclosure",
+        "LLM07: System Prompt Leakage"
+      ],
+      "atlas": [
+        "Defense Evasion"
+      ],
+      "deployment": [
+        "enterprise",
+        "runtime",
+        "saas"
+      ],
+      "targets": [
+        "AppSec",
+        "Enterprise AI Platform",
+        "Security Architect"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 5,
+        "agent_security": 4,
+        "data_security": 4,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 4,
+        "agentic_readiness": 3.9,
+        "mcp_security": 3.6,
+        "supply_chain": 2,
+        "lifecycle_coverage": 2.8
+      },
+      "url": "https://www.f5.com/company/news/press-releases/f5-acquires-calypsoai-to-secure-enterprises-as-they-race-to-adopt-ai",
+      "docs": "https://calypsoai.com",
+      "maintainer_notes": "Strong candidate for gateway/runtime guardrails; assess metadata correlation, HA, streaming and on-prem requirements.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 4,
+        "identity_control": 3,
+        "memory_security": 3,
+        "runtime_enforcement": 5,
+        "auditability": 5,
+        "multi_agent_coverage": 3,
+        "mcp_security": 3
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI06",
+        "ASI08",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 3,
+        "third_party_server_risk": 3,
+        "tool_permissioning": 4,
+        "authn_authz": 3,
+        "input_output_sanitization": 5,
+        "audit_trace": 5,
+        "sandboxing": 3,
+        "supply_chain": 3
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "capsule-ai-security",
+      "name": "Capsule AI Security",
+      "org": "Capsule",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agent Security",
+        "Agentic OWASP Mapping",
+        "Observability",
+        "Runtime Defense"
+      ],
+      "description": "Capsule appears in OWASP monitor-stage landscape and ASI taxonomy-support list. Candidate for monitoring, traceability and agent security posture discovery.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "saas"
+      ],
+      "targets": [
+        "AI Platform",
+        "Agentic SecOps Lead"
+      ],
+      "scores": {
+        "red_team": 1,
+        "runtime": 2,
+        "agent_security": 3,
+        "data_security": 2,
+        "observability": 4,
+        "compliance": 3,
+        "enterprise": 3,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 3,
+        "supply_chain": 1,
+        "lifecycle_coverage": 0.6,
+        "agentic_readiness": 2.4,
+        "mcp_security": 2.0
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Included based on OWASP landscape placement; detailed feature validation required.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 2,
+        "identity_control": 2,
+        "memory_security": 2,
+        "runtime_enforcement": 2,
+        "auditability": 4,
+        "multi_agent_coverage": 3,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI07",
+        "ASI08",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 2,
+        "authn_authz": 2,
+        "input_output_sanitization": 2,
+        "audit_trace": 4,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [
+        "monitor"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "cisco-ai-defense",
+      "name": "Cisco AI Defense",
+      "org": "Cisco",
+      "vendor_type": "enterprise",
+      "license": "Commercial / open components",
+      "category": [
+        "AI-SPM",
+        "Agentic OWASP Mapping",
+        "Model Security",
+        "Runtime Defense",
+        "Tool Security"
+      ],
+      "description": "Cisco AI security platform combining discovery, validation, access control and runtime protection for enterprise AI applications.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "AutoGen": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM03: Supply Chain Vulnerabilities",
+        "LLM04: Data and Model Poisoning"
+      ],
+      "atlas": [
+        "Discovery",
+        "Evasion"
+      ],
+      "deployment": [
+        "cloud",
+        "enterprise",
+        "runtime"
+      ],
+      "targets": [
+        "AI Platform",
+        "CISO",
+        "Security Architect"
+      ],
+      "scores": {
+        "red_team": 3,
+        "runtime": 4,
+        "agent_security": 3,
+        "data_security": 3,
+        "observability": 4,
+        "compliance": 4,
+        "enterprise": 5,
+        "oss_maturity": 2,
+        "self_host": 2,
+        "ease": 3,
+        "agentic_readiness": 3.5,
+        "mcp_security": 3.3,
+        "supply_chain": 4,
+        "lifecycle_coverage": 3.3
+      },
+      "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/index.html",
+      "docs": "https://github.com/cisco-ai-defense/defenseclaw",
+      "maintainer_notes": "Good enterprise review candidate; DefenseClaw is useful for architecture learning and experimentation.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 4,
+        "identity_control": 3,
+        "memory_security": 3,
+        "runtime_enforcement": 4,
+        "auditability": 4,
+        "multi_agent_coverage": 3,
+        "mcp_security": 3
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI06",
+        "ASI08",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 3,
+        "third_party_server_risk": 3,
+        "tool_permissioning": 4,
+        "authn_authz": 3,
+        "input_output_sanitization": 3,
+        "audit_trace": 4,
+        "sandboxing": 3,
+        "supply_chain": 4
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "cortex-cloud-ai-security",
+      "name": "Cortex Cloud AI Security",
+      "org": "Palo Alto Networks",
+      "vendor_type": "enterprise",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agentic OWASP Mapping",
+        "Cloud Security",
+        "Runtime Defense",
+        "Supply Chain"
+      ],
+      "description": "Palo Alto Cortex Cloud / AI security capability shown in OWASP Agentic AI landscape and ASI support list. Relevant for cloud-native agentic workload posture, runtime and supply-chain control.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "AI Platform",
+        "CISO",
+        "Cloud Security"
+      ],
+      "scores": {
+        "red_team": 3,
+        "runtime": 4,
+        "agent_security": 4,
+        "data_security": 4,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "supply_chain": 5,
+        "lifecycle_coverage": 3.3,
+        "agentic_readiness": 3.9,
+        "mcp_security": 3.8
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Catalog separates this from Prisma AIRS to reflect the OWASP landscape label; consolidate if your internal procurement treats them as one Palo Alto offer.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 4,
+        "identity_control": 4,
+        "memory_security": 4,
+        "runtime_enforcement": 4,
+        "auditability": 5,
+        "multi_agent_coverage": 3,
+        "mcp_security": 3
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI06",
+        "ASI08",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 3,
+        "third_party_server_risk": 4,
+        "tool_permissioning": 4,
+        "authn_authz": 4,
+        "input_output_sanitization": 3,
+        "audit_trace": 5,
+        "sandboxing": 4,
+        "supply_chain": 5
+      },
+      "lifecycle_stages": [
+        "scope_plan",
+        "augment_finetune_data",
+        "test_evaluate",
+        "release",
+        "operate",
+        "monitor"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "deepteam",
+      "name": "DeepTeam",
+      "org": "Confident AI",
+      "vendor_type": "open_core",
+      "license": "Apache-2.0 / commercial",
+      "category": [
+        "Evaluation",
+        "Red Teaming"
+      ],
+      "description": "Red teaming framework for LLM systems with adversarial attacks, vulnerability mapping and safety metrics.",
+      "frameworks": {
+        "LangChain/LangGraph": "native",
+        "LlamaIndex": "native",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM07: System Prompt Leakage",
+        "LLM09: Misinformation"
+      ],
+      "atlas": [
+        "Evasion",
+        "Impact"
+      ],
+      "deployment": [
+        "ci",
+        "local",
+        "saas"
+      ],
+      "targets": [
+        "AI Engineer",
+        "QA",
+        "Red Team"
+      ],
+      "scores": {
+        "red_team": 4,
+        "runtime": 1,
+        "agent_security": 3,
+        "data_security": 2,
+        "observability": 3,
+        "compliance": 4,
+        "enterprise": 3,
+        "oss_maturity": 3,
+        "self_host": 4,
+        "ease": 4,
+        "agentic_readiness": 1.1,
+        "mcp_security": 1.1,
+        "supply_chain": 1,
+        "lifecycle_coverage": 1
+      },
+      "url": "https://github.com/confident-ai/deepteam",
+      "docs": "https://trydeepteam.com/",
+      "maintainer_notes": "Developer-friendly red teaming; validate coverage and licensing for enterprise use.",
+      "agentic_scores": {
+        "goal_integrity": 1,
+        "tool_security": 1,
+        "identity_control": 1,
+        "memory_security": 1,
+        "runtime_enforcement": 1,
+        "auditability": 2,
+        "multi_agent_coverage": 1,
+        "mcp_security": 1
+      },
+      "agentic_owasp": [],
+      "mcp_scores": {
+        "server_inventory": 1,
+        "third_party_server_risk": 1,
+        "tool_permissioning": 1,
+        "authn_authz": 1,
+        "input_output_sanitization": 1,
+        "audit_trace": 2,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [],
+      "source_basis": [
+        "Original community catalog"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "fiddler",
+      "name": "Fiddler AI",
+      "org": "Fiddler",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Guardrails",
+        "Model Monitoring",
+        "Observability"
+      ],
+      "description": "AI observability platform for monitoring, explainability, drift, bias, LLM quality and production guardrail signals.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM09: Misinformation",
+        "LLM02: Sensitive Information Disclosure"
+      ],
+      "atlas": [
+        "Impact"
+      ],
+      "deployment": [
+        "enterprise",
+        "runtime",
+        "saas"
+      ],
+      "targets": [
+        "AI Governance",
+        "MLOps",
+        "Model Risk"
+      ],
+      "scores": {
+        "red_team": 1,
+        "runtime": 3,
+        "agent_security": 2,
+        "data_security": 3,
+        "observability": 5,
+        "compliance": 5,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 4,
+        "agentic_readiness": 2.5,
+        "mcp_security": 2.0,
+        "supply_chain": 1,
+        "lifecycle_coverage": 1.7
+      },
+      "url": "https://www.fiddler.ai",
+      "docs": "https://www.fiddler.ai",
+      "maintainer_notes": "Strong monitoring/governance fit, not a primary offensive red-team tool.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 2,
+        "identity_control": 2,
+        "memory_security": 3,
+        "runtime_enforcement": 2,
+        "auditability": 5,
+        "multi_agent_coverage": 2,
+        "mcp_security": 1
+      },
+      "agentic_owasp": [
+        "ASI06",
+        "ASI08",
+        "ASI09",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 1,
+        "tool_permissioning": 2,
+        "authn_authz": 2,
+        "input_output_sanitization": 2,
+        "audit_trace": 5,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "galileo",
+      "name": "Galileo",
+      "org": "Galileo",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Evaluation",
+        "Guardrails",
+        "Observability"
+      ],
+      "description": "LLM evaluation and observability platform for hallucination, factuality, prompt quality, agent traces and production monitoring.",
+      "frameworks": {
+        "LangChain/LangGraph": "native",
+        "LlamaIndex": "native",
+        "CrewAI": "generic",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM09: Misinformation",
+        "LLM05: Improper Output Handling"
+      ],
+      "atlas": [
+        "Impact"
+      ],
+      "deployment": [
+        "ci",
+        "runtime",
+        "saas"
+      ],
+      "targets": [
+        "AI Engineer",
+        "AI PM",
+        "MLOps"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 3,
+        "agent_security": 3,
+        "data_security": 2,
+        "observability": 5,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 4,
+        "agentic_readiness": 2.7,
+        "mcp_security": 2.0,
+        "supply_chain": 1,
+        "lifecycle_coverage": 2.2
+      },
+      "url": "https://www.galileo.ai",
+      "docs": "https://docs.galileo.ai",
+      "maintainer_notes": "Useful for product quality and evaluation loops; pair with security-specific scanners.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 2,
+        "identity_control": 2,
+        "memory_security": 3,
+        "runtime_enforcement": 2,
+        "auditability": 5,
+        "multi_agent_coverage": 3,
+        "mcp_security": 1
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI06",
+        "ASI08",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 1,
+        "tool_permissioning": 2,
+        "authn_authz": 2,
+        "input_output_sanitization": 2,
+        "audit_trace": 5,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
     {
       "id": "garak",
       "name": "garak",
@@ -187,9 +1325,9 @@
       "vendor_type": "open_source",
       "license": "Apache-2.0",
       "category": [
-        "Red Teaming",
+        "Agentic OWASP Mapping",
         "Evaluation",
-        "Agentic OWASP Mapping"
+        "Red Teaming"
       ],
       "description": "LLM vulnerability scanner using static, dynamic and adaptive probes for jailbreak, prompt injection, leakage and unsafe behavior testing.",
       "frameworks": {
@@ -212,14 +1350,14 @@
         "Impact"
       ],
       "deployment": [
-        "local",
-        "ci"
+        "ci",
+        "local"
       ],
       "targets": [
-        "Security Researcher",
-        "Red Team",
+        "AI Platform",
         "Model Risk",
-        "AI Platform"
+        "Red Team",
+        "Security Researcher"
       ],
       "scores": {
         "red_team": 5,
@@ -233,7 +1371,9 @@
         "self_host": 5,
         "ease": 3,
         "agentic_readiness": 1.9,
-        "mcp_security": 1.7
+        "mcp_security": 1.7,
+        "supply_chain": 1,
+        "lifecycle_coverage": 0.6
       },
       "url": "https://github.com/NVIDIA/garak",
       "docs": "https://garak.ai",
@@ -262,198 +1402,30 @@
         "audit_trace": 3,
         "sandboxing": 1,
         "supply_chain": 2
-      }
+      },
+      "lifecycle_stages": [
+        "test_evaluate"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
     },
     {
-      "id": "pyrit",
-      "name": "PyRIT",
-      "org": "Microsoft",
-      "vendor_type": "open_source",
-      "license": "MIT",
+      "id": "google-model-armor",
+      "name": "Google Cloud Model Armor",
+      "org": "Google Cloud",
+      "vendor_type": "cloud",
+      "license": "Commercial",
       "category": [
-        "Red Teaming",
-        "Evaluation",
-        "Agentic OWASP Mapping"
-      ],
-      "description": "Python Risk Identification Tool for generative AI red teaming with multi-turn orchestration, converters and scoring pipelines.",
-      "frameworks": {
-        "LangChain/LangGraph": "generic",
-        "AutoGen": "native",
-        "OpenAI Agents SDK": "generic",
-        "Semantic Kernel": "native",
-        "LlamaIndex": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM02: Sensitive Information Disclosure",
-        "LLM07: System Prompt Leakage"
-      ],
-      "atlas": [
-        "Evasion",
-        "Impact"
-      ],
-      "deployment": [
-        "local",
-        "ci",
-        "azure"
-      ],
-      "targets": [
-        "Red Team",
-        "Security Engineer",
-        "Model Risk"
-      ],
-      "scores": {
-        "red_team": 5,
-        "runtime": 1,
-        "agent_security": 3,
-        "data_security": 2,
-        "observability": 2,
-        "compliance": 4,
-        "enterprise": 4,
-        "oss_maturity": 4,
-        "self_host": 5,
-        "ease": 3,
-        "agentic_readiness": 2.75,
-        "mcp_security": 2.5
-      },
-      "url": "https://github.com/Azure/PyRIT",
-      "docs": "https://github.com/Azure/PyRIT",
-      "maintainer_notes": "Strong for repeatable attack workflows and Azure-centric evaluation.",
-      "agentic_scores": {
-        "goal_integrity": 4,
-        "tool_security": 3,
-        "identity_control": 2,
-        "memory_security": 3,
-        "runtime_enforcement": 1,
-        "auditability": 4,
-        "multi_agent_coverage": 3,
-        "mcp_security": 2
-      },
-      "agentic_owasp": [
-        "ASI01",
-        "ASI02",
-        "ASI06",
-        "ASI09"
-      ],
-      "mcp_scores": {
-        "server_inventory": 2,
-        "third_party_server_risk": 2,
-        "tool_permissioning": 3,
-        "authn_authz": 2,
-        "input_output_sanitization": 3,
-        "audit_trace": 4,
-        "sandboxing": 2,
-        "supply_chain": 2
-      }
-    },
-    {
-      "id": "promptfoo",
-      "name": "promptfoo",
-      "org": "promptfoo",
-      "vendor_type": "open_core",
-      "license": "MIT / commercial",
-      "category": [
-        "Red Teaming",
-        "CI/CD Evaluation",
-        "Guardrails Testing",
         "Agentic OWASP Mapping",
-        "Tool Security"
-      ],
-      "description": "Developer-first LLM testing and red teaming framework with assertions, model comparisons, datasets, plugins and CI/CD workflows.",
-      "frameworks": {
-        "LangChain/LangGraph": "native",
-        "LlamaIndex": "native",
-        "CrewAI": "native",
-        "AutoGen": "generic",
-        "OpenAI Agents SDK": "native",
-        "Semantic Kernel": "generic",
-        "MCP": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM02: Sensitive Information Disclosure",
-        "LLM05: Improper Output Handling",
-        "LLM09: Misinformation"
-      ],
-      "atlas": [
-        "Evasion",
-        "Impact"
-      ],
-      "deployment": [
-        "local",
-        "ci",
-        "saas"
-      ],
-      "targets": [
-        "AppSec",
-        "AI Engineer",
-        "QA",
-        "Red Team"
-      ],
-      "scores": {
-        "red_team": 5,
-        "runtime": 2,
-        "agent_security": 4,
-        "data_security": 2,
-        "observability": 3,
-        "compliance": 4,
-        "enterprise": 4,
-        "oss_maturity": 5,
-        "self_host": 4,
-        "ease": 5,
-        "agentic_readiness": 3.25,
-        "mcp_security": 3.0
-      },
-      "url": "https://github.com/promptfoo/promptfoo",
-      "docs": "https://www.promptfoo.dev",
-      "maintainer_notes": "Best fit for regression testing, CI quality gates and application-specific red-team suites.",
-      "agentic_scores": {
-        "goal_integrity": 4,
-        "tool_security": 4,
-        "identity_control": 2,
-        "memory_security": 3,
-        "runtime_enforcement": 2,
-        "auditability": 4,
-        "multi_agent_coverage": 4,
-        "mcp_security": 3
-      },
-      "agentic_owasp": [
-        "ASI01",
-        "ASI02",
-        "ASI06",
-        "ASI07",
-        "ASI09"
-      ],
-      "mcp_scores": {
-        "server_inventory": 3,
-        "third_party_server_risk": 3,
-        "tool_permissioning": 4,
-        "authn_authz": 2,
-        "input_output_sanitization": 3,
-        "audit_trace": 4,
-        "sandboxing": 2,
-        "supply_chain": 3
-      }
-    },
-    {
-      "id": "llm-guard",
-      "name": "LLM Guard",
-      "org": "Protect AI",
-      "vendor_type": "open_source",
-      "license": "MIT",
-      "category": [
         "Guardrails",
-        "Data Security",
-        "Agentic OWASP Mapping"
+        "Runtime Defense"
       ],
-      "description": "Input/output scanners for prompt injection, toxicity, secrets, PII, anonymization and output risk control.",
+      "description": "Security layer for prompt and response inspection, including prompt injection, jailbreak and malicious content filtering for Google Cloud AI workloads.",
       "frameworks": {
         "LangChain/LangGraph": "native",
-        "LlamaIndex": "native",
-        "CrewAI": "generic",
-        "AutoGen": "generic",
-        "OpenAI Agents SDK": "generic",
-        "MCP": "generic"
+        "LlamaIndex": "generic"
       },
       "owasp": [
         "LLM01: Prompt Injection",
@@ -464,39 +1436,40 @@
         "Defense Evasion"
       ],
       "deployment": [
-        "local",
-        "runtime",
-        "ci"
+        "cloud",
+        "runtime"
       ],
       "targets": [
-        "AI Engineer",
+        "AI Platform",
         "AppSec",
-        "Platform Engineer"
+        "Google Cloud Platform"
       ],
       "scores": {
-        "red_team": 2,
-        "runtime": 4,
+        "red_team": 1,
+        "runtime": 5,
         "agent_security": 3,
-        "data_security": 5,
-        "observability": 2,
-        "compliance": 3,
-        "enterprise": 3,
-        "oss_maturity": 4,
-        "self_host": 5,
+        "data_security": 4,
+        "observability": 3,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 1,
         "ease": 4,
-        "agentic_readiness": 2.7,
-        "mcp_security": 2.55
+        "agentic_readiness": 3.4,
+        "mcp_security": 3.0,
+        "supply_chain": 1,
+        "lifecycle_coverage": 2.2
       },
-      "url": "https://github.com/protectai/llm-guard",
-      "docs": "https://llm-guard.com",
-      "maintainer_notes": "Practical self-hosted scanner suite; pair with orchestration/policy layer for enterprise governance.",
+      "url": "https://cloud.google.com/security/products/model-armor",
+      "docs": "https://cloud.google.com/security-command-center/docs/model-armor-overview",
+      "maintainer_notes": "Useful for Vertex/Gemini deployments; validate regional availability.",
       "agentic_scores": {
-        "goal_integrity": 3,
+        "goal_integrity": 4,
         "tool_security": 3,
-        "identity_control": 1,
+        "identity_control": 3,
         "memory_security": 3,
-        "runtime_enforcement": 4,
-        "auditability": 3,
+        "runtime_enforcement": 5,
+        "auditability": 4,
         "multi_agent_coverage": 2,
         "mcp_security": 2
       },
@@ -510,73 +1483,82 @@
         "server_inventory": 2,
         "third_party_server_risk": 2,
         "tool_permissioning": 3,
-        "authn_authz": 1,
+        "authn_authz": 3,
         "input_output_sanitization": 5,
-        "audit_trace": 3,
-        "sandboxing": 2,
+        "audit_trace": 4,
+        "sandboxing": 3,
         "supply_chain": 2
-      }
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "deploy",
+        "operate",
+        "monitor"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
     },
     {
-      "id": "nemo-guardrails",
-      "name": "NeMo Guardrails",
-      "org": "NVIDIA",
-      "vendor_type": "open_source",
-      "license": "Apache-2.0",
+      "id": "guardian-ai",
+      "name": "Guardian AI",
+      "org": "Guardian AI",
+      "vendor_type": "commercial",
+      "license": "Commercial",
       "category": [
+        "Agent Security",
+        "Agentic OWASP Mapping",
         "Guardrails",
-        "Conversation Control",
-        "Agentic OWASP Mapping"
+        "Runtime Defense"
       ],
-      "description": "Programmable guardrails for LLM applications using Colang rails, dialog flows and policy constraints.",
+      "description": "Agentic AI guardrail/security product visible in OWASP ASI taxonomy support and monitor/govern landscape views. Candidate for runtime guardrail and policy integration shortlist.",
       "frameworks": {
-        "LangChain/LangGraph": "native",
-        "LlamaIndex": "integration",
-        "OpenAI Agents SDK": "generic",
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
         "CrewAI": "generic",
-        "AutoGen": "generic"
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
       },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM05: Improper Output Handling",
-        "LLM06: Excessive Agency"
-      ],
-      "atlas": [
-        "Defense Evasion"
-      ],
+      "owasp": [],
+      "atlas": [],
       "deployment": [
-        "local",
-        "runtime"
+        "enterprise",
+        "saas"
       ],
       "targets": [
-        "AI Engineer",
-        "Platform Engineer",
-        "AppSec"
+        "Agentic SecOps Lead",
+        "AppSec",
+        "CISO"
       ],
       "scores": {
-        "red_team": 1,
+        "red_team": 2,
         "runtime": 4,
-        "agent_security": 3,
-        "data_security": 2,
-        "observability": 2,
-        "compliance": 3,
-        "enterprise": 3,
-        "oss_maturity": 5,
-        "self_host": 5,
+        "agent_security": 4,
+        "data_security": 3,
+        "observability": 4,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 2,
         "ease": 3,
-        "agentic_readiness": 3.05,
-        "mcp_security": 2.55
+        "supply_chain": 2,
+        "lifecycle_coverage": 1.7,
+        "agentic_readiness": 3.6,
+        "mcp_security": 2.8
       },
-      "url": "https://github.com/NVIDIA-NeMo/Guardrails",
-      "docs": "https://docs.nvidia.com/nemo/guardrails/",
-      "maintainer_notes": "Good for programmable conversation policy; less complete as standalone scanner catalog.",
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "OWASP-listed; validate current product name and integration mode.",
       "agentic_scores": {
         "goal_integrity": 4,
-        "tool_security": 3,
-        "identity_control": 2,
+        "tool_security": 4,
+        "identity_control": 3,
         "memory_security": 3,
         "runtime_enforcement": 4,
-        "auditability": 3,
+        "auditability": 4,
         "multi_agent_coverage": 3,
         "mcp_security": 2
       },
@@ -584,18 +1566,29 @@
         "ASI01",
         "ASI02",
         "ASI06",
-        "ASI08"
+        "ASI08",
+        "ASI09",
+        "ASI10"
       ],
       "mcp_scores": {
         "server_inventory": 2,
         "third_party_server_risk": 2,
         "tool_permissioning": 3,
-        "authn_authz": 2,
+        "authn_authz": 3,
         "input_output_sanitization": 4,
-        "audit_trace": 3,
+        "audit_trace": 4,
         "sandboxing": 2,
         "supply_chain": 2
-      }
+      },
+      "lifecycle_stages": [
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
     },
     {
       "id": "guardrails-ai",
@@ -604,9 +1597,9 @@
       "vendor_type": "open_core",
       "license": "Apache-2.0 / commercial",
       "category": [
+        "Agentic OWASP Mapping",
         "Guardrails",
-        "Output Validation",
-        "Agentic OWASP Mapping"
+        "Output Validation"
       ],
       "description": "Validation framework for structured outputs, schema enforcement, PII checks, toxicity and response quality validation.",
       "frameworks": {
@@ -645,7 +1638,9 @@
         "self_host": 4,
         "ease": 4,
         "agentic_readiness": 2.2,
-        "mcp_security": 1.8
+        "mcp_security": 1.8,
+        "supply_chain": 1,
+        "lifecycle_coverage": 2.2
       },
       "url": "https://github.com/guardrails-ai/guardrails",
       "docs": "https://www.guardrailsai.com/docs",
@@ -674,7 +1669,570 @@
         "audit_trace": 3,
         "sandboxing": 1,
         "supply_chain": 1
-      }
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate",
+        "deploy",
+        "operate"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "hiddenlayer",
+      "name": "HiddenLayer AISec Platform",
+      "org": "HiddenLayer",
+      "vendor_type": "enterprise",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agentic OWASP Mapping",
+        "Model Security",
+        "Runtime Defense",
+        "Supply Chain",
+        "Tool Security"
+      ],
+      "description": "Enterprise AI security platform for model scanning, AI-BOM, threat detection, adversarial testing and runtime monitoring.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM03: Supply Chain Vulnerabilities",
+        "LLM04: Data and Model Poisoning",
+        "LLM10: Unbounded Consumption"
+      ],
+      "atlas": [
+        "Model Attack",
+        "Discovery"
+      ],
+      "deployment": [
+        "enterprise",
+        "runtime"
+      ],
+      "targets": [
+        "AI Platform",
+        "CISO",
+        "Model Risk"
+      ],
+      "scores": {
+        "red_team": 4,
+        "runtime": 4,
+        "agent_security": 3,
+        "data_security": 3,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "agentic_readiness": 3.5,
+        "mcp_security": 3.2,
+        "supply_chain": 5,
+        "lifecycle_coverage": 3.9
+      },
+      "url": "https://hiddenlayer.com",
+      "docs": "https://hiddenlayer.com",
+      "maintainer_notes": "Model-security oriented; validate LLM app and agent runtime controls for your use case.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 4,
+        "identity_control": 3,
+        "memory_security": 3,
+        "runtime_enforcement": 4,
+        "auditability": 4,
+        "multi_agent_coverage": 3,
+        "mcp_security": 3
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI06",
+        "ASI08",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 3,
+        "third_party_server_risk": 3,
+        "tool_permissioning": 3,
+        "authn_authz": 3,
+        "input_output_sanitization": 3,
+        "audit_trace": 4,
+        "sandboxing": 3,
+        "supply_chain": 5
+      },
+      "lifecycle_stages": [
+        "augment_finetune_data",
+        "test_evaluate",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "hivetrace",
+      "name": "HiveTrace",
+      "org": "HiveTrace",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agent Security",
+        "Agentic OWASP Mapping",
+        "Observability",
+        "Runtime Defense"
+      ],
+      "description": "Agentic runtime tracing/monitoring product visible in OWASP deploy/operate/monitor landscape views. Candidate for agent telemetry, tool-call monitoring and behavioral anomaly detection.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "saas"
+      ],
+      "targets": [
+        "AI Platform",
+        "Agentic SecOps Lead",
+        "SRE"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 3,
+        "agent_security": 4,
+        "data_security": 2,
+        "observability": 5,
+        "compliance": 3,
+        "enterprise": 3,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "supply_chain": 1,
+        "lifecycle_coverage": 1.7,
+        "agentic_readiness": 3.2,
+        "mcp_security": 2.1
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Scored as observability-first, not as primary enforcement.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 3,
+        "identity_control": 2,
+        "memory_security": 3,
+        "runtime_enforcement": 3,
+        "auditability": 5,
+        "multi_agent_coverage": 4,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI07",
+        "ASI08",
+        "ASI09",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 2,
+        "authn_authz": 2,
+        "input_output_sanitization": 2,
+        "audit_trace": 5,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [
+        "deploy",
+        "operate",
+        "monitor"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "human-security-ai",
+      "name": "HUMAN Security AI",
+      "org": "HUMAN Security",
+      "vendor_type": "enterprise",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Bot Defense",
+        "Fraud",
+        "Human-Agent Trust",
+        "Runtime Defense"
+      ],
+      "description": "HUMAN appears in OWASP ASI taxonomy support and govern-stage landscape. Relevant to abuse/fraud, trust exploitation, automated traffic and adversarial behavior monitoring around AI applications.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "CISO",
+        "Fraud",
+        "Trust & Safety"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 3,
+        "agent_security": 2,
+        "data_security": 2,
+        "observability": 4,
+        "compliance": 4,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 3,
+        "supply_chain": 1,
+        "lifecycle_coverage": 0.6,
+        "agentic_readiness": 2.5,
+        "mcp_security": 1.8
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Included as landscape/governance signal; map to agentic trust/fraud scenarios rather than core MCP controls.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 3,
+        "identity_control": 2,
+        "memory_security": 1,
+        "runtime_enforcement": 3,
+        "auditability": 4,
+        "multi_agent_coverage": 2,
+        "mcp_security": 1
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI09",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 1,
+        "third_party_server_risk": 1,
+        "tool_permissioning": 2,
+        "authn_authz": 2,
+        "input_output_sanitization": 2,
+        "audit_trace": 4,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "ibm-guardium-ai-security",
+      "name": "IBM Guardium AI Security",
+      "org": "IBM",
+      "vendor_type": "enterprise",
+      "license": "Commercial",
+      "category": [
+        "AI Governance",
+        "Agentic OWASP Mapping",
+        "Compliance",
+        "Data Security",
+        "Observability"
+      ],
+      "description": "IBM Guardium appears across OWASP release/deploy/operate/monitor/govern landscape views. Stronger fit for data governance, sensitive data monitoring, compliance evidence and AI data risk.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "AI Governance",
+        "CISO",
+        "Data Security"
+      ],
+      "scores": {
+        "red_team": 1,
+        "runtime": 3,
+        "agent_security": 3,
+        "data_security": 5,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "supply_chain": 3,
+        "lifecycle_coverage": 2.8,
+        "agentic_readiness": 3.2,
+        "mcp_security": 3.0
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Use for data security/governance dimensions; combine with specialized agent runtime guardrails for ASI02/ASI05.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 2,
+        "identity_control": 4,
+        "memory_security": 5,
+        "runtime_enforcement": 3,
+        "auditability": 5,
+        "multi_agent_coverage": 2,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI03",
+        "ASI04",
+        "ASI06",
+        "ASI08",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
+        "authn_authz": 4,
+        "input_output_sanitization": 4,
+        "audit_trace": 5,
+        "sandboxing": 1,
+        "supply_chain": 3
+      },
+      "lifecycle_stages": [
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "lakera-guard",
+      "name": "Lakera Guard",
+      "org": "Lakera / Check Point",
+      "vendor_type": "commercial_api",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Guardrails",
+        "Runtime Defense"
+      ],
+      "description": "Hosted protection API for prompt injection, jailbreak, PII and unsafe content detection with simple API integration.",
+      "frameworks": {
+        "LangChain/LangGraph": "native",
+        "LlamaIndex": "native",
+        "OpenAI Agents SDK": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM02: Sensitive Information Disclosure",
+        "LLM07: System Prompt Leakage"
+      ],
+      "atlas": [
+        "Defense Evasion"
+      ],
+      "deployment": [
+        "runtime",
+        "saas"
+      ],
+      "targets": [
+        "AI Engineer",
+        "AppSec",
+        "Startup Builder"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 5,
+        "agent_security": 4,
+        "data_security": 4,
+        "observability": 3,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 5,
+        "agentic_readiness": 3.1,
+        "mcp_security": 2.7,
+        "supply_chain": 1,
+        "lifecycle_coverage": 2.2
+      },
+      "url": "https://www.lakera.ai",
+      "docs": "https://docs.lakera.ai",
+      "maintainer_notes": "Fast API integration; assess data residency and enterprise logging requirements.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 3,
+        "identity_control": 2,
+        "memory_security": 3,
+        "runtime_enforcement": 5,
+        "auditability": 3,
+        "multi_agent_coverage": 2,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI06",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
+        "authn_authz": 2,
+        "input_output_sanitization": 5,
+        "audit_trace": 3,
+        "sandboxing": 2,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "deploy",
+        "operate",
+        "monitor"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "lasso-security",
+      "name": "Lasso Security",
+      "org": "Lasso Security",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agentic OWASP Mapping",
+        "Data Security",
+        "Identity & Access",
+        "Runtime Defense"
+      ],
+      "description": "Enterprise AI security for shadow AI discovery, access controls, sensitive-data protection and policy enforcement.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM02: Sensitive Information Disclosure",
+        "LLM03: Supply Chain Vulnerabilities",
+        "LLM06: Excessive Agency"
+      ],
+      "atlas": [
+        "Collection",
+        "Exfiltration"
+      ],
+      "deployment": [
+        "cloud",
+        "enterprise"
+      ],
+      "targets": [
+        "CISO",
+        "Compliance",
+        "Data Security"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 4,
+        "agent_security": 3,
+        "data_security": 5,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 3,
+        "agentic_readiness": 3.5,
+        "mcp_security": 3.1,
+        "supply_chain": 2,
+        "lifecycle_coverage": 2.8
+      },
+      "url": "https://lasso.security",
+      "docs": "https://lasso.security",
+      "maintainer_notes": "Data/control governance oriented; compare with AI-SPM and CASB/SASE controls.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 3,
+        "identity_control": 5,
+        "memory_security": 3,
+        "runtime_enforcement": 4,
+        "auditability": 4,
+        "multi_agent_coverage": 2,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI03",
+        "ASI06",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
+        "authn_authz": 5,
+        "input_output_sanitization": 4,
+        "audit_trace": 4,
+        "sandboxing": 2,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
     },
     {
       "id": "llamafirewall",
@@ -683,10 +2241,10 @@
       "vendor_type": "open_source",
       "license": "Open source",
       "category": [
-        "Guardrails",
         "Agent Security",
-        "Code Security",
         "Agentic OWASP Mapping",
+        "Code Security",
+        "Guardrails",
         "Tool Security"
       ],
       "description": "Meta PurpleLlama safety components for prompt injection, agent alignment checks and insecure-code detection.",
@@ -727,8 +2285,10 @@
         "oss_maturity": 4,
         "self_host": 5,
         "ease": 3,
-        "agentic_readiness": 3.45,
-        "mcp_security": 2.7
+        "agentic_readiness": 3.5,
+        "mcp_security": 2.7,
+        "supply_chain": 1,
+        "lifecycle_coverage": 1
       },
       "url": "https://github.com/meta-llama/PurpleLlama",
       "docs": "https://github.com/meta-llama/PurpleLlama",
@@ -759,7 +2319,107 @@
         "audit_trace": 3,
         "sandboxing": 3,
         "supply_chain": 3
-      }
+      },
+      "lifecycle_stages": [],
+      "source_basis": [
+        "Original community catalog"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "llm-guard",
+      "name": "LLM Guard",
+      "org": "Protect AI",
+      "vendor_type": "open_source",
+      "license": "MIT",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Data Security",
+        "Guardrails"
+      ],
+      "description": "Input/output scanners for prompt injection, toxicity, secrets, PII, anonymization and output risk control.",
+      "frameworks": {
+        "LangChain/LangGraph": "native",
+        "LlamaIndex": "native",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM02: Sensitive Information Disclosure",
+        "LLM05: Improper Output Handling"
+      ],
+      "atlas": [
+        "Defense Evasion"
+      ],
+      "deployment": [
+        "ci",
+        "local",
+        "runtime"
+      ],
+      "targets": [
+        "AI Engineer",
+        "AppSec",
+        "Platform Engineer"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 4,
+        "agent_security": 3,
+        "data_security": 5,
+        "observability": 2,
+        "compliance": 3,
+        "enterprise": 3,
+        "oss_maturity": 4,
+        "self_host": 5,
+        "ease": 4,
+        "agentic_readiness": 2.7,
+        "mcp_security": 2.5,
+        "supply_chain": 2,
+        "lifecycle_coverage": 2.2
+      },
+      "url": "https://github.com/protectai/llm-guard",
+      "docs": "https://llm-guard.com",
+      "maintainer_notes": "Practical self-hosted scanner suite; pair with orchestration/policy layer for enterprise governance.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 3,
+        "identity_control": 1,
+        "memory_security": 3,
+        "runtime_enforcement": 4,
+        "auditability": 3,
+        "multi_agent_coverage": 2,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI05",
+        "ASI06",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
+        "authn_authz": 1,
+        "input_output_sanitization": 5,
+        "audit_trace": 3,
+        "sandboxing": 2,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate",
+        "deploy",
+        "operate"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
     },
     {
       "id": "presidio",
@@ -768,6 +2428,7 @@
       "vendor_type": "open_source",
       "license": "MIT",
       "category": [
+        "Agentic OWASP Mapping",
         "Data Security",
         "PII Redaction"
       ],
@@ -784,14 +2445,14 @@
         "Collection"
       ],
       "deployment": [
+        "batch",
         "local",
-        "runtime",
-        "batch"
+        "runtime"
       ],
       "targets": [
+        "AppSec",
         "Data Security",
-        "Privacy Engineer",
-        "AppSec"
+        "Privacy Engineer"
       ],
       "scores": {
         "red_team": 1,
@@ -804,8 +2465,10 @@
         "oss_maturity": 5,
         "self_host": 5,
         "ease": 4,
-        "agentic_readiness": 1.15,
-        "mcp_security": 1.1
+        "agentic_readiness": 1.1,
+        "mcp_security": 1.1,
+        "supply_chain": 1,
+        "lifecycle_coverage": 2.2
       },
       "url": "https://github.com/microsoft/presidio",
       "docs": "https://microsoft.github.io/presidio/",
@@ -820,7 +2483,11 @@
         "multi_agent_coverage": 1,
         "mcp_security": 1
       },
-      "agentic_owasp": [],
+      "agentic_owasp": [
+        "ASI02",
+        "ASI06",
+        "ASI09"
+      ],
       "mcp_scores": {
         "server_inventory": 1,
         "third_party_server_risk": 1,
@@ -830,885 +2497,17 @@
         "audit_trace": 2,
         "sandboxing": 1,
         "supply_chain": 1
-      }
-    },
-    {
-      "id": "art",
-      "name": "Adversarial Robustness Toolbox",
-      "org": "IBM / Trusted AI",
-      "vendor_type": "open_source",
-      "license": "MIT",
-      "category": [
-        "Adversarial ML",
-        "Model Robustness"
-      ],
-      "description": "Library for adversarial attacks and defenses including evasion, poisoning, extraction and inference attacks.",
-      "frameworks": {
-        "LangChain/LangGraph": "generic",
-        "AutoGen": "generic"
       },
-      "owasp": [
-        "LLM03: Supply Chain Vulnerabilities",
-        "LLM04: Data and Model Poisoning"
+      "lifecycle_stages": [
+        "augment_finetune_data",
+        "develop_experiment",
+        "deploy",
+        "operate"
       ],
-      "atlas": [
-        "Evasion",
-        "Model Attack"
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
       ],
-      "deployment": [
-        "local",
-        "research",
-        "ci"
-      ],
-      "targets": [
-        "ML Security Researcher",
-        "Model Risk"
-      ],
-      "scores": {
-        "red_team": 4,
-        "runtime": 1,
-        "agent_security": 1,
-        "data_security": 2,
-        "observability": 1,
-        "compliance": 3,
-        "enterprise": 3,
-        "oss_maturity": 5,
-        "self_host": 5,
-        "ease": 2,
-        "agentic_readiness": 1.15,
-        "mcp_security": 1.1
-      },
-      "url": "https://github.com/Trusted-AI/adversarial-robustness-toolbox",
-      "docs": "https://adversarial-robustness-toolbox.readthedocs.io/",
-      "maintainer_notes": "Classical adversarial ML focus; useful for ML security labs rather than LLM app runtime guardrails.",
-      "agentic_scores": {
-        "goal_integrity": 1,
-        "tool_security": 1,
-        "identity_control": 1,
-        "memory_security": 1,
-        "runtime_enforcement": 1,
-        "auditability": 2,
-        "multi_agent_coverage": 1,
-        "mcp_security": 1
-      },
-      "agentic_owasp": [],
-      "mcp_scores": {
-        "server_inventory": 1,
-        "third_party_server_risk": 1,
-        "tool_permissioning": 1,
-        "authn_authz": 1,
-        "input_output_sanitization": 1,
-        "audit_trace": 2,
-        "sandboxing": 1,
-        "supply_chain": 1
-      }
-    },
-    {
-      "id": "phoenix",
-      "name": "Phoenix",
-      "org": "Arize AI",
-      "vendor_type": "open_source",
-      "license": "Elastic-2.0",
-      "category": [
-        "Observability",
-        "Evaluation",
-        "Agentic OWASP Mapping"
-      ],
-      "description": "Open-source tracing and observability for LLM apps, embeddings, RAG and agents, with evaluation workflows.",
-      "frameworks": {
-        "LangChain/LangGraph": "native",
-        "LlamaIndex": "native",
-        "CrewAI": "native",
-        "AutoGen": "generic",
-        "OpenAI Agents SDK": "generic"
-      },
-      "owasp": [
-        "LLM08: Vector and Embedding Weaknesses",
-        "LLM09: Misinformation"
-      ],
-      "atlas": [
-        "Impact"
-      ],
-      "deployment": [
-        "local",
-        "runtime",
-        "ci"
-      ],
-      "targets": [
-        "AI Platform",
-        "MLOps",
-        "AI Engineer"
-      ],
-      "scores": {
-        "red_team": 2,
-        "runtime": 2,
-        "agent_security": 3,
-        "data_security": 2,
-        "observability": 5,
-        "compliance": 3,
-        "enterprise": 4,
-        "oss_maturity": 5,
-        "self_host": 5,
-        "ease": 4,
-        "agentic_readiness": 2.2,
-        "mcp_security": 1.55
-      },
-      "url": "https://github.com/Arize-ai/phoenix",
-      "docs": "https://docs.arize.com/phoenix",
-      "maintainer_notes": "Good observability backbone; combine with scanners for enforcement.",
-      "agentic_scores": {
-        "goal_integrity": 2,
-        "tool_security": 2,
-        "identity_control": 1,
-        "memory_security": 2,
-        "runtime_enforcement": 1,
-        "auditability": 5,
-        "multi_agent_coverage": 3,
-        "mcp_security": 1
-      },
-      "agentic_owasp": [
-        "ASI08",
-        "ASI09"
-      ],
-      "mcp_scores": {
-        "server_inventory": 2,
-        "third_party_server_risk": 1,
-        "tool_permissioning": 1,
-        "authn_authz": 1,
-        "input_output_sanitization": 1,
-        "audit_trace": 5,
-        "sandboxing": 1,
-        "supply_chain": 1
-      }
-    },
-    {
-      "id": "deepteam",
-      "name": "DeepTeam",
-      "org": "Confident AI",
-      "vendor_type": "open_core",
-      "license": "Apache-2.0 / commercial",
-      "category": [
-        "Red Teaming",
-        "Evaluation"
-      ],
-      "description": "Red teaming framework for LLM systems with adversarial attacks, vulnerability mapping and safety metrics.",
-      "frameworks": {
-        "LangChain/LangGraph": "native",
-        "LlamaIndex": "native",
-        "OpenAI Agents SDK": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM07: System Prompt Leakage",
-        "LLM09: Misinformation"
-      ],
-      "atlas": [
-        "Evasion",
-        "Impact"
-      ],
-      "deployment": [
-        "local",
-        "ci",
-        "saas"
-      ],
-      "targets": [
-        "Red Team",
-        "AI Engineer",
-        "QA"
-      ],
-      "scores": {
-        "red_team": 4,
-        "runtime": 1,
-        "agent_security": 3,
-        "data_security": 2,
-        "observability": 3,
-        "compliance": 4,
-        "enterprise": 3,
-        "oss_maturity": 3,
-        "self_host": 4,
-        "ease": 4,
-        "agentic_readiness": 1.15,
-        "mcp_security": 1.1
-      },
-      "url": "https://github.com/confident-ai/deepteam",
-      "docs": "https://trydeepteam.com/",
-      "maintainer_notes": "Developer-friendly red teaming; validate coverage and licensing for enterprise use.",
-      "agentic_scores": {
-        "goal_integrity": 1,
-        "tool_security": 1,
-        "identity_control": 1,
-        "memory_security": 1,
-        "runtime_enforcement": 1,
-        "auditability": 2,
-        "multi_agent_coverage": 1,
-        "mcp_security": 1
-      },
-      "agentic_owasp": [],
-      "mcp_scores": {
-        "server_inventory": 1,
-        "third_party_server_risk": 1,
-        "tool_permissioning": 1,
-        "authn_authz": 1,
-        "input_output_sanitization": 1,
-        "audit_trace": 2,
-        "sandboxing": 1,
-        "supply_chain": 1
-      }
-    },
-    {
-      "id": "azure-content-safety",
-      "name": "Azure AI Content Safety / Prompt Shields",
-      "org": "Microsoft Azure",
-      "vendor_type": "cloud",
-      "license": "Commercial",
-      "category": [
-        "Guardrails",
-        "Runtime Defense",
-        "Content Safety",
-        "Agentic OWASP Mapping",
-        "Identity & Access"
-      ],
-      "description": "Managed content safety APIs and prompt shield features for detecting harmful content, jailbreaks and protected material risks.",
-      "frameworks": {
-        "Semantic Kernel": "native",
-        "AutoGen": "native",
-        "LangChain/LangGraph": "native",
-        "OpenAI Agents SDK": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM02: Sensitive Information Disclosure",
-        "LLM10: Unbounded Consumption"
-      ],
-      "atlas": [
-        "Defense Evasion"
-      ],
-      "deployment": [
-        "cloud",
-        "runtime"
-      ],
-      "targets": [
-        "Enterprise AI Platform",
-        "AppSec",
-        "Compliance"
-      ],
-      "scores": {
-        "red_team": 2,
-        "runtime": 5,
-        "agent_security": 4,
-        "data_security": 4,
-        "observability": 3,
-        "compliance": 5,
-        "enterprise": 5,
-        "oss_maturity": 1,
-        "self_host": 1,
-        "ease": 4,
-        "agentic_readiness": 3.65,
-        "mcp_security": 3.2
-      },
-      "url": "https://azure.microsoft.com/en-us/products/ai-services/ai-content-safety",
-      "docs": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/",
-      "maintainer_notes": "Best for Azure-native stacks; limited portability/self-hosting.",
-      "agentic_scores": {
-        "goal_integrity": 4,
-        "tool_security": 3,
-        "identity_control": 4,
-        "memory_security": 3,
-        "runtime_enforcement": 5,
-        "auditability": 4,
-        "multi_agent_coverage": 3,
-        "mcp_security": 2
-      },
-      "agentic_owasp": [
-        "ASI01",
-        "ASI02",
-        "ASI03",
-        "ASI06",
-        "ASI09"
-      ],
-      "mcp_scores": {
-        "server_inventory": 2,
-        "third_party_server_risk": 2,
-        "tool_permissioning": 3,
-        "authn_authz": 4,
-        "input_output_sanitization": 5,
-        "audit_trace": 4,
-        "sandboxing": 3,
-        "supply_chain": 2
-      }
-    },
-    {
-      "id": "aws-bedrock-guardrails",
-      "name": "Amazon Bedrock Guardrails",
-      "org": "AWS",
-      "vendor_type": "cloud",
-      "license": "Commercial",
-      "category": [
-        "Guardrails",
-        "Runtime Defense",
-        "Agentic OWASP Mapping",
-        "Identity & Access"
-      ],
-      "description": "Managed guardrails for Bedrock applications with topic denial, content filters, sensitive information filters and grounding checks.",
-      "frameworks": {
-        "LangChain/LangGraph": "native",
-        "LlamaIndex": "native",
-        "CrewAI": "generic",
-        "AutoGen": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM02: Sensitive Information Disclosure",
-        "LLM09: Misinformation"
-      ],
-      "atlas": [
-        "Defense Evasion"
-      ],
-      "deployment": [
-        "cloud",
-        "runtime"
-      ],
-      "targets": [
-        "AWS Platform",
-        "AppSec",
-        "Compliance"
-      ],
-      "scores": {
-        "red_team": 1,
-        "runtime": 5,
-        "agent_security": 3,
-        "data_security": 4,
-        "observability": 3,
-        "compliance": 5,
-        "enterprise": 5,
-        "oss_maturity": 1,
-        "self_host": 1,
-        "ease": 4,
-        "agentic_readiness": 3.45,
-        "mcp_security": 3.05
-      },
-      "url": "https://aws.amazon.com/bedrock/guardrails/",
-      "docs": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
-      "maintainer_notes": "Strong for Bedrock-native apps; less relevant outside AWS runtime.",
-      "agentic_scores": {
-        "goal_integrity": 3,
-        "tool_security": 3,
-        "identity_control": 4,
-        "memory_security": 3,
-        "runtime_enforcement": 5,
-        "auditability": 4,
-        "multi_agent_coverage": 2,
-        "mcp_security": 2
-      },
-      "agentic_owasp": [
-        "ASI01",
-        "ASI02",
-        "ASI03",
-        "ASI06",
-        "ASI09"
-      ],
-      "mcp_scores": {
-        "server_inventory": 2,
-        "third_party_server_risk": 2,
-        "tool_permissioning": 3,
-        "authn_authz": 4,
-        "input_output_sanitization": 4,
-        "audit_trace": 4,
-        "sandboxing": 3,
-        "supply_chain": 2
-      }
-    },
-    {
-      "id": "google-model-armor",
-      "name": "Google Cloud Model Armor",
-      "org": "Google Cloud",
-      "vendor_type": "cloud",
-      "license": "Commercial",
-      "category": [
-        "Guardrails",
-        "Runtime Defense",
-        "Agentic OWASP Mapping"
-      ],
-      "description": "Security layer for prompt and response inspection, including prompt injection, jailbreak and malicious content filtering for Google Cloud AI workloads.",
-      "frameworks": {
-        "LangChain/LangGraph": "native",
-        "LlamaIndex": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM02: Sensitive Information Disclosure",
-        "LLM05: Improper Output Handling"
-      ],
-      "atlas": [
-        "Defense Evasion"
-      ],
-      "deployment": [
-        "cloud",
-        "runtime"
-      ],
-      "targets": [
-        "Google Cloud Platform",
-        "AppSec",
-        "AI Platform"
-      ],
-      "scores": {
-        "red_team": 1,
-        "runtime": 5,
-        "agent_security": 3,
-        "data_security": 4,
-        "observability": 3,
-        "compliance": 5,
-        "enterprise": 5,
-        "oss_maturity": 1,
-        "self_host": 1,
-        "ease": 4,
-        "agentic_readiness": 3.4,
-        "mcp_security": 3.05
-      },
-      "url": "https://cloud.google.com/security/products/model-armor",
-      "docs": "https://cloud.google.com/security-command-center/docs/model-armor-overview",
-      "maintainer_notes": "Useful for Vertex/Gemini deployments; validate regional availability.",
-      "agentic_scores": {
-        "goal_integrity": 4,
-        "tool_security": 3,
-        "identity_control": 3,
-        "memory_security": 3,
-        "runtime_enforcement": 5,
-        "auditability": 4,
-        "multi_agent_coverage": 2,
-        "mcp_security": 2
-      },
-      "agentic_owasp": [
-        "ASI01",
-        "ASI02",
-        "ASI06",
-        "ASI09"
-      ],
-      "mcp_scores": {
-        "server_inventory": 2,
-        "third_party_server_risk": 2,
-        "tool_permissioning": 3,
-        "authn_authz": 3,
-        "input_output_sanitization": 5,
-        "audit_trace": 4,
-        "sandboxing": 3,
-        "supply_chain": 2
-      }
-    },
-    {
-      "id": "prisma-airs",
-      "name": "Prisma AIRS",
-      "org": "Palo Alto Networks",
-      "vendor_type": "enterprise",
-      "license": "Commercial",
-      "category": [
-        "AI-SPM",
-        "Runtime Defense",
-        "Supply Chain",
-        "Agentic OWASP Mapping",
-        "Tool Security",
-        "Identity & Access"
-      ],
-      "description": "Enterprise AI security platform for AI app discovery, posture management, runtime protection and model/supply-chain security.",
-      "frameworks": {
-        "LangChain/LangGraph": "generic",
-        "LlamaIndex": "generic",
-        "CrewAI": "generic",
-        "AutoGen": "generic",
-        "OpenAI Agents SDK": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM03: Supply Chain Vulnerabilities",
-        "LLM06: Excessive Agency",
-        "LLM10: Unbounded Consumption"
-      ],
-      "atlas": [
-        "Defense Evasion",
-        "Privilege Escalation"
-      ],
-      "deployment": [
-        "enterprise",
-        "runtime",
-        "cloud"
-      ],
-      "targets": [
-        "CISO",
-        "Security Architect",
-        "SOC",
-        "AI Platform"
-      ],
-      "scores": {
-        "red_team": 3,
-        "runtime": 5,
-        "agent_security": 5,
-        "data_security": 4,
-        "observability": 4,
-        "compliance": 5,
-        "enterprise": 5,
-        "oss_maturity": 1,
-        "self_host": 2,
-        "ease": 3,
-        "agentic_readiness": 4.4,
-        "mcp_security": 4.25
-      },
-      "url": "https://www.paloaltonetworks.com/prisma/airs",
-      "docs": "https://www.paloaltonetworks.com/prisma/airs",
-      "maintainer_notes": "Enterprise suite candidate; confirm API, deployment and agent-framework depth during POC.",
-      "agentic_scores": {
-        "goal_integrity": 4,
-        "tool_security": 5,
-        "identity_control": 4,
-        "memory_security": 3,
-        "runtime_enforcement": 5,
-        "auditability": 5,
-        "multi_agent_coverage": 4,
-        "mcp_security": 4
-      },
-      "agentic_owasp": [
-        "ASI01",
-        "ASI02",
-        "ASI03",
-        "ASI04",
-        "ASI07",
-        "ASI08",
-        "ASI10"
-      ],
-      "mcp_scores": {
-        "server_inventory": 4,
-        "third_party_server_risk": 4,
-        "tool_permissioning": 5,
-        "authn_authz": 4,
-        "input_output_sanitization": 4,
-        "audit_trace": 5,
-        "sandboxing": 4,
-        "supply_chain": 4
-      }
-    },
-    {
-      "id": "wiz-ai-spm",
-      "name": "Wiz AI-SPM",
-      "org": "Wiz",
-      "vendor_type": "enterprise",
-      "license": "Commercial",
-      "category": [
-        "AI-SPM",
-        "Cloud Security",
-        "Data Security",
-        "Agentic OWASP Mapping",
-        "Identity & Access"
-      ],
-      "description": "AI Security Posture Management integrated with cloud risk graph for discovering AI services, permissions, data exposure and misconfigurations.",
-      "frameworks": {
-        "LangChain/LangGraph": "generic",
-        "LlamaIndex": "generic"
-      },
-      "owasp": [
-        "LLM02: Sensitive Information Disclosure",
-        "LLM03: Supply Chain Vulnerabilities",
-        "LLM10: Unbounded Consumption"
-      ],
-      "atlas": [
-        "Discovery"
-      ],
-      "deployment": [
-        "cloud",
-        "enterprise"
-      ],
-      "targets": [
-        "CISO",
-        "Cloud Security",
-        "AI Governance"
-      ],
-      "scores": {
-        "red_team": 1,
-        "runtime": 2,
-        "agent_security": 2,
-        "data_security": 4,
-        "observability": 4,
-        "compliance": 5,
-        "enterprise": 5,
-        "oss_maturity": 1,
-        "self_host": 1,
-        "ease": 4,
-        "agentic_readiness": 3.05,
-        "mcp_security": 2.75
-      },
-      "url": "https://www.wiz.io/solutions/ai-security",
-      "docs": "https://www.wiz.io/solutions/ai-security",
-      "maintainer_notes": "Posture/discovery-first; not primarily a prompt guardrail.",
-      "agentic_scores": {
-        "goal_integrity": 2,
-        "tool_security": 3,
-        "identity_control": 4,
-        "memory_security": 3,
-        "runtime_enforcement": 3,
-        "auditability": 4,
-        "multi_agent_coverage": 2,
-        "mcp_security": 2
-      },
-      "agentic_owasp": [
-        "ASI03",
-        "ASI04",
-        "ASI08"
-      ],
-      "mcp_scores": {
-        "server_inventory": 3,
-        "third_party_server_risk": 2,
-        "tool_permissioning": 2,
-        "authn_authz": 4,
-        "input_output_sanitization": 2,
-        "audit_trace": 4,
-        "sandboxing": 2,
-        "supply_chain": 4
-      }
-    },
-    {
-      "id": "cisco-ai-defense",
-      "name": "Cisco AI Defense",
-      "org": "Cisco",
-      "vendor_type": "enterprise",
-      "license": "Commercial / open components",
-      "category": [
-        "AI-SPM",
-        "Runtime Defense",
-        "Model Security",
-        "Agentic OWASP Mapping",
-        "Tool Security"
-      ],
-      "description": "Cisco AI security platform combining discovery, validation, access control and runtime protection for enterprise AI applications.",
-      "frameworks": {
-        "LangChain/LangGraph": "generic",
-        "LlamaIndex": "generic",
-        "AutoGen": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM03: Supply Chain Vulnerabilities",
-        "LLM04: Data and Model Poisoning"
-      ],
-      "atlas": [
-        "Discovery",
-        "Evasion"
-      ],
-      "deployment": [
-        "enterprise",
-        "cloud",
-        "runtime"
-      ],
-      "targets": [
-        "CISO",
-        "Security Architect",
-        "AI Platform"
-      ],
-      "scores": {
-        "red_team": 3,
-        "runtime": 4,
-        "agent_security": 3,
-        "data_security": 3,
-        "observability": 4,
-        "compliance": 4,
-        "enterprise": 5,
-        "oss_maturity": 2,
-        "self_host": 2,
-        "ease": 3,
-        "agentic_readiness": 3.5,
-        "mcp_security": 3.3
-      },
-      "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/index.html",
-      "docs": "https://github.com/cisco-ai-defense/defenseclaw",
-      "maintainer_notes": "Good enterprise review candidate; DefenseClaw is useful for architecture learning and experimentation.",
-      "agentic_scores": {
-        "goal_integrity": 3,
-        "tool_security": 4,
-        "identity_control": 3,
-        "memory_security": 3,
-        "runtime_enforcement": 4,
-        "auditability": 4,
-        "multi_agent_coverage": 3,
-        "mcp_security": 3
-      },
-      "agentic_owasp": [
-        "ASI02",
-        "ASI03",
-        "ASI04",
-        "ASI08",
-        "ASI10"
-      ],
-      "mcp_scores": {
-        "server_inventory": 3,
-        "third_party_server_risk": 3,
-        "tool_permissioning": 4,
-        "authn_authz": 3,
-        "input_output_sanitization": 3,
-        "audit_trace": 4,
-        "sandboxing": 3,
-        "supply_chain": 4
-      }
-    },
-    {
-      "id": "lakera-guard",
-      "name": "Lakera Guard",
-      "org": "Lakera / Check Point",
-      "vendor_type": "commercial_api",
-      "license": "Commercial",
-      "category": [
-        "Guardrails",
-        "Runtime Defense",
-        "Agentic OWASP Mapping"
-      ],
-      "description": "Hosted protection API for prompt injection, jailbreak, PII and unsafe content detection with simple API integration.",
-      "frameworks": {
-        "LangChain/LangGraph": "native",
-        "LlamaIndex": "native",
-        "OpenAI Agents SDK": "generic",
-        "CrewAI": "generic",
-        "AutoGen": "generic"
-      },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM02: Sensitive Information Disclosure",
-        "LLM07: System Prompt Leakage"
-      ],
-      "atlas": [
-        "Defense Evasion"
-      ],
-      "deployment": [
-        "saas",
-        "runtime"
-      ],
-      "targets": [
-        "AI Engineer",
-        "AppSec",
-        "Startup Builder"
-      ],
-      "scores": {
-        "red_team": 2,
-        "runtime": 5,
-        "agent_security": 4,
-        "data_security": 4,
-        "observability": 3,
-        "compliance": 4,
-        "enterprise": 4,
-        "oss_maturity": 1,
-        "self_host": 1,
-        "ease": 5,
-        "agentic_readiness": 3.1,
-        "mcp_security": 2.7
-      },
-      "url": "https://www.lakera.ai",
-      "docs": "https://docs.lakera.ai",
-      "maintainer_notes": "Fast API integration; assess data residency and enterprise logging requirements.",
-      "agentic_scores": {
-        "goal_integrity": 4,
-        "tool_security": 3,
-        "identity_control": 2,
-        "memory_security": 3,
-        "runtime_enforcement": 5,
-        "auditability": 3,
-        "multi_agent_coverage": 2,
-        "mcp_security": 2
-      },
-      "agentic_owasp": [
-        "ASI01",
-        "ASI02",
-        "ASI06",
-        "ASI09"
-      ],
-      "mcp_scores": {
-        "server_inventory": 2,
-        "third_party_server_risk": 2,
-        "tool_permissioning": 3,
-        "authn_authz": 2,
-        "input_output_sanitization": 5,
-        "audit_trace": 3,
-        "sandboxing": 2,
-        "supply_chain": 2
-      }
-    },
-    {
-      "id": "hiddenlayer",
-      "name": "HiddenLayer AISec Platform",
-      "org": "HiddenLayer",
-      "vendor_type": "enterprise",
-      "license": "Commercial",
-      "category": [
-        "AI-SPM",
-        "Model Security",
-        "Runtime Defense",
-        "Supply Chain",
-        "Agentic OWASP Mapping",
-        "Tool Security"
-      ],
-      "description": "Enterprise AI security platform for model scanning, AI-BOM, threat detection, adversarial testing and runtime monitoring.",
-      "frameworks": {
-        "LangChain/LangGraph": "generic",
-        "CrewAI": "generic",
-        "AutoGen": "generic",
-        "OpenAI Agents SDK": "generic"
-      },
-      "owasp": [
-        "LLM03: Supply Chain Vulnerabilities",
-        "LLM04: Data and Model Poisoning",
-        "LLM10: Unbounded Consumption"
-      ],
-      "atlas": [
-        "Model Attack",
-        "Discovery"
-      ],
-      "deployment": [
-        "enterprise",
-        "runtime"
-      ],
-      "targets": [
-        "CISO",
-        "Model Risk",
-        "AI Platform"
-      ],
-      "scores": {
-        "red_team": 4,
-        "runtime": 4,
-        "agent_security": 3,
-        "data_security": 3,
-        "observability": 4,
-        "compliance": 5,
-        "enterprise": 5,
-        "oss_maturity": 1,
-        "self_host": 2,
-        "ease": 3,
-        "agentic_readiness": 3.5,
-        "mcp_security": 3.2
-      },
-      "url": "https://hiddenlayer.com",
-      "docs": "https://hiddenlayer.com",
-      "maintainer_notes": "Model-security oriented; validate LLM app and agent runtime controls for your use case.",
-      "agentic_scores": {
-        "goal_integrity": 3,
-        "tool_security": 4,
-        "identity_control": 3,
-        "memory_security": 3,
-        "runtime_enforcement": 4,
-        "auditability": 4,
-        "multi_agent_coverage": 3,
-        "mcp_security": 3
-      },
-      "agentic_owasp": [
-        "ASI02",
-        "ASI03",
-        "ASI04",
-        "ASI08",
-        "ASI10"
-      ],
-      "mcp_scores": {
-        "server_inventory": 3,
-        "third_party_server_risk": 3,
-        "tool_permissioning": 3,
-        "authn_authz": 3,
-        "input_output_sanitization": 3,
-        "audit_trace": 4,
-        "sandboxing": 3,
-        "supply_chain": 5
-      }
+      "evidence_level": "community/inferred"
     },
     {
       "id": "mindgard",
@@ -1717,10 +2516,10 @@
       "vendor_type": "commercial",
       "license": "Commercial",
       "category": [
-        "Red Teaming",
         "AI-SPM",
+        "Agentic OWASP Mapping",
         "Compliance",
-        "Agentic OWASP Mapping"
+        "Red Teaming"
       ],
       "description": "Automated AI red teaming and risk assessment platform with attack libraries, reporting and CI/CD integration.",
       "frameworks": {
@@ -1740,14 +2539,14 @@
         "Impact"
       ],
       "deployment": [
-        "saas",
         "ci",
-        "enterprise"
+        "enterprise",
+        "saas"
       ],
       "targets": [
-        "Red Team",
+        "Compliance",
         "Model Risk",
-        "Compliance"
+        "Red Team"
       ],
       "scores": {
         "red_team": 5,
@@ -1760,8 +2559,10 @@
         "oss_maturity": 1,
         "self_host": 1,
         "ease": 4,
-        "agentic_readiness": 3.05,
-        "mcp_security": 2.65
+        "agentic_readiness": 3.1,
+        "mcp_security": 2.6,
+        "supply_chain": 3,
+        "lifecycle_coverage": 2.8
       },
       "url": "https://mindgard.ai",
       "docs": "https://mindgard.ai",
@@ -1780,8 +2581,11 @@
         "ASI01",
         "ASI02",
         "ASI04",
+        "ASI05",
         "ASI06",
-        "ASI09"
+        "ASI08",
+        "ASI09",
+        "ASI10"
       ],
       "mcp_scores": {
         "server_inventory": 2,
@@ -1792,7 +2596,111 @@
         "audit_trace": 5,
         "sandboxing": 2,
         "supply_chain": 3
-      }
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "nemo-guardrails",
+      "name": "NeMo Guardrails",
+      "org": "NVIDIA",
+      "vendor_type": "open_source",
+      "license": "Apache-2.0",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Conversation Control",
+        "Guardrails"
+      ],
+      "description": "Programmable guardrails for LLM applications using Colang rails, dialog flows and policy constraints.",
+      "frameworks": {
+        "LangChain/LangGraph": "native",
+        "LlamaIndex": "integration",
+        "OpenAI Agents SDK": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM05: Improper Output Handling",
+        "LLM06: Excessive Agency"
+      ],
+      "atlas": [
+        "Defense Evasion"
+      ],
+      "deployment": [
+        "local",
+        "runtime"
+      ],
+      "targets": [
+        "AI Engineer",
+        "AppSec",
+        "Platform Engineer"
+      ],
+      "scores": {
+        "red_team": 1,
+        "runtime": 4,
+        "agent_security": 3,
+        "data_security": 2,
+        "observability": 2,
+        "compliance": 3,
+        "enterprise": 3,
+        "oss_maturity": 5,
+        "self_host": 5,
+        "ease": 3,
+        "agentic_readiness": 3.1,
+        "mcp_security": 2.5,
+        "supply_chain": 1,
+        "lifecycle_coverage": 2.2
+      },
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+      "docs": "https://docs.nvidia.com/nemo/guardrails/",
+      "maintainer_notes": "Good for programmable conversation policy; less complete as standalone scanner catalog.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 3,
+        "identity_control": 2,
+        "memory_security": 3,
+        "runtime_enforcement": 4,
+        "auditability": 3,
+        "multi_agent_coverage": 3,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI06",
+        "ASI08",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
+        "authn_authz": 2,
+        "input_output_sanitization": 4,
+        "audit_trace": 3,
+        "sandboxing": 2,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate",
+        "deploy",
+        "operate"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
     },
     {
       "id": "noma-security",
@@ -1803,10 +2711,10 @@
       "category": [
         "AI-SPM",
         "Agent Security",
-        "Runtime Defense",
         "Agentic OWASP Mapping",
-        "Tool Security",
-        "Identity & Access"
+        "Identity & Access",
+        "Runtime Defense",
+        "Tool Security"
       ],
       "description": "AI-SPM platform focused on AI agents, MCP servers, tool inventories, agent risk scoring and policy enforcement.",
       "frameworks": {
@@ -1827,13 +2735,13 @@
         "Privilege Escalation"
       ],
       "deployment": [
-        "enterprise",
-        "cloud"
+        "cloud",
+        "enterprise"
       ],
       "targets": [
-        "CISO",
+        "Agent Platform",
         "AppSec",
-        "Agent Platform"
+        "CISO"
       ],
       "scores": {
         "red_team": 2,
@@ -1846,8 +2754,10 @@
         "oss_maturity": 1,
         "self_host": 1,
         "ease": 3,
-        "agentic_readiness": 4.45,
-        "mcp_security": 4.2
+        "agentic_readiness": 4.5,
+        "mcp_security": 4.2,
+        "supply_chain": 4,
+        "lifecycle_coverage": 4.4
       },
       "url": "https://noma.security",
       "docs": "https://noma.security",
@@ -1863,9 +2773,11 @@
         "mcp_security": 5
       },
       "agentic_owasp": [
+        "ASI01",
         "ASI02",
         "ASI03",
         "ASI04",
+        "ASI06",
         "ASI07",
         "ASI08",
         "ASI10"
@@ -1879,151 +2791,168 @@
         "audit_trace": 5,
         "sandboxing": 3,
         "supply_chain": 5
-      }
+      },
+      "lifecycle_stages": [
+        "scope_plan",
+        "develop_experiment",
+        "test_evaluate",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
     },
     {
-      "id": "calypsoai",
-      "name": "CalypsoAI / F5 AI Security",
-      "org": "F5 / CalypsoAI",
+      "id": "nri-secure-ai",
+      "name": "NRI Secure AI Security",
+      "org": "NRI Secure",
       "vendor_type": "commercial",
       "license": "Commercial",
       "category": [
-        "Guardrails",
-        "Runtime Defense",
-        "Observability",
+        "AI Governance",
+        "Agent Security",
         "Agentic OWASP Mapping",
-        "Tool Security"
+        "Compliance"
       ],
-      "description": "Enterprise AI guardrails platform for prompt scanning, policy enforcement, data protection and AI security observability.",
+      "description": "NRI Secure appears in OWASP ASI taxonomy support and lifecycle landscape. Use as a governance/risk assessment candidate where local/regional security advisory matters.",
       "frameworks": {
         "LangChain/LangGraph": "generic",
         "LlamaIndex": "generic",
-        "OpenAI Agents SDK": "generic",
         "CrewAI": "generic",
-        "MCP": "gateway"
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
       },
-      "owasp": [
-        "LLM01: Prompt Injection",
-        "LLM02: Sensitive Information Disclosure",
-        "LLM07: System Prompt Leakage"
-      ],
-      "atlas": [
-        "Defense Evasion"
-      ],
+      "owasp": [],
+      "atlas": [],
       "deployment": [
-        "saas",
         "enterprise",
-        "runtime"
+        "service"
       ],
       "targets": [
-        "Enterprise AI Platform",
-        "Security Architect",
-        "AppSec"
+        "AI Governance",
+        "CISO",
+        "Security Advisory"
       ],
       "scores": {
-        "red_team": 2,
-        "runtime": 5,
-        "agent_security": 4,
-        "data_security": 4,
-        "observability": 4,
+        "red_team": 3,
+        "runtime": 2,
+        "agent_security": 3,
+        "data_security": 3,
+        "observability": 3,
         "compliance": 5,
-        "enterprise": 5,
+        "enterprise": 4,
         "oss_maturity": 1,
         "self_host": 2,
-        "ease": 4,
-        "agentic_readiness": 3.9,
-        "mcp_security": 3.65
+        "ease": 3,
+        "supply_chain": 3,
+        "lifecycle_coverage": 0.6,
+        "agentic_readiness": 3.0,
+        "mcp_security": 2.7
       },
-      "url": "https://www.f5.com/company/news/press-releases/f5-acquires-calypsoai-to-secure-enterprises-as-they-race-to-adopt-ai",
-      "docs": "https://calypsoai.com",
-      "maintainer_notes": "Strong candidate for gateway/runtime guardrails; assess metadata correlation, HA, streaming and on-prem requirements.",
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "May be more service/advisory-oriented depending on offering; keep evidence notes updated.",
       "agentic_scores": {
-        "goal_integrity": 4,
-        "tool_security": 4,
+        "goal_integrity": 3,
+        "tool_security": 3,
         "identity_control": 3,
         "memory_security": 3,
-        "runtime_enforcement": 5,
-        "auditability": 5,
+        "runtime_enforcement": 2,
+        "auditability": 4,
         "multi_agent_coverage": 3,
-        "mcp_security": 3
+        "mcp_security": 2
       },
       "agentic_owasp": [
         "ASI01",
         "ASI02",
         "ASI03",
+        "ASI04",
         "ASI06",
         "ASI08",
         "ASI09"
       ],
       "mcp_scores": {
-        "server_inventory": 3,
+        "server_inventory": 2,
         "third_party_server_risk": 3,
-        "tool_permissioning": 4,
+        "tool_permissioning": 2,
         "authn_authz": 3,
-        "input_output_sanitization": 5,
-        "audit_trace": 5,
-        "sandboxing": 3,
+        "input_output_sanitization": 3,
+        "audit_trace": 4,
+        "sandboxing": 2,
         "supply_chain": 3
-      }
+      },
+      "lifecycle_stages": [
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
     },
     {
-      "id": "lasso-security",
-      "name": "Lasso Security",
-      "org": "Lasso Security",
-      "vendor_type": "commercial",
-      "license": "Commercial",
+      "id": "pangea-ai-guard",
+      "name": "Pangea AI Guard",
+      "org": "Pangea",
+      "vendor_type": "commercial_api",
+      "license": "Commercial API",
       "category": [
-        "AI-SPM",
-        "Data Security",
-        "Runtime Defense",
         "Agentic OWASP Mapping",
-        "Identity & Access"
+        "Data Security",
+        "Guardrails",
+        "Runtime Defense",
+        "Tool Security"
       ],
-      "description": "Enterprise AI security for shadow AI discovery, access controls, sensitive-data protection and policy enforcement.",
+      "description": "API-first security services appearing in the OWASP agentic landscape. Relevant for guardrails, data protection, policy checks and runtime controls around agent/API workflows.",
       "frameworks": {
         "LangChain/LangGraph": "generic",
         "LlamaIndex": "generic",
-        "OpenAI Agents SDK": "generic"
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
       },
-      "owasp": [
-        "LLM02: Sensitive Information Disclosure",
-        "LLM03: Supply Chain Vulnerabilities",
-        "LLM06: Excessive Agency"
-      ],
-      "atlas": [
-        "Collection",
-        "Exfiltration"
-      ],
+      "owasp": [],
+      "atlas": [],
       "deployment": [
-        "enterprise",
-        "cloud"
+        "api",
+        "saas"
       ],
       "targets": [
-        "CISO",
-        "Data Security",
-        "Compliance"
+        "AI Product",
+        "AppSec",
+        "Startup Builder"
       ],
       "scores": {
         "red_team": 2,
         "runtime": 4,
         "agent_security": 3,
-        "data_security": 5,
-        "observability": 4,
-        "compliance": 5,
+        "data_security": 4,
+        "observability": 3,
+        "compliance": 4,
         "enterprise": 4,
         "oss_maturity": 1,
         "self_host": 1,
-        "ease": 3,
-        "agentic_readiness": 3.45,
-        "mcp_security": 3.1
+        "ease": 5,
+        "supply_chain": 2,
+        "lifecycle_coverage": 2.2,
+        "agentic_readiness": 3.5,
+        "mcp_security": 3.0
       },
-      "url": "https://lasso.security",
-      "docs": "https://lasso.security",
-      "maintainer_notes": "Data/control governance oriented; compare with AI-SPM and CASB/SASE controls.",
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Good candidate for API composition; confirm agent/MCP-specific feature depth.",
       "agentic_scores": {
         "goal_integrity": 3,
-        "tool_security": 3,
-        "identity_control": 5,
+        "tool_security": 4,
+        "identity_control": 4,
         "memory_security": 3,
         "runtime_enforcement": 4,
         "auditability": 4,
@@ -2031,6 +2960,397 @@
         "mcp_security": 2
       },
       "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI05",
+        "ASI06",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 1,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 4,
+        "authn_authz": 4,
+        "input_output_sanitization": 4,
+        "audit_trace": 4,
+        "sandboxing": 2,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate",
+        "deploy",
+        "monitor"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "org": "Arize AI",
+      "vendor_type": "open_source",
+      "license": "Elastic-2.0",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Evaluation",
+        "Observability"
+      ],
+      "description": "Open-source tracing and observability for LLM apps, embeddings, RAG and agents, with evaluation workflows.",
+      "frameworks": {
+        "LangChain/LangGraph": "native",
+        "LlamaIndex": "native",
+        "CrewAI": "native",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM08: Vector and Embedding Weaknesses",
+        "LLM09: Misinformation"
+      ],
+      "atlas": [
+        "Impact"
+      ],
+      "deployment": [
+        "ci",
+        "local",
+        "runtime"
+      ],
+      "targets": [
+        "AI Engineer",
+        "AI Platform",
+        "MLOps"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 2,
+        "agent_security": 3,
+        "data_security": 2,
+        "observability": 5,
+        "compliance": 3,
+        "enterprise": 4,
+        "oss_maturity": 5,
+        "self_host": 5,
+        "ease": 4,
+        "agentic_readiness": 2.2,
+        "mcp_security": 1.6,
+        "supply_chain": 1,
+        "lifecycle_coverage": 1.7
+      },
+      "url": "https://github.com/Arize-ai/phoenix",
+      "docs": "https://docs.arize.com/phoenix",
+      "maintainer_notes": "Good observability backbone; combine with scanners for enforcement.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 2,
+        "identity_control": 1,
+        "memory_security": 2,
+        "runtime_enforcement": 1,
+        "auditability": 5,
+        "multi_agent_coverage": 3,
+        "mcp_security": 1
+      },
+      "agentic_owasp": [
+        "ASI08",
+        "ASI09",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 1,
+        "tool_permissioning": 1,
+        "authn_authz": 1,
+        "input_output_sanitization": 1,
+        "audit_trace": 5,
+        "sandboxing": 1,
+        "supply_chain": 1
+      },
+      "lifecycle_stages": [
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "pillar-security",
+      "name": "Pillar Security",
+      "org": "Pillar Security",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agent Security",
+        "Agentic OWASP Mapping",
+        "MCP Security",
+        "Runtime Defense"
+      ],
+      "description": "Agentic AI security product appearing across OWASP lifecycle stages including planning, data, development, test, release, deploy, operate, monitor, and governance. Strong candidate category for agent posture, runtime policy, and tool-use controls.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "Agentic SecOps Lead",
+        "AppSec",
+        "CISO",
+        "MCP Security Reviewer"
+      ],
+      "scores": {
+        "red_team": 4,
+        "runtime": 5,
+        "agent_security": 5,
+        "data_security": 4,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "supply_chain": 4,
+        "lifecycle_coverage": 5,
+        "agentic_readiness": 4.7,
+        "mcp_security": 4.2
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Very high lifecycle coverage in OWASP landscape; scores are conservative heuristic estimates pending vendor validation.",
+      "agentic_scores": {
+        "goal_integrity": 5,
+        "tool_security": 5,
+        "identity_control": 4,
+        "memory_security": 4,
+        "runtime_enforcement": 5,
+        "auditability": 5,
+        "multi_agent_coverage": 5,
+        "mcp_security": 4
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI06",
+        "ASI07",
+        "ASI08",
+        "ASI09",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 4,
+        "third_party_server_risk": 4,
+        "tool_permissioning": 5,
+        "authn_authz": 4,
+        "input_output_sanitization": 4,
+        "audit_trace": 5,
+        "sandboxing": 4,
+        "supply_chain": 4
+      },
+      "lifecycle_stages": [
+        "scope_plan",
+        "augment_finetune_data",
+        "develop_experiment",
+        "test_evaluate",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "prisma-airs",
+      "name": "Prisma AIRS",
+      "org": "Palo Alto Networks",
+      "vendor_type": "enterprise",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agentic OWASP Mapping",
+        "Identity & Access",
+        "Runtime Defense",
+        "Supply Chain",
+        "Tool Security"
+      ],
+      "description": "Enterprise AI security platform for AI app discovery, posture management, runtime protection and model/supply-chain security.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM03: Supply Chain Vulnerabilities",
+        "LLM06: Excessive Agency",
+        "LLM10: Unbounded Consumption"
+      ],
+      "atlas": [
+        "Defense Evasion",
+        "Privilege Escalation"
+      ],
+      "deployment": [
+        "cloud",
+        "enterprise",
+        "runtime"
+      ],
+      "targets": [
+        "AI Platform",
+        "CISO",
+        "SOC",
+        "Security Architect"
+      ],
+      "scores": {
+        "red_team": 3,
+        "runtime": 5,
+        "agent_security": 5,
+        "data_security": 4,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "agentic_readiness": 4.4,
+        "mcp_security": 4.2,
+        "supply_chain": 4,
+        "lifecycle_coverage": 3.9
+      },
+      "url": "https://www.paloaltonetworks.com/prisma/airs",
+      "docs": "https://www.paloaltonetworks.com/prisma/airs",
+      "maintainer_notes": "Enterprise suite candidate; confirm API, deployment and agent-framework depth during POC.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 5,
+        "identity_control": 4,
+        "memory_security": 3,
+        "runtime_enforcement": 5,
+        "auditability": 5,
+        "multi_agent_coverage": 4,
+        "mcp_security": 4
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI06",
+        "ASI07",
+        "ASI08",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 4,
+        "third_party_server_risk": 4,
+        "tool_permissioning": 5,
+        "authn_authz": 4,
+        "input_output_sanitization": 4,
+        "audit_trace": 5,
+        "sandboxing": 4,
+        "supply_chain": 4
+      },
+      "lifecycle_stages": [
+        "scope_plan",
+        "test_evaluate",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "prompt-security",
+      "name": "Prompt Security",
+      "org": "Prompt Security / SentinelOne",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agentic OWASP Mapping",
+        "Data Security",
+        "Guardrails",
+        "Runtime Defense"
+      ],
+      "description": "Enterprise AI visibility, shadow AI control, and guardrail platform. Included due to OWASP supporter/landscape context and fit for AI-SPM, policy enforcement and data exposure control.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "AI Governance",
+        "AppSec",
+        "CISO"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 4,
+        "agent_security": 4,
+        "data_security": 4,
+        "observability": 4,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 4,
+        "supply_chain": 2,
+        "lifecycle_coverage": 2.2,
+        "agentic_readiness": 3.7,
+        "mcp_security": 2.9
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Evaluate current product ownership/integration path in procurement.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 4,
+        "identity_control": 4,
+        "memory_security": 3,
+        "runtime_enforcement": 4,
+        "auditability": 4,
+        "multi_agent_coverage": 3,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI01",
         "ASI02",
         "ASI03",
         "ASI06",
@@ -2040,169 +3360,215 @@
         "server_inventory": 2,
         "third_party_server_risk": 2,
         "tool_permissioning": 3,
-        "authn_authz": 5,
+        "authn_authz": 4,
         "input_output_sanitization": 4,
         "audit_trace": 4,
-        "sandboxing": 2,
-        "supply_chain": 2
-      }
-    },
-    {
-      "id": "fiddler",
-      "name": "Fiddler AI",
-      "org": "Fiddler",
-      "vendor_type": "commercial",
-      "license": "Commercial",
-      "category": [
-        "Observability",
-        "Model Monitoring",
-        "Guardrails",
-        "Agentic OWASP Mapping"
-      ],
-      "description": "AI observability platform for monitoring, explainability, drift, bias, LLM quality and production guardrail signals.",
-      "frameworks": {
-        "LangChain/LangGraph": "generic",
-        "LlamaIndex": "generic",
-        "OpenAI Agents SDK": "generic"
-      },
-      "owasp": [
-        "LLM09: Misinformation",
-        "LLM02: Sensitive Information Disclosure"
-      ],
-      "atlas": [
-        "Impact"
-      ],
-      "deployment": [
-        "saas",
-        "enterprise",
-        "runtime"
-      ],
-      "targets": [
-        "MLOps",
-        "Model Risk",
-        "AI Governance"
-      ],
-      "scores": {
-        "red_team": 1,
-        "runtime": 3,
-        "agent_security": 2,
-        "data_security": 3,
-        "observability": 5,
-        "compliance": 5,
-        "enterprise": 4,
-        "oss_maturity": 1,
-        "self_host": 1,
-        "ease": 4,
-        "agentic_readiness": 2.5,
-        "mcp_security": 2.0
-      },
-      "url": "https://www.fiddler.ai",
-      "docs": "https://www.fiddler.ai",
-      "maintainer_notes": "Strong monitoring/governance fit, not a primary offensive red-team tool.",
-      "agentic_scores": {
-        "goal_integrity": 2,
-        "tool_security": 2,
-        "identity_control": 2,
-        "memory_security": 3,
-        "runtime_enforcement": 2,
-        "auditability": 5,
-        "multi_agent_coverage": 2,
-        "mcp_security": 1
-      },
-      "agentic_owasp": [
-        "ASI06",
-        "ASI08",
-        "ASI09"
-      ],
-      "mcp_scores": {
-        "server_inventory": 2,
-        "third_party_server_risk": 1,
-        "tool_permissioning": 2,
-        "authn_authz": 2,
-        "input_output_sanitization": 2,
-        "audit_trace": 5,
         "sandboxing": 1,
-        "supply_chain": 1
-      }
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
     },
     {
-      "id": "galileo",
-      "name": "Galileo",
-      "org": "Galileo",
-      "vendor_type": "commercial",
-      "license": "Commercial",
+      "id": "promptfoo",
+      "name": "promptfoo",
+      "org": "promptfoo",
+      "vendor_type": "open_core",
+      "license": "MIT / commercial",
       "category": [
-        "Evaluation",
-        "Observability",
-        "Guardrails",
-        "Agentic OWASP Mapping"
+        "Agentic OWASP Mapping",
+        "CI/CD Evaluation",
+        "Guardrails Testing",
+        "Red Teaming",
+        "Tool Security"
       ],
-      "description": "LLM evaluation and observability platform for hallucination, factuality, prompt quality, agent traces and production monitoring.",
+      "description": "Developer-first LLM testing and red teaming framework with assertions, model comparisons, datasets, plugins and CI/CD workflows.",
       "frameworks": {
         "LangChain/LangGraph": "native",
         "LlamaIndex": "native",
-        "CrewAI": "generic",
-        "OpenAI Agents SDK": "generic"
+        "CrewAI": "native",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "native",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
       },
       "owasp": [
-        "LLM09: Misinformation",
-        "LLM05: Improper Output Handling"
+        "LLM01: Prompt Injection",
+        "LLM02: Sensitive Information Disclosure",
+        "LLM05: Improper Output Handling",
+        "LLM09: Misinformation"
       ],
       "atlas": [
+        "Evasion",
         "Impact"
       ],
       "deployment": [
-        "saas",
-        "runtime",
-        "ci"
+        "ci",
+        "local",
+        "saas"
       ],
       "targets": [
         "AI Engineer",
-        "AI PM",
-        "MLOps"
+        "AppSec",
+        "QA",
+        "Red Team"
       ],
       "scores": {
-        "red_team": 2,
-        "runtime": 3,
-        "agent_security": 3,
+        "red_team": 5,
+        "runtime": 2,
+        "agent_security": 4,
         "data_security": 2,
-        "observability": 5,
+        "observability": 3,
         "compliance": 4,
         "enterprise": 4,
-        "oss_maturity": 1,
-        "self_host": 1,
-        "ease": 4,
-        "agentic_readiness": 2.7,
-        "mcp_security": 2.0
+        "oss_maturity": 5,
+        "self_host": 4,
+        "ease": 5,
+        "agentic_readiness": 3.2,
+        "mcp_security": 3.0,
+        "supply_chain": 2,
+        "lifecycle_coverage": 1.7
       },
-      "url": "https://www.galileo.ai",
-      "docs": "https://docs.galileo.ai",
-      "maintainer_notes": "Useful for product quality and evaluation loops; pair with security-specific scanners.",
+      "url": "https://github.com/promptfoo/promptfoo",
+      "docs": "https://www.promptfoo.dev",
+      "maintainer_notes": "Best fit for regression testing, CI quality gates and application-specific red-team suites.",
       "agentic_scores": {
-        "goal_integrity": 3,
-        "tool_security": 2,
+        "goal_integrity": 4,
+        "tool_security": 4,
         "identity_control": 2,
         "memory_security": 3,
         "runtime_enforcement": 2,
-        "auditability": 5,
-        "multi_agent_coverage": 3,
-        "mcp_security": 1
+        "auditability": 4,
+        "multi_agent_coverage": 4,
+        "mcp_security": 3
       },
       "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI05",
         "ASI06",
-        "ASI08",
+        "ASI07",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 3,
+        "third_party_server_risk": 3,
+        "tool_permissioning": 4,
+        "authn_authz": 2,
+        "input_output_sanitization": 3,
+        "audit_trace": 4,
+        "sandboxing": 2,
+        "supply_chain": 3
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate",
+        "release"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "pyrit",
+      "name": "PyRIT",
+      "org": "Microsoft",
+      "vendor_type": "open_source",
+      "license": "MIT",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Evaluation",
+        "Red Teaming"
+      ],
+      "description": "Python Risk Identification Tool for generative AI red teaming with multi-turn orchestration, converters and scoring pipelines.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "AutoGen": "native",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "native",
+        "LlamaIndex": "generic"
+      },
+      "owasp": [
+        "LLM01: Prompt Injection",
+        "LLM02: Sensitive Information Disclosure",
+        "LLM07: System Prompt Leakage"
+      ],
+      "atlas": [
+        "Evasion",
+        "Impact"
+      ],
+      "deployment": [
+        "azure",
+        "ci",
+        "local"
+      ],
+      "targets": [
+        "Model Risk",
+        "Red Team",
+        "Security Engineer"
+      ],
+      "scores": {
+        "red_team": 5,
+        "runtime": 1,
+        "agent_security": 3,
+        "data_security": 2,
+        "observability": 2,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 4,
+        "self_host": 5,
+        "ease": 3,
+        "agentic_readiness": 2.8,
+        "mcp_security": 2.5,
+        "supply_chain": 1,
+        "lifecycle_coverage": 1.1
+      },
+      "url": "https://github.com/Azure/PyRIT",
+      "docs": "https://github.com/Azure/PyRIT",
+      "maintainer_notes": "Strong for repeatable attack workflows and Azure-centric evaluation.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 3,
+        "identity_control": 2,
+        "memory_security": 3,
+        "runtime_enforcement": 1,
+        "auditability": 4,
+        "multi_agent_coverage": 3,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI06",
         "ASI09"
       ],
       "mcp_scores": {
         "server_inventory": 2,
-        "third_party_server_risk": 1,
-        "tool_permissioning": 2,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
         "authn_authz": 2,
-        "input_output_sanitization": 2,
-        "audit_trace": 5,
-        "sandboxing": 1,
-        "supply_chain": 1
-      }
+        "input_output_sanitization": 3,
+        "audit_trace": 4,
+        "sandboxing": 2,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
     },
     {
       "id": "securiti",
@@ -2211,10 +3577,10 @@
       "vendor_type": "commercial",
       "license": "Commercial",
       "category": [
-        "Data Security",
         "AI Governance",
         "AI-SPM",
         "Agentic OWASP Mapping",
+        "Data Security",
         "Identity & Access",
         "Memory Security"
       ],
@@ -2233,13 +3599,13 @@
         "Exfiltration"
       ],
       "deployment": [
-        "enterprise",
-        "cloud"
+        "cloud",
+        "enterprise"
       ],
       "targets": [
-        "Privacy",
+        "AI Governance",
         "Data Security",
-        "AI Governance"
+        "Privacy"
       ],
       "scores": {
         "red_team": 1,
@@ -2252,8 +3618,10 @@
         "oss_maturity": 1,
         "self_host": 1,
         "ease": 3,
-        "agentic_readiness": 2.85,
-        "mcp_security": 2.7
+        "agentic_readiness": 2.9,
+        "mcp_security": 2.7,
+        "supply_chain": 2,
+        "lifecycle_coverage": 2.8
       },
       "url": "https://securiti.ai",
       "docs": "https://securiti.ai",
@@ -2270,6 +3638,7 @@
       },
       "agentic_owasp": [
         "ASI03",
+        "ASI04",
         "ASI06",
         "ASI09"
       ],
@@ -2282,89 +3651,761 @@
         "audit_trace": 4,
         "sandboxing": 1,
         "supply_chain": 2
-      }
+      },
+      "lifecycle_stages": [
+        "augment_finetune_data",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
     },
     {
-      "id": "agentic-radar",
-      "name": "Agentic Radar",
-      "org": "splxAI / community",
-      "vendor_type": "open_source",
-      "license": "Open source",
+      "id": "splx",
+      "name": "SPLX",
+      "org": "SPLX",
+      "vendor_type": "commercial",
+      "license": "Commercial",
       "category": [
+        "AI-SPM",
         "Agent Security",
-        "Supply Chain",
-        "MCP Security",
         "Agentic OWASP Mapping",
-        "Tool Security"
+        "MCP Security",
+        "Runtime Defense"
       ],
-      "description": "Static security scanner for agentic applications, MCP servers and tool chains across common agent frameworks.",
+      "description": "Agentic AI security platform visible in OWASP AI Security Solutions Landscape Q2 2026 across test, release, deploy, operate, monitor, govern and ASI taxonomy support. Use as a candidate for agent inventory, policy, runtime and MCP-oriented review.",
       "frameworks": {
-        "LangChain/LangGraph": "native",
-        "CrewAI": "native",
-        "AutoGen": "native",
-        "MCP": "native",
-        "OpenAI Agents SDK": "generic"
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
       },
-      "owasp": [
-        "LLM03: Supply Chain Vulnerabilities",
-        "LLM06: Excessive Agency"
-      ],
-      "atlas": [
-        "Discovery",
-        "Privilege Escalation"
-      ],
+      "owasp": [],
+      "atlas": [],
       "deployment": [
-        "local",
-        "ci"
+        "enterprise",
+        "saas"
       ],
       "targets": [
+        "AI Governance",
+        "Agent Platform",
         "AppSec",
-        "Agent Developer",
-        "Security Engineer"
+        "MCP Security Reviewer"
       ],
       "scores": {
-        "red_team": 3,
-        "runtime": 1,
+        "red_team": 4,
+        "runtime": 4,
         "agent_security": 5,
-        "data_security": 2,
-        "observability": 2,
-        "compliance": 3,
-        "enterprise": 3,
-        "oss_maturity": 3,
-        "self_host": 5,
-        "ease": 4,
-        "agentic_readiness": 2.8,
-        "mcp_security": 3.45
+        "data_security": 3,
+        "observability": 4,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "supply_chain": 4,
+        "lifecycle_coverage": 3.3,
+        "agentic_readiness": 4.3,
+        "mcp_security": 4.3
       },
-      "url": "https://github.com/splx-ai/agentic-radar",
-      "docs": "https://github.com/splx-ai/agentic-radar",
-      "maintainer_notes": "Good fit for MCP/agent supply-chain inventory; verify active repo URL and rule coverage.",
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Included because the OWASP landscape visually maps SPLX across multiple Agentic SecOps stages and ASI taxonomy support; validate exact capabilities during POC.",
       "agentic_scores": {
-        "goal_integrity": 2,
-        "tool_security": 4,
-        "identity_control": 2,
-        "memory_security": 2,
-        "runtime_enforcement": 2,
-        "auditability": 3,
-        "multi_agent_coverage": 3,
+        "goal_integrity": 4,
+        "tool_security": 5,
+        "identity_control": 4,
+        "memory_security": 4,
+        "runtime_enforcement": 4,
+        "auditability": 4,
+        "multi_agent_coverage": 5,
         "mcp_security": 5
       },
       "agentic_owasp": [
+        "ASI01",
         "ASI02",
+        "ASI03",
         "ASI04",
+        "ASI05",
+        "ASI06",
         "ASI07",
+        "ASI08",
         "ASI10"
       ],
       "mcp_scores": {
         "server_inventory": 5,
         "third_party_server_risk": 5,
+        "tool_permissioning": 5,
+        "authn_authz": 4,
+        "input_output_sanitization": 4,
+        "audit_trace": 4,
+        "sandboxing": 3,
+        "supply_chain": 4
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "striker",
+      "name": "Striker",
+      "org": "Striker",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agent Security",
+        "Agentic OWASP Mapping",
+        "Red Teaming",
+        "Runtime Defense"
+      ],
+      "description": "Agentic AI security and red-team platform represented in the OWASP landscape and ASI taxonomy support products. Useful shortlist item for goal hijack, tool misuse, and runtime adversarial validation.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "Agentic SecOps Lead",
+        "AppSec",
+        "Red Team"
+      ],
+      "scores": {
+        "red_team": 5,
+        "runtime": 4,
+        "agent_security": 5,
+        "data_security": 3,
+        "observability": 4,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "supply_chain": 3,
+        "lifecycle_coverage": 4.4,
+        "agentic_readiness": 3.9,
+        "mcp_security": 3.4
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "OWASP landscape placement supports inclusion; detailed feature coverage should be checked against current vendor docs.",
+      "agentic_scores": {
+        "goal_integrity": 5,
+        "tool_security": 4,
+        "identity_control": 3,
+        "memory_security": 4,
+        "runtime_enforcement": 4,
+        "auditability": 4,
+        "multi_agent_coverage": 4,
+        "mcp_security": 3
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI05",
+        "ASI06",
+        "ASI08",
+        "ASI09",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 3,
+        "third_party_server_risk": 3,
         "tool_permissioning": 4,
-        "authn_authz": 2,
+        "authn_authz": 3,
+        "input_output_sanitization": 4,
+        "audit_trace": 4,
+        "sandboxing": 3,
+        "supply_chain": 3
+      },
+      "lifecycle_stages": [
+        "scope_plan",
+        "develop_experiment",
+        "test_evaluate",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "tenable-ai-security",
+      "name": "Tenable AI Security",
+      "org": "Tenable",
+      "vendor_type": "enterprise",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agentic OWASP Mapping",
+        "MCP Security",
+        "Vulnerability Management"
+      ],
+      "description": "Tenable appears in the OWASP ASI taxonomy support products and landscape monitor/govern views. Candidate for exposure management, asset discovery, vulnerability prioritization and agentic risk reporting.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "CISO",
+        "MCP Security Reviewer",
+        "Vulnerability Management"
+      ],
+      "scores": {
+        "red_team": 2,
+        "runtime": 2,
+        "agent_security": 4,
+        "data_security": 3,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 4,
+        "supply_chain": 4,
+        "lifecycle_coverage": 1.1,
+        "agentic_readiness": 3.2,
+        "mcp_security": 3.4
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Positioned as exposure management/governance; not scored as a primary inline guardrail.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 3,
+        "identity_control": 4,
+        "memory_security": 3,
+        "runtime_enforcement": 2,
+        "auditability": 5,
+        "multi_agent_coverage": 3,
+        "mcp_security": 4
+      },
+      "agentic_owasp": [
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI07",
+        "ASI08",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 4,
+        "third_party_server_risk": 4,
+        "tool_permissioning": 3,
+        "authn_authz": 4,
+        "input_output_sanitization": 2,
+        "audit_trace": 5,
+        "sandboxing": 2,
+        "supply_chain": 4
+      },
+      "lifecycle_stages": [
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "trend-micro-ai-security",
+      "name": "Trend Micro AI Security",
+      "org": "Trend Micro",
+      "vendor_type": "enterprise",
+      "license": "Commercial",
+      "category": [
+        "Agent Security",
+        "Agentic OWASP Mapping",
+        "Cloud Security",
+        "Runtime Defense",
+        "Supply Chain"
+      ],
+      "description": "Trend Micro appears as sponsor and in OWASP test/deploy/operate landscape views. Relevant to runtime/cloud workload protection, vulnerability and agentic application risk review.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "AppSec",
+        "CISO",
+        "Cloud Security"
+      ],
+      "scores": {
+        "red_team": 3,
+        "runtime": 4,
+        "agent_security": 3,
+        "data_security": 3,
+        "observability": 4,
+        "compliance": 4,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 4,
+        "supply_chain": 4,
+        "lifecycle_coverage": 1.7,
+        "agentic_readiness": 3.1,
+        "mcp_security": 3.1
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Map to broader enterprise security/runtime platform; not necessarily a specialized MCP scanner.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 3,
+        "identity_control": 3,
+        "memory_security": 2,
+        "runtime_enforcement": 4,
+        "auditability": 4,
+        "multi_agent_coverage": 3,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI02",
+        "ASI04",
+        "ASI05",
+        "ASI08",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 2,
+        "third_party_server_risk": 3,
+        "tool_permissioning": 3,
+        "authn_authz": 3,
+        "input_output_sanitization": 3,
+        "audit_trace": 4,
+        "sandboxing": 4,
+        "supply_chain": 4
+      },
+      "lifecycle_stages": [
+        "test_evaluate",
+        "deploy",
+        "operate"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "trojai",
+      "name": "TrojAI",
+      "org": "TrojAI",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Model Robustness",
+        "Model Security",
+        "Red Teaming"
+      ],
+      "description": "AI security testing and model assurance vendor shown in OWASP lifecycle landscape. Suitable for model-level robustness, adversarial testing and evaluation workflows around agentic systems.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "AI Governance",
+        "Model Risk",
+        "Red Team"
+      ],
+      "scores": {
+        "red_team": 4,
+        "runtime": 2,
+        "agent_security": 3,
+        "data_security": 2,
+        "observability": 3,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "supply_chain": 3,
+        "lifecycle_coverage": 3.3,
+        "agentic_readiness": 2.3,
+        "mcp_security": 1.7
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Treat primarily as model/AI assurance until agent-runtime controls are validated.",
+      "agentic_scores": {
+        "goal_integrity": 3,
+        "tool_security": 2,
+        "identity_control": 1,
+        "memory_security": 3,
+        "runtime_enforcement": 2,
+        "auditability": 4,
+        "multi_agent_coverage": 2,
+        "mcp_security": 1
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI04",
+        "ASI05",
+        "ASI06",
+        "ASI08",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 1,
+        "third_party_server_risk": 1,
+        "tool_permissioning": 2,
+        "authn_authz": 1,
         "input_output_sanitization": 2,
         "audit_trace": 3,
         "sandboxing": 2,
-        "supply_chain": 5
-      }
+        "supply_chain": 3
+      },
+      "lifecycle_stages": [
+        "develop_experiment",
+        "test_evaluate",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "unbound-security-ai",
+      "name": "Unbound Security AI",
+      "org": "Unbound Security",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "Agentic OWASP Mapping",
+        "Governance",
+        "Identity & Access",
+        "Runtime Defense"
+      ],
+      "description": "Unbound is included in OWASP ASI taxonomy support and govern-stage landscape. Use as a candidate category for identity, access, policy and trust boundary review in agentic applications.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "Agentic SecOps Lead",
+        "CISO",
+        "IAM"
+      ],
+      "scores": {
+        "red_team": 1,
+        "runtime": 3,
+        "agent_security": 3,
+        "data_security": 3,
+        "observability": 3,
+        "compliance": 4,
+        "enterprise": 4,
+        "oss_maturity": 1,
+        "self_host": 2,
+        "ease": 3,
+        "supply_chain": 2,
+        "lifecycle_coverage": 0.6,
+        "agentic_readiness": 3.2,
+        "mcp_security": 2.5
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Scoring emphasizes identity/access alignment; validate exact AI product capability.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 3,
+        "identity_control": 5,
+        "memory_security": 2,
+        "runtime_enforcement": 3,
+        "auditability": 4,
+        "multi_agent_coverage": 3,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI03",
+        "ASI07",
+        "ASI09"
+      ],
+      "mcp_scores": {
+        "server_inventory": 1,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 3,
+        "authn_authz": 5,
+        "input_output_sanitization": 2,
+        "audit_trace": 4,
+        "sandboxing": 1,
+        "supply_chain": 2
+      },
+      "lifecycle_stages": [
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
+    },
+    {
+      "id": "wiz-ai-spm",
+      "name": "Wiz AI-SPM",
+      "org": "Wiz",
+      "vendor_type": "enterprise",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agentic OWASP Mapping",
+        "Cloud Security",
+        "Data Security",
+        "Identity & Access"
+      ],
+      "description": "AI Security Posture Management integrated with cloud risk graph for discovering AI services, permissions, data exposure and misconfigurations.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic"
+      },
+      "owasp": [
+        "LLM02: Sensitive Information Disclosure",
+        "LLM03: Supply Chain Vulnerabilities",
+        "LLM10: Unbounded Consumption"
+      ],
+      "atlas": [
+        "Discovery"
+      ],
+      "deployment": [
+        "cloud",
+        "enterprise"
+      ],
+      "targets": [
+        "AI Governance",
+        "CISO",
+        "Cloud Security"
+      ],
+      "scores": {
+        "red_team": 1,
+        "runtime": 2,
+        "agent_security": 2,
+        "data_security": 4,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 4,
+        "agentic_readiness": 3.1,
+        "mcp_security": 2.8,
+        "supply_chain": 4,
+        "lifecycle_coverage": 3.3
+      },
+      "url": "https://www.wiz.io/solutions/ai-security",
+      "docs": "https://www.wiz.io/solutions/ai-security",
+      "maintainer_notes": "Posture/discovery-first; not primarily a prompt guardrail.",
+      "agentic_scores": {
+        "goal_integrity": 2,
+        "tool_security": 3,
+        "identity_control": 4,
+        "memory_security": 3,
+        "runtime_enforcement": 3,
+        "auditability": 4,
+        "multi_agent_coverage": 2,
+        "mcp_security": 2
+      },
+      "agentic_owasp": [
+        "ASI03",
+        "ASI04",
+        "ASI06",
+        "ASI08"
+      ],
+      "mcp_scores": {
+        "server_inventory": 3,
+        "third_party_server_risk": 2,
+        "tool_permissioning": 2,
+        "authn_authz": 4,
+        "input_output_sanitization": 2,
+        "audit_trace": 4,
+        "sandboxing": 2,
+        "supply_chain": 4
+      },
+      "lifecycle_stages": [
+        "scope_plan",
+        "release",
+        "deploy",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping"
+      ],
+      "evidence_level": "community/inferred"
+    },
+    {
+      "id": "zenity",
+      "name": "Zenity",
+      "org": "Zenity",
+      "vendor_type": "commercial",
+      "license": "Commercial",
+      "category": [
+        "AI-SPM",
+        "Agent Security",
+        "Agentic OWASP Mapping",
+        "Governance",
+        "Identity & Access"
+      ],
+      "description": "Governance and security platform for enterprise AI/agentic and low-code/no-code exposure. Appears in OWASP lifecycle landscape across planning, data, testing, release, monitor and govern.",
+      "frameworks": {
+        "LangChain/LangGraph": "generic",
+        "LlamaIndex": "generic",
+        "CrewAI": "generic",
+        "AutoGen": "generic",
+        "OpenAI Agents SDK": "generic",
+        "Semantic Kernel": "generic",
+        "MCP": "generic"
+      },
+      "owasp": [],
+      "atlas": [],
+      "deployment": [
+        "enterprise",
+        "saas"
+      ],
+      "targets": [
+        "AI Governance",
+        "Agentic SecOps Lead",
+        "CISO"
+      ],
+      "scores": {
+        "red_team": 3,
+        "runtime": 4,
+        "agent_security": 5,
+        "data_security": 4,
+        "observability": 4,
+        "compliance": 5,
+        "enterprise": 5,
+        "oss_maturity": 1,
+        "self_host": 1,
+        "ease": 4,
+        "supply_chain": 3,
+        "lifecycle_coverage": 3.9,
+        "agentic_readiness": 4.2,
+        "mcp_security": 3.5
+      },
+      "url": "",
+      "docs": "",
+      "maintainer_notes": "Best evaluated as governance/posture/risk platform rather than pure LLM classifier.",
+      "agentic_scores": {
+        "goal_integrity": 4,
+        "tool_security": 4,
+        "identity_control": 5,
+        "memory_security": 4,
+        "runtime_enforcement": 4,
+        "auditability": 5,
+        "multi_agent_coverage": 4,
+        "mcp_security": 3
+      },
+      "agentic_owasp": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI06",
+        "ASI07",
+        "ASI08",
+        "ASI09",
+        "ASI10"
+      ],
+      "mcp_scores": {
+        "server_inventory": 3,
+        "third_party_server_risk": 3,
+        "tool_permissioning": 4,
+        "authn_authz": 5,
+        "input_output_sanitization": 3,
+        "audit_trace": 5,
+        "sandboxing": 2,
+        "supply_chain": 3
+      },
+      "lifecycle_stages": [
+        "scope_plan",
+        "augment_finetune_data",
+        "test_evaluate",
+        "release",
+        "operate",
+        "monitor",
+        "govern"
+      ],
+      "source_basis": [
+        "OWASP AI Security Solutions Landscape Q2 2026"
+      ],
+      "evidence_level": "OWASP landscape / vendor-public mapping"
     }
   ]
 }

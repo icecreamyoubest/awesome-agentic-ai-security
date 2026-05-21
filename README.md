@@ -5,31 +5,37 @@ colorFrom: yellow
 colorTo: red
 sdk: static
 pinned: false
-license: apache-2.0
+license: mit
 ---
 
-# Open AI / Agentic Security Tools Catalog
+# Awesome Agentic AI Security
 
-A static, data-driven catalog for comparing AI, LLM, agentic, and MCP security tools.
+A static, data-driven catalog for comparing **AI security, LLM security, agentic security, MCP security, guardrails, red-team, AI-SPM, observability, data security, and governance tools**.
 
 This project is designed to run as a **Hugging Face Static Space**. It uses plain HTML, CSS, JavaScript, and a maintainable `data/tools.json` file.
 
-## v0.2 additions
+## v0.3 additions
 
-- OWASP Top 10 for Agentic Applications / ASI mapping
-- Agentic Readiness Score
-- MCP Security Score
-- Agentic OWASP risk filter
-- Agent Platform Architect and MCP Security Reviewer personas
-- MCP-specific scoring dimensions
-- Data model fields for `agentic_owasp`, `agentic_scores`, and `mcp_scores`
+- Aligned ASI labels with **OWASP Top 10 for Agentic Applications 2026**.
+- Added **OWASP AI Security Solutions Landscape Q2 2026** lifecycle mapping.
+- Added `lifecycle_stages` and a Lifecycle stage filter.
+- Added **Lifecycle Coverage Score**.
+- Expanded the catalog from 27 to 45 tools using conservative OWASP-landscape-informed entries.
+- Added `source_basis` and `evidence_level` fields for maintainability.
+- Added `supply_chain` as a scoring dimension.
+- Added **Agentic SecOps Lead** persona.
 
-## References
+## References and attribution
 
+This catalog references public OWASP GenAI Security Project materials, including:
+
+- OWASP AI Security Solutions Landscape Q2 2026: https://genai.owasp.org/ai-security-solutions-landscape/
 - OWASP Top 10 for Agentic Applications 2026: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
 - OWASP Agentic Security Initiative: https://genai.owasp.org/initiatives/agentic-security-initiative/
 - OWASP GenAI Security Project: https://genai.owasp.org/
 - OWASP Top 10 for LLM Applications: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+
+OWASP materials are licensed by OWASP under Creative Commons terms as stated in their documents. This repository is a community-maintained derived catalog and does **not** imply OWASP endorsement or vendor certification.
 
 ## Project structure
 
@@ -44,9 +50,9 @@ This project is designed to run as a **Hugging Face Static Space**. It uses plai
     └── tools.json
 ```
 
-## How to update tools
+## Data model
 
-Edit `data/tools.json`. Each tool should include:
+Each tool in `data/tools.json` can include:
 
 ```json
 {
@@ -63,6 +69,7 @@ Edit `data/tools.json`. Each tool should include:
   },
   "owasp": ["LLM01", "LLM02"],
   "agentic_owasp": ["ASI01", "ASI02"],
+  "lifecycle_stages": ["develop_experiment", "test_evaluate", "deploy", "operate"],
   "deployment": ["self_host", "cloud"],
   "targets": ["LLM app", "Agent runtime", "MCP server"],
   "scores": {
@@ -76,8 +83,10 @@ Edit `data/tools.json`. Each tool should include:
     "oss_maturity": 3,
     "self_host": 4,
     "ease": 3,
-    "agentic_readiness": 3.75,
-    "mcp_security": 3.10
+    "supply_chain": 3,
+    "lifecycle_coverage": 2.2,
+    "agentic_readiness": 3.7,
+    "mcp_security": 3.1
   },
   "agentic_scores": {
     "goal_integrity": 4,
@@ -99,6 +108,8 @@ Edit `data/tools.json`. Each tool should include:
     "sandboxing": 3,
     "supply_chain": 3
   },
+  "source_basis": ["OWASP AI Security Solutions Landscape Q2 2026"],
+  "evidence_level": "OWASP landscape / vendor-public mapping",
   "url": "https://example.com",
   "docs": "https://docs.example.com",
   "maintainer_notes": "Use conservative scoring unless integration evidence is available."
@@ -113,35 +124,7 @@ All raw dimensions use a 1–5 scale:
 - 3 = usable, partial, or integration-dependent
 - 5 = strong/default candidate with clear evidence
 
-### Agentic Readiness Score
-
-Weighted 1–5 composite:
-
-```text
-tool_security 20%
-runtime_enforcement 15%
-identity_control 15%
-auditability 15%
-memory_security 10%
-goal_integrity 10%
-multi_agent_coverage 10%
-mcp_security 5%
-```
-
-### MCP Security Score
-
-Weighted 1–5 composite:
-
-```text
-server_inventory 15%
-third_party_server_risk 15%
-tool_permissioning 15%
-authn_authz 15%
-input_output_sanitization 15%
-audit_trace 10%
-sandboxing 10%
-supply_chain 5%
-```
+Scores are heuristic and community-maintained. They are meant to help shortlist tools for POCs, not certify vendors.
 
 ## Local validation
 

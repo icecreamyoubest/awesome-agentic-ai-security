@@ -48,6 +48,7 @@ function populateFilters() {
   const types = unique(tools.map(t => t.vendor_type));
   const frameworks = catalog.meta.frameworks || unique(tools.flatMap(t => Object.keys(t.frameworks || {})));
   const deployments = unique(tools.flatMap(t => t.deployment || []));
+  const lifecycleStages = Object.entries(catalog.meta.lifecycle_stages || {}).map(([code, name]) => `${code} — ${name}`);
   const personas = Object.keys(catalog.meta.personas || {});
   const agenticRisks = Object.entries(catalog.meta.agentic_owasp || {}).map(([code, name]) => `${code} — ${name}`);
 
@@ -55,6 +56,7 @@ function populateFilters() {
   fillSelect($("typeFilter"), types, "All types", titleCase);
   fillSelect($("frameworkFilter"), frameworks, "All frameworks");
   fillSelect($("deploymentFilter"), deployments, "All modes", titleCase);
+  fillSelect($("lifecycleFilter"), lifecycleStages, "All lifecycle stages", x => x, x => x.split(" — ")[0]);
   fillSelect($("agenticFilter"), agenticRisks, "All Agentic OWASP risks", x => x, x => x.slice(0,5));
   fillSelect($("personaFilter"), personas, "", x => x);
 }
@@ -76,6 +78,7 @@ function getFilteredTools() {
   const fw = $("frameworkFilter").value;
   const dep = $("deploymentFilter").value;
   const agenticRisk = $("agenticFilter").value;
+  const lifecycleStage = $("lifecycleFilter").value;
   const persona = $("personaFilter").value;
   const sortBy = $("sortBy").value;
 
@@ -85,6 +88,8 @@ function getFilteredTools() {
       t.name, t.org, t.vendor_type, t.license, t.description, t.maintainer_notes,
       ...(t.category || []), ...(t.owasp || []), ...(t.atlas || []), ...(t.targets || []),
       ...(t.agentic_owasp || []), ...agenticLabels,
+      ...(t.lifecycle_stages || []), ...((t.lifecycle_stages || []).map(code => catalog.meta.lifecycle_stages?.[code] || "")),
+      ...(t.source_basis || []),
       ...Object.keys(t.frameworks || {}), ...(t.deployment || [])
     ].join(" ").toLowerCase();
     return (!q || haystack.includes(q))
@@ -92,6 +97,7 @@ function getFilteredTools() {
       && (!type || t.vendor_type === type)
       && (!fw || Object.prototype.hasOwnProperty.call(t.frameworks || {}, fw))
       && (!dep || (t.deployment || []).includes(dep))
+      && (!lifecycleStage || (t.lifecycle_stages || []).includes(lifecycleStage))
       && (!agenticRisk || (t.agentic_owasp || []).includes(agenticRisk));
   });
 
@@ -118,9 +124,10 @@ function renderCards(items, persona) {
       ["Agentic", t.scores.agentic_readiness],
       ["MCP", t.scores.mcp_security],
       ["Runtime", t.scores.runtime],
-      ["Red Team", t.scores.red_team]
+      ["Lifecycle", t.scores.lifecycle_coverage]
     ];
     const agenticTags = (t.agentic_owasp || []).slice(0,5).map(code => `<span class="tag agentic" title="${escapeAttr(catalog.meta.agentic_owasp?.[code] || "")}">${escapeHtml(code)}</span>`).join("");
+    const lifecycleTags = (t.lifecycle_stages || []).slice(0,4).map(code => `<span class="tag stage" title="${escapeAttr(catalog.meta.lifecycle_stages?.[code] || "")}">${escapeHtml(catalog.meta.lifecycle_stages?.[code] || code)}</span>`).join("");
     return `
       <article class="card">
         <div class="card-top">
@@ -132,6 +139,7 @@ function renderCards(items, persona) {
         <div class="tags">
           ${(t.category || []).slice(0,4).map(c => `<span class="tag">${escapeHtml(c)}</span>`).join("")}
           ${agenticTags}
+          ${lifecycleTags}
           ${(t.deployment || []).map(d => `<span class="tag">${escapeHtml(titleCase(d))}</span>`).join("")}
         </div>
         <div class="scorebar">
@@ -194,6 +202,30 @@ function renderDimensions() {
   $("dimensionGrid").innerHTML = Object.entries(dims).map(([k,v]) => `
     <div class="dimension"><strong>${escapeHtml(titleCase(k))}</strong><span>${escapeHtml(v)}</span></div>
   `).join("");
+}
+
+
+function renderLifecycle() {
+  const stages = catalog.meta.lifecycle_stages || {};
+  const descs = catalog.meta.lifecycle_stage_descriptions || {};
+  const toolsByStage = {};
+  for (const t of catalog.tools) {
+    for (const code of (t.lifecycle_stages || [])) {
+      toolsByStage[code] ||= [];
+      toolsByStage[code].push(t);
+    }
+  }
+  const el = $("lifecycleGrid");
+  if (!el) return;
+  el.innerHTML = Object.entries(stages).map(([code, name]) => {
+    const tools = (toolsByStage[code] || []).sort((a,b) => (b.scores.lifecycle_coverage || 0) - (a.scores.lifecycle_coverage || 0)).slice(0,8);
+    return `<div class="risk-card lifecycle-card">
+      <div class="risk-code">${escapeHtml(code.replaceAll("_", " "))}</div>
+      <h3>${escapeHtml(name)}</h3>
+      <p>${escapeHtml(descs[code] || "Agentic SecOps lifecycle stage.")}</p>
+      <div class="risk-tools">${tools.map(t => `<span>${escapeHtml(t.name)}</span>`).join("") || "<span>No mapped tools yet</span>"}</div>
+    </div>`;
+  }).join("");
 }
 
 function renderAgenticOwasp() {
@@ -267,9 +299,9 @@ function escapeHtml(s) {
 function escapeAttr(s) { return escapeHtml(s); }
 
 function bindEvents() {
-  ["search","categoryFilter","typeFilter","frameworkFilter","deploymentFilter","agenticFilter","personaFilter","sortBy"].forEach(id => $(id).addEventListener("input", render));
+  ["search","categoryFilter","typeFilter","frameworkFilter","deploymentFilter","lifecycleFilter","agenticFilter","personaFilter","sortBy"].forEach(id => $(id).addEventListener("input", render));
   $("resetFilters").addEventListener("click", () => {
-    ["search","categoryFilter","typeFilter","frameworkFilter","deploymentFilter","agenticFilter"].forEach(id => $(id).value = "");
+    ["search","categoryFilter","typeFilter","frameworkFilter","deploymentFilter","lifecycleFilter","agenticFilter"].forEach(id => $(id).value = "");
     $("sortBy").value = "persona";
     render();
   });
@@ -299,6 +331,7 @@ async function init() {
     render();
     renderMatrix();
     renderDimensions();
+    renderLifecycle();
     renderAgenticOwasp();
     renderScoreModels();
   } catch (err) {

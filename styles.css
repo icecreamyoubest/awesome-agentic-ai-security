@@ -111,3 +111,14 @@ footer { border-top:1px solid var(--line); padding:30px 20px; text-align:center;
 .dimension-grid.compact { margin-top:12px; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); }
 .formula p code, .formula code { white-space:normal; }
 @media (min-width: 881px) { .steps { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
+
+/* v0.3 lifecycle additions */
+.tag.stage {
+  background: #eef6ff;
+  color: #1e5aa8;
+  border-color: #c9ddff;
+}
+@media (prefers-color-scheme: dark) {
+  .tag.stage { background: #10243a; color: #9ec5ff; border-color: #244b78; }
+}
+.lifecycle-card .risk-code { text-transform: uppercase; }
