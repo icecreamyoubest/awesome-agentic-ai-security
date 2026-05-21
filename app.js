@@ -2,10 +2,6 @@ let updateStatus = null;
 let pendingUpdates = null;
 let roadmapUpdates = null;
 let updateSources = null;
-let benchmarkRecommendations = null;
-let evidenceDiffs = null;
-let prCandidates = null;
-let roadmapBoard = null;
 let catalog = { meta: {}, tools: [] };
 let controlsCatalog = { control_matrix: [], use_cases: [], mcp_benchmark: [], evidence_levels: {}, asi_lifecycle_matrix: [] };
 let evidenceCatalog = { meta: {}, tools: {} };
@@ -820,38 +816,9 @@ function renderUpdateIntelligence() {
   srcEl.innerHTML = Array.from(types.entries()).map(([k,v]) => `<span>${escapeHtml(k)}: ${v}</span>`).join("");
 }
 
-
-function renderUpdateReviewAutomation() {
-  const cards = $("updateReviewCards");
-  if (!cards) return;
-  const recs = benchmarkRecommendations?.recommendations || [];
-  const diffs = evidenceDiffs?.diffs || [];
-  const prs = prCandidates?.candidates || [];
-  const boardCols = roadmapBoard?.columns || {};
-  const boardCount = Object.values(boardCols).reduce((n, arr) => n + (Array.isArray(arr) ? arr.length : 0), 0);
-  cards.innerHTML = [
-    [recs.length, "Benchmark recommendations"],
-    [diffs.length, "Evidence diffs"],
-    [prs.length, "PR candidates"],
-    [boardCount, "Roadmap items"]
-  ].map(([num,label]) => `<div class="metric-card"><div class="num">${escapeHtml(String(num))}</div><div class="label">${escapeHtml(label)}</div></div>`).join("");
-
-  const recEl = $("benchmarkRecommendationsList");
-  if (recEl) recEl.innerHTML = recs.length ? recs.slice(0, 8).map(r => `<div class="compact-item"><strong>${escapeHtml(r.title || r.update_id)}</strong><div class="meta">${escapeHtml(r.vendor || "unknown")} · ${(r.recommended_benchmarks || []).map(b => `<span>${escapeHtml(b)}</span>`).join(" ")}</div><div>${escapeHtml(r.validation_goal || "")}</div></div>`).join("") : `<p class="small">No benchmark recommendations yet.</p>`;
-
-  const diffEl = $("evidenceDiffsList");
-  if (diffEl) diffEl.innerHTML = diffs.length ? diffs.slice(0, 8).map(d => `<div class="compact-item"><strong>${escapeHtml(d.tool_id || d.id)}</strong><div>${escapeHtml(d.reason || "")}</div><div class="meta">${escapeHtml(d.change_type || "diff")} · ${escapeHtml(d.status || "pending")}</div></div>`).join("") : `<p class="small">No evidence diffs yet.</p>`;
-
-  const prEl = $("prCandidatesList");
-  if (prEl) prEl.innerHTML = prs.length ? prs.slice(0, 8).map(p => `<div class="compact-item"><strong>${escapeHtml(p.title || p.id)}</strong><div class="meta">${escapeHtml(p.tool_id || "unknown tool")} · ${escapeHtml(p.status || "ready")}</div></div>`).join("") : `<p class="small">No PR candidates yet.</p>`;
-
-  const boardEl = $("roadmapBoard");
-  if (boardEl) boardEl.innerHTML = Object.entries(boardCols).map(([col, items]) => `<div class="roadmap-column"><h4>${escapeHtml(titleCase(col))}</h4>${(items || []).slice(0,5).map(item => `<div class="roadmap-item">${escapeHtml(item.title || item.id)}<br><span class="status-pill">${escapeHtml(item.status || "planned")}</span></div>`).join("") || `<p class="small">Empty</p>`}</div>`).join("");
-}
-
 async function init() {
   try {
-    const [res, controlsRes, evidenceRes, incidentsRes, architecturesRes, sourceIndexRes, claimsRes, archTemplatesRes, releaseLogRes, updateStatusRes, pendingUpdatesRes, roadmapUpdatesRes, updateSourcesRes, benchmarkRecommendationsRes, evidenceDiffsRes, prCandidatesRes, roadmapBoardRes] = await Promise.all([
+    const [res, controlsRes, evidenceRes, incidentsRes, architecturesRes, sourceIndexRes, claimsRes, archTemplatesRes, releaseLogRes, updateStatusRes, pendingUpdatesRes, roadmapUpdatesRes, updateSourcesRes] = await Promise.all([
       fetch("./data/tools.json", { cache: "no-store" }),
       fetch("./data/controls.json", { cache: "no-store" }),
       fetch("./data/evidence.json", { cache: "no-store" }),
@@ -864,11 +831,7 @@ async function init() {
       fetch("./data/updates/auto_update_status.json", { cache: "no-store" }),
       fetch("./data/updates/pending_updates.json", { cache: "no-store" }),
       fetch("./data/updates/roadmap.json", { cache: "no-store" }),
-      fetch("./data/update_sources.json", { cache: "no-store" }),
-      fetch("./data/updates/benchmark_recommendations.json", { cache: "no-store" }),
-      fetch("./data/updates/evidence_diffs.json", { cache: "no-store" }),
-      fetch("./data/updates/pr_candidates.json", { cache: "no-store" }),
-      fetch("./data/roadmap_board.json", { cache: "no-store" })
+      fetch("./data/update_sources.json", { cache: "no-store" })
     ]);
     catalog = await res.json();
     controlsCatalog = await controlsRes.json();
@@ -883,10 +846,6 @@ async function init() {
     pendingUpdates = await pendingUpdatesRes.json();
     roadmapUpdates = await roadmapUpdatesRes.json();
     updateSources = await updateSourcesRes.json();
-    benchmarkRecommendations = await benchmarkRecommendationsRes.json();
-    evidenceDiffs = await evidenceDiffsRes.json();
-    prCandidates = await prCandidatesRes.json();
-    roadmapBoard = await roadmapBoardRes.json();
     $("statTools").textContent = catalog.tools.length;
     $("statCategories").textContent = catalog.meta.categories.length;
     $("statFrameworks").textContent = catalog.meta.frameworks.length;
@@ -914,7 +873,6 @@ async function init() {
     populateClaimTools();
     renderReleaseTimeline();
     renderUpdateIntelligence();
-    renderUpdateReviewAutomation();
     bindV09AdvisorEvents();
   } catch (err) {
     document.body.insertAdjacentHTML("afterbegin", `<div class="note"><strong>Failed to load catalog:</strong> ${escapeHtml(err.message)}</div>`);
