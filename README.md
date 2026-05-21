@@ -14,7 +14,7 @@ A static, data-driven catalog for comparing **AI security, LLM security, agentic
 
 This project is designed to run as a **Hugging Face Static Space**. It uses plain HTML, CSS, JavaScript, and a maintainable `data/tools.json` file.
 
-## v0.4 additions
+## v0.5 additions
 
 - Aligned ASI labels with **OWASP Top 10 for Agentic Applications 2026**.
 - Added **OWASP AI Security Solutions Landscape Q2 2026** lifecycle mapping.
@@ -169,6 +169,25 @@ Use the following confidence labels when updating entries:
 - `benchmark_backed`: reproducible test or benchmark evidence.
 - `inferred_mapping`: reasonable inference from public capabilities; needs validation.
 
-## v0.4 roadmap notes
+## v0.5 roadmap notes
 
 The current MCP benchmark is a manual test-plan scaffold. Future versions should add executable test harnesses for descriptor poisoning, OAuth response poisoning, tool permission overreach, sandbox escape, RCE, tool-output injection, and cross-agent trust abuse.
+
+
+## v0.5 additions
+
+- Evidence Hub with `data/evidence.json` and per-tool evidence records.
+- Tool detail modal with ASI coverage, lifecycle coverage, scores, framework support, and evidence.
+- Compare mode for up to four tools.
+- ASI × Lifecycle control matrix for architecture review.
+- MCP Security Benchmark v0.1 in both JSON and JSONL formats under `benchmarks/`.
+- GitHub Action template to sync this static site to a Hugging Face Space.
+
+## GitHub to Hugging Face sync
+
+Create repository secrets:
+
+- `HF_TOKEN`: Hugging Face write token
+- `HF_SPACE`: `Coraaaa/awesome-agentic-ai-security` or your target `username/space-name`
+
+Then enable `.github/workflows/sync-to-huggingface.yml`.

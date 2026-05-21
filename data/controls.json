@@ -3,8 +3,10 @@
     "official_owasp_landscape": "Appears in OWASP AI Security Solutions Landscape or ASI taxonomy-support material.",
     "official_vendor_docs": "Vendor or project documentation explicitly claims the capability.",
     "community_verified": "Capability was verified by a maintainer or external community PR with reproducible notes.",
-    "benchmark_backed": "Capability has a reproducible benchmark or test-harness result.",
-    "inferred_mapping": "Mapped from public capability description; needs validation before procurement."
+    "benchmark_backed": "Supported by a reproducible benchmark case or submitted test result.",
+    "inferred_mapping": "Mapped from public capability description; needs validation before procurement.",
+    "official_owasp_agentic_top10": "Mapped directly to OWASP Top 10 for Agentic Applications 2026 risk taxonomy.",
+    "scoring_rationale": "Internal catalog explanation for score calculation; not an external certification."
   },
   "control_matrix": [
     {
@@ -407,6 +409,141 @@
         "kill switch"
       ],
       "status": "manual test seed"
+    }
+  ],
+  "asi_lifecycle_matrix": [
+    {
+      "asi": "ASI01",
+      "risk": "Agent Goal Hijack",
+      "cells": {
+        "scope_plan": "define goal boundaries and intent capsule",
+        "develop_experiment": "bind prompts to task constraints",
+        "test_evaluate": "goal hijack and prompt-injection tests",
+        "deploy": "runtime intent gate before actions",
+        "operate": "pause on goal drift",
+        "monitor": "goal-change anomaly alerts",
+        "govern": "goal-change approval evidence"
+      }
+    },
+    {
+      "asi": "ASI02",
+      "risk": "Tool Misuse and Exploitation",
+      "cells": {
+        "scope_plan": "define tool scopes and least-agency profile",
+        "develop_experiment": "validate tool schemas and contracts",
+        "test_evaluate": "sandbox destructive and cloud/API calls",
+        "deploy": "PEP/PDP for tool invocation",
+        "operate": "rate limits and tool budgets",
+        "monitor": "tool-chain anomaly detection",
+        "govern": "periodic tool scope review"
+      }
+    },
+    {
+      "asi": "ASI03",
+      "risk": "Identity and Privilege Abuse",
+      "cells": {
+        "scope_plan": "model non-human identities and delegation",
+        "develop_experiment": "bind subject/resource/purpose/duration",
+        "test_evaluate": "privilege escalation test cases",
+        "deploy": "JIT short-lived scoped tokens",
+        "operate": "token rotation and revocation",
+        "monitor": "delegation-chain anomaly alerts",
+        "govern": "agent identity lifecycle attestation"
+      }
+    },
+    {
+      "asi": "ASI04",
+      "risk": "Agentic Supply Chain Vulnerabilities",
+      "cells": {
+        "scope_plan": "inventory agents/tools/MCP servers",
+        "develop_experiment": "pin dependencies and descriptors",
+        "test_evaluate": "supply-chain and typosquat tests",
+        "release": "SBOM/AIBOM and signed manifests",
+        "deploy": "verify signatures at deploy",
+        "operate": "kill switch for compromised tools",
+        "monitor": "hash/provenance drift alerts",
+        "govern": "quarterly supply-chain attestation"
+      }
+    },
+    {
+      "asi": "ASI05",
+      "risk": "Unexpected Code Execution (RCE)",
+      "cells": {
+        "develop_experiment": "ban unsafe eval and validate code paths",
+        "test_evaluate": "RCE and sandbox escape tests",
+        "release": "scan generated code and packages",
+        "deploy": "run code in constrained sandbox",
+        "operate": "file/network/syscall limits",
+        "monitor": "unexpected execution telemetry",
+        "govern": "approval policy for elevated execution"
+      }
+    },
+    {
+      "asi": "ASI06",
+      "risk": "Memory & Context Poisoning",
+      "cells": {
+        "scope_plan": "define memory isolation and retention",
+        "augment_finetune_data": "scan data and memory seeds",
+        "develop_experiment": "separate memory trust zones",
+        "test_evaluate": "memory poisoning and rollback tests",
+        "deploy": "memory write validation gate",
+        "operate": "quarantine suspicious memory",
+        "monitor": "memory mutation drift alerts",
+        "govern": "memory retention and provenance review"
+      }
+    },
+    {
+      "asi": "ASI07",
+      "risk": "Insecure Inter-Agent Communication",
+      "cells": {
+        "scope_plan": "define A2A trust boundaries",
+        "develop_experiment": "typed contracts and signed messages",
+        "test_evaluate": "spoofing/replay/downgrade tests",
+        "deploy": "mTLS and protocol pinning",
+        "operate": "discovery/routing protection",
+        "monitor": "rapid chatter and routing anomalies",
+        "govern": "A2A trust graph attestation"
+      }
+    },
+    {
+      "asi": "ASI08",
+      "risk": "Cascading Failures",
+      "cells": {
+        "scope_plan": "define blast-radius budgets",
+        "develop_experiment": "separate planner and executor",
+        "test_evaluate": "cascade replay tests",
+        "deploy": "circuit breakers and quotas",
+        "operate": "throttle or pause fan-out",
+        "monitor": "queue storm and loop alerts",
+        "govern": "policy expansion gated by replay"
+      }
+    },
+    {
+      "asi": "ASI09",
+      "risk": "Human-Agent Trust Exploitation",
+      "cells": {
+        "scope_plan": "define high-risk HITL thresholds",
+        "develop_experiment": "safe UX and provenance cues",
+        "test_evaluate": "trust exploitation and fake rationale tests",
+        "deploy": "multi-step approval for sensitive actions",
+        "operate": "report suspicious interactions",
+        "monitor": "plan-divergence detection",
+        "govern": "human oversight training and audit"
+      }
+    },
+    {
+      "asi": "ASI10",
+      "risk": "Rogue Agents",
+      "cells": {
+        "scope_plan": "define agent trust zones and manifests",
+        "develop_experiment": "signed behavioral manifests",
+        "test_evaluate": "rogue-agent and collusion tests",
+        "release": "attestation before registration",
+        "deploy": "quarantine unknown agents",
+        "operate": "kill switch and credential revocation",
+        "monitor": "behavioral baseline drift alerts",
+        "govern": "reintegration after fresh attestation"
+      }
     }
   ]
 }

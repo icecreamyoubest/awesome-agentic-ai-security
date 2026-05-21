@@ -78,3 +78,27 @@ Open `http://localhost:7860`.
 - [ ] Scores are between 0 and 5
 - [ ] Evidence level and maintainer notes are included
 - [ ] README or methodology updated if scoring logic changes
+
+
+## Evidence records
+
+When changing a score or mapping, update either the tool-level `evidence` field in `data/tools.json` or `data/evidence.json`.
+
+Evidence records should include:
+
+```json
+{
+  "type": "official_vendor_docs | official_owasp_landscape | community_verified | benchmark_backed | inferred_mapping",
+  "source": "Source name",
+  "claim": "Specific claim being supported",
+  "url": "https://...",
+  "supports": ["agentic_owasp", "lifecycle_stages", "scores"],
+  "last_verified": "YYYY-MM-DD",
+  "confidence": "low | medium | medium_high | high | heuristic"
+}
+```
+
+## MCP benchmark contributions
+
+Add new MCP or agentic attack seeds to `benchmarks/mcp_security_benchmark_v01.jsonl`.
+Each line must be valid JSON and include `id`, `risk`, `attack_type`, `objective`, `expected_control`, `pass_condition`, and `severity`.

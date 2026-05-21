@@ -1,0 +1,1179 @@
+{
+  "meta": {
+    "version": "v0.5",
+    "updated": "2026-05-21",
+    "description": "Evidence records that explain why tools are mapped to ASI risks, lifecycle stages, and scores. Claims are conservative and community-maintained."
+  },
+  "tools": {
+    "activefence-ai-security": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.1/5, MCP=2.2/5, lifecycle=3.3/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "art": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "Original community catalog",
+        "claim": "Mapping based on Original community catalog.",
+        "url": "https://github.com/Trusted-AI/adversarial-robustness-toolbox",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=1.1/5, MCP=1.1/5, lifecycle=1/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "agentic-radar": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/splx-ai/agentic-radar",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.8/5, MCP=3.5/5, lifecycle=3.9/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "aws-bedrock-guardrails": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://aws.amazon.com/bedrock/guardrails/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.5/5, MCP=3.0/5, lifecycle=2.8/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "azure-content-safety": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://azure.microsoft.com/en-us/products/ai-services/ai-content-safety",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.7/5, MCP=3.2/5, lifecycle=2.8/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "calypsoai": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://www.f5.com/company/news/press-releases/f5-acquires-calypsoai-to-secure-enterprises-as-they-race-to-adopt-ai",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.9/5, MCP=3.6/5, lifecycle=2.8/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "capsule-ai-security": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.4/5, MCP=2.0/5, lifecycle=0.6/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "cisco-ai-defense": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/index.html",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.5/5, MCP=3.3/5, lifecycle=3.3/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "cortex-cloud-ai-security": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.9/5, MCP=3.8/5, lifecycle=3.3/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "deepteam": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "Original community catalog",
+        "claim": "Mapping based on Original community catalog.",
+        "url": "https://github.com/confident-ai/deepteam",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=1.1/5, MCP=1.1/5, lifecycle=1/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "fiddler": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://www.fiddler.ai",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.5/5, MCP=2.0/5, lifecycle=1.7/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "galileo": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://www.galileo.ai",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.7/5, MCP=2.0/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "garak": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/NVIDIA/garak",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=1.9/5, MCP=1.7/5, lifecycle=0.6/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "google-model-armor": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://cloud.google.com/security/products/model-armor",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.4/5, MCP=3.0/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "guardian-ai": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.6/5, MCP=2.8/5, lifecycle=1.7/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "guardrails-ai": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/guardrails-ai/guardrails",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.2/5, MCP=1.8/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "hiddenlayer": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://hiddenlayer.com",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.5/5, MCP=3.2/5, lifecycle=3.9/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "hivetrace": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.2/5, MCP=2.1/5, lifecycle=1.7/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "human-security-ai": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.5/5, MCP=1.8/5, lifecycle=0.6/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "ibm-guardium-ai-security": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.2/5, MCP=3.0/5, lifecycle=2.8/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "lakera-guard": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://www.lakera.ai",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.1/5, MCP=2.7/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "lasso-security": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://lasso.security",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.5/5, MCP=3.1/5, lifecycle=2.8/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "llamafirewall": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "Original community catalog",
+        "claim": "Mapping based on Original community catalog.",
+        "url": "https://github.com/meta-llama/PurpleLlama",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.5/5, MCP=2.7/5, lifecycle=1/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "llm-guard": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/protectai/llm-guard",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.7/5, MCP=2.5/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "presidio": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/microsoft/presidio",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=1.1/5, MCP=1.1/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "mindgard": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://mindgard.ai",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.1/5, MCP=2.6/5, lifecycle=2.8/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "nemo-guardrails": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.1/5, MCP=2.5/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "noma-security": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://noma.security",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=4.5/5, MCP=4.2/5, lifecycle=4.4/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "nri-secure-ai": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.0/5, MCP=2.7/5, lifecycle=0.6/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "pangea-ai-guard": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.5/5, MCP=3.0/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "phoenix": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/Arize-ai/phoenix",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.2/5, MCP=1.6/5, lifecycle=1.7/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "pillar-security": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=4.7/5, MCP=4.2/5, lifecycle=5/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "prisma-airs": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://www.paloaltonetworks.com/prisma/airs",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=4.4/5, MCP=4.2/5, lifecycle=3.9/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "prompt-security": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.7/5, MCP=2.9/5, lifecycle=2.2/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "promptfoo": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/promptfoo/promptfoo",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.2/5, MCP=3.0/5, lifecycle=1.7/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "pyrit": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://github.com/Azure/PyRIT",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.8/5, MCP=2.5/5, lifecycle=1.1/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "securiti": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://securiti.ai",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.9/5, MCP=2.7/5, lifecycle=2.8/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "splx": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=4.3/5, MCP=4.3/5, lifecycle=3.3/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "striker": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.9/5, MCP=3.4/5, lifecycle=4.4/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "tenable-ai-security": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.2/5, MCP=3.4/5, lifecycle=1.1/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "trend-micro-ai-security": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.1/5, MCP=3.1/5, lifecycle=1.7/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "trojai": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=2.3/5, MCP=1.7/5, lifecycle=3.3/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "unbound-security-ai": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.2/5, MCP=2.5/5, lifecycle=0.6/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "wiz-ai-spm": [
+      {
+        "type": "vendor_or_community_mapping",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping",
+        "claim": "Mapping based on OWASP AI Security Solutions Landscape Q2 2026 lifecycle mapping.",
+        "url": "https://www.wiz.io/solutions/ai-security",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=3.1/5, MCP=2.8/5, lifecycle=3.3/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ],
+    "zenity": [
+      {
+        "type": "official_owasp_landscape",
+        "source": "OWASP AI Security Solutions Landscape Q2 2026",
+        "claim": "Tool appears in the OWASP AI Security Solutions Landscape Q2 2026 or is mapped from its lifecycle/ASI landscape context.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "supports": [
+          "agentic_owasp",
+          "lifecycle_stages",
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "medium_high"
+      },
+      {
+        "type": "scoring_rationale",
+        "source": "Catalog scoring methodology v0.5",
+        "claim": "Agentic=4.2/5, MCP=3.5/5, lifecycle=3.9/5 based on mapped ASI risks, lifecycle stages, deployment model, and capability categories.",
+        "url": "#methodology",
+        "supports": [
+          "scores"
+        ],
+        "last_verified": "2026-05-21",
+        "confidence": "heuristic"
+      }
+    ]
+  }
+}

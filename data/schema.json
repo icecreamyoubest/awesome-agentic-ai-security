@@ -2,49 +2,183 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Awesome Agentic AI Security Catalog Schema",
   "type": "object",
-  "required": ["meta", "tools"],
+  "required": [
+    "meta",
+    "tools"
+  ],
   "properties": {
     "meta": {
       "type": "object",
-      "required": ["title", "version", "updated", "dimensions", "personas", "frameworks", "agentic_owasp", "lifecycle_stages"],
+      "required": [
+        "title",
+        "version",
+        "updated",
+        "dimensions",
+        "personas",
+        "frameworks",
+        "agentic_owasp",
+        "lifecycle_stages"
+      ],
       "properties": {
-        "title": {"type": "string"},
-        "version": {"type": "string"},
-        "updated": {"type": "string"},
-        "dimensions": {"type": "object"},
-        "personas": {"type": "object"},
-        "frameworks": {"type": "array", "items": {"type": "string"}},
-        "agentic_owasp": {"type": "object"},
-        "lifecycle_stages": {"type": "object"}
+        "title": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "dimensions": {
+          "type": "object"
+        },
+        "personas": {
+          "type": "object"
+        },
+        "frameworks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "agentic_owasp": {
+          "type": "object"
+        },
+        "lifecycle_stages": {
+          "type": "object"
+        }
       }
     },
     "tools": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "org", "vendor_type", "category", "description", "frameworks", "deployment", "scores", "agentic_scores", "agentic_owasp", "mcp_scores", "lifecycle_stages", "source_basis", "evidence_level"],
+        "required": [
+          "id",
+          "name",
+          "org",
+          "vendor_type",
+          "category",
+          "description",
+          "frameworks",
+          "deployment",
+          "scores",
+          "agentic_scores",
+          "agentic_owasp",
+          "mcp_scores",
+          "lifecycle_stages",
+          "source_basis",
+          "evidence_level"
+        ],
         "properties": {
-          "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
-          "name": {"type": "string", "minLength": 1},
-          "org": {"type": "string"},
-          "vendor_type": {"type": "string"},
-          "license": {"type": "string"},
-          "category": {"type": "array", "items": {"type": "string"}},
-          "description": {"type": "string"},
-          "frameworks": {"type": "object"},
-          "owasp": {"type": "array", "items": {"type": "string"}},
-          "agentic_owasp": {"type": "array", "items": {"type": "string", "pattern": "^ASI(0[1-9]|10)$"}},
-          "lifecycle_stages": {"type": "array", "items": {"type": "string"}},
-          "deployment": {"type": "array", "items": {"type": "string"}},
-          "targets": {"type": "array", "items": {"type": "string"}},
-          "scores": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 5}},
-          "agentic_scores": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 5}},
-          "mcp_scores": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 5}},
-          "source_basis": {"type": "array", "items": {"type": "string"}},
-          "evidence_level": {"type": "string"},
-          "url": {"type": "string"},
-          "docs": {"type": "string"},
-          "maintainer_notes": {"type": "string"}
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "org": {
+            "type": "string"
+          },
+          "vendor_type": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "category": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "frameworks": {
+            "type": "object"
+          },
+          "owasp": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "agentic_owasp": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^ASI(0[1-9]|10)$"
+            }
+          },
+          "lifecycle_stages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "deployment": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "scores": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            }
+          },
+          "agentic_scores": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            }
+          },
+          "mcp_scores": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            }
+          },
+          "source_basis": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_level": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "docs": {
+            "type": "string"
+          },
+          "maintainer_notes": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
         }
       }
     }

@@ -1,5 +1,8 @@
 let catalog = { meta: {}, tools: [] };
-let controlsCatalog = { control_matrix: [], use_cases: [], mcp_benchmark: [], evidence_levels: {} };
+let controlsCatalog = { control_matrix: [], use_cases: [], mcp_benchmark: [], evidence_levels: {}, asi_lifecycle_matrix: [] };
+let evidenceCatalog = { meta: {}, tools: {} };
+let benchmarkCases = [];
+let selectedCompare = new Set();
 let currentView = "grid";
 
 const $ = (id) => document.getElementById(id);
@@ -148,6 +151,8 @@ function renderCards(items, persona) {
         </div>
         <div class="card-footer">
           <div class="links">
+            <button class="link-button" type="button" data-tool-detail="${escapeAttr(t.id)}">Details</button>
+            <label class="compare-toggle"><input type="checkbox" data-compare-id="${escapeAttr(t.id)}" ${selectedCompare.has(t.id) ? "checked" : ""}> Compare</label>
             ${t.url ? `<a href="${escapeAttr(t.url)}" target="_blank" rel="noopener">Site/GitHub ↗</a>` : ""}
             ${t.docs && t.docs !== t.url ? `<a href="${escapeAttr(t.docs)}" target="_blank" rel="noopener">Docs ↗</a>` : ""}
           </div>
@@ -156,6 +161,7 @@ function renderCards(items, persona) {
       </article>
     `;
   }).join("");
+  bindToolCardActions();
 }
 
 function scoreRow(label, value) {
@@ -264,6 +270,144 @@ function renderEvidenceModel() {
   el.innerHTML = Object.entries(controlsCatalog.evidence_levels || {}).map(([k,v]) => `
     <div class="dimension"><strong>${escapeHtml(titleCase(k))}</strong><span>${escapeHtml(v)}</span></div>
   `).join("");
+}
+
+
+function bindToolCardActions() {
+  document.querySelectorAll("[data-tool-detail]").forEach(btn => {
+    btn.addEventListener("click", () => openToolDetail(btn.getAttribute("data-tool-detail")));
+  });
+  document.querySelectorAll("[data-compare-id]").forEach(cb => {
+    cb.addEventListener("change", () => toggleCompare(cb.getAttribute("data-compare-id"), cb.checked, cb));
+  });
+}
+
+function toggleCompare(id, checked, checkboxEl) {
+  if (checked) {
+    if (selectedCompare.size >= 4 && !selectedCompare.has(id)) {
+      checkboxEl.checked = false;
+      alert("Compare mode supports up to 4 tools.");
+      return;
+    }
+    selectedCompare.add(id);
+  } else {
+    selectedCompare.delete(id);
+  }
+  renderCompare();
+}
+
+function openToolDetail(id) {
+  const tool = catalog.tools.find(t => t.id === id);
+  if (!tool) return;
+  const risks = catalog.meta.agentic_owasp || {};
+  const stages = catalog.meta.lifecycle_stages || {};
+  const evidence = evidenceCatalog.tools?.[id] || tool.evidence || [];
+  const topPersonas = Object.keys(catalog.meta.personas || {})
+    .map(p => [p, scoreForPersona(tool, p)])
+    .sort((a,b)=>b[1]-a[1]).slice(0,3);
+  const scores = tool.scores || {};
+  $("toolModalContent").innerHTML = `
+    <div class="modal-title-row">
+      <div class="logo big">${iconFor(tool)}</div>
+      <div>
+        <h2 id="toolModalTitle">${escapeHtml(tool.name)}</h2>
+        <p>${escapeHtml(tool.org)} · ${escapeHtml(titleCase(tool.vendor_type))} · ${escapeHtml(tool.license || "")}</p>
+      </div>
+    </div>
+    <p class="modal-desc">${escapeHtml(tool.description)}</p>
+    <div class="detail-grid">
+      <div class="detail-box"><strong>Scores</strong>${scoreRow("Agentic", scores.agentic_readiness)}${scoreRow("MCP", scores.mcp_security)}${scoreRow("Lifecycle", scores.lifecycle_coverage)}${scoreRow("Runtime", scores.runtime)}${scoreRow("Red-team", scores.red_team)}</div>
+      <div class="detail-box"><strong>Best-fit personas</strong><div class="risk-tools">${topPersonas.map(([p,s])=>`<span>${escapeHtml(p)} · ${s}/100</span>`).join("")}</div></div>
+      <div class="detail-box"><strong>ASI coverage</strong><div class="risk-tools">${(tool.agentic_owasp||[]).map(c=>`<span title="${escapeAttr(risks[c]||"")}">${escapeHtml(c)} · ${escapeHtml(risks[c]||"")}</span>`).join("") || "—"}</div></div>
+      <div class="detail-box"><strong>Lifecycle coverage</strong><div class="risk-tools">${(tool.lifecycle_stages||[]).map(c=>`<span>${escapeHtml(stages[c]||c)}</span>`).join("") || "—"}</div></div>
+      <div class="detail-box"><strong>Framework support</strong><div class="risk-tools">${Object.entries(tool.frameworks||{}).map(([k,v])=>`<span>${escapeHtml(k)} · ${escapeHtml(v)}</span>`).join("") || "—"}</div></div>
+      <div class="detail-box"><strong>Deployment</strong><div class="risk-tools">${(tool.deployment||[]).map(x=>`<span>${escapeHtml(titleCase(x))}</span>`).join("") || "—"}</div></div>
+    </div>
+    <h3>Evidence</h3>
+    <div class="evidence-list compact">${evidence.map(evidenceItemHtml).join("") || "<p>No evidence records yet.</p>"}</div>
+    <h3>Maintainer notes</h3>
+    <p>${escapeHtml(tool.maintainer_notes || "No notes yet.")}</p>
+  `;
+  $("toolModal").classList.remove("hidden");
+}
+
+function closeToolModal() { $("toolModal")?.classList.add("hidden"); }
+
+function renderCompare() {
+  const wrap = $("compareWrap");
+  const hint = $("compareHint");
+  if (!wrap || !hint) return;
+  const tools = [...selectedCompare].map(id => catalog.tools.find(t=>t.id===id)).filter(Boolean);
+  if (!tools.length) {
+    hint.textContent = "No tools selected yet. Use the Compare checkbox on a tool card.";
+    wrap.classList.add("hidden");
+    return;
+  }
+  hint.textContent = `${tools.length}/4 selected. Compare mode is intentionally lightweight; use evidence records before procurement decisions.`;
+  wrap.classList.remove("hidden");
+  $("compareHead").innerHTML = `<tr><th>Dimension</th>${tools.map(t=>`<th>${escapeHtml(t.name)}<br><span class="small">${escapeHtml(t.org)}</span></th>`).join("")}</tr>`;
+  const rows = [
+    ["Vendor type", t=>titleCase(t.vendor_type)],
+    ["Deployment", t=>(t.deployment||[]).map(titleCase).join(", ")],
+    ["Agentic readiness", t=>`${score100(t.scores?.agentic_readiness)}/100`],
+    ["MCP security", t=>`${score100(t.scores?.mcp_security)}/100`],
+    ["Lifecycle coverage", t=>`${score100(t.scores?.lifecycle_coverage)}/100`],
+    ["Runtime", t=>`${t.scores?.runtime || 0}/5`],
+    ["Red-team", t=>`${t.scores?.red_team || 0}/5`],
+    ["Enterprise", t=>`${t.scores?.enterprise || 0}/5`],
+    ["Self-host", t=>`${t.scores?.self_host || 0}/5`],
+    ["ASI risks", t=>(t.agentic_owasp||[]).join(", ")],
+    ["Lifecycle stages", t=>(t.lifecycle_stages||[]).map(c=>catalog.meta.lifecycle_stages?.[c]||c).join(", ")],
+    ["Evidence", t=>(evidenceCatalog.tools?.[t.id]||t.evidence||[]).map(e=>titleCase(e.type)).slice(0,3).join(", ")],
+    ["Best-fit personas", t=>Object.keys(catalog.meta.personas||{}).map(p=>[p,scoreForPersona(t,p)]).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([p,s])=>`${p} ${s}`).join(", ")]
+  ];
+  $("compareBody").innerHTML = rows.map(([label,fn]) => `<tr><td><strong>${escapeHtml(label)}</strong></td>${tools.map(t=>`<td>${escapeHtml(fn(t) || "—")}</td>`).join("")}</tr>`).join("");
+}
+
+function renderEvidenceHub() {
+  const typeFilter = $("evidenceTypeFilter");
+  const input = $("evidenceSearch");
+  if (!typeFilter || !input) return;
+  const all = [];
+  for (const t of catalog.tools) {
+    const evs = evidenceCatalog.tools?.[t.id] || t.evidence || [];
+    evs.forEach(ev => all.push({tool:t, ev}));
+  }
+  const types = unique(all.map(x=>x.ev.type));
+  fillSelect(typeFilter, types, "All evidence types", titleCase);
+  const renderList = () => {
+    const q = input.value.trim().toLowerCase();
+    const typ = typeFilter.value;
+    const filtered = all.filter(({tool,ev}) => {
+      const hay = [tool.name, tool.org, ...(tool.agentic_owasp||[]), ...(tool.lifecycle_stages||[]), ev.type, ev.source, ev.claim, ev.confidence].join(" ").toLowerCase();
+      return (!q || hay.includes(q)) && (!typ || ev.type === typ);
+    }).slice(0,120);
+    $("evidenceList").innerHTML = filtered.map(({tool,ev}) => evidenceItemHtml(ev, tool)).join("") || "<p>No matching evidence records.</p>";
+  };
+  input.addEventListener("input", renderList);
+  typeFilter.addEventListener("input", renderList);
+  renderList();
+}
+
+function evidenceItemHtml(ev, tool=null) {
+  return `<div class="evidence-item">
+    <div><strong>${tool ? escapeHtml(tool.name) + " · " : ""}${escapeHtml(titleCase(ev.type || "evidence"))}</strong><span>${escapeHtml(ev.confidence || "")}</span></div>
+    <p>${escapeHtml(ev.claim || "")}</p>
+    <small>${escapeHtml(ev.source || "")}${ev.last_verified ? " · verified " + escapeHtml(ev.last_verified) : ""}${ev.url ? ` · <a href="${escapeAttr(ev.url)}" target="_blank" rel="noopener">source ↗</a>` : ""}</small>
+  </div>`;
+}
+
+function renderAsiLifecycleMatrix() {
+  const head = $("asiLifecycleHead");
+  const body = $("asiLifecycleBody");
+  if (!head || !body) return;
+  const stages = Object.entries(catalog.meta.lifecycle_stages || {});
+  const keyStages = stages.filter(([code]) => ["scope_plan","augment_finetune_data","develop_experiment","test_evaluate","release","deploy","operate","monitor","govern"].includes(code));
+  head.innerHTML = `<tr><th>ASI Risk</th>${keyStages.map(([c,n])=>`<th title="${escapeAttr(n)}">${escapeHtml(shortStage(n))}</th>`).join("")}</tr>`;
+  body.innerHTML = (controlsCatalog.asi_lifecycle_matrix || []).map(row => `<tr>
+    <td><strong>${escapeHtml(row.asi)}</strong><br><span class="small">${escapeHtml(row.risk || "")}</span></td>
+    ${keyStages.map(([c,n]) => `<td>${row.cells?.[c] ? `<span class="cell-control">${escapeHtml(row.cells[c])}</span>` : "—"}</td>`).join("")}
+  </tr>`).join("");
 }
 
 function renderMatrix() {
@@ -391,6 +535,9 @@ function bindEvents() {
   });
   $("gridView").addEventListener("click", () => setView("grid"));
   $("tableView").addEventListener("click", () => setView("table"));
+  $("clearCompare")?.addEventListener("click", () => { selectedCompare.clear(); render(); renderCompare(); });
+  document.querySelectorAll("[data-close-modal]").forEach(el => el.addEventListener("click", closeToolModal));
+  document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") closeToolModal(); });
 }
 
 function setView(view) {
@@ -403,12 +550,14 @@ function setView(view) {
 
 async function init() {
   try {
-    const [res, controlsRes] = await Promise.all([
+    const [res, controlsRes, evidenceRes] = await Promise.all([
       fetch("./data/tools.json", { cache: "no-store" }),
-      fetch("./data/controls.json", { cache: "no-store" })
+      fetch("./data/controls.json", { cache: "no-store" }),
+      fetch("./data/evidence.json", { cache: "no-store" })
     ]);
     catalog = await res.json();
     controlsCatalog = await controlsRes.json();
+    evidenceCatalog = await evidenceRes.json();
     $("statTools").textContent = catalog.tools.length;
     $("statCategories").textContent = catalog.meta.categories.length;
     $("statFrameworks").textContent = catalog.meta.frameworks.length;
@@ -427,6 +576,9 @@ async function init() {
     renderMcpBenchmark();
     renderEvidenceModel();
     renderScoreModels();
+    renderAsiLifecycleMatrix();
+    renderCompare();
+    renderEvidenceHub();
   } catch (err) {
     document.body.insertAdjacentHTML("afterbegin", `<div class="note"><strong>Failed to load catalog:</strong> ${escapeHtml(err.message)}</div>`);
     console.error(err);
