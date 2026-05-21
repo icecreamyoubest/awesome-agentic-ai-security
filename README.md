@@ -8,175 +8,97 @@ pinned: false
 license: mit
 ---
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Agentic%20AI-Security-red?style=for-the-badge" alt="Agentic AI Security" />
-  <img src="https://img.shields.io/badge/MCP-Security-orange?style=for-the-badge" alt="MCP Security" />
-  <img src="https://img.shields.io/badge/OWASP-GenAI%20Mapping-blue?style=for-the-badge" alt="OWASP GenAI Mapping" />
-</p>
+# Awesome Agentic AI Security
 
-<h1 align="center">Awesome Agentic AI Security</h1>
+A static, data-driven catalog for comparing **AI security, LLM security, agentic security, MCP security, guardrails, red-team, AI-SPM, observability, data security, and governance tools**.
 
-<p align="center">
-  A static, data-driven product catalog for comparing AI security, LLM security, agentic security, MCP security, guardrails, red-team, AI-SPM, observability, data security, and governance tools.
-</p>
+This project is designed to run as a **Hugging Face Static Space**. It uses plain HTML, CSS, JavaScript, and a maintainable `data/tools.json` file.
 
-<p align="center">
-  <a href="https://huggingface.co/spaces/Coraaaa/awesome-agentic-ai-security">
-    <img src="https://img.shields.io/badge/🤗%20Open%20in-Hugging%20Face%20Spaces-yellow?style=for-the-badge" alt="Open in Hugging Face Spaces" />
-  </a>
-  <a href="./LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="MIT License" />
-  </a>
-  <a href="./CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge" alt="Contributions Welcome" />
-  </a>
-</p>
 
----
+## v0.8 additions
 
-## Overview
+- Added **Grounded LLM Q&A Agent** under `agents/grounded_qa_agent.py`.
+- Added a generated `data/source_index.json` so answers can cite stable source IDs and links instead of relying on free-form model memory.
+- Added retrieval-first Q&A: the agent retrieves catalog/tool/evidence/control/incident/benchmark/reference-architecture records before calling an optional LLM.
+- Added citation validation: answers must cite retrieved source IDs such as `[S001]`; otherwise the CLI flags unsupported output and can fall back to extractive answers.
+- Added optional OpenAI-compatible chat-completions integration through environment variables, while keeping the default mode fully offline and deterministic.
 
-**Awesome Agentic AI Security** is a lightweight web catalog for security architects, AI platform teams, red-team engineers, and governance owners who need to evaluate the rapidly growing AI security tooling landscape.
+Build the source index:
 
-The project runs as a **Hugging Face Static Space** and uses only:
-
-- `index.html`
-- `styles.css`
-- `app.js`
-- JSON data files under `data/`
-- optional benchmark files under `benchmarks/`
-
-The product is intentionally static-first: no backend, no database, no server-side dependency, and easy to mirror into GitLab Pages, GitHub Pages, Hugging Face Spaces, or an internal security portal.
-
----
-
-## Live Demo
-
-| Entry point | Link |
-|---|---|
-| Hugging Face Space | [![Open in Hugging Face Spaces](https://img.shields.io/badge/🤗%20Launch-Space-yellow)](https://huggingface.co/spaces/Coraaaa/awesome-agentic-ai-security) |
-| Local preview | `python -m http.server 7860` |
-| Main app file | [`index.html`](./index.html) |
-| Catalog data | [`data/tools.json`](./data/tools.json) |
-| Benchmark data | [`benchmarks/mcp_security_benchmark_v01.jsonl`](./benchmarks/mcp_security_benchmark_v01.jsonl) |
-
----
-
-## Product Value
-
-This catalog helps teams answer practical architecture and procurement questions:
-
-| Question | Supported view |
-|---|---|
-| Which tools cover agentic security risks? | ASI / Agentic OWASP mapping |
-| Which tools are suitable for MCP security? | MCP security score and benchmark scaffold |
-| Which tools support runtime guardrails? | Runtime and deployment filters |
-| Which tools are better for red-team evaluation? | Red-team and benchmark-oriented dimensions |
-| Which tools are enterprise-ready? | Compliance, observability, deployment, evidence, and maturity fields |
-| Which controls map to AI lifecycle stages? | Lifecycle coverage and ASI × Lifecycle matrix |
-
----
-
-## Key Features
-
-### Catalog and Filtering
-
-- 45-tool AI security catalog.
-- Category filtering for guardrails, red-team, AI-SPM, MCP, RAG/memory security, observability, and governance.
-- Lifecycle-stage filtering across develop, test, deploy, and operate phases.
-- Framework mapping for LangChain/LangGraph, MCP, and other agentic runtimes.
-- Deployment filters for cloud, self-hosted, and enterprise environments.
-
-### Scoring and Comparison
-
-- Lifecycle Coverage Score.
-- Agentic Readiness Score.
-- MCP Security Score.
-- Supply-chain risk dimension.
-- Compare mode for up to four tools.
-- Evidence Confidence Score for transparent evaluation.
-
-### Agentic Security Mapping
-
-- OWASP Top 10 for Agentic Applications 2026 alignment.
-- Agentic Security Initiative risk mapping.
-- ASI Risk → Control → Tool matrix.
-- ASI × Lifecycle architecture review matrix.
-- ASI Coverage Depth from `0` to `3`.
-
-### Evidence Hub
-
-- Per-tool evidence records in `data/evidence.json`.
-- Evidence-level labels for confidence tracking.
-- Source-basis field for maintainability.
-- Conservative scoring model to avoid overclaiming vendor capability.
-
-### MCP Security Benchmark
-
-The project includes a benchmark scaffold for MCP security review, covering test areas such as:
-
-- descriptor poisoning
-- OAuth response poisoning
-- tool permission overreach
-- sandbox escape
-- remote code execution
-- tool-output injection
-- cross-agent trust abuse
-
----
-
-## Target Users
-
-| User | Main use case |
-|---|---|
-| AI security architect | Build an enterprise AI security reference architecture |
-| Platform security team | Compare runtime guardrail and observability tools |
-| Red-team engineer | Identify tooling for adversarial testing and benchmark execution |
-| AI governance owner | Map tools to lifecycle controls and evidence levels |
-| MCP / agent framework builder | Validate tool permissioning, sandboxing, and auditability |
-| Procurement / vendor review team | Shortlist tools before POC and architecture review |
-
----
-
-## Product Architecture
-
-```text
-┌────────────────────────────────────────────────────────────────┐
-│                        Static Web UI                            │
-│                  index.html + styles.css + app.js               │
-└───────────────────────────────┬────────────────────────────────┘
-                                │
-                                ▼
-┌────────────────────────────────────────────────────────────────┐
-│                         Data Layer                              │
-│  data/tools.json                                                │
-│  data/evidence.json                                             │
-│  data/controls.json                                             │
-│  data/incidents.json                                            │
-│  data/reference_architectures.json                              │
-│  data/schema.json                                               │
-└───────────────────────────────┬────────────────────────────────┘
-                                │
-                                ▼
-┌────────────────────────────────────────────────────────────────┐
-│                     Validation and Benchmark                    │
-│  scripts/validate_catalog.py                                    │
-│  benchmarks/mcp_security_benchmark_v01.jsonl                    │
-│  benchmarks/runner/run_benchmark.py                             │
-└───────────────────────────────┬────────────────────────────────┘
-                                │
-                                ▼
-┌────────────────────────────────────────────────────────────────┐
-│                         Deployment                              │
-│  Hugging Face Static Space                                      │
-│  GitLab Pages / GitHub Pages                                    │
-│  Internal static hosting                                        │
-└────────────────────────────────────────────────────────────────┘
+```bash
+python agents/build_source_index.py --output data/source_index.json
 ```
 
----
+Ask a grounded question without an LLM:
 
-## Repository Structure
+```bash
+python agents/grounded_qa_agent.py \
+  --question "Which tools should I evaluate for MCP runtime security and ASI02 tool misuse?" \
+  --provider none \
+  --output outputs/qa_sample_answer.md
+```
+
+Ask with an OpenAI-compatible LLM endpoint:
+
+```bash
+export OPENAI_API_KEY="..."
+python agents/grounded_qa_agent.py \
+  --question "Design a validation plan for a LangGraph + MCP + RAG customer support agent" \
+  --provider openai-compatible \
+  --model gpt-4o-mini \
+  --output outputs/qa_llm_answer.md
+```
+
+Grounding rule: the LLM receives only retrieved indexed records and is instructed to cite source IDs. If the index does not contain enough evidence, the agent must say so instead of inventing unsupported claims.
+
+## v0.7 additions
+
+- Added **Solution & Tool Validation Agent** under `agents/`.
+- Added deterministic scenario parsing, ASI risk mapping, tool recommendation, evidence validation, benchmark planning, and Markdown report generation.
+- Added 3 reusable example scenarios under `examples/`: MCP + RAG customer support, secure coding agent sandbox, and multi-agent finance workflow.
+- Added sample generated reports under `outputs/`.
+- Extended validation to check scenario files.
+- Kept scoring rule-based so LLMs can be added later only for optional explanation or requirement extraction.
+
+Run the agent:
+
+```bash
+python agents/solution_validator_agent.py \
+  --scenario examples/mcp_rag_agent_scenario.json \
+  --output outputs/mcp_rag_agent_solution_report.md \
+  --json-output outputs/mcp_rag_agent_solution_report.json
+```
+
+## v0.6 additions
+
+- Aligned ASI labels with **OWASP Top 10 for Agentic Applications 2026**.
+- Added **OWASP AI Security Solutions Landscape Q2 2026** lifecycle mapping.
+- Added `lifecycle_stages` and a Lifecycle stage filter.
+- Added **Lifecycle Coverage Score**.
+- Expanded the catalog from 27 to 45 tools using conservative OWASP-landscape-informed entries.
+- Added `source_basis` and `evidence_level` fields for maintainability.
+- Added `supply_chain` as a scoring dimension.
+- Added **Agentic SecOps Lead** persona.
+- Added evidence-level model for transparent confidence tracking.
+- Added ASI Risk → Control → Tool matrix.
+- Added lifecycle coverage heatmap.
+- Added use-case decision view for MCP, red-team, production protection, enterprise governance, multi-agent monitoring, coding agents, and RAG/memory security.
+- Added MCP Security Benchmark v0.1 test-plan scaffold in `data/controls.json`.
+- Added `data/schema.json`, `CONTRIBUTING.md`, and GitHub Actions validation workflow.
+
+## References and attribution
+
+This catalog references public OWASP GenAI Security Project materials, including:
+
+- OWASP AI Security Solutions Landscape Q2 2026: https://genai.owasp.org/ai-security-solutions-landscape/
+- OWASP Top 10 for Agentic Applications 2026: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+- OWASP Agentic Security Initiative: https://genai.owasp.org/initiatives/agentic-security-initiative/
+- OWASP GenAI Security Project: https://genai.owasp.org/
+- OWASP Top 10 for LLM Applications: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+
+OWASP materials are licensed by OWASP under Creative Commons terms as stated in their documents. This repository is a community-maintained derived catalog and does **not** imply OWASP endorsement or vendor certification.
+
+## Project structure
 
 ```text
 .
@@ -186,61 +108,36 @@ The project includes a benchmark scaffold for MCP security review, covering test
 ├── styles.css
 ├── app.js
 ├── CONTRIBUTING.md
-├── .github/
-│   └── workflows/
-│       ├── validate-catalog.yml
-│       └── sync-to-huggingface.yml
+├── agents/
+│   ├── solution_validator_agent.py
+│   ├── risk_mapper.py
+│   ├── tool_recommender.py
+│   ├── evidence_validator.py
+│   ├── benchmark_planner.py
+│   ├── report_writer.py
+│   └── schemas.py
+├── examples/
+│   ├── mcp_rag_agent_scenario.json
+│   ├── coding_agent_scenario.json
+│   └── multi_agent_finance_scenario.json
+├── outputs/
+│   ├── mcp_rag_agent_solution_report.md
+│   ├── coding_agent_solution_report.md
+│   └── multi_agent_finance_solution_report.md
 ├── benchmarks/
-│   ├── mcp_security_benchmark_v01.jsonl
-│   └── runner/
-│       └── run_benchmark.py
-├── data/
-│   ├── tools.json
-│   ├── evidence.json
-│   ├── controls.json
-│   ├── incidents.json
-│   ├── reference_architectures.json
-│   └── schema.json
-└── scripts/
-    └── validate_catalog.py
+├── .github/workflows/validate-catalog.yml
+└── data/
+    ├── tools.json
+    ├── controls.json
+    ├── evidence.json
+    ├── incidents.json
+    ├── reference_architectures.json
+    └── schema.json
 ```
 
----
+## Data model
 
-## Quick Start
-
-### 1. Clone the repository
-
-```bash
-git clone <your-repository-url>
-cd awesome-agentic-ai-security
-```
-
-### 2. Validate the catalog data
-
-```bash
-python -m json.tool data/tools.json > /tmp/tools.validated.json
-python -m json.tool data/controls.json > /tmp/controls.validated.json
-python scripts/validate_catalog.py
-```
-
-### 3. Run the static site locally
-
-```bash
-python -m http.server 7860
-```
-
-Open:
-
-```text
-http://localhost:7860
-```
-
----
-
-## Data Model
-
-Each tool entry in `data/tools.json` follows a transparent, reviewable schema.
+Each tool in `data/tools.json` can include:
 
 ```json
 {
@@ -297,163 +194,154 @@ Each tool entry in `data/tools.json` follows a transparent, reviewable schema.
     "supply_chain": 3
   },
   "source_basis": ["OWASP AI Security Solutions Landscape Q2 2026"],
-  "evidence_level": "official_vendor_docs",
+  "evidence_level": "OWASP landscape / vendor-public mapping",
   "url": "https://example.com",
   "docs": "https://docs.example.com",
   "maintainer_notes": "Use conservative scoring unless integration evidence is available."
 }
 ```
 
----
+## Scoring guidance
 
-## Scoring Guidance
+All raw dimensions use a 1–5 scale:
 
-All raw dimensions use a `1–5` scale.
+- 1 = weak, indirect, or not a primary use case
+- 3 = usable, partial, or integration-dependent
+- 5 = strong/default candidate with clear evidence
 
-| Score | Meaning |
-|---:|---|
-| 1 | Weak, indirect, experimental, or not a primary use case |
-| 2 | Limited coverage or unclear production fit |
-| 3 | Usable, partial, or integration-dependent |
-| 4 | Strong coverage with public evidence |
-| 5 | Default candidate with clear technical or operational evidence |
+Scores are heuristic and community-maintained. They are meant to help shortlist tools for POCs, not certify vendors.
 
-Scores are heuristic and community-maintained. They are designed to support shortlisting and architecture review, not vendor certification.
+## Local validation
 
----
+```bash
+python -m json.tool data/tools.json > /tmp/tools.validated.json
+python -m json.tool data/controls.json > /tmp/controls.validated.json
+python scripts/validate_catalog.py  # when using the GitHub workflow helper
+python -m http.server 7860
+```
 
-## Evidence Levels
+Then open `http://localhost:7860`.
 
-Use these labels when updating or reviewing entries:
+## Deploy to Hugging Face Spaces
 
-| Evidence level | Meaning |
-|---|---|
-| `official_owasp_landscape` | Appears in OWASP AI Security Solutions Landscape or ASI taxonomy-support material |
-| `official_vendor_docs` | Explicit public vendor or project documentation |
-| `community_verified` | Reproducible community verification through PR notes |
-| `benchmark_backed` | Reproducible benchmark or test evidence |
-| `inferred_mapping` | Reasonable inference from public capabilities; needs validation |
+1. Create a new Hugging Face Space.
+2. Select **Static** as the SDK.
+3. Upload the files in this repository.
+4. The Space will serve `index.html` automatically.
 
----
+## Disclaimer
 
-## MCP Benchmark Runner
+This is a community-maintained shortlist and scoring aid, not a certification or procurement decision. Verify vendor claims, product status, licenses, data handling, deployment topology, and integration depth before relying on any tool in production.
+
+
+## Evidence levels
+
+Use the following confidence labels when updating entries:
+
+- `official_owasp_landscape`: appears in OWASP AI Security Solutions Landscape or ASI taxonomy-support material.
+- `official_vendor_docs`: explicit public vendor/project documentation.
+- `community_verified`: reproducible community verification through PR notes.
+- `benchmark_backed`: reproducible test or benchmark evidence.
+- `inferred_mapping`: reasonable inference from public capabilities; needs validation.
+
+## v0.6 roadmap notes
+
+The current MCP benchmark is a manual test-plan scaffold. Future versions should add executable test harnesses for descriptor poisoning, OAuth response poisoning, tool permission overreach, sandbox escape, RCE, tool-output injection, and cross-agent trust abuse.
+
+
+
+## v0.8 additions
+
+- Added **Grounded LLM Q&A Agent** under `agents/grounded_qa_agent.py`.
+- Added a generated `data/source_index.json` so answers can cite stable source IDs and links instead of relying on free-form model memory.
+- Added retrieval-first Q&A: the agent retrieves catalog/tool/evidence/control/incident/benchmark/reference-architecture records before calling an optional LLM.
+- Added citation validation: answers must cite retrieved source IDs such as `[S001]`; otherwise the CLI flags unsupported output and can fall back to extractive answers.
+- Added optional OpenAI-compatible chat-completions integration through environment variables, while keeping the default mode fully offline and deterministic.
+
+Build the source index:
+
+```bash
+python agents/build_source_index.py --output data/source_index.json
+```
+
+Ask a grounded question without an LLM:
+
+```bash
+python agents/grounded_qa_agent.py \
+  --question "Which tools should I evaluate for MCP runtime security and ASI02 tool misuse?" \
+  --provider none \
+  --output outputs/qa_sample_answer.md
+```
+
+Ask with an OpenAI-compatible LLM endpoint:
+
+```bash
+export OPENAI_API_KEY="..."
+python agents/grounded_qa_agent.py \
+  --question "Design a validation plan for a LangGraph + MCP + RAG customer support agent" \
+  --provider openai-compatible \
+  --model gpt-4o-mini \
+  --output outputs/qa_llm_answer.md
+```
+
+Grounding rule: the LLM receives only retrieved indexed records and is instructed to cite source IDs. If the index does not contain enough evidence, the agent must say so instead of inventing unsupported claims.
+
+## v0.7 additions
+
+- Added **Solution & Tool Validation Agent** under `agents/`.
+- Added deterministic scenario parsing, ASI risk mapping, tool recommendation, evidence validation, benchmark planning, and Markdown report generation.
+- Added 3 reusable example scenarios under `examples/`: MCP + RAG customer support, secure coding agent sandbox, and multi-agent finance workflow.
+- Added sample generated reports under `outputs/`.
+- Extended validation to check scenario files.
+- Kept scoring rule-based so LLMs can be added later only for optional explanation or requirement extraction.
+
+Run the agent:
+
+```bash
+python agents/solution_validator_agent.py \
+  --scenario examples/mcp_rag_agent_scenario.json \
+  --output outputs/mcp_rag_agent_solution_report.md \
+  --json-output outputs/mcp_rag_agent_solution_report.json
+```
+
+## v0.6 additions
+
+- Evidence Hub with `data/evidence.json` and per-tool evidence records.
+- Tool detail modal with ASI coverage, lifecycle coverage, scores, framework support, and evidence.
+- Compare mode for up to four tools.
+- ASI × Lifecycle control matrix for architecture review.
+- MCP Security Benchmark v0.1 in both JSON and JSONL formats under `benchmarks/`.
+- GitHub Action template to sync this static site to a Hugging Face Space.
+
+## GitHub to Hugging Face sync
+
+Create repository secrets:
+
+- `HF_TOKEN`: Hugging Face write token
+- `HF_SPACE`: `Coraaaa/awesome-agentic-ai-security` or your target `username/space-name`
+
+Then enable `.github/workflows/sync-to-huggingface.yml`.
+
+
+## v0.6: Benchmark and Evidence Hub upgrades
+
+v0.6 adds:
+
+- Executable MCP Security Benchmark Runner under `benchmarks/runner/`
+- Evidence Confidence Score for every tool
+- ASI Coverage Depth (`0–3`) per mapped ASI risk
+- Reference architectures in `data/reference_architectures.json`
+- Incident → ASI → Benchmark mapping in `data/incidents.json`
+- Static tool submission JSON generator in the Space UI
 
 Run the benchmark runner locally:
 
 ```bash
-python benchmarks/runner/run_benchmark.py \
-  --suite benchmarks/mcp_security_benchmark_v01.jsonl \
-  --mode mock \
-  --output benchmarks/results/example_report.json
+python benchmarks/runner/run_benchmark.py   --suite benchmarks/mcp_security_benchmark_v01.jsonl   --mode mock   --output benchmarks/results/example_report.json
 ```
 
-Recommended future benchmark extensions:
+Validate the catalog:
 
-- real MCP server adapter
-- tool descriptor poisoning tests
-- OAuth callback and response poisoning tests
-- tool-output injection tests
-- sandbox boundary tests
-- cross-agent delegation and trust-abuse tests
-- signed tool manifest verification
-
----
-
-## Deploy to Hugging Face Spaces
-
-This repository is compatible with Hugging Face Static Spaces.
-
-### Required Space configuration
-
-```yaml
-sdk: static
-license: mit
+```bash
+python scripts/validate_catalog.py
 ```
-
-### Manual deployment
-
-1. Create a new Hugging Face Space.
-2. Select **Static** as the SDK.
-3. Upload the repository files.
-4. Hugging Face serves `index.html` automatically.
-
-### GitHub / GitLab to Hugging Face sync
-
-Create the following repository secrets:
-
-| Secret | Example |
-|---|---|
-| `HF_TOKEN` | Hugging Face write token |
-| `HF_SPACE` | `Coraaaa/awesome-agentic-ai-security` |
-
-Then enable the sync workflow:
-
-```text
-.github/workflows/sync-to-huggingface.yml
-```
-
----
-
-## GitLab Pages Deployment
-
-For GitLab Pages, add a `.gitlab-ci.yml` file:
-
-```yaml
-pages:
-  stage: deploy
-  script:
-    - mkdir -p public
-    - cp -r index.html styles.css app.js data benchmarks public/
-    - cp README.md LICENSE CONTRIBUTING.md public/ || true
-  artifacts:
-    paths:
-      - public
-  only:
-    - main
-```
-
-After the pipeline succeeds, GitLab will publish the static site from the `public/` directory.
-
----
-
-## Roadmap
-
-| Version | Focus |
-|---|---|
-| v0.6 | Evidence Hub, compare mode, lifecycle coverage, MCP benchmark scaffold |
-| v0.7 | Executable MCP adapters and benchmark result viewer |
-| v0.8 | Enterprise reference architecture templates and control export |
-| v0.9 | Vendor submission workflow and signed evidence records |
-| v1.0 | Stable public catalog with reproducible scoring and benchmark reports |
-
----
-
-## Contribution Guide
-
-Contributions should follow three rules:
-
-1. **Do not overclaim vendor capability.** Use conservative scoring unless there is public documentation or reproducible evidence.
-2. **Always include evidence.** Add `source_basis`, `evidence_level`, and notes for non-obvious mappings.
-3. **Keep the catalog architecture-review friendly.** Prefer structured fields over long prose.
-
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for contribution details.
-
----
-
-## References and Attribution
-
-This catalog references public OWASP GenAI Security Project materials, including:
-
-- [OWASP AI Security Solutions Landscape Q2 2026](https://genai.owasp.org/ai-security-solutions-landscape/)
-- [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
-- [OWASP Agentic Security Initiative](https://genai.owasp.org/initiatives/agentic-security-initiative/)
-- [OWASP GenAI Security Project](https://genai.owasp.org/)
-- [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
-
-OWASP materials are licensed by OWASP under Creative Commons terms as stated in their documents. This repository is a community-maintained derived catalog and does **not** imply OWASP endorsement or vendor certification.
-
----
-
-## Disclaimer
-
-This is a community-maintained shortlist and scoring aid, not a certification, compliance attestation, or procurement decision. Before using any tool in production, verify vendor claims, product status, license terms, data handling, deployment topology, evidence quality, and integration depth.

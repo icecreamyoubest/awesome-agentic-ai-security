@@ -1,0 +1,15 @@
+{
+  "name": "MCP + RAG Customer Support Agent",
+  "description": "Enterprise customer support agent built with LangGraph. It uses MCP tools for CRM lookup, refund initiation, email sending, and ticket updates. It also uses a vector database for long-term support memory and retrieves external knowledge-base pages.",
+  "frameworks": ["LangChain/LangGraph", "MCP"],
+  "architecture": ["rag", "vector_db", "long_term_memory", "mcp", "tool_use", "external_api", "autonomous_workflow"],
+  "lifecycle_stage": ["develop_experiment", "test_evaluate", "deploy", "operate", "monitor"],
+  "risk_focus": ["ASI01", "ASI02", "ASI03", "ASI04", "ASI06", "ASI07"],
+  "constraints": {
+    "self_host": true,
+    "enterprise_ready": true,
+    "open_source_preferred": false
+  },
+  "external_integrations": ["CRM", "Email", "Ticketing", "Knowledge Base"],
+  "high_impact_actions": ["refund", "email_send", "ticket_status_change"]
+}

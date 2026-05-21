@@ -24,6 +24,11 @@ def main():
     incidents = load("data/incidents.json")
     arch = load("data/reference_architectures.json")
     bench_json = load("benchmarks/mcp_security_benchmark_v01.json")
+    source_index = load("data/source_index.json")
+    scenarios = []
+    examples_dir = ROOT / "examples"
+    if examples_dir.exists():
+        scenarios = sorted(examples_dir.glob("*_scenario.json"))
 
     ids = set()
     for t in tools["tools"]:
@@ -62,7 +67,22 @@ def main():
         for bid in inc.get("benchmark_cases", []):
             assert_true(bid in case_ids, f"incident {inc.get('id')} references unknown benchmark {bid}")
     assert_true(arch.get("architectures"), "reference architectures missing")
-    print(f"Validation passed: {len(ids)} tools, {len(cases)} benchmark cases, {len(incidents.get('incidents', []))} incidents, {len(arch.get('architectures', []))} architectures")
+    source_ids = set()
+    for src in source_index.get("sources", []):
+        assert_true(src.get("source_id"), "source index entry missing source_id")
+        assert_true(src["source_id"] not in source_ids, f"duplicate source_id {src['source_id']}")
+        source_ids.add(src["source_id"])
+        assert_true(src.get("title"), f"source {src['source_id']} missing title")
+        assert_true(src.get("text"), f"source {src['source_id']} missing text")
+    assert_true(len(source_ids) >= len(ids), "source index should include at least tool profiles")
+    for scenario_path in scenarios:
+        data = json.load(open(scenario_path, encoding="utf-8"))
+        assert_true(data.get("name"), f"scenario {scenario_path.name} missing name")
+        assert_true(data.get("description"), f"scenario {scenario_path.name} missing description")
+        for code in data.get("risk_focus", []):
+            assert_true(code in VALID_ASI, f"scenario {scenario_path.name} invalid risk_focus {code}")
+
+    print(f"Validation passed: {len(ids)} tools, {len(cases)} benchmark cases, {len(incidents.get('incidents', []))} incidents, {len(arch.get('architectures', []))} architectures, {len(scenarios)} scenarios, {len(source_ids)} indexed sources")
 
 if __name__ == "__main__":
     main()

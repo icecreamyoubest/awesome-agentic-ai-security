@@ -1,0 +1,88 @@
+{
+  "question": "Which tools should I evaluate for MCP runtime security and ASI02 tool misuse?",
+  "provider": "none",
+  "model": null,
+  "retrieved_sources": [
+    {
+      "source_id": "S034",
+      "title": "Tool profile: Prompt Security",
+      "type": "tool_profile",
+      "object_id": "prompt-security",
+      "url": "data/tools.json",
+      "score": 21.498
+    },
+    {
+      "source_id": "S175",
+      "title": "Reference architecture: MCP Runtime Security Gateway",
+      "type": "reference_architecture",
+      "object_id": "mcp_runtime_security_gateway",
+      "url": "data/reference_architectures.json#mcp_runtime_security_gateway",
+      "score": 21.332
+    },
+    {
+      "source_id": "S039",
+      "title": "Tool profile: Striker",
+      "type": "tool_profile",
+      "object_id": "striker",
+      "url": "data/tools.json",
+      "score": 20.8718
+    },
+    {
+      "source_id": "S151",
+      "title": "ASI lifecycle mapping: ASI02 Tool Misuse and Exploitation",
+      "type": "asi_lifecycle_mapping",
+      "object_id": "ASI02",
+      "url": "data/controls.json#asi_lifecycle_matrix:ASI02",
+      "score": 18.3059
+    },
+    {
+      "source_id": "S031",
+      "title": "Tool profile: Pillar Security",
+      "type": "tool_profile",
+      "object_id": "pillar-security",
+      "url": "data/tools.json",
+      "score": 17.7767
+    },
+    {
+      "source_id": "S038",
+      "title": "Tool profile: SPLX",
+      "type": "tool_profile",
+      "object_id": "splx",
+      "url": "data/tools.json",
+      "score": 17.7767
+    },
+    {
+      "source_id": "S001",
+      "title": "Tool profile: ActiveFence AI Security",
+      "type": "tool_profile",
+      "object_id": "activefence-ai-security",
+      "url": "data/tools.json",
+      "score": 17.495
+    },
+    {
+      "source_id": "S041",
+      "title": "Tool profile: Trend Micro AI Security",
+      "type": "tool_profile",
+      "object_id": "trend-micro-ai-security",
+      "url": "data/tools.json",
+      "score": 17.495
+    },
+    {
+      "source_id": "S006",
+      "title": "Tool profile: CalypsoAI / F5 AI Security",
+      "type": "tool_profile",
+      "object_id": "calypsoai",
+      "url": "https://calypsoai.com",
+      "score": 16.8569
+    },
+    {
+      "source_id": "S027",
+      "title": "Tool profile: Noma Security",
+      "type": "tool_profile",
+      "object_id": "noma-security",
+      "url": "https://noma.security",
+      "score": 16.7525
+    }
+  ],
+  "answer": "# Grounded answer\n\n**Question:** Which tools should I evaluate for MCP runtime security and ASI02 tool misuse?\n\n## Evidence-based findings\n- …mmercial. Categories: AI-SPM; Agentic OWASP Mapping; Data Security; Guardrails; Runtime Defense. Framework support: LangChain/LangGraph: generic; LlamaIndex: generic; CrewAI: generic; AutoGen: generic; OpenAI Agents SDK: generic; Semantic Kernel: generic; MCP: generic. Agentic OWASP coverage: ASI01; ASI02; ASI03; ASI06; ASI09. Lifecycle stages: deploy; operate; monitor; govern. Deployment: enterprise; saas. Targets: … [S034](data/tools.json)\n- Reference architecture: MCP Runtime Security Gateway. Best for: Production MCP clients, third-party MCP servers, and tool execution flows. Description: None. Threats: ASI02 Tool Misuse; ASI04 Agentic Supply Chain; ASI05 Unexpected Code Execution; ASI07 Insecure Inter-Agent Communication. Components: MCP Gateway / PEP; Tool Descriptor Validator; Policy Decision Point; Ephemeral Credential Broker; Sandboxed Tool Runtim… [S175](data/reference_architectures.json#mcp_runtime_security_gateway)\n- … and ASI taxonomy support products. Useful shortlist item for goal hijack, tool misuse, and runtime adversarial validation.. Vendor type: commercial. License: Commercial. Categories: Agent Security; Agentic OWASP Mapping; Red Teaming; Runtime Defense. Framework support: LangChain/LangGraph: generic; LlamaIndex: generic; CrewAI: generic; AutoGen: generic; OpenAI Agents SDK: generic; Semantic Kernel: generic; MCP: gene… [S039](data/tools.json)\n- ASI lifecycle mapping for ASI02 Tool Misuse and Exploitation. asi: ASI02; risk: Tool Misuse and Exploitation [S151](data/controls.json#asi_lifecycle_matrix:ASI02)\n- … operate, monitor, and governance. Strong candidate category for agent posture, runtime policy, and tool-use controls.. Vendor type: commercial. License: Commercial. Categories: AI-SPM; Agent Security; Agentic OWASP Mapping; MCP Security; Runtime Defense. Framework support: LangChain/LangGraph: generic; LlamaIndex: generic; CrewAI: generic; AutoGen: generic; OpenAI Agents SDK: generic; Semantic Kernel: generic; MCP: … [S031](data/tools.json)\n- …overn and ASI taxonomy support. Use as a candidate for agent inventory, policy, runtime and MCP-oriented review.. Vendor type: commercial. License: Commercial. Categories: AI-SPM; Agent Security; Agentic OWASP Mapping; MCP Security; Runtime Defense. Framework support: LangChain/LangGraph: generic; LlamaIndex: generic; CrewAI: generic; AutoGen: generic; OpenAI Agents SDK: generic; Semantic Kernel: generic; MCP: generi… [S038](data/tools.json)\n\n## Candidate tools from the retrieved index\n- **Prompt Security** — Agentic readiness 3.7, MCP security 2.9. Source: [S034](data/tools.json)\n- **Striker** — Agentic readiness 3.9, MCP security 3.4. Source: [S039](data/tools.json)\n- **Pillar Security** — Agentic readiness 4.7, MCP security 4.2. Source: [S031](data/tools.json)\n- **SPLX** — Agentic readiness 4.3, MCP security 4.3. Source: [S038](data/tools.json)\n- **ActiveFence AI Security** — Agentic readiness 3.1, MCP security 2.2. Source: [S001](data/tools.json)\n\n## Sources\n- [S034](data/tools.json) — Tool profile: Prompt Security\n- [S175](data/reference_architectures.json#mcp_runtime_security_gateway) — Reference architecture: MCP Runtime Security Gateway\n- [S039](data/tools.json) — Tool profile: Striker\n- [S151](data/controls.json#asi_lifecycle_matrix:ASI02) — ASI lifecycle mapping: ASI02 Tool Misuse and Exploitation\n- [S031](data/tools.json) — Tool profile: Pillar Security\n- [S038](data/tools.json) — Tool profile: SPLX\n- [S001](data/tools.json) — Tool profile: ActiveFence AI Security\n- [S041](data/tools.json) — Tool profile: Trend Micro AI Security\n- [S006](https://calypsoai.com) — Tool profile: CalypsoAI / F5 AI Security\n- [S027](https://noma.security) — Tool profile: Noma Security\n"
+}

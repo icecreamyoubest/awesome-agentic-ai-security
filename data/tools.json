@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Awesome Agentic AI Security Catalog",
-    "description": "Open catalog of AI, LLM, agentic and MCP security tools with OWASP ASI mapping, lifecycle coverage, evidence levels, risk-control-tool matrix, and benchmark scaffolding.",
+    "description": "Open catalog and rule-based Solution & Tool Validation Agent for AI, LLM, agentic and MCP security tools with OWASP ASI mapping, lifecycle coverage, evidence levels, risk-control-tool matrix, benchmark scaffolding, and scenario-based solution reports.",
     "updated": "2026-05-21",
     "dimensions": {
       "red_team": "Red teaming and adversarial evaluation depth",
@@ -135,7 +135,7 @@
       "Tool Security",
       "Vulnerability Management"
     ],
-    "version": "v0.6",
+    "version": "v0.7",
     "agentic_owasp": {
       "ASI01": "Agent Goal Hijack",
       "ASI02": "Tool Misuse and Exploitation",
@@ -219,7 +219,8 @@
     },
     "lifecycle_formula": "lifecycle_coverage = min(5, count(lifecycle_stages) / 9 * 5) with extra manual adjustment allowed for stage depth.",
     "release_notes": {
-      "v0.6": "Adds executable MCP benchmark runner, evidence confidence scoring, ASI coverage depth, reference architectures, incident-to-benchmark mapping, and tool submission JSON generator."
+      "v0.6": "Adds executable MCP benchmark runner, evidence confidence scoring, ASI coverage depth, reference architectures, incident-to-benchmark mapping, and tool submission JSON generator.",
+      "v0.7": "Adds a deterministic Solution & Tool Validation Agent with scenario parsing, ASI risk mapping, tool recommendation, evidence checks, benchmark planning, and sample solution reports."
     }
   },
   "tools": [

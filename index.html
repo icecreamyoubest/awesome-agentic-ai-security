@@ -12,7 +12,7 @@
   <a class="brand" href="#top" aria-label="Open AI Security Tools Catalog">
     <span class="brand-icon">🛡️</span>
     <span>Open AI / Agentic Security Tools Catalog</span>
-    <span id="versionBadge" class="version-badge">v0.6</span>
+    <span id="versionBadge" class="version-badge">v0.7</span>
   </a>
   <nav class="nav">
     <a href="#catalog">Catalog</a>
@@ -27,6 +27,7 @@
     <a href="#reference-architectures">Architectures</a>
     <a href="#incident-mapping">Incidents</a>
     <a href="#submit-tool">Submit tool</a>
+    <a href="#validation-agent">Validation Agent</a>
     <a href="#matrix">Matrix</a>
     <a href="#scoring">Scoring</a>
     <a href="#contribute">Contribute</a>
@@ -425,6 +426,70 @@
       <summary>Lifecycle coverage scoring</summary>
       <p><code>0 = no mapped coverage · 1 = inferred / indirect · 2 = vendor-public claim · 3 = OWASP landscape + vendor docs · 4 = community-tested · 5 = benchmark-backed</code></p>
     </details>
+  </section>
+
+
+  <section id="validation-agent" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Solution & Tool Validation Agent</h2>
+        <p>A deterministic rule-based agent for turning an agentic AI scenario into OWASP ASI risk mapping, recommended security stack, evidence checks, and benchmark validation plan.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div>
+        <h3>1. Parse scenario</h3>
+        <p>Reads a scenario JSON describing frameworks, MCP/A2A/tool use, RAG or memory, external APIs, high-impact actions, and deployment constraints.</p>
+      </div>
+      <div>
+        <h3>2. Map OWASP ASI risks</h3>
+        <p>Maps architecture signals to ASI01–ASI10 using explicit deterministic rules, not model-generated scores.</p>
+      </div>
+      <div>
+        <h3>3. Recommend tools</h3>
+        <p>Ranks tools by risk coverage, lifecycle fit, framework support, deployment constraints, Agentic Readiness, MCP Security, and evidence confidence.</p>
+      </div>
+      <div>
+        <h3>4. Validate evidence</h3>
+        <p>Checks whether each recommended tool has OWASP landscape, vendor-public, community, or benchmark-backed evidence.</p>
+      </div>
+      <div>
+        <h3>5. Plan benchmark execution</h3>
+        <p>Selects MCP/A2A benchmark cases from <code>benchmarks/mcp_security_benchmark_v01.json</code> and produces score update suggestions.</p>
+      </div>
+      <div>
+        <h3>Run locally</h3>
+        <p><code>python agents/solution_validator_agent.py --scenario examples/mcp_rag_agent_scenario.json --output outputs/mcp_rag_agent_solution_report.md</code></p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="grounded-qa" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Grounded LLM Q&A Agent</h2>
+        <p>An optional LLM-assisted Q&A layer that retrieves from <code>data/source_index.json</code> first, then forces indexed source citations such as <code>[S001]</code> to reduce hallucinated tool claims, scores, and OWASP mappings.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div>
+        <h3>1. Build source index</h3>
+        <p><code>python agents/build_source_index.py --output data/source_index.json</code></p>
+      </div>
+      <div>
+        <h3>2. Ask offline</h3>
+        <p><code>python agents/grounded_qa_agent.py --question "Which tools should I evaluate for MCP runtime security?" --provider none</code></p>
+      </div>
+      <div>
+        <h3>3. Ask with LLM</h3>
+        <p><code>OPENAI_API_KEY=... python agents/grounded_qa_agent.py --question "Design a validation plan" --provider openai-compatible --model gpt-4o-mini --fallback-on-uncited</code></p>
+      </div>
+      <div>
+        <h3>4. Citation audit</h3>
+        <p>The CLI checks whether cited source IDs were retrieved. If the LLM gives uncited or unsupported output, use <code>--fallback-on-uncited</code> to return an extractive answer instead.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contribute" class="panel contribute">

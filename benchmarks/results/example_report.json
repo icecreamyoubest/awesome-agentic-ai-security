@@ -2,7 +2,7 @@
   "benchmark": "mcp_security_benchmark_v01",
   "mode": "mock",
   "target": "mock_target",
-  "generated_at": "2026-05-21T07:20:00Z",
+  "generated_at": "2026-05-21T07:17:31Z",
   "summary": {
     "total": 10,
     "passed": 10,

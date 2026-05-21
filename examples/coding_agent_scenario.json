@@ -1,0 +1,15 @@
+{
+  "name": "Secure Coding Agent Sandbox",
+  "description": "A coding assistant can clone repositories, install dependencies, modify files, run tests, and open pull requests. It may connect to MCP servers for Figma, GitHub, and package lookup.",
+  "frameworks": ["OpenAI Agents SDK", "MCP"],
+  "architecture": ["coding_agent", "mcp", "tool_use", "external_api", "autonomous_workflow"],
+  "lifecycle_stage": ["develop_experiment", "test_evaluate", "release", "deploy", "operate", "monitor"],
+  "risk_focus": ["ASI02", "ASI04", "ASI05", "ASI07", "ASI09"],
+  "constraints": {
+    "self_host": true,
+    "enterprise_ready": true,
+    "open_source_preferred": true
+  },
+  "external_integrations": ["GitHub", "npm", "PyPI", "Figma MCP"],
+  "high_impact_actions": ["shell_command", "package_install", "pull_request", "file_write"]
+}
