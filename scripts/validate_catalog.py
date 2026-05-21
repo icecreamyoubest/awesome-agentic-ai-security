@@ -25,6 +25,9 @@ def main():
     arch = load("data/reference_architectures.json")
     bench_json = load("benchmarks/mcp_security_benchmark_v01.json")
     source_index = load("data/source_index.json")
+    claims = load("data/claims.json")
+    arch_templates = load("data/architecture_templates.json")
+    release_log = load("data/releases/change_log.json")
     scenarios = []
     examples_dir = ROOT / "examples"
     if examples_dir.exists():
@@ -67,6 +70,17 @@ def main():
         for bid in inc.get("benchmark_cases", []):
             assert_true(bid in case_ids, f"incident {inc.get('id')} references unknown benchmark {bid}")
     assert_true(arch.get("architectures"), "reference architectures missing")
+    assert_true(claims.get("claims"), "claims missing")
+    for c in claims.get("claims", []):
+        assert_true(c.get("id"), "claim missing id")
+        for code in c.get("mapped_asi", []):
+            assert_true(code in VALID_ASI, f"claim {c.get('id')} invalid ASI {code}")
+    assert_true(arch_templates.get("templates"), "architecture templates missing")
+    for t in arch_templates.get("templates", []):
+        assert_true(t.get("id"), "architecture template missing id")
+        for code in t.get("asi", []):
+            assert_true(code in VALID_ASI, f"architecture template {t.get('id')} invalid ASI {code}")
+    assert_true(release_log.get("releases"), "release log missing releases")
     source_ids = set()
     for src in source_index.get("sources", []):
         assert_true(src.get("source_id"), "source index entry missing source_id")
@@ -82,7 +96,7 @@ def main():
         for code in data.get("risk_focus", []):
             assert_true(code in VALID_ASI, f"scenario {scenario_path.name} invalid risk_focus {code}")
 
-    print(f"Validation passed: {len(ids)} tools, {len(cases)} benchmark cases, {len(incidents.get('incidents', []))} incidents, {len(arch.get('architectures', []))} architectures, {len(scenarios)} scenarios, {len(source_ids)} indexed sources")
+    print(f"Validation passed: {len(ids)} tools, {len(cases)} benchmark cases, {len(incidents.get('incidents', []))} incidents, {len(arch.get('architectures', []))} architectures, {len(claims.get('claims', []))} claims, {len(arch_templates.get('templates', []))} architecture templates, {len(release_log.get('releases', []))} releases, {len(scenarios)} scenarios, {len(source_ids)} indexed sources")
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v0.8",
+    "version": "v0.9",
     "description": "Grounding source index for LLM-assisted Q&A. Answers should cite source_id values and use only retrieved records.",
     "generated_from": [
       "data/tools.json",
@@ -8,7 +8,10 @@
       "data/controls.json",
       "data/incidents.json",
       "data/reference_architectures.json",
-      "benchmarks/mcp_security_benchmark_v01.json"
+      "benchmarks/mcp_security_benchmark_v01.json",
+      "data/claims.json",
+      "data/architecture_templates.json",
+      "data/releases/change_log.json"
     ],
     "citation_policy": "Every non-trivial answer claim must cite retrieved source IDs like [S001]. If evidence is missing, say insufficient evidence."
   },
@@ -5075,6 +5078,447 @@
           "risk badge",
           "source provenance",
           "multi-step confirmation"
+        ]
+      }
+    },
+    {
+      "source_id": "S189",
+      "title": "Claim template: MCP runtime security and tool-call governance",
+      "type": "claim_template",
+      "object_id": "claim-mcp-runtime-security",
+      "local_path": "data/claims.json#claim-mcp-runtime-security",
+      "url": "data/claims.json#claim-mcp-runtime-security",
+      "tags": [
+        "ASI02",
+        "ASI04",
+        "ASI05",
+        "ASI07",
+        "claim",
+        "evidence"
+      ],
+      "text": "Claim template: MCP runtime security and tool-call governance. Claim: The tool can help discover, govern, or enforce security controls for MCP tools and agent runtime tool calls.. Mapped ASI risks: ASI02; ASI04; ASI05; ASI07. Required evidence: Official product documentation showing MCP/tool support; Runtime policy enforcement example or integration guide; Audit log or telemetry output for tool calls; Benchmark result for descriptor poisoning or over-permissioned tool use. Validation tests: MCP-ASI04-001; MCP-ASI02-004; MCP-ASI07-003. Confidence rule: High only when vendor docs and benchmark-backed evidence are both present..",
+      "metadata": {
+        "id": "claim-mcp-runtime-security",
+        "title": "MCP runtime security and tool-call governance",
+        "claim": "The tool can help discover, govern, or enforce security controls for MCP tools and agent runtime tool calls.",
+        "mapped_asi": [
+          "ASI02",
+          "ASI04",
+          "ASI05",
+          "ASI07"
+        ],
+        "required_evidence": [
+          "Official product documentation showing MCP/tool support",
+          "Runtime policy enforcement example or integration guide",
+          "Audit log or telemetry output for tool calls",
+          "Benchmark result for descriptor poisoning or over-permissioned tool use"
+        ],
+        "validation_tests": [
+          "MCP-ASI04-001",
+          "MCP-ASI02-004",
+          "MCP-ASI07-003"
+        ],
+        "confidence_rule": "High only when vendor docs and benchmark-backed evidence are both present."
+      }
+    },
+    {
+      "source_id": "S190",
+      "title": "Claim template: Agentic red-team evaluation",
+      "type": "claim_template",
+      "object_id": "claim-agentic-red-team",
+      "local_path": "data/claims.json#claim-agentic-red-team",
+      "url": "data/claims.json#claim-agentic-red-team",
+      "tags": [
+        "ASI01",
+        "ASI02",
+        "ASI08",
+        "ASI10",
+        "claim",
+        "evidence"
+      ],
+      "text": "Claim template: Agentic red-team evaluation. Claim: The tool supports adversarial evaluation of multi-step agents, goal drift, prompt injection, tool misuse, or multi-agent failure scenarios.. Mapped ASI risks: ASI01; ASI02; ASI08; ASI10. Required evidence: Attack library or evaluator documentation; Multi-turn or agent workflow support; Report format aligned to ASI/OWASP risks; Sample CI/CD integration or benchmark result. Validation tests: MCP-ASI01-005; MCP-ASI08-008; A2A-ASI07-006. Confidence rule: High when attack cases can be reproduced against a demo agent..",
+      "metadata": {
+        "id": "claim-agentic-red-team",
+        "title": "Agentic red-team evaluation",
+        "claim": "The tool supports adversarial evaluation of multi-step agents, goal drift, prompt injection, tool misuse, or multi-agent failure scenarios.",
+        "mapped_asi": [
+          "ASI01",
+          "ASI02",
+          "ASI08",
+          "ASI10"
+        ],
+        "required_evidence": [
+          "Attack library or evaluator documentation",
+          "Multi-turn or agent workflow support",
+          "Report format aligned to ASI/OWASP risks",
+          "Sample CI/CD integration or benchmark result"
+        ],
+        "validation_tests": [
+          "MCP-ASI01-005",
+          "MCP-ASI08-008",
+          "A2A-ASI07-006"
+        ],
+        "confidence_rule": "High when attack cases can be reproduced against a demo agent."
+      }
+    },
+    {
+      "source_id": "S191",
+      "title": "Claim template: RAG and memory protection",
+      "type": "claim_template",
+      "object_id": "claim-memory-rag-security",
+      "local_path": "data/claims.json#claim-memory-rag-security",
+      "url": "data/claims.json#claim-memory-rag-security",
+      "tags": [
+        "ASI01",
+        "ASI06",
+        "ASI08",
+        "claim",
+        "evidence"
+      ],
+      "text": "Claim template: RAG and memory protection. Claim: The tool can detect, prevent, or monitor memory/context poisoning, vector-store leakage, or sensitive-data exposure in retrieved context.. Mapped ASI risks: ASI01; ASI06; ASI08. Required evidence: RAG/memory integration docs; Sensitive data or prompt-carrier detection docs; Tenant isolation or provenance controls; Benchmark result for cross-tenant memory bleed. Validation tests: RAG-ASI06-007; MCP-ASI01-005. Confidence rule: High when both provenance controls and benchmark evidence are available..",
+      "metadata": {
+        "id": "claim-memory-rag-security",
+        "title": "RAG and memory protection",
+        "claim": "The tool can detect, prevent, or monitor memory/context poisoning, vector-store leakage, or sensitive-data exposure in retrieved context.",
+        "mapped_asi": [
+          "ASI01",
+          "ASI06",
+          "ASI08"
+        ],
+        "required_evidence": [
+          "RAG/memory integration docs",
+          "Sensitive data or prompt-carrier detection docs",
+          "Tenant isolation or provenance controls",
+          "Benchmark result for cross-tenant memory bleed"
+        ],
+        "validation_tests": [
+          "RAG-ASI06-007",
+          "MCP-ASI01-005"
+        ],
+        "confidence_rule": "High when both provenance controls and benchmark evidence are available."
+      }
+    },
+    {
+      "source_id": "S192",
+      "title": "Claim template: Agent identity and non-human identity governance",
+      "type": "claim_template",
+      "object_id": "claim-identity-nhi-governance",
+      "local_path": "data/claims.json#claim-identity-nhi-governance",
+      "url": "data/claims.json#claim-identity-nhi-governance",
+      "tags": [
+        "ASI03",
+        "ASI07",
+        "ASI10",
+        "claim",
+        "evidence"
+      ],
+      "text": "Claim template: Agent identity and non-human identity governance. Claim: The tool can govern agent identities, delegated credentials, scoped tokens, or privilege boundaries.. Mapped ASI risks: ASI03; ASI07; ASI10. Required evidence: NHI/agent identity documentation; Scoped credential or token lifecycle support; Per-action authorization or approval workflow; Audit trail for delegated identity use. Validation tests: A2A-ASI07-006; MCP-ASI02-004. Confidence rule: High when the tool demonstrates scoped credentials and per-action auditability..",
+      "metadata": {
+        "id": "claim-identity-nhi-governance",
+        "title": "Agent identity and non-human identity governance",
+        "claim": "The tool can govern agent identities, delegated credentials, scoped tokens, or privilege boundaries.",
+        "mapped_asi": [
+          "ASI03",
+          "ASI07",
+          "ASI10"
+        ],
+        "required_evidence": [
+          "NHI/agent identity documentation",
+          "Scoped credential or token lifecycle support",
+          "Per-action authorization or approval workflow",
+          "Audit trail for delegated identity use"
+        ],
+        "validation_tests": [
+          "A2A-ASI07-006",
+          "MCP-ASI02-004"
+        ],
+        "confidence_rule": "High when the tool demonstrates scoped credentials and per-action auditability."
+      }
+    },
+    {
+      "source_id": "S193",
+      "title": "Claim template: Secure coding agent sandbox and RCE prevention",
+      "type": "claim_template",
+      "object_id": "claim-secure-coding-agent",
+      "local_path": "data/claims.json#claim-secure-coding-agent",
+      "url": "data/claims.json#claim-secure-coding-agent",
+      "tags": [
+        "ASI04",
+        "ASI05",
+        "ASI09",
+        "claim",
+        "evidence"
+      ],
+      "text": "Claim template: Secure coding agent sandbox and RCE prevention. Claim: The tool helps prevent unexpected code execution, malicious package installation, or unsafe coding-agent behavior.. Mapped ASI risks: ASI04; ASI05; ASI09. Required evidence: Sandbox or execution isolation documentation; Dependency/package provenance checks; Pre-execution code validation or policy gate; RCE-style benchmark result. Validation tests: MCP-ASI05-002; MCP-ASI04-009; HITL-ASI09-010. Confidence rule: High only when sandbox behavior can be tested and audited..",
+      "metadata": {
+        "id": "claim-secure-coding-agent",
+        "title": "Secure coding agent sandbox and RCE prevention",
+        "claim": "The tool helps prevent unexpected code execution, malicious package installation, or unsafe coding-agent behavior.",
+        "mapped_asi": [
+          "ASI04",
+          "ASI05",
+          "ASI09"
+        ],
+        "required_evidence": [
+          "Sandbox or execution isolation documentation",
+          "Dependency/package provenance checks",
+          "Pre-execution code validation or policy gate",
+          "RCE-style benchmark result"
+        ],
+        "validation_tests": [
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "HITL-ASI09-010"
+        ],
+        "confidence_rule": "High only when sandbox behavior can be tested and audited."
+      }
+    },
+    {
+      "source_id": "S194",
+      "title": "Architecture template: MCP Runtime Security Gateway",
+      "type": "architecture_template",
+      "object_id": "mcp_runtime_security_gateway",
+      "local_path": "data/architecture_templates.json#mcp_runtime_security_gateway",
+      "url": "data/architecture_templates.json#mcp_runtime_security_gateway",
+      "tags": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI07",
+        "architecture_template"
+      ],
+      "text": "Architecture template: MCP Runtime Security Gateway. Triggers: mcp; tool_use; external_api; agent_runtime. ASI risks: ASI01; ASI02; ASI03; ASI04; ASI05; ASI07. Components: Agent Runtime; MCP Gateway / PEP; Tool Descriptor Validator; Policy Decision Point; Ephemeral Credential Broker; Sandboxed Tool Runtime; Audit / OTel / SIEM. Controls: tool descriptor validation; least privilege tool scopes; per-action authorization; sandboxed execution; egress allowlist; immutable tool-call audit. Mermaid: flowchart LR User-->AgentRuntime[Agent Runtime] AgentRuntime-->PEP[MCP Gateway / PEP] PEP-->Validator[Tool Descriptor Validator] PEP-->PDP[Policy Decision Point] PDP-->Creds[Ephemeral Credential Broker] PEP-->Sandbox[Sandboxed Tool Runtime] Sandbox-->API[External APIs / Tools] PEP-->Audit[Audit / OTel / SIEM].",
+      "metadata": {
+        "id": "mcp_runtime_security_gateway",
+        "title": "MCP Runtime Security Gateway",
+        "triggers": [
+          "mcp",
+          "tool_use",
+          "external_api",
+          "agent_runtime"
+        ],
+        "asi": [
+          "ASI01",
+          "ASI02",
+          "ASI03",
+          "ASI04",
+          "ASI05",
+          "ASI07"
+        ],
+        "components": [
+          "Agent Runtime",
+          "MCP Gateway / PEP",
+          "Tool Descriptor Validator",
+          "Policy Decision Point",
+          "Ephemeral Credential Broker",
+          "Sandboxed Tool Runtime",
+          "Audit / OTel / SIEM"
+        ],
+        "controls": [
+          "tool descriptor validation",
+          "least privilege tool scopes",
+          "per-action authorization",
+          "sandboxed execution",
+          "egress allowlist",
+          "immutable tool-call audit"
+        ],
+        "mermaid": "flowchart LR\n  User-->AgentRuntime[Agent Runtime]\n  AgentRuntime-->PEP[MCP Gateway / PEP]\n  PEP-->Validator[Tool Descriptor Validator]\n  PEP-->PDP[Policy Decision Point]\n  PDP-->Creds[Ephemeral Credential Broker]\n  PEP-->Sandbox[Sandboxed Tool Runtime]\n  Sandbox-->API[External APIs / Tools]\n  PEP-->Audit[Audit / OTel / SIEM]"
+      }
+    },
+    {
+      "source_id": "S195",
+      "title": "Architecture template: Agentic Red Team Evaluation Pipeline",
+      "type": "architecture_template",
+      "object_id": "agentic_red_team_pipeline",
+      "local_path": "data/architecture_templates.json#agentic_red_team_pipeline",
+      "url": "data/architecture_templates.json#agentic_red_team_pipeline",
+      "tags": [
+        "ASI01",
+        "ASI02",
+        "ASI08",
+        "ASI10",
+        "architecture_template"
+      ],
+      "text": "Architecture template: Agentic Red Team Evaluation Pipeline. Triggers: red_team; test_evaluate; prompt_injection; goal_drift; multi_agent. ASI risks: ASI01; ASI02; ASI08; ASI10. Components: Scenario Library; Attack Orchestrator; Target Agent Harness; Evaluator; Evidence Store; CI/CD Gate. Controls: multi-turn attack simulation; goal drift tests; tool misuse tests; coverage report; regression gating. Mermaid: flowchart LR Library[Attack Scenario Library]-->Orchestrator[Attack Orchestrator] Orchestrator-->Harness[Target Agent Harness] Harness-->Evaluator[Evaluator] Evaluator-->Evidence[Evidence Store] Evidence-->Gate[CI/CD Quality Gate].",
+      "metadata": {
+        "id": "agentic_red_team_pipeline",
+        "title": "Agentic Red Team Evaluation Pipeline",
+        "triggers": [
+          "red_team",
+          "test_evaluate",
+          "prompt_injection",
+          "goal_drift",
+          "multi_agent"
+        ],
+        "asi": [
+          "ASI01",
+          "ASI02",
+          "ASI08",
+          "ASI10"
+        ],
+        "components": [
+          "Scenario Library",
+          "Attack Orchestrator",
+          "Target Agent Harness",
+          "Evaluator",
+          "Evidence Store",
+          "CI/CD Gate"
+        ],
+        "controls": [
+          "multi-turn attack simulation",
+          "goal drift tests",
+          "tool misuse tests",
+          "coverage report",
+          "regression gating"
+        ],
+        "mermaid": "flowchart LR\n  Library[Attack Scenario Library]-->Orchestrator[Attack Orchestrator]\n  Orchestrator-->Harness[Target Agent Harness]\n  Harness-->Evaluator[Evaluator]\n  Evaluator-->Evidence[Evidence Store]\n  Evidence-->Gate[CI/CD Quality Gate]"
+      }
+    },
+    {
+      "source_id": "S196",
+      "title": "Architecture template: Enterprise Agent Governance Control Plane",
+      "type": "architecture_template",
+      "object_id": "enterprise_agent_governance_control_plane",
+      "local_path": "data/architecture_templates.json#enterprise_agent_governance_control_plane",
+      "url": "data/architecture_templates.json#enterprise_agent_governance_control_plane",
+      "tags": [
+        "ASI03",
+        "ASI04",
+        "ASI07",
+        "ASI08",
+        "ASI10",
+        "architecture_template"
+      ],
+      "text": "Architecture template: Enterprise Agent Governance Control Plane. Triggers: governance; monitor; operate; identity; multi_agent; a2a. ASI risks: ASI03; ASI04; ASI07; ASI08; ASI10. Components: Agent Registry; Capability Cards; Policy Registry; NHI / Token Broker; A2A Trust Graph; Telemetry Lake; Governance Dashboard. Controls: agent inventory; signed capability manifests; policy versioning; NHI lifecycle; attested A2A trust graph; quarterly evidence review. Mermaid: flowchart TB Registry[Agent Registry]-->Cards[Capability Cards] Cards-->Policy[Policy Registry] Policy-->Broker[NHI / Token Broker] Registry-->Trust[A2A Trust Graph] Trust-->Telemetry[Telemetry Lake] Telemetry-->Dash[Governance Dashboard].",
+      "metadata": {
+        "id": "enterprise_agent_governance_control_plane",
+        "title": "Enterprise Agent Governance Control Plane",
+        "triggers": [
+          "governance",
+          "monitor",
+          "operate",
+          "identity",
+          "multi_agent",
+          "a2a"
+        ],
+        "asi": [
+          "ASI03",
+          "ASI04",
+          "ASI07",
+          "ASI08",
+          "ASI10"
+        ],
+        "components": [
+          "Agent Registry",
+          "Capability Cards",
+          "Policy Registry",
+          "NHI / Token Broker",
+          "A2A Trust Graph",
+          "Telemetry Lake",
+          "Governance Dashboard"
+        ],
+        "controls": [
+          "agent inventory",
+          "signed capability manifests",
+          "policy versioning",
+          "NHI lifecycle",
+          "attested A2A trust graph",
+          "quarterly evidence review"
+        ],
+        "mermaid": "flowchart TB\n  Registry[Agent Registry]-->Cards[Capability Cards]\n  Cards-->Policy[Policy Registry]\n  Policy-->Broker[NHI / Token Broker]\n  Registry-->Trust[A2A Trust Graph]\n  Trust-->Telemetry[Telemetry Lake]\n  Telemetry-->Dash[Governance Dashboard]"
+      }
+    },
+    {
+      "source_id": "S197",
+      "title": "Architecture template: Secure Coding Agent Sandbox",
+      "type": "architecture_template",
+      "object_id": "secure_coding_agent_sandbox",
+      "local_path": "data/architecture_templates.json#secure_coding_agent_sandbox",
+      "url": "data/architecture_templates.json#secure_coding_agent_sandbox",
+      "tags": [
+        "ASI04",
+        "ASI05",
+        "ASI09",
+        "architecture_template"
+      ],
+      "text": "Architecture template: Secure Coding Agent Sandbox. Triggers: coding_agent; code_execution; rce; package_install; developer_workflow. ASI risks: ASI04; ASI05; ASI09. Components: Coding Agent; Pre-execution Policy Gate; Package Provenance Scanner; Ephemeral Workspace; Network Egress Proxy; Human Approval; Diff / Audit Log. Controls: deny production credentials; sandbox execution; package pinning; pre-execution static checks; preview without side effects; human approval for destructive actions. Mermaid: flowchart LR Dev[Developer]-->Agent[Coding Agent] Agent-->Gate[Pre-execution Policy Gate] Gate-->Pkg[Package Provenance Scanner] Gate-->Work[Ephemeral Workspace] Work-->Proxy[Network Egress Proxy] Gate-->HITL[Human Approval] Work-->Audit[Diff / Audit Log].",
+      "metadata": {
+        "id": "secure_coding_agent_sandbox",
+        "title": "Secure Coding Agent Sandbox",
+        "triggers": [
+          "coding_agent",
+          "code_execution",
+          "rce",
+          "package_install",
+          "developer_workflow"
+        ],
+        "asi": [
+          "ASI04",
+          "ASI05",
+          "ASI09"
+        ],
+        "components": [
+          "Coding Agent",
+          "Pre-execution Policy Gate",
+          "Package Provenance Scanner",
+          "Ephemeral Workspace",
+          "Network Egress Proxy",
+          "Human Approval",
+          "Diff / Audit Log"
+        ],
+        "controls": [
+          "deny production credentials",
+          "sandbox execution",
+          "package pinning",
+          "pre-execution static checks",
+          "preview without side effects",
+          "human approval for destructive actions"
+        ],
+        "mermaid": "flowchart LR\n  Dev[Developer]-->Agent[Coding Agent]\n  Agent-->Gate[Pre-execution Policy Gate]\n  Gate-->Pkg[Package Provenance Scanner]\n  Gate-->Work[Ephemeral Workspace]\n  Work-->Proxy[Network Egress Proxy]\n  Gate-->HITL[Human Approval]\n  Work-->Audit[Diff / Audit Log]"
+      }
+    },
+    {
+      "source_id": "S198",
+      "title": "Release: Q2-2026 v0.9",
+      "type": "release",
+      "object_id": "Q2-2026",
+      "local_path": "data/releases/change_log.json#Q2-2026",
+      "url": "data/releases/change_log.json#Q2-2026",
+      "tags": [
+        "release",
+        "change_log"
+      ],
+      "text": "Release: Q2-2026 v0.9. Summary: Added auditable Q&A workflow, answer audit, claim verification, validation loop, architecture generation, and quarterly evidence tracking.. Added features: Web Q&A Advisor panel; Answer Audit panel; Tool Claim Verifier; Validation Agent Loop; Architecture Generator; Quarterly Evidence Update Pipeline. Added files: data/claims.json; data/architecture_templates.json; data/releases/q2-2026.json; data/releases/change_log.json; agents/claim_verifier.py; agents/architecture_generator.py; agents/validation_loop.py; agents/answer_auditor.py. Evidence updated: Introduced claim-level evidence requirements and validation status model..",
+      "metadata": {
+        "release": "Q2-2026",
+        "version": "v0.9",
+        "date": "2026-05-21",
+        "summary": "Added auditable Q&A workflow, answer audit, claim verification, validation loop, architecture generation, and quarterly evidence tracking.",
+        "added_features": [
+          "Web Q&A Advisor panel",
+          "Answer Audit panel",
+          "Tool Claim Verifier",
+          "Validation Agent Loop",
+          "Architecture Generator",
+          "Quarterly Evidence Update Pipeline"
+        ],
+        "added_files": [
+          "data/claims.json",
+          "data/architecture_templates.json",
+          "data/releases/q2-2026.json",
+          "data/releases/change_log.json",
+          "agents/claim_verifier.py",
+          "agents/architecture_generator.py",
+          "agents/validation_loop.py",
+          "agents/answer_auditor.py"
+        ],
+        "changed_scores": [],
+        "new_incidents": [],
+        "new_benchmark_cases": [],
+        "evidence_updated": [
+          "Introduced claim-level evidence requirements and validation status model."
         ]
       }
     }

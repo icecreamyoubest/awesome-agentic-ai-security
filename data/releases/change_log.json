@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "version": "v0.9",
+    "updated": "2026-05-21"
+  },
+  "releases": [
+    {
+      "release": "Q2-2026",
+      "version": "v0.9",
+      "date": "2026-05-21",
+      "summary": "Added auditable Q&A workflow, answer audit, claim verification, validation loop, architecture generation, and quarterly evidence tracking.",
+      "added_features": [
+        "Web Q&A Advisor panel",
+        "Answer Audit panel",
+        "Tool Claim Verifier",
+        "Validation Agent Loop",
+        "Architecture Generator",
+        "Quarterly Evidence Update Pipeline"
+      ],
+      "added_files": [
+        "data/claims.json",
+        "data/architecture_templates.json",
+        "data/releases/q2-2026.json",
+        "data/releases/change_log.json",
+        "agents/claim_verifier.py",
+        "agents/architecture_generator.py",
+        "agents/validation_loop.py",
+        "agents/answer_auditor.py"
+      ],
+      "changed_scores": [],
+      "new_incidents": [],
+      "new_benchmark_cases": [],
+      "evidence_updated": [
+        "Introduced claim-level evidence requirements and validation status model."
+      ]
+    }
+  ]
+}

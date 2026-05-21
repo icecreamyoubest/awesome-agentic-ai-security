@@ -4,6 +4,10 @@ let evidenceCatalog = { meta: {}, tools: {} };
 let benchmarkCases = [];
 let incidentCatalog = { meta: {}, incidents: [] };
 let architectureCatalog = { meta: {}, architectures: [] };
+let sourceIndex = { meta: {}, sources: [] };
+let claimsCatalog = { meta: {}, claims: [] };
+let architectureTemplates = { meta: {}, templates: [] };
+let releaseLog = { meta: {}, releases: [] };
 let selectedCompare = new Set();
 let currentView = "grid";
 
@@ -576,6 +580,173 @@ function agenticRiskDescription(code) {
   return map[code] || "Agentic application risk.";
 }
 
+
+function simpleTokens(text) {
+  const stop = new Set(["the","and","or","for","to","of","in","on","with","by","is","are","a","an","agent","agents","tool","tools","security","ai","llm","how","should","can","we","our"]);
+  return String(text || "").toLowerCase().match(/[a-z0-9_\-]+/g)?.filter(t => t.length > 1 && !stop.has(t)) || [];
+}
+
+function sourceText(src) {
+  return [src.title, src.type, src.object_id, src.text, ...(src.tags || [])].join(" ");
+}
+
+function searchSources(query, topK = 8) {
+  const qTokens = simpleTokens(query);
+  if (!qTokens.length || !sourceIndex.sources) return [];
+  const qSet = new Set(qTokens);
+  const results = sourceIndex.sources.map(src => {
+    const text = sourceText(src).toLowerCase();
+    let score = 0;
+    qTokens.forEach(tok => {
+      if (text.includes(tok)) score += tok.startsWith("asi") ? 4 : 1;
+    });
+    const qLower = String(query).toLowerCase();
+    if (qLower.includes("mcp") && text.includes("mcp")) score += 3;
+    if (qLower.includes("runtime") && text.includes("runtime")) score += 2;
+    if (qLower.includes("rag") && (text.includes("rag") || text.includes("memory"))) score += 2;
+    return { ...src, score, snippet: makeUiSnippet(src.text || "", [...qSet]) };
+  }).filter(x => x.score > 0).sort((a,b) => b.score - a.score).slice(0, topK);
+  return results;
+}
+
+function makeUiSnippet(text, tokens, maxChars = 320) {
+  const s = String(text || "");
+  if (s.length <= maxChars) return s;
+  const lower = s.toLowerCase();
+  const positions = tokens.map(t => lower.indexOf(t)).filter(i => i >= 0);
+  const start = positions.length ? Math.max(0, Math.min(...positions) - 60) : 0;
+  return (start > 0 ? "…" : "") + s.slice(start, start + maxChars) + (start + maxChars < s.length ? "…" : "");
+}
+
+function sourceUrl(src) {
+  return src.url || src.local_path || "#";
+}
+
+function runQaAdvisor() {
+  const question = $("qaQuestion")?.value?.trim();
+  if (!question) return;
+  const sources = searchSources(question, 10);
+  const toolSources = sources.filter(s => s.type === "tool_profile").slice(0, 5);
+  const riskSources = sources.filter(s => String(s.type || "").includes("control") || String(s.type || "").includes("lifecycle")).slice(0, 4);
+  let html = `<h3>Grounded answer</h3><p><strong>Question:</strong> ${escapeHtml(question)}</p>`;
+  if (!sources.length) {
+    html += `<p>Insufficient indexed evidence. Add more records to <code>data/source_index.json</code> and retry.</p>`;
+  } else {
+    html += `<h4>Evidence-based findings</h4><ul>` + sources.slice(0,6).map(s => `<li>${escapeHtml(s.snippet || s.text)} <a href="${escapeAttr(sourceUrl(s))}" target="_blank">[${escapeHtml(s.source_id)}]</a></li>`).join("") + `</ul>`;
+    if (toolSources.length) {
+      html += `<h4>Candidate tools</h4><ul>` + toolSources.map(s => {
+        const meta = s.metadata || {}; const scores = meta.scores || {};
+        return `<li><strong>${escapeHtml(String(s.title || "").replace("Tool profile: ", ""))}</strong> — Agentic ${escapeHtml(scores.agentic_readiness ?? "n/a")}, MCP ${escapeHtml(scores.mcp_security ?? "n/a")} <a href="${escapeAttr(sourceUrl(s))}" target="_blank">[${escapeHtml(s.source_id)}]</a></li>`;
+      }).join("") + `</ul>`;
+    }
+    if (riskSources.length) {
+      html += `<h4>Risk / control context</h4><ul>` + riskSources.map(s => `<li>${escapeHtml(s.title)} <a href="${escapeAttr(sourceUrl(s))}" target="_blank">[${escapeHtml(s.source_id)}]</a></li>`).join("") + `</ul>`;
+    }
+  }
+  $("qaAdvisorOutput").innerHTML = html;
+  renderAnswerAudit(question, sources, sources.map(s => s.source_id));
+}
+
+function renderAnswerAudit(question, sources, usedIds) {
+  const valid = new Set(sources.map(s => s.source_id));
+  const unsupported = usedIds.filter(id => !valid.has(id));
+  const suggestions = [];
+  const q = question.toLowerCase();
+  if (q.includes("mcp") || q.includes("tool")) suggestions.push("Run MCP-ASI04-001 and MCP-ASI02-004.");
+  if (q.includes("rag") || q.includes("memory")) suggestions.push("Run RAG-ASI06-007 and review memory provenance.");
+  if (q.includes("identity") || q.includes("oauth")) suggestions.push("Run MCP-ASI07-003 and verify scoped credentials.");
+  if (q.includes("code") || q.includes("rce")) suggestions.push("Run MCP-ASI05-002 in a sandboxed target.");
+  $("answerAuditPanel").innerHTML = `<h3>Answer audit</h3>
+    <p><strong>Retrieved sources:</strong> ${sources.length}</p>
+    <p><strong>Used citations:</strong> ${usedIds.map(id => `<span class="source-chip">${escapeHtml(id)}</span>`).join(" ") || "none"}</p>
+    <p><strong>Unsupported citations:</strong> ${unsupported.length ? unsupported.map(escapeHtml).join(", ") : "none"}</p>
+    <p><strong>Confidence:</strong> ${sources.length && !unsupported.length ? "medium" : "low"}</p>
+    <p><strong>Recommended validation:</strong></p><ul>${(suggestions.length ? suggestions : ["Review evidence records and run relevant benchmark cases before updating scores."]).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>`;
+}
+
+function populateClaimTools() {
+  const select = $("claimToolSelect");
+  if (!select) return;
+  select.innerHTML = catalog.tools.slice().sort((a,b) => a.name.localeCompare(b.name)).map(t => `<option value="${escapeAttr(t.id)}">${escapeHtml(t.name)} — ${escapeHtml(t.org)}</option>`).join("");
+  const input = $("claimText");
+  if (input && !input.value) input.value = "MCP discovery and runtime policy enforcement";
+}
+
+function matchClaimTemplatesUi(claim) {
+  const q = simpleTokens(claim).join(" ");
+  return (claimsCatalog.claims || []).map(c => {
+    const hay = simpleTokens([c.title, c.claim, ...(c.required_evidence || [])].join(" ")).join(" ");
+    let score = 0;
+    q.split(" ").forEach(tok => { if (tok && hay.includes(tok)) score += 1; });
+    ["mcp","runtime","red","memory","rag","identity","coding","rce","sandbox"].forEach(term => { if (q.includes(term) && hay.includes(term)) score += 3; });
+    return { ...c, score };
+  }).filter(c => c.score > 0).sort((a,b) => b.score - a.score).slice(0,3);
+}
+
+function runClaimVerifier() {
+  const toolId = $("claimToolSelect")?.value;
+  const claim = $("claimText")?.value?.trim() || "";
+  const tool = catalog.tools.find(t => t.id === toolId);
+  if (!tool || !claim) return;
+  const matched = matchClaimTemplatesUi(claim);
+  const ev = evidenceCatalog.tools?.[tool.id] || [];
+  const evTypes = [...new Set(ev.map(e => e.type || "unknown"))];
+  const mappedAsi = [...new Set([...(tool.agentic_owasp || []), ...matched.flatMap(m => m.mapped_asi || [])])].sort();
+  const required = [...new Set(matched.flatMap(m => m.required_evidence || []))];
+  const tests = [...new Set(matched.flatMap(m => m.validation_tests || []))];
+  const status = ev.length && evTypes.includes("official_vendor_docs") && evTypes.includes("benchmark_backed") ? "high_confidence" : ev.length ? "partial_evidence" : "needs_validation";
+  $("claimVerifierOutput").innerHTML = `<h3>Claim verification result</h3>
+    <p><strong>Tool:</strong> ${escapeHtml(tool.name)} · ${escapeHtml(tool.org)}</p>
+    <p><strong>Claim:</strong> ${escapeHtml(claim)}</p>
+    <p><strong>Status:</strong> <span class="status-${status}">${escapeHtml(titleCase(status))}</span></p>
+    <p><strong>Mapped ASI:</strong> ${mappedAsi.map(x => `<span class="risk-pill">${escapeHtml(x)}</span>`).join(" ")}</p>
+    <h4>Required evidence</h4><ul>${(required.length ? required : ["Attach official vendor docs, benchmark output, and audit evidence."]).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+    <h4>Existing evidence types</h4><p>${evTypes.map(x => `<span class="source-chip">${escapeHtml(x)}</span>`).join(" ") || "none"}</p>
+    <h4>Suggested benchmark tests</h4><ul>${(tests.length ? tests : ["Select benchmark cases based on mapped ASI risks."]).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+    <p><strong>Next step:</strong> Run suggested benchmark cases and add <code>benchmark_backed</code> evidence before upgrading claim confidence.</p>`;
+}
+
+function runArchitectureGeneratorUi() {
+  const signals = $("archSignals")?.value?.toLowerCase() || "";
+  const matched = (architectureTemplates.templates || []).map(t => {
+    let score = 0;
+    (t.triggers || []).forEach(tr => { if (signals.includes(tr.toLowerCase())) score += 3; });
+    (t.asi || []).forEach(asi => { if (signals.includes(asi.toLowerCase())) score += 2; });
+    return { ...t, score };
+  }).filter(t => t.score > 0).sort((a,b) => b.score - a.score).slice(0,2);
+  const selected = matched.length ? matched : (architectureTemplates.templates || []).slice(0,1);
+  const controls = [...new Set(selected.flatMap(t => t.controls || []))];
+  const components = [...new Set(selected.flatMap(t => t.components || []))];
+  const asi = [...new Set(selected.flatMap(t => t.asi || []))].sort();
+  $("architectureOutput").innerHTML = `<h3>Generated architecture</h3>
+    <h4>Recommended patterns</h4><ul>${selected.map(t => `<li><strong>${escapeHtml(t.title)}</strong> — ${escapeHtml((t.asi || []).join(", "))}</li>`).join("")}</ul>
+    <h4>Components</h4><p>${components.map(c => `<span class="source-chip">${escapeHtml(c)}</span>`).join(" ")}</p>
+    <h4>Controls</h4><ul>${controls.map(c => `<li>${escapeHtml(c)}</li>`).join("")}</ul>
+    <h4>ASI coverage</h4><p>${asi.map(x => `<span class="risk-pill">${escapeHtml(x)}</span>`).join(" ")}</p>
+    <h4>Mermaid diagram text</h4><pre class="mermaid-text">${escapeHtml(selected[0]?.mermaid || "")}</pre>`;
+}
+
+function renderReleaseTimeline() {
+  const el = $("releaseTimeline");
+  if (!el) return;
+  el.innerHTML = (releaseLog.releases || []).map(r => `<div class="dimension-card">
+    <h3>${escapeHtml(r.release)} · ${escapeHtml(r.version || "")}</h3>
+    <p>${escapeHtml(r.summary || "")}</p>
+    <strong>Added features</strong>
+    <ul>${(r.added_features || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+    <strong>Evidence updates</strong>
+    <ul>${(r.evidence_updated || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+  </div>`).join("");
+}
+
+function bindV09AdvisorEvents() {
+  $("runQaAdvisor")?.addEventListener("click", runQaAdvisor);
+  $("sampleQaAdvisor")?.addEventListener("click", () => { $("qaQuestion").value = "How should I secure a LangGraph + MCP + RAG customer support agent?"; runQaAdvisor(); });
+  $("runClaimVerifier")?.addEventListener("click", runClaimVerifier);
+  $("runArchitectureGenerator")?.addEventListener("click", runArchitectureGeneratorUi);
+  if ($("archSignals") && !$("archSignals").value) $("archSignals").value = "mcp rag vector_db external_api identity monitor";
+}
+
 function iconFor(t) {
   const cats = (t.category || []).join(" ");
   if (cats.includes("MCP")) return "🔌";
@@ -618,18 +789,26 @@ function setView(view) {
 
 async function init() {
   try {
-    const [res, controlsRes, evidenceRes, incidentsRes, architecturesRes] = await Promise.all([
+    const [res, controlsRes, evidenceRes, incidentsRes, architecturesRes, sourceIndexRes, claimsRes, archTemplatesRes, releaseLogRes] = await Promise.all([
       fetch("./data/tools.json", { cache: "no-store" }),
       fetch("./data/controls.json", { cache: "no-store" }),
       fetch("./data/evidence.json", { cache: "no-store" }),
       fetch("./data/incidents.json", { cache: "no-store" }),
-      fetch("./data/reference_architectures.json", { cache: "no-store" })
+      fetch("./data/reference_architectures.json", { cache: "no-store" }),
+      fetch("./data/source_index.json", { cache: "no-store" }),
+      fetch("./data/claims.json", { cache: "no-store" }),
+      fetch("./data/architecture_templates.json", { cache: "no-store" }),
+      fetch("./data/releases/change_log.json", { cache: "no-store" })
     ]);
     catalog = await res.json();
     controlsCatalog = await controlsRes.json();
     evidenceCatalog = await evidenceRes.json();
     incidentCatalog = await incidentsRes.json();
     architectureCatalog = await architecturesRes.json();
+    sourceIndex = await sourceIndexRes.json();
+    claimsCatalog = await claimsRes.json();
+    architectureTemplates = await archTemplatesRes.json();
+    releaseLog = await releaseLogRes.json();
     $("statTools").textContent = catalog.tools.length;
     $("statCategories").textContent = catalog.meta.categories.length;
     $("statFrameworks").textContent = catalog.meta.frameworks.length;
@@ -654,6 +833,9 @@ async function init() {
     renderReferenceArchitectures();
     renderIncidentMapping();
     bindSubmissionGenerator();
+    populateClaimTools();
+    renderReleaseTimeline();
+    bindV09AdvisorEvents();
   } catch (err) {
     document.body.insertAdjacentHTML("afterbegin", `<div class="note"><strong>Failed to load catalog:</strong> ${escapeHtml(err.message)}</div>`);
     console.error(err);

@@ -12,7 +12,7 @@
   <a class="brand" href="#top" aria-label="Open AI Security Tools Catalog">
     <span class="brand-icon">🛡️</span>
     <span>Open AI / Agentic Security Tools Catalog</span>
-    <span id="versionBadge" class="version-badge">v0.7</span>
+    <span id="versionBadge" class="version-badge">v0.9</span>
   </a>
   <nav class="nav">
     <a href="#catalog">Catalog</a>
@@ -28,6 +28,11 @@
     <a href="#incident-mapping">Incidents</a>
     <a href="#submit-tool">Submit tool</a>
     <a href="#validation-agent">Validation Agent</a>
+    <a href="#grounded-qa">Grounded Q&A</a>
+    <a href="#qa-advisor">Q&A Advisor</a>
+    <a href="#claim-verifier">Claim verifier</a>
+    <a href="#architecture-generator">Architecture generator</a>
+    <a href="#release-pipeline">Releases</a>
     <a href="#matrix">Matrix</a>
     <a href="#scoring">Scoring</a>
     <a href="#contribute">Contribute</a>
@@ -42,7 +47,7 @@
     <p>
       A maintainable catalog for comparing guardrails, red-team tools, AI-SPM platforms,
       agent/MCP security scanners, data security tools, and observability platforms.
-      v0.6 adds an executable MCP benchmark runner, evidence confidence scoring, ASI coverage depth, reference architectures, incident-to-benchmark mapping, and a tool submission generator.
+      v0.9 adds an executable MCP benchmark runner, evidence confidence scoring, ASI coverage depth, reference architectures, incident-to-benchmark mapping, and a tool submission generator.
     </p>
     <div class="hero-actions">
       <a class="button primary" href="#catalog">Explore catalog</a>
@@ -490,6 +495,78 @@
         <p>The CLI checks whether cited source IDs were retrieved. If the LLM gives uncited or unsupported output, use <code>--fallback-on-uncited</code> to return an extractive answer instead.</p>
       </div>
     </div>
+  </section>
+
+
+
+  <section id="qa-advisor" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Ask the Agentic Security Advisor</h2>
+        <p>Browser-side retrieval over <code>data/source_index.json</code>. It returns source-linked findings and an audit summary; use the CLI LLM mode when you need model-generated synthesis.</p>
+      </div>
+    </div>
+    <div class="advisor-grid">
+      <label class="control wide">
+        <span>Question</span>
+        <textarea id="qaQuestion" rows="4" placeholder="Example: How should I secure a LangGraph + MCP + RAG customer support agent?"></textarea>
+      </label>
+      <div class="advisor-actions">
+        <button id="runQaAdvisor" class="button primary" type="button">Retrieve answer</button>
+        <button id="sampleQaAdvisor" class="button" type="button">Load sample</button>
+      </div>
+    </div>
+    <div id="qaAdvisorOutput" class="answer-box"></div>
+    <div id="answerAuditPanel" class="answer-box audit-box"></div>
+  </section>
+
+  <section id="claim-verifier" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Tool Claim Verifier</h2>
+        <p>Decompose a vendor/tool claim into ASI risks, required evidence, benchmark tests, and current catalog confidence.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <label class="control">
+        <span>Tool</span>
+        <select id="claimToolSelect"></select>
+      </label>
+      <label class="control wide">
+        <span>Claim</span>
+        <input id="claimText" placeholder="Example: MCP discovery and runtime policy enforcement" />
+      </label>
+      <button id="runClaimVerifier" class="button primary" type="button">Verify claim</button>
+    </div>
+    <div id="claimVerifierOutput" class="answer-box"></div>
+    <p class="small">CLI equivalent: <code>python agents/claim_verifier.py --tool noma-security --claim "MCP discovery and runtime policy enforcement"</code></p>
+  </section>
+
+  <section id="architecture-generator" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Architecture Generator</h2>
+        <p>Generate reference architecture patterns from common scenario signals. The CLI version can render a Markdown report with Mermaid diagrams.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <label class="control wide">
+        <span>Scenario signals</span>
+        <input id="archSignals" placeholder="mcp rag vector_db external_api identity monitor" />
+      </label>
+      <button id="runArchitectureGenerator" class="button primary" type="button">Generate architecture</button>
+    </div>
+    <div id="architectureOutput" class="answer-box"></div>
+  </section>
+
+  <section id="release-pipeline" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Quarterly Evidence Update Pipeline</h2>
+        <p>Track catalog, benchmark, incident, and evidence changes by release so the project can follow the OWASP-style quarterly update cadence.</p>
+      </div>
+    </div>
+    <div id="releaseTimeline" class="dimension-grid"></div>
   </section>
 
   <section id="contribute" class="panel contribute">

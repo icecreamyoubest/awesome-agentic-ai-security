@@ -76,6 +76,9 @@ def build_index() -> Dict[str, Any]:
     incidents = load_json("data/incidents.json")
     architectures = load_json("data/reference_architectures.json")
     benchmarks = load_json("benchmarks/mcp_security_benchmark_v01.json")
+    claims = load_json("data/claims.json")
+    arch_templates = load_json("data/architecture_templates.json")
+    release_log = load_json("data/releases/change_log.json")
 
     # Tool profiles.
     for tool in sorted(tools.get("tools", []), key=lambda x: x.get("id", "")):
@@ -234,9 +237,66 @@ def build_index() -> Dict[str, Any]:
             metadata=case,
         )
 
+
+    # Claim verification templates.
+    for claim in claims.get("claims", []):
+        text = f"""
+        Claim template: {claim.get('title')}. Claim: {claim.get('claim')}.
+        Mapped ASI risks: {clean_text(claim.get('mapped_asi'))}.
+        Required evidence: {clean_text(claim.get('required_evidence'))}.
+        Validation tests: {clean_text(claim.get('validation_tests'))}.
+        Confidence rule: {claim.get('confidence_rule')}.
+        """
+        make_doc(
+            docs,
+            title=f"Claim template: {claim.get('title')}",
+            doc_type="claim_template",
+            object_id=claim.get("id", ""),
+            local_path=f"data/claims.json#{claim.get('id')}",
+            tags=list(claim.get("mapped_asi", [])) + ["claim", "evidence"],
+            text=text,
+            metadata=claim,
+        )
+
+    # Architecture templates.
+    for tpl in arch_templates.get("templates", []):
+        text = f"""
+        Architecture template: {tpl.get('title')}. Triggers: {clean_text(tpl.get('triggers'))}.
+        ASI risks: {clean_text(tpl.get('asi'))}. Components: {clean_text(tpl.get('components'))}.
+        Controls: {clean_text(tpl.get('controls'))}. Mermaid: {tpl.get('mermaid')}.
+        """
+        make_doc(
+            docs,
+            title=f"Architecture template: {tpl.get('title')}",
+            doc_type="architecture_template",
+            object_id=tpl.get("id", ""),
+            local_path=f"data/architecture_templates.json#{tpl.get('id')}",
+            tags=list(tpl.get("asi", [])) + ["architecture_template"],
+            text=text,
+            metadata=tpl,
+        )
+
+    # Release / change log records.
+    for rel in release_log.get("releases", []):
+        text = f"""
+        Release: {rel.get('release')} {rel.get('version')}. Summary: {rel.get('summary')}.
+        Added features: {clean_text(rel.get('added_features'))}. Added files: {clean_text(rel.get('added_files'))}.
+        Evidence updated: {clean_text(rel.get('evidence_updated'))}.
+        """
+        make_doc(
+            docs,
+            title=f"Release: {rel.get('release')} {rel.get('version')}",
+            doc_type="release",
+            object_id=rel.get("release", ""),
+            local_path=f"data/releases/change_log.json#{rel.get('release')}",
+            tags=["release", "change_log"],
+            text=text,
+            metadata=rel,
+        )
+
     return {
         "meta": {
-            "version": "v0.8",
+            "version": "v0.9",
             "description": "Grounding source index for LLM-assisted Q&A. Answers should cite source_id values and use only retrieved records.",
             "generated_from": [
                 "data/tools.json",
@@ -245,6 +305,9 @@ def build_index() -> Dict[str, Any]:
                 "data/incidents.json",
                 "data/reference_architectures.json",
                 "benchmarks/mcp_security_benchmark_v01.json",
+                "data/claims.json",
+                "data/architecture_templates.json",
+                "data/releases/change_log.json",
             ],
             "citation_policy": "Every non-trivial answer claim must cite retrieved source IDs like [S001]. If evidence is missing, say insufficient evidence.",
         },

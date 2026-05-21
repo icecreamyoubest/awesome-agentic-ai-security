@@ -135,7 +135,7 @@
       "Tool Security",
       "Vulnerability Management"
     ],
-    "version": "v0.7",
+    "version": "v0.9",
     "agentic_owasp": {
       "ASI01": "Agent Goal Hijack",
       "ASI02": "Tool Misuse and Exploitation",
@@ -219,8 +219,7 @@
     },
     "lifecycle_formula": "lifecycle_coverage = min(5, count(lifecycle_stages) / 9 * 5) with extra manual adjustment allowed for stage depth.",
     "release_notes": {
-      "v0.6": "Adds executable MCP benchmark runner, evidence confidence scoring, ASI coverage depth, reference architectures, incident-to-benchmark mapping, and tool submission JSON generator.",
-      "v0.7": "Adds a deterministic Solution & Tool Validation Agent with scenario parsing, ASI risk mapping, tool recommendation, evidence checks, benchmark planning, and sample solution reports."
+      "v0.9": "Adds a deterministic Solution & Tool Validation Agent with scenario parsing, ASI risk mapping, tool recommendation, evidence checks, benchmark planning, and sample solution reports."
     }
   },
   "tools": [

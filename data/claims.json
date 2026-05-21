@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "version": "v0.9",
+    "updated": "2026-05-21",
+    "description": "Vendor/tool claims decomposed into evidence requirements, ASI mappings, benchmark suggestions, and validation status."
+  },
+  "claims": [
+    {
+      "id": "claim-mcp-runtime-security",
+      "title": "MCP runtime security and tool-call governance",
+      "claim": "The tool can help discover, govern, or enforce security controls for MCP tools and agent runtime tool calls.",
+      "mapped_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI05",
+        "ASI07"
+      ],
+      "required_evidence": [
+        "Official product documentation showing MCP/tool support",
+        "Runtime policy enforcement example or integration guide",
+        "Audit log or telemetry output for tool calls",
+        "Benchmark result for descriptor poisoning or over-permissioned tool use"
+      ],
+      "validation_tests": [
+        "MCP-ASI04-001",
+        "MCP-ASI02-004",
+        "MCP-ASI07-003"
+      ],
+      "confidence_rule": "High only when vendor docs and benchmark-backed evidence are both present."
+    },
+    {
+      "id": "claim-agentic-red-team",
+      "title": "Agentic red-team evaluation",
+      "claim": "The tool supports adversarial evaluation of multi-step agents, goal drift, prompt injection, tool misuse, or multi-agent failure scenarios.",
+      "mapped_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI08",
+        "ASI10"
+      ],
+      "required_evidence": [
+        "Attack library or evaluator documentation",
+        "Multi-turn or agent workflow support",
+        "Report format aligned to ASI/OWASP risks",
+        "Sample CI/CD integration or benchmark result"
+      ],
+      "validation_tests": [
+        "MCP-ASI01-005",
+        "MCP-ASI08-008",
+        "A2A-ASI07-006"
+      ],
+      "confidence_rule": "High when attack cases can be reproduced against a demo agent."
+    },
+    {
+      "id": "claim-memory-rag-security",
+      "title": "RAG and memory protection",
+      "claim": "The tool can detect, prevent, or monitor memory/context poisoning, vector-store leakage, or sensitive-data exposure in retrieved context.",
+      "mapped_asi": [
+        "ASI01",
+        "ASI06",
+        "ASI08"
+      ],
+      "required_evidence": [
+        "RAG/memory integration docs",
+        "Sensitive data or prompt-carrier detection docs",
+        "Tenant isolation or provenance controls",
+        "Benchmark result for cross-tenant memory bleed"
+      ],
+      "validation_tests": [
+        "RAG-ASI06-007",
+        "MCP-ASI01-005"
+      ],
+      "confidence_rule": "High when both provenance controls and benchmark evidence are available."
+    },
+    {
+      "id": "claim-identity-nhi-governance",
+      "title": "Agent identity and non-human identity governance",
+      "claim": "The tool can govern agent identities, delegated credentials, scoped tokens, or privilege boundaries.",
+      "mapped_asi": [
+        "ASI03",
+        "ASI07",
+        "ASI10"
+      ],
+      "required_evidence": [
+        "NHI/agent identity documentation",
+        "Scoped credential or token lifecycle support",
+        "Per-action authorization or approval workflow",
+        "Audit trail for delegated identity use"
+      ],
+      "validation_tests": [
+        "A2A-ASI07-006",
+        "MCP-ASI02-004"
+      ],
+      "confidence_rule": "High when the tool demonstrates scoped credentials and per-action auditability."
+    },
+    {
+      "id": "claim-secure-coding-agent",
+      "title": "Secure coding agent sandbox and RCE prevention",
+      "claim": "The tool helps prevent unexpected code execution, malicious package installation, or unsafe coding-agent behavior.",
+      "mapped_asi": [
+        "ASI04",
+        "ASI05",
+        "ASI09"
+      ],
+      "required_evidence": [
+        "Sandbox or execution isolation documentation",
+        "Dependency/package provenance checks",
+        "Pre-execution code validation or policy gate",
+        "RCE-style benchmark result"
+      ],
+      "validation_tests": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "HITL-ASI09-010"
+      ],
+      "confidence_rule": "High only when sandbox behavior can be tested and audited."
+    }
+  ]
+}
