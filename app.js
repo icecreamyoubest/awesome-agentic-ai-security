@@ -2,6 +2,8 @@ let catalog = { meta: {}, tools: [] };
 let controlsCatalog = { control_matrix: [], use_cases: [], mcp_benchmark: [], evidence_levels: {}, asi_lifecycle_matrix: [] };
 let evidenceCatalog = { meta: {}, tools: {} };
 let benchmarkCases = [];
+let incidentCatalog = { meta: {}, incidents: [] };
+let architectureCatalog = { meta: {}, architectures: [] };
 let selectedCompare = new Set();
 let currentView = "grid";
 
@@ -316,9 +318,9 @@ function openToolDetail(id) {
     </div>
     <p class="modal-desc">${escapeHtml(tool.description)}</p>
     <div class="detail-grid">
-      <div class="detail-box"><strong>Scores</strong>${scoreRow("Agentic", scores.agentic_readiness)}${scoreRow("MCP", scores.mcp_security)}${scoreRow("Lifecycle", scores.lifecycle_coverage)}${scoreRow("Runtime", scores.runtime)}${scoreRow("Red-team", scores.red_team)}</div>
+      <div class="detail-box"><strong>Scores</strong>${scoreRow("Agentic", scores.agentic_readiness)}${scoreRow("MCP", scores.mcp_security)}${scoreRow("Lifecycle", scores.lifecycle_coverage)}${scoreRow("Evidence confidence", tool.evidence_confidence?.confidence_score)}${scoreRow("Runtime", scores.runtime)}${scoreRow("Red-team", scores.red_team)}</div>
       <div class="detail-box"><strong>Best-fit personas</strong><div class="risk-tools">${topPersonas.map(([p,s])=>`<span>${escapeHtml(p)} · ${s}/100</span>`).join("")}</div></div>
-      <div class="detail-box"><strong>ASI coverage</strong><div class="risk-tools">${(tool.agentic_owasp||[]).map(c=>`<span title="${escapeAttr(risks[c]||"")}">${escapeHtml(c)} · ${escapeHtml(risks[c]||"")}</span>`).join("") || "—"}</div></div>
+      <div class="detail-box"><strong>ASI coverage depth</strong><div class="risk-tools">${(tool.agentic_owasp||[]).map(c=>`<span title="${escapeAttr(risks[c]||"")}">${escapeHtml(c)} · depth ${escapeHtml(tool.asi_coverage_depth?.[c] ?? 1)}/3 · ${escapeHtml(risks[c]||"")}</span>`).join("") || "—"}</div></div>
       <div class="detail-box"><strong>Lifecycle coverage</strong><div class="risk-tools">${(tool.lifecycle_stages||[]).map(c=>`<span>${escapeHtml(stages[c]||c)}</span>`).join("") || "—"}</div></div>
       <div class="detail-box"><strong>Framework support</strong><div class="risk-tools">${Object.entries(tool.frameworks||{}).map(([k,v])=>`<span>${escapeHtml(k)} · ${escapeHtml(v)}</span>`).join("") || "—"}</div></div>
       <div class="detail-box"><strong>Deployment</strong><div class="risk-tools">${(tool.deployment||[]).map(x=>`<span>${escapeHtml(titleCase(x))}</span>`).join("") || "—"}</div></div>
@@ -358,7 +360,8 @@ function renderCompare() {
     ["Self-host", t=>`${t.scores?.self_host || 0}/5`],
     ["ASI risks", t=>(t.agentic_owasp||[]).join(", ")],
     ["Lifecycle stages", t=>(t.lifecycle_stages||[]).map(c=>catalog.meta.lifecycle_stages?.[c]||c).join(", ")],
-    ["Evidence", t=>(evidenceCatalog.tools?.[t.id]||t.evidence||[]).map(e=>titleCase(e.type)).slice(0,3).join(", ")],
+    ["Evidence confidence", t=>`${t.evidence_confidence?.confidence_score || 0}/5`],
+    ["Evidence types", t=>(evidenceCatalog.tools?.[t.id]||t.evidence||[]).map(e=>titleCase(e.type)).slice(0,3).join(", ")],
     ["Best-fit personas", t=>Object.keys(catalog.meta.personas||{}).map(p=>[p,scoreForPersona(t,p)]).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([p,s])=>`${p} ${s}`).join(", ")]
   ];
   $("compareBody").innerHTML = rows.map(([label,fn]) => `<tr><td><strong>${escapeHtml(label)}</strong></td>${tools.map(t=>`<td>${escapeHtml(fn(t) || "—")}</td>`).join("")}</tr>`).join("");
@@ -408,6 +411,71 @@ function renderAsiLifecycleMatrix() {
     <td><strong>${escapeHtml(row.asi)}</strong><br><span class="small">${escapeHtml(row.risk || "")}</span></td>
     ${keyStages.map(([c,n]) => `<td>${row.cells?.[c] ? `<span class="cell-control">${escapeHtml(row.cells[c])}</span>` : "—"}</td>`).join("")}
   </tr>`).join("");
+}
+
+
+function renderReferenceArchitectures() {
+  const el = $("architectureGrid");
+  if (!el) return;
+  el.innerHTML = (architectureCatalog.architectures || []).map(a => `
+    <div class="arch-card">
+      <div class="risk-code">${escapeHtml(a.id.replaceAll("_", " "))}</div>
+      <h3>${escapeHtml(a.title)}</h3>
+      <p>${escapeHtml(a.best_for || "")}</p>
+      <div class="mini-title">Threats</div>
+      <div class="risk-tools">${(a.threats || []).map(x => `<span>${escapeHtml(x)}</span>`).join("")}</div>
+      <div class="mini-title">Components</div>
+      <ol class="compact-list">${(a.components || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ol>
+      <div class="mini-title">Controls</div>
+      <div class="risk-tools">${(a.controls || []).map(x => `<span>${escapeHtml(x)}</span>`).join("")}</div>
+      <div class="mini-title">Candidate tools</div>
+      <div class="risk-tools">${(a.candidate_tools || []).map(x => `<span>${escapeHtml(x)}</span>`).join("")}</div>
+      <div class="mini-title">Open gaps</div>
+      <p class="small">${escapeHtml((a.open_gaps || []).join(" · "))}</p>
+    </div>
+  `).join("");
+}
+
+function renderIncidentMapping() {
+  const body = $("incidentMappingBody");
+  if (!body) return;
+  const risks = catalog.meta.agentic_owasp || {};
+  body.innerHTML = (incidentCatalog.incidents || []).map(i => `<tr>
+    <td><strong>${escapeHtml(i.name)}</strong><br><span class="small">${escapeHtml(i.date || "")} · ${escapeHtml(i.summary || "")}</span></td>
+    <td>${(i.asi || []).map(code => `<span class="tag agentic" title="${escapeAttr(risks[code] || "")}">${escapeHtml(code)}</span>`).join(" ")}</td>
+    <td>${(i.benchmark_cases || []).map(x => `<span class="tag capability">${escapeHtml(x)}</span>`).join(" ")}</td>
+    <td>${(i.controls || []).map(x => `<span class="tag control">${escapeHtml(x)}</span>`).join(" ")}</td>
+  </tr>`).join("");
+}
+
+function bindSubmissionGenerator() {
+  const btn = $("generateSubmission");
+  if (!btn) return;
+  const output = $("submissionOutput");
+  const generate = () => {
+    const asi = ($("submitAsi").value || "").split(/[ ,]+/).map(x => x.trim().toUpperCase()).filter(Boolean);
+    const obj = {
+      name: $("submitName").value || "",
+      org: $("submitOrg").value || "",
+      vendor_type: $("submitType").value || "open_source",
+      url: $("submitUrl").value || "",
+      category: [],
+      description: "",
+      frameworks: {},
+      agentic_owasp: asi,
+      lifecycle_stages: [],
+      deployment: [],
+      scores: { red_team: 1, runtime: 1, agent_security: 1, data_security: 1, observability: 1, compliance: 1, enterprise: 1, oss_maturity: 1, self_host: 1, ease: 1, supply_chain: 1 },
+      evidence: [{ type: "official_vendor_docs", source: "", claim: $("submitClaim").value || "", url: $("submitUrl").value || "", last_verified: new Date().toISOString().slice(0,10), confidence: "medium" }],
+      maintainer_notes: "Submitted via static JSON generator. Maintainers should validate mappings and scores before merge."
+    };
+    output.textContent = JSON.stringify(obj, null, 2);
+  };
+  btn.addEventListener("click", generate);
+  $("copySubmission")?.addEventListener("click", async () => {
+    if (!output.textContent.trim()) generate();
+    try { await navigator.clipboard.writeText(output.textContent); alert("Submission JSON copied."); } catch { alert("Copy failed. Select the JSON and copy manually."); }
+  });
 }
 
 function renderMatrix() {
@@ -550,14 +618,18 @@ function setView(view) {
 
 async function init() {
   try {
-    const [res, controlsRes, evidenceRes] = await Promise.all([
+    const [res, controlsRes, evidenceRes, incidentsRes, architecturesRes] = await Promise.all([
       fetch("./data/tools.json", { cache: "no-store" }),
       fetch("./data/controls.json", { cache: "no-store" }),
-      fetch("./data/evidence.json", { cache: "no-store" })
+      fetch("./data/evidence.json", { cache: "no-store" }),
+      fetch("./data/incidents.json", { cache: "no-store" }),
+      fetch("./data/reference_architectures.json", { cache: "no-store" })
     ]);
     catalog = await res.json();
     controlsCatalog = await controlsRes.json();
     evidenceCatalog = await evidenceRes.json();
+    incidentCatalog = await incidentsRes.json();
+    architectureCatalog = await architecturesRes.json();
     $("statTools").textContent = catalog.tools.length;
     $("statCategories").textContent = catalog.meta.categories.length;
     $("statFrameworks").textContent = catalog.meta.frameworks.length;
@@ -579,6 +651,9 @@ async function init() {
     renderAsiLifecycleMatrix();
     renderCompare();
     renderEvidenceHub();
+    renderReferenceArchitectures();
+    renderIncidentMapping();
+    bindSubmissionGenerator();
   } catch (err) {
     document.body.insertAdjacentHTML("afterbegin", `<div class="note"><strong>Failed to load catalog:</strong> ${escapeHtml(err.message)}</div>`);
     console.error(err);

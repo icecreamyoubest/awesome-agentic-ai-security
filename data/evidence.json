@@ -1,8 +1,17 @@
 {
   "meta": {
-    "version": "v0.5",
+    "version": "v0.6",
     "updated": "2026-05-21",
-    "description": "Evidence records that explain why tools are mapped to ASI risks, lifecycle stages, and scores. Claims are conservative and community-maintained."
+    "description": "Evidence records that explain why tools are mapped to ASI risks, lifecycle stages, and scores. Claims are conservative and community-maintained.",
+    "confidence_score_model": {
+      "official_owasp_landscape": 1.5,
+      "official_vendor_docs": 1.0,
+      "public_benchmark": 1.5,
+      "community_review": 1.0,
+      "incident_mapping": 1.0,
+      "inferred_mapping": 0.25,
+      "stale_over_180_days": -1.0
+    }
   },
   "tools": {
     "activefence-ai-security": [
@@ -81,6 +90,14 @@
         ],
         "last_verified": "2026-05-21",
         "confidence": "heuristic"
+      },
+      {
+        "type": "incident_mapping",
+        "source": "OWASP ASI incidents mapped to v0.6 MCP benchmark seeds",
+        "claim": "MCP / agentic supply-chain scenarios are mapped to benchmark cases for descriptor poisoning, malicious packages, and registry trust abuse.",
+        "confidence": "medium",
+        "last_verified": "2026-05-21",
+        "url": "./benchmarks/mcp_security_benchmark_v01.jsonl"
       }
     ],
     "aws-bedrock-guardrails": [
@@ -341,6 +358,14 @@
         ],
         "last_verified": "2026-05-21",
         "confidence": "heuristic"
+      },
+      {
+        "type": "incident_mapping",
+        "source": "OWASP ASI incidents mapped to v0.6 MCP benchmark seeds",
+        "claim": "Benchmark seeds can be adapted into probes for prompt injection and sensitive disclosure, with agent/tool harness glue code.",
+        "confidence": "medium",
+        "last_verified": "2026-05-21",
+        "url": "./benchmarks/mcp_security_benchmark_v01.jsonl"
       }
     ],
     "google-model-armor": [
@@ -731,6 +756,14 @@
         ],
         "last_verified": "2026-05-21",
         "confidence": "heuristic"
+      },
+      {
+        "type": "incident_mapping",
+        "source": "OWASP ASI incidents mapped to v0.6 MCP benchmark seeds",
+        "claim": "Incident-to-control mapping covers Agentforce, A2A, and agent workflow risks commonly monitored by agentic AI-SPM platforms.",
+        "confidence": "medium",
+        "last_verified": "2026-05-21",
+        "url": "./benchmarks/mcp_security_benchmark_v01.jsonl"
       }
     ],
     "nri-secure-ai": [
@@ -913,6 +946,14 @@
         ],
         "last_verified": "2026-05-21",
         "confidence": "heuristic"
+      },
+      {
+        "type": "incident_mapping",
+        "source": "OWASP ASI incidents mapped to v0.6 MCP benchmark seeds",
+        "claim": "Benchmark seeds can be converted into promptfoo red-team/eval scenarios for CI testing of prompt injection, tool misuse, and tool-output injection.",
+        "confidence": "medium",
+        "last_verified": "2026-05-21",
+        "url": "./benchmarks/mcp_security_benchmark_v01.jsonl"
       }
     ],
     "pyrit": [

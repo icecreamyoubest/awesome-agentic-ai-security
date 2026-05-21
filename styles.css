@@ -188,3 +188,14 @@ footer { border-top:1px solid var(--line); padding:30px 20px; text-align:center;
   .compact-controls { grid-template-columns:1fr; }
   .modal-card { padding:18px; }
 }
+
+
+/* v0.6 additions */
+.architecture-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1rem; }
+.arch-card { border: 1px solid var(--border); background: var(--card); border-radius: 16px; padding: 1rem; box-shadow: var(--shadow); }
+.arch-card h3 { margin: .35rem 0 .4rem; }
+.compact-list { margin: .35rem 0 .75rem 1.1rem; color: var(--muted); font-size: .9rem; }
+.compact-list li { margin: .15rem 0; }
+.submit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .9rem; }
+.json-output { margin-top: 1rem; padding: 1rem; border-radius: 12px; border: 1px solid var(--border); background: var(--code-bg, #0f172a); color: #e5e7eb; overflow: auto; min-height: 120px; }
+.tag.depth { background: #eef2ff; color: #3730a3; }

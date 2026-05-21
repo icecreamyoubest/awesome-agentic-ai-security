@@ -12,7 +12,7 @@
   <a class="brand" href="#top" aria-label="Open AI Security Tools Catalog">
     <span class="brand-icon">🛡️</span>
     <span>Open AI / Agentic Security Tools Catalog</span>
-    <span id="versionBadge" class="version-badge">v0.5</span>
+    <span id="versionBadge" class="version-badge">v0.6</span>
   </a>
   <nav class="nav">
     <a href="#catalog">Catalog</a>
@@ -24,6 +24,9 @@
     <a href="#evidence-hub">Evidence</a>
     <a href="#use-cases">Use cases</a>
     <a href="#mcp-benchmark">MCP benchmark</a>
+    <a href="#reference-architectures">Architectures</a>
+    <a href="#incident-mapping">Incidents</a>
+    <a href="#submit-tool">Submit tool</a>
     <a href="#matrix">Matrix</a>
     <a href="#scoring">Scoring</a>
     <a href="#contribute">Contribute</a>
@@ -38,7 +41,7 @@
     <p>
       A maintainable catalog for comparing guardrails, red-team tools, AI-SPM platforms,
       agent/MCP security scanners, data security tools, and observability platforms.
-      v0.5 adds evidence levels, ASI risk-control-tool matrix, lifecycle heatmap, use-case views, MCP benchmark scaffolding, schema validation, and contribution workflow.
+      v0.6 adds an executable MCP benchmark runner, evidence confidence scoring, ASI coverage depth, reference architectures, incident-to-benchmark mapping, and a tool submission generator.
     </p>
     <div class="hero-actions">
       <a class="button primary" href="#catalog">Explore catalog</a>
@@ -300,6 +303,61 @@
     </div>
   </section>
 
+
+<section id="reference-architectures" class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>Reference architectures</h2>
+      <p>Architecture patterns that connect ASI risks, controls, candidate tools, and implementation gaps. These are intended for architecture review and POC planning.</p>
+    </div>
+    <a class="button" href="./data/reference_architectures.json" target="_blank" rel="noopener">Open architecture JSON</a>
+  </div>
+  <div id="architectureGrid" class="architecture-grid"></div>
+</section>
+
+<section id="incident-mapping" class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>Incident → ASI → Benchmark mapping</h2>
+      <p>Maps public agentic/MCP/A2A incident patterns to OWASP ASI risks and benchmark cases. Use this to justify why a benchmark case exists and which controls it exercises.</p>
+    </div>
+    <a class="button" href="./data/incidents.json" target="_blank" rel="noopener">Open incidents JSON</a>
+  </div>
+  <div class="table-wrap">
+    <table class="control-table">
+      <thead>
+        <tr>
+          <th>Incident pattern</th>
+          <th>Mapped ASI</th>
+          <th>Benchmark cases</th>
+          <th>Controls</th>
+        </tr>
+      </thead>
+      <tbody id="incidentMappingBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="submit-tool" class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>Tool submission JSON generator</h2>
+      <p>Generate a structured contribution template. Static Spaces cannot submit PRs directly, so copy the JSON into a GitHub issue or pull request.</p>
+    </div>
+    <a class="button" href="./data/tool_submission_template.json" target="_blank" rel="noopener">Open blank template</a>
+  </div>
+  <div class="submit-grid">
+    <label class="control"><span>Tool name</span><input id="submitName" placeholder="Example: SecureMCP Gateway" /></label>
+    <label class="control"><span>Organization</span><input id="submitOrg" placeholder="Vendor / community" /></label>
+    <label class="control"><span>URL</span><input id="submitUrl" placeholder="https://..." /></label>
+    <label class="control"><span>Vendor type</span><select id="submitType"><option>open_source</option><option>startup</option><option>enterprise</option><option>cloud_provider</option><option>community</option></select></label>
+    <label class="control wide"><span>Evidence claim</span><input id="submitClaim" placeholder="What public evidence supports the mapping?" /></label>
+    <label class="control wide"><span>ASI codes</span><input id="submitAsi" placeholder="ASI02, ASI04, ASI07" /></label>
+  </div>
+  <div class="hero-actions"><button id="generateSubmission" class="button primary" type="button">Generate JSON</button><button id="copySubmission" class="button" type="button">Copy JSON</button></div>
+  <pre id="submissionOutput" class="json-output"></pre>
+</section>
+
   <section id="matrix" class="panel">
     <div class="panel-head">
       <div>
@@ -356,6 +414,14 @@
       <p>Prefer conservative scoring. Increase scores only when the tool has explicit product documentation, open-source implementation evidence, OWASP landscape inclusion, reproducible community verification, or a submitted benchmark result.</p>
     </details>
     <details class="formula" open>
+      <summary>Evidence confidence score</summary>
+      <p><code>confidence = OWASP landscape + vendor docs + benchmark-backed evidence + community review + incident mapping - staleness penalty</code>. Tool cards and detail pages expose this score to distinguish validated claims from inferred mappings.</p>
+    </details>
+    <details class="formula" open>
+      <summary>ASI coverage depth</summary>
+      <p><code>0 = no coverage · 1 = inferred · 2 = explicit / OWASP or vendor-public claim · 3 = benchmark-backed or implementation-verified</code>. This prevents a flat risk tag from looking stronger than the evidence supports.</p>
+    </details>
+    <details class="formula" open>
       <summary>Lifecycle coverage scoring</summary>
       <p><code>0 = no mapped coverage · 1 = inferred / indirect · 2 = vendor-public claim · 3 = OWASP landscape + vendor docs · 4 = community-tested · 5 = benchmark-backed</code></p>
     </details>
@@ -373,11 +439,15 @@
         <p>Add <code>agentic_owasp</code>, <code>lifecycle_stages</code>, <code>agentic_scores</code>, and <code>mcp_scores</code>. Prefer conservative scoring unless the tool has evidence for runtime enforcement, MCP coverage, agent identity controls, or specific OWASP lifecycle support.</p>
       </div>
       <div>
-        <h3>3. Validate before commit</h3>
+        <h3>3. Add evidence or benchmark results</h3>
+        <p>Add supporting records to <code>data/evidence.json</code>. For MCP / A2A tests, add or update cases in <code>benchmarks/mcp_security_benchmark_v01.jsonl</code> and attach runner output from <code>benchmarks/results/</code>.</p>
+      </div>
+      <div>
+        <h3>4. Validate before commit</h3>
         <p>Run a JSON parse check and validate against <code>data/schema.json</code>, then open <code>index.html</code> locally. The included GitHub Action validates schema, ASI codes, score ranges, duplicate IDs, and Hugging Face metadata.</p>
       </div>
       <div>
-        <h3>4. Deploy to Hugging Face</h3>
+        <h3>5. Deploy to Hugging Face</h3>
         <p>Create a Hugging Face Space, choose Static SDK, and commit <code>README.md</code>, <code>index.html</code>, <code>styles.css</code>, <code>app.js</code>, and <code>data/tools.json</code>.</p>
       </div>
     </div>

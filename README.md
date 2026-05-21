@@ -14,7 +14,7 @@ A static, data-driven catalog for comparing **AI security, LLM security, agentic
 
 This project is designed to run as a **Hugging Face Static Space**. It uses plain HTML, CSS, JavaScript, and a maintainable `data/tools.json` file.
 
-## v0.5 additions
+## v0.6 additions
 
 - Aligned ASI labels with **OWASP Top 10 for Agentic Applications 2026**.
 - Added **OWASP AI Security Solutions Landscape Q2 2026** lifecycle mapping.
@@ -169,12 +169,12 @@ Use the following confidence labels when updating entries:
 - `benchmark_backed`: reproducible test or benchmark evidence.
 - `inferred_mapping`: reasonable inference from public capabilities; needs validation.
 
-## v0.5 roadmap notes
+## v0.6 roadmap notes
 
 The current MCP benchmark is a manual test-plan scaffold. Future versions should add executable test harnesses for descriptor poisoning, OAuth response poisoning, tool permission overreach, sandbox escape, RCE, tool-output injection, and cross-agent trust abuse.
 
 
-## v0.5 additions
+## v0.6 additions
 
 - Evidence Hub with `data/evidence.json` and per-tool evidence records.
 - Tool detail modal with ASI coverage, lifecycle coverage, scores, framework support, and evidence.
@@ -191,3 +191,27 @@ Create repository secrets:
 - `HF_SPACE`: `Coraaaa/awesome-agentic-ai-security` or your target `username/space-name`
 
 Then enable `.github/workflows/sync-to-huggingface.yml`.
+
+
+## v0.6: Benchmark and Evidence Hub upgrades
+
+v0.6 adds:
+
+- Executable MCP Security Benchmark Runner under `benchmarks/runner/`
+- Evidence Confidence Score for every tool
+- ASI Coverage Depth (`0–3`) per mapped ASI risk
+- Reference architectures in `data/reference_architectures.json`
+- Incident → ASI → Benchmark mapping in `data/incidents.json`
+- Static tool submission JSON generator in the Space UI
+
+Run the benchmark runner locally:
+
+```bash
+python benchmarks/runner/run_benchmark.py   --suite benchmarks/mcp_security_benchmark_v01.jsonl   --mode mock   --output benchmarks/results/example_report.json
+```
+
+Validate the catalog:
+
+```bash
+python scripts/validate_catalog.py
+```

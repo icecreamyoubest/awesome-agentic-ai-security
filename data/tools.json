@@ -135,7 +135,7 @@
       "Tool Security",
       "Vulnerability Management"
     ],
-    "version": "v0.5",
+    "version": "v0.6",
     "agentic_owasp": {
       "ASI01": "Agent Goal Hijack",
       "ASI02": "Tool Misuse and Exploitation",
@@ -218,7 +218,9 @@
       "govern": "Maintain agent registries, access reviews, lifecycle rotation, compliance evidence, alignment audits, and policy baselines."
     },
     "lifecycle_formula": "lifecycle_coverage = min(5, count(lifecycle_stages) / 9 * 5) with extra manual adjustment allowed for stage depth.",
-    "release_notes": "v0.5 adds Evidence Hub, executable MCP benchmark JSONL, tool detail modal, compare mode, ASI x lifecycle matrix, and GitHub to Hugging Face sync workflow."
+    "release_notes": {
+      "v0.6": "Adds executable MCP benchmark runner, evidence confidence scoring, ASI coverage depth, reference architectures, incident-to-benchmark mapping, and tool submission JSON generator."
+    }
   },
   "tools": [
     {
@@ -338,7 +340,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI06": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "art",
@@ -442,7 +460,17 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 0,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 0.5
+      },
+      "asi_coverage_depth": {}
     },
     {
       "id": "agentic-radar",
@@ -566,7 +594,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI07": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "aws-bedrock-guardrails",
@@ -686,7 +730,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "azure-content-safety",
@@ -808,7 +868,24 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "calypsoai",
@@ -932,7 +1009,24 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "capsule-ai-security",
@@ -1042,7 +1136,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI07": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "cisco-ai-defense",
@@ -1167,7 +1276,25 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "cortex-cloud-ai-security",
@@ -1288,7 +1415,25 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "deepteam",
@@ -1395,7 +1540,17 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 0,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 0.5
+      },
+      "asi_coverage_depth": {}
     },
     {
       "id": "fiddler",
@@ -1511,7 +1666,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "galileo",
@@ -1629,7 +1799,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "garak",
@@ -1748,7 +1933,21 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "google-model-armor",
@@ -1863,7 +2062,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "guardian-ai",
@@ -1979,7 +2193,24 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "guardrails-ai",
@@ -2096,7 +2327,21 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI05": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "hiddenlayer",
@@ -2223,7 +2468,25 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "hivetrace",
@@ -2337,7 +2600,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI07": 2,
+        "ASI08": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "human-security-ai",
@@ -2449,7 +2728,21 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "ibm-guardium-ai-security",
@@ -2567,7 +2860,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "lakera-guard",
@@ -2685,7 +2994,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "lasso-security",
@@ -2805,7 +3129,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "llamafirewall",
@@ -2923,7 +3262,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 0,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 0.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 1,
+        "ASI02": 1,
+        "ASI05": 1,
+        "ASI06": 1,
+        "ASI10": 1
+      }
     },
     {
       "id": "llm-guard",
@@ -3044,7 +3399,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "presidio",
@@ -3158,7 +3529,21 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "mindgard",
@@ -3284,7 +3669,26 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "nemo-guardrails",
@@ -3403,7 +3807,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "noma-security",
@@ -3534,7 +3954,26 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI06": 2,
+        "ASI07": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "nri-secure-ai",
@@ -3649,7 +4088,25 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "pangea-ai-guard",
@@ -3767,7 +4224,24 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "phoenix",
@@ -3883,7 +4357,21 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI08": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "pillar-security",
@@ -4011,7 +4499,28 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI07": 2,
+        "ASI08": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "prisma-airs",
@@ -4143,7 +4652,26 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI06": 2,
+        "ASI07": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "prompt-security",
@@ -4260,7 +4788,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "promptfoo",
@@ -4387,7 +4931,24 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI07": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "pyrit",
@@ -4505,7 +5066,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "securiti",
@@ -4625,7 +5201,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI06": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "splx",
@@ -4749,7 +5340,27 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI07": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "striker",
@@ -4872,7 +5483,26 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "tenable-ai-security",
@@ -4987,7 +5617,24 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI07": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "trend-micro-ai-security",
@@ -5103,7 +5750,23 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI02": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "trojai",
@@ -5222,7 +5885,24 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI04": 2,
+        "ASI05": 2,
+        "ASI06": 2,
+        "ASI08": 2,
+        "ASI10": 2
+      }
     },
     {
       "id": "unbound-security-ai",
@@ -5333,7 +6013,21 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI03": 2,
+        "ASI07": 2,
+        "ASI09": 2
+      }
     },
     {
       "id": "wiz-ai-spm",
@@ -5452,7 +6146,22 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.5
+      },
+      "asi_coverage_depth": {
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI06": 2,
+        "ASI08": 2
+      }
     },
     {
       "id": "zenity",
@@ -5576,7 +6285,27 @@
           "last_verified": "2026-05-21",
           "confidence": "heuristic"
         }
-      ]
+      ],
+      "evidence_confidence": {
+        "owasp_landscape": 1,
+        "vendor_docs": 0,
+        "public_benchmark": 0,
+        "community_review": 0,
+        "incident_mapping": 0,
+        "last_verified": "2026-05-21",
+        "confidence_score": 1.8
+      },
+      "asi_coverage_depth": {
+        "ASI01": 2,
+        "ASI02": 2,
+        "ASI03": 2,
+        "ASI04": 2,
+        "ASI06": 2,
+        "ASI07": 2,
+        "ASI08": 2,
+        "ASI09": 2,
+        "ASI10": 2
+      }
     }
   ]
 }
