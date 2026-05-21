@@ -294,9 +294,45 @@ def build_index() -> Dict[str, Any]:
             metadata=rel,
         )
 
+
+    # Update intelligence records.
+    for path, key, dtype in [
+        ("data/updates/pending_updates.json", "updates", "update_candidate"),
+        ("data/updates/triaged_updates.json", "triaged_updates", "triaged_update"),
+        ("data/updates/roadmap.json", "roadmap_items", "roadmap_update"),
+        ("data/updates/catalog_patch_suggestions.json", "suggestions", "catalog_patch_suggestion"),
+        ("data/updates/benchmark_recommendations.json", "recommendations", "benchmark_recommendation"),
+        ("data/updates/evidence_diffs.json", "diffs", "evidence_diff"),
+        ("data/updates/pr_candidates.json", "candidates", "pr_candidate"),
+    ]:
+        p = ROOT / path
+        if p.exists():
+            data = json.loads(p.read_text(encoding="utf-8"))
+            for item in data.get(key, []):
+                text = f"Update intelligence record. Title: {item.get('title')}. Vendor: {item.get('vendor') or item.get('vendor_name')}. Priority: {item.get('priority')}. ASI: {clean_text(item.get('candidate_asi') or item.get('mapped_asi'))}. Features: {clean_text(item.get('candidate_features') or item.get('signals'))}. Summary: {item.get('summary') or item.get('suggested_change')}"
+                make_doc(docs, title=f"Update: {item.get('title') or item.get('id')}", doc_type=dtype, object_id=item.get('id',''), local_path=f"{path}#{item.get('id','')}", url=item.get('url') or path, tags=list(item.get('candidate_asi', []) or item.get('mapped_asi', []) or []) + ["update_intelligence"], text=text, metadata=item)
+
+    # Update source registry records.
+    p = ROOT / "data/update_sources.json"
+    if p.exists():
+        registry = json.loads(p.read_text(encoding="utf-8"))
+        for vendor in registry.get("vendors", []):
+            text = f"Update source registry. Vendor: {vendor.get('name')}. Tier: {vendor.get('tier')}. Homepage: {vendor.get('homepage')}. Sources: {clean_text(vendor.get('sources'))}."
+            make_doc(docs, title=f"Update source: {vendor.get('name')}", doc_type="update_source", object_id=vendor.get('id',''), local_path=f"data/update_sources.json#{vendor.get('id','')}", url=vendor.get('homepage') or "data/update_sources.json", tags=["update_source", vendor.get('tier','')], text=text, metadata=vendor)
+
+
+    # Roadmap board records.
+    p = ROOT / "data/roadmap_board.json"
+    if p.exists():
+        board = json.loads(p.read_text(encoding="utf-8"))
+        for column, items in board.get("columns", {}).items():
+            for item in items:
+                text = f"Roadmap board item. Column: {column}. Title: {item.get('title')}. Status: {item.get('status')}. Owner: {item.get('owner')}."
+                make_doc(docs, title=f"Roadmap board: {item.get('title')}", doc_type="roadmap_board_item", object_id=item.get('id',''), local_path=f"data/roadmap_board.json#{column}:{item.get('id','')}", tags=["roadmap_board", column, item.get('status','')], text=text, metadata={**item, "column": column})
+
     return {
         "meta": {
-            "version": "v0.9",
+            "version": "v1.1",
             "description": "Grounding source index for LLM-assisted Q&A. Answers should cite source_id values and use only retrieved records.",
             "generated_from": [
                 "data/tools.json",

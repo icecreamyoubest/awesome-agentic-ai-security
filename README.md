@@ -14,7 +14,7 @@ A static, data-driven catalog and validation hub for comparing **AI security, LL
 
 This project is designed to run as a **Hugging Face Static Space**. It uses plain HTML, CSS, JavaScript, and maintainable JSON data files.
 
-## v0.9 additions
+## v1.0 additions
 
 v0.9 upgrades the project from grounded Q&A into an auditable **Agentic Security Evaluation Platform**:
 
@@ -24,6 +24,32 @@ v0.9 upgrades the project from grounded Q&A into an auditable **Agentic Security
 - **Validation Agent Loop**: scenario → ASI risks → recommended tools → benchmark plan → score update suggestions.
 - **Architecture Generator**: scenario signals → reference architecture patterns → controls → Mermaid diagram text.
 - **Quarterly Evidence Update Pipeline**: release records under `data/releases/` for maintaining catalog changes over time.
+
+
+
+## v1.0 additions
+
+v1.0 adds an **Automated Update Intelligence Pipeline** for keeping the catalog current with tool releases, top-company AI security features, roadmap signals, and evidence changes.
+
+- **Update source registry**: `data/update_sources.json` tracks official blogs, release feeds, GitHub repositories, security pages, and roadmap pages.
+- **Update monitor**: `agents/update_monitor.py` fetches sources, deduplicates by hash, and creates `data/updates/pending_updates.json`.
+- **Update triage agent**: `agents/update_triage_agent.py` maps updates to tools, vendors, ASI risks, lifecycle stages, feature categories, and priority.
+- **Roadmap update agent**: `agents/roadmap_update_agent.py` converts triaged updates into roadmap items and catalog patch suggestions.
+- **End-to-end auto update pipeline**: `agents/auto_update_pipeline.py` runs monitor → triage → roadmap.
+- **GitHub scheduled workflow**: `.github/workflows/auto-update-intelligence.yml` runs on schedule and opens a PR with update suggestions.
+- **Static update dashboard**: the Hugging Face page shows latest pending updates, roadmap signals, watched sources, and manual commands.
+
+Recommended command:
+
+```bash
+python agents/auto_update_pipeline.py --network --max-per-source 5
+```
+
+Offline smoke test:
+
+```bash
+python agents/auto_update_pipeline.py --offline
+```
 
 ## Core workflows
 
@@ -167,3 +193,26 @@ For Hugging Face Static Space, keep the YAML metadata at the top of this README 
 HF_TOKEN = your Hugging Face write token
 HF_SPACE = Coraaaa/awesome-agentic-ai-security
 ```
+
+
+## v1.1 Update Review & PR Automation
+
+This release adds a review-first maintenance loop:
+
+```text
+discover update -> triage -> recommend benchmark -> build evidence diff -> generate PR candidate -> human review -> merge -> sync to Hugging Face
+```
+
+Run locally:
+
+```bash
+python agents/auto_update_pipeline.py --offline
+python agents/benchmark_recommender.py
+python agents/evidence_diff_builder.py
+python agents/pr_generator.py
+python agents/update_review_report.py
+```
+
+GitHub workflow: `.github/workflows/auto-update-pr.yml`.
+
+Automation policy: the pipeline can propose evidence and benchmark recommendations, but it must not automatically increase scores or ASI coverage depth without human approval and benchmark-backed evidence.

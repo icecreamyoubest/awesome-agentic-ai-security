@@ -1,0 +1,44 @@
+name: Auto Update Intelligence
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-intelligence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run update intelligence pipeline
+        run: |
+          python agents/auto_update_pipeline.py --network --max-per-source 5
+
+      - name: Create pull request with update candidates
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: refresh AI security update intelligence"
+          title: "chore: refresh AI security update intelligence"
+          body: |
+            Automated update intelligence run.
+
+            Review generated files before merging:
+            - data/updates/pending_updates.json
+            - data/updates/triaged_updates.json
+            - data/updates/roadmap.json
+            - data/updates/catalog_patch_suggestions.json
+
+            This workflow does not automatically change tool scores.
+          branch: chore/auto-update-intelligence
+          delete-branch: true

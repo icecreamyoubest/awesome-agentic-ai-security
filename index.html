@@ -569,6 +569,65 @@
     <div id="releaseTimeline" class="dimension-grid"></div>
   </section>
 
+
+
+  <section id="auto-update-intelligence" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Automated Update Intelligence</h2>
+        <p>Monitor official sources for AI security tool releases, top-company security features, roadmap signals, incidents, and standards updates. Outputs are reviewable candidates, not automatic score changes.</p>
+      </div>
+    </div>
+    <div class="metric-row" id="updateStatusCards"></div>
+    <div class="two-col">
+      <div class="answer-box">
+        <h3>Latest candidate updates</h3>
+        <div id="pendingUpdatesList" class="compact-list"></div>
+      </div>
+      <div class="answer-box">
+        <h3>Roadmap signals</h3>
+        <div id="roadmapUpdatesList" class="compact-list"></div>
+      </div>
+    </div>
+    <div class="answer-box">
+      <h3>Watched source categories</h3>
+      <div id="updateSourcesList" class="tag-cloud"></div>
+      <p class="small">Manual run: <code>python agents/auto_update_pipeline.py --network --max-per-source 5</code>. GitHub workflow: <code>.github/workflows/auto-update-intelligence.yml</code>.</p>
+    </div>
+  </section>
+
+
+  <section id="update-review-automation" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Update Review & PR Automation</h2>
+        <p>Convert discovered vendor, framework, MCP/A2A, and standards updates into reviewable benchmark recommendations, evidence diffs, and PR candidates. Automation proposes changes; humans approve them.</p>
+      </div>
+    </div>
+    <div class="metric-row" id="updateReviewCards"></div>
+    <div class="two-col">
+      <div class="answer-box">
+        <h3>Benchmark recommendations</h3>
+        <div id="benchmarkRecommendationsList" class="compact-list"></div>
+      </div>
+      <div class="answer-box">
+        <h3>Evidence diffs</h3>
+        <div id="evidenceDiffsList" class="compact-list"></div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="answer-box">
+        <h3>PR candidates</h3>
+        <div id="prCandidatesList" class="compact-list"></div>
+      </div>
+      <div class="answer-box">
+        <h3>Roadmap board</h3>
+        <div id="roadmapBoard" class="roadmap-board"></div>
+      </div>
+    </div>
+    <p class="small">Manual loop: <code>python agents/auto_update_pipeline.py --network</code> → <code>benchmark_recommender.py</code> → <code>evidence_diff_builder.py</code> → <code>pr_generator.py</code>. GitHub workflow: <code>.github/workflows/auto-update-pr.yml</code>.</p>
+  </section>
+
   <section id="contribute" class="panel contribute">
     <h2>How to update and maintain</h2>
     <div class="steps">

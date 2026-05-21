@@ -1,0 +1,41 @@
+name: Auto Update Review PR
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 3 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-review-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run update intelligence pipeline
+        run: |
+          python agents/auto_update_pipeline.py --network --max-per-source 5 || python agents/auto_update_pipeline.py --offline
+          python agents/benchmark_recommender.py
+          python agents/evidence_diff_builder.py
+          python agents/pr_generator.py
+          python agents/update_review_report.py
+          python agents/build_source_index.py
+          python scripts/validate_catalog.py
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: auto/update-review-${{ github.run_id }}
+          title: "Auto update review: evidence and benchmark candidates"
+          body-path: outputs/pr_candidate_sample.md
+          commit-message: "Generate update review candidates"
+          labels: automated-update, needs-review

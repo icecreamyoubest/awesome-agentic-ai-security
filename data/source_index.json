@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v0.9",
+    "version": "v1.1",
     "description": "Grounding source index for LLM-assisted Q&A. Answers should cite source_id values and use only retrieved records.",
     "generated_from": [
       "data/tools.json",
@@ -5520,6 +5520,1021 @@
         "evidence_updated": [
           "Introduced claim-level evidence requirements and validation status model."
         ]
+      }
+    },
+    {
+      "source_id": "S199",
+      "title": "Release: Q2-2026-v1.1 v1.1",
+      "type": "release",
+      "object_id": "Q2-2026-v1.1",
+      "local_path": "data/releases/change_log.json#Q2-2026-v1.1",
+      "url": "data/releases/change_log.json#Q2-2026-v1.1",
+      "tags": [
+        "release",
+        "change_log"
+      ],
+      "text": "Release: Q2-2026-v1.1 v1.1. Summary: Added update review and PR automation: benchmark recommendations, evidence diffs, PR candidates, and roadmap board.. Added features: Benchmark Recommendation Engine; Evidence Diff Builder; Auto PR Candidate Generator; Roadmap Board UI; Weekly Update Review Report. Added files: agents/benchmark_recommender.py; agents/evidence_diff_builder.py; agents/pr_generator.py; data/updates/evidence_diffs.json; data/updates/benchmark_recommendations.json; data/roadmap_board.json. Evidence updated: Automated update intelligence now produces reviewable diffs instead of direct catalog mutations..",
+      "metadata": {
+        "release": "Q2-2026-v1.1",
+        "version": "v1.1",
+        "summary": "Added update review and PR automation: benchmark recommendations, evidence diffs, PR candidates, and roadmap board.",
+        "added_features": [
+          "Benchmark Recommendation Engine",
+          "Evidence Diff Builder",
+          "Auto PR Candidate Generator",
+          "Roadmap Board UI",
+          "Weekly Update Review Report"
+        ],
+        "added_files": [
+          "agents/benchmark_recommender.py",
+          "agents/evidence_diff_builder.py",
+          "agents/pr_generator.py",
+          "data/updates/evidence_diffs.json",
+          "data/updates/benchmark_recommendations.json",
+          "data/roadmap_board.json"
+        ],
+        "evidence_updated": [
+          "Automated update intelligence now produces reviewable diffs instead of direct catalog mutations."
+        ]
+      }
+    },
+    {
+      "source_id": "S200",
+      "title": "Update: Offline smoke-test update candidate",
+      "type": "update_candidate",
+      "object_id": "63c9cbaed1d60dbe7ce18b48",
+      "local_path": "data/updates/pending_updates.json#63c9cbaed1d60dbe7ce18b48",
+      "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+      "tags": [
+        "update_intelligence"
+      ],
+      "text": "Update intelligence record. Title: Offline smoke-test update candidate. Vendor: OWASP GenAI Security Project. Priority: low. ASI: . Features: . Summary: This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
+      "metadata": {
+        "id": "63c9cbaed1d60dbe7ce18b48",
+        "vendor_id": "owasp-genai",
+        "vendor_name": "OWASP GenAI Security Project",
+        "source_type": "docs_page",
+        "source_url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "title": "Offline smoke-test update candidate",
+        "summary": "This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "published_at": "2026-05-21T08:27:48Z",
+        "detected_at": "2026-05-21T08:27:48Z",
+        "matched_watch_terms": [],
+        "candidate_features": [],
+        "candidate_asi": [],
+        "candidate_lifecycle_stages": [],
+        "priority": "low",
+        "status": "needs_review"
+      }
+    },
+    {
+      "source_id": "S201",
+      "title": "Update: Offline smoke-test update candidate",
+      "type": "triaged_update",
+      "object_id": "63c9cbaed1d60dbe7ce18b48",
+      "local_path": "data/updates/triaged_updates.json#63c9cbaed1d60dbe7ce18b48",
+      "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+      "tags": [
+        "update_intelligence"
+      ],
+      "text": "Update intelligence record. Title: Offline smoke-test update candidate. Vendor: OWASP GenAI Security Project. Priority: low. ASI: . Features: . Summary: This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
+      "metadata": {
+        "id": "63c9cbaed1d60dbe7ce18b48",
+        "vendor_id": "owasp-genai",
+        "vendor_name": "OWASP GenAI Security Project",
+        "source_type": "docs_page",
+        "source_url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "title": "Offline smoke-test update candidate",
+        "summary": "This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
+        "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "published_at": "2026-05-21T08:27:48Z",
+        "detected_at": "2026-05-21T08:27:48Z",
+        "matched_watch_terms": [],
+        "candidate_features": [],
+        "candidate_asi": [],
+        "candidate_lifecycle_stages": [],
+        "priority": "low",
+        "status": "needs_review",
+        "matched_tools": [],
+        "recommended_action": "review_only",
+        "review_questions": [
+          "Is this an official vendor/standard source?",
+          "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+          "Is a benchmark case or incident mapping needed?"
+        ],
+        "triaged_at": "2026-05-21T08:27:51Z"
+      }
+    },
+    {
+      "source_id": "S202",
+      "title": "Update: Offline smoke-test update candidate",
+      "type": "benchmark_recommendation",
+      "object_id": "benchrec-63c9cbaed1d60dbe7ce18b48",
+      "local_path": "data/updates/benchmark_recommendations.json#benchrec-63c9cbaed1d60dbe7ce18b48",
+      "url": "data/updates/benchmark_recommendations.json",
+      "tags": [
+        "update_intelligence"
+      ],
+      "text": "Update intelligence record. Title: Offline smoke-test update candidate. Vendor: OWASP GenAI Security Project. Priority: None. ASI: . Features: . Summary: None",
+      "metadata": {
+        "id": "benchrec-63c9cbaed1d60dbe7ce18b48",
+        "update_id": "63c9cbaed1d60dbe7ce18b48",
+        "title": "Offline smoke-test update candidate",
+        "vendor": "OWASP GenAI Security Project",
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ],
+        "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+        "reasons": [
+          "No specific pattern matched; default to tool-misuse validation if available."
+        ],
+        "status": "needs_human_review"
+      }
+    },
+    {
+      "source_id": "S203",
+      "title": "Update: diff-63c9cbaed1d60dbe7ce18b48",
+      "type": "evidence_diff",
+      "object_id": "diff-63c9cbaed1d60dbe7ce18b48",
+      "local_path": "data/updates/evidence_diffs.json#diff-63c9cbaed1d60dbe7ce18b48",
+      "url": "data/updates/evidence_diffs.json",
+      "tags": [
+        "update_intelligence"
+      ],
+      "text": "Update intelligence record. Title: None. Vendor: None. Priority: None. ASI: . Features: . Summary: None",
+      "metadata": {
+        "id": "diff-63c9cbaed1d60dbe7ce18b48",
+        "update_id": "63c9cbaed1d60dbe7ce18b48",
+        "tool_id": "activefence-ai-security",
+        "change_type": "evidence_added",
+        "status": "pending_review",
+        "source_url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "source_title": "Offline smoke-test update candidate",
+        "before": {
+          "evidence_records": "unchanged",
+          "score_change": "none"
+        },
+        "after": {
+          "proposed_evidence": {
+            "type": "official_vendor_docs",
+            "source": "OWASP GenAI Security Project",
+            "claim": "This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
+            "supports": [],
+            "confidence": "medium",
+            "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+            "last_verified": "2026-05-21T08:27:48Z"
+          },
+          "proposed_asi_depth_change": {},
+          "recommended_benchmarks": [
+            "MCP-ASI02-004"
+          ]
+        },
+        "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+        "review_checklist": [
+          "Source is official or independently verified",
+          "Claim is not marketing-only",
+          "ASI mapping is supported by text evidence",
+          "No score increase unless benchmark-backed or implementation-verified",
+          "Relevant benchmark recommendation exists for runtime/security claims"
+        ]
+      }
+    },
+    {
+      "source_id": "S204",
+      "title": "Update: Review evidence update for activefence-ai-security",
+      "type": "pr_candidate",
+      "object_id": "pr-diff-63c9cbaed1d60dbe7ce18b48",
+      "local_path": "data/updates/pr_candidates.json#pr-diff-63c9cbaed1d60dbe7ce18b48",
+      "url": "data/updates/pr_candidates.json",
+      "tags": [
+        "update_intelligence"
+      ],
+      "text": "Update intelligence record. Title: Review evidence update for activefence-ai-security. Vendor: None. Priority: None. ASI: . Features: . Summary: None",
+      "metadata": {
+        "id": "pr-diff-63c9cbaed1d60dbe7ce18b48",
+        "tool_id": "activefence-ai-security",
+        "update_id": "63c9cbaed1d60dbe7ce18b48",
+        "title": "Review evidence update for activefence-ai-security",
+        "source_url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+        "proposed_changes": {
+          "evidence_added": {
+            "type": "official_vendor_docs",
+            "source": "OWASP GenAI Security Project",
+            "claim": "This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
+            "supports": [],
+            "confidence": "medium",
+            "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+            "last_verified": "2026-05-21T08:27:48Z"
+          },
+          "asi_depth_review": {},
+          "benchmark_recommendations": [
+            "MCP-ASI02-004"
+          ]
+        },
+        "status": "ready_for_human_review",
+        "review_checklist": [
+          "Source is official or independently verified",
+          "Claim is not marketing-only",
+          "ASI mapping is supported by text evidence",
+          "No score increase unless benchmark-backed or implementation-verified",
+          "Relevant benchmark recommendation exists for runtime/security claims"
+        ]
+      }
+    },
+    {
+      "source_id": "S205",
+      "title": "Update source: OWASP GenAI Security Project",
+      "type": "update_source",
+      "object_id": "owasp-genai",
+      "local_path": "data/update_sources.json#owasp-genai",
+      "url": "https://genai.owasp.org/",
+      "tags": [
+        "update_source",
+        "standards"
+      ],
+      "text": "Update source registry. Vendor: OWASP GenAI Security Project. Tier: standards. Homepage: https://genai.owasp.org/. Sources: {'type': 'docs_page', 'url': 'https://genai.owasp.org/ai-security-solutions-landscape/', 'watch_for': ['Solutions Landscape', 'Agentic', 'ASI', 'quarterly']}; {'type': 'docs_page', 'url': 'https://genai.owasp.org/initiatives/agentic-security-initiative/', 'watch_for': ['Agentic Security Initiative', 'Top 10', 'Threats and Mitigations']}.",
+      "metadata": {
+        "id": "owasp-genai",
+        "name": "OWASP GenAI Security Project",
+        "tier": "standards",
+        "homepage": "https://genai.owasp.org/",
+        "sources": [
+          {
+            "type": "docs_page",
+            "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+            "watch_for": [
+              "Solutions Landscape",
+              "Agentic",
+              "ASI",
+              "quarterly"
+            ]
+          },
+          {
+            "type": "docs_page",
+            "url": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+            "watch_for": [
+              "Agentic Security Initiative",
+              "Top 10",
+              "Threats and Mitigations"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S206",
+      "title": "Update source: OpenAI",
+      "type": "update_source",
+      "object_id": "openai",
+      "local_path": "data/update_sources.json#openai",
+      "url": "https://openai.com/",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: OpenAI. Tier: top_company. Homepage: https://openai.com/. Sources: {'type': 'official_blog', 'url': 'https://openai.com/news/', 'watch_for': ['safety', 'security', 'agents', 'guardrails', 'Preparedness', 'red team']}; {'type': 'docs_page', 'url': 'https://platform.openai.com/docs/guides/safety-best-practices', 'watch_for': ['safety', 'moderation', 'guardrails', 'evals']}.",
+      "metadata": {
+        "id": "openai",
+        "name": "OpenAI",
+        "tier": "top_company",
+        "homepage": "https://openai.com/",
+        "sources": [
+          {
+            "type": "official_blog",
+            "url": "https://openai.com/news/",
+            "watch_for": [
+              "safety",
+              "security",
+              "agents",
+              "guardrails",
+              "Preparedness",
+              "red team"
+            ]
+          },
+          {
+            "type": "docs_page",
+            "url": "https://platform.openai.com/docs/guides/safety-best-practices",
+            "watch_for": [
+              "safety",
+              "moderation",
+              "guardrails",
+              "evals"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S207",
+      "title": "Update source: Anthropic",
+      "type": "update_source",
+      "object_id": "anthropic",
+      "local_path": "data/update_sources.json#anthropic",
+      "url": "https://www.anthropic.com/",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: Anthropic. Tier: top_company. Homepage: https://www.anthropic.com/. Sources: {'type': 'official_blog', 'url': 'https://www.anthropic.com/news', 'watch_for': ['safety', 'security', 'constitutional', 'agent', 'tool use', 'computer use']}; {'type': 'docs_page', 'url': 'https://docs.anthropic.com/', 'watch_for': ['tool use', 'computer use', 'safety', 'guardrails']}.",
+      "metadata": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "tier": "top_company",
+        "homepage": "https://www.anthropic.com/",
+        "sources": [
+          {
+            "type": "official_blog",
+            "url": "https://www.anthropic.com/news",
+            "watch_for": [
+              "safety",
+              "security",
+              "constitutional",
+              "agent",
+              "tool use",
+              "computer use"
+            ]
+          },
+          {
+            "type": "docs_page",
+            "url": "https://docs.anthropic.com/",
+            "watch_for": [
+              "tool use",
+              "computer use",
+              "safety",
+              "guardrails"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S208",
+      "title": "Update source: Microsoft Azure AI",
+      "type": "update_source",
+      "object_id": "microsoft",
+      "local_path": "data/update_sources.json#microsoft",
+      "url": "https://azure.microsoft.com/",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: Microsoft Azure AI. Tier: top_company. Homepage: https://azure.microsoft.com/. Sources: {'type': 'release_notes', 'url': 'https://learn.microsoft.com/en-us/azure/ai-services/content-safety/', 'watch_for': ['Prompt Shield', 'Content Safety', 'groundedness', 'jailbreak']}; {'type': 'official_blog', 'url': 'https://azure.microsoft.com/en-us/blog/topics/security/', 'watch_for': ['AI security', 'Copilot', 'agent', 'Entra', 'guardrail']}.",
+      "metadata": {
+        "id": "microsoft",
+        "name": "Microsoft Azure AI",
+        "tier": "top_company",
+        "homepage": "https://azure.microsoft.com/",
+        "sources": [
+          {
+            "type": "release_notes",
+            "url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/",
+            "watch_for": [
+              "Prompt Shield",
+              "Content Safety",
+              "groundedness",
+              "jailbreak"
+            ]
+          },
+          {
+            "type": "official_blog",
+            "url": "https://azure.microsoft.com/en-us/blog/topics/security/",
+            "watch_for": [
+              "AI security",
+              "Copilot",
+              "agent",
+              "Entra",
+              "guardrail"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S209",
+      "title": "Update source: AWS Bedrock",
+      "type": "update_source",
+      "object_id": "aws",
+      "local_path": "data/update_sources.json#aws",
+      "url": "https://aws.amazon.com/bedrock/",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: AWS Bedrock. Tier: top_company. Homepage: https://aws.amazon.com/bedrock/. Sources: {'type': 'release_notes', 'url': 'https://aws.amazon.com/bedrock/guardrails/', 'watch_for': ['Guardrails', 'Bedrock', 'PII', 'prompt attack', 'automated reasoning']}; {'type': 'official_blog', 'url': 'https://aws.amazon.com/blogs/machine-learning/', 'watch_for': ['Bedrock Guardrails', 'agents', 'safety', 'security']}.",
+      "metadata": {
+        "id": "aws",
+        "name": "AWS Bedrock",
+        "tier": "top_company",
+        "homepage": "https://aws.amazon.com/bedrock/",
+        "sources": [
+          {
+            "type": "release_notes",
+            "url": "https://aws.amazon.com/bedrock/guardrails/",
+            "watch_for": [
+              "Guardrails",
+              "Bedrock",
+              "PII",
+              "prompt attack",
+              "automated reasoning"
+            ]
+          },
+          {
+            "type": "official_blog",
+            "url": "https://aws.amazon.com/blogs/machine-learning/",
+            "watch_for": [
+              "Bedrock Guardrails",
+              "agents",
+              "safety",
+              "security"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S210",
+      "title": "Update source: Google Cloud / Vertex AI",
+      "type": "update_source",
+      "object_id": "google",
+      "local_path": "data/update_sources.json#google",
+      "url": "https://cloud.google.com/",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: Google Cloud / Vertex AI. Tier: top_company. Homepage: https://cloud.google.com/. Sources: {'type': 'docs_page', 'url': 'https://cloud.google.com/security/products/model-armor', 'watch_for': ['Model Armor', 'prompt injection', 'jailbreak', 'safety']}; {'type': 'release_notes', 'url': 'https://cloud.google.com/vertex-ai/generative-ai/docs/release-notes', 'watch_for': ['safety', 'guardrail', 'Model Armor', 'agent']}.",
+      "metadata": {
+        "id": "google",
+        "name": "Google Cloud / Vertex AI",
+        "tier": "top_company",
+        "homepage": "https://cloud.google.com/",
+        "sources": [
+          {
+            "type": "docs_page",
+            "url": "https://cloud.google.com/security/products/model-armor",
+            "watch_for": [
+              "Model Armor",
+              "prompt injection",
+              "jailbreak",
+              "safety"
+            ]
+          },
+          {
+            "type": "release_notes",
+            "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+            "watch_for": [
+              "safety",
+              "guardrail",
+              "Model Armor",
+              "agent"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S211",
+      "title": "Update source: Meta / PurpleLlama",
+      "type": "update_source",
+      "object_id": "meta",
+      "local_path": "data/update_sources.json#meta",
+      "url": "https://github.com/meta-llama/PurpleLlama",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: Meta / PurpleLlama. Tier: top_company. Homepage: https://github.com/meta-llama/PurpleLlama. Sources: {'type': 'github_releases', 'url': 'https://api.github.com/repos/meta-llama/PurpleLlama/releases', 'watch_for': ['CyberSecEval', 'LlamaFirewall', 'PromptGuard', 'CodeShield']}.",
+      "metadata": {
+        "id": "meta",
+        "name": "Meta / PurpleLlama",
+        "tier": "top_company",
+        "homepage": "https://github.com/meta-llama/PurpleLlama",
+        "sources": [
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/meta-llama/PurpleLlama/releases",
+            "watch_for": [
+              "CyberSecEval",
+              "LlamaFirewall",
+              "PromptGuard",
+              "CodeShield"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S212",
+      "title": "Update source: NVIDIA AI Security",
+      "type": "update_source",
+      "object_id": "nvidia",
+      "local_path": "data/update_sources.json#nvidia",
+      "url": "https://github.com/NVIDIA/garak",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: NVIDIA AI Security. Tier: top_company. Homepage: https://github.com/NVIDIA/garak. Sources: {'type': 'github_releases', 'url': 'https://api.github.com/repos/NVIDIA/garak/releases', 'watch_for': ['probe', 'detector', 'agent', 'jailbreak']}; {'type': 'github_releases', 'url': 'https://api.github.com/repos/NVIDIA/NeMo-Guardrails/releases', 'watch_for': ['guardrails', 'Colang', 'rails', 'runtime']}.",
+      "metadata": {
+        "id": "nvidia",
+        "name": "NVIDIA AI Security",
+        "tier": "top_company",
+        "homepage": "https://github.com/NVIDIA/garak",
+        "sources": [
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/NVIDIA/garak/releases",
+            "watch_for": [
+              "probe",
+              "detector",
+              "agent",
+              "jailbreak"
+            ]
+          },
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/NVIDIA/NeMo-Guardrails/releases",
+            "watch_for": [
+              "guardrails",
+              "Colang",
+              "rails",
+              "runtime"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S213",
+      "title": "Update source: Palo Alto Networks Prisma AIRS",
+      "type": "update_source",
+      "object_id": "palo-alto",
+      "local_path": "data/update_sources.json#palo-alto",
+      "url": "https://www.paloaltonetworks.com/prisma/airs",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: Palo Alto Networks Prisma AIRS. Tier: top_company. Homepage: https://www.paloaltonetworks.com/prisma/airs. Sources: {'type': 'official_blog', 'url': 'https://www.paloaltonetworks.com/blog/', 'watch_for': ['Prisma AIRS', 'AI security', 'agent', 'runtime']}.",
+      "metadata": {
+        "id": "palo-alto",
+        "name": "Palo Alto Networks Prisma AIRS",
+        "tier": "top_company",
+        "homepage": "https://www.paloaltonetworks.com/prisma/airs",
+        "sources": [
+          {
+            "type": "official_blog",
+            "url": "https://www.paloaltonetworks.com/blog/",
+            "watch_for": [
+              "Prisma AIRS",
+              "AI security",
+              "agent",
+              "runtime"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S214",
+      "title": "Update source: Cisco AI Defense",
+      "type": "update_source",
+      "object_id": "cisco",
+      "local_path": "data/update_sources.json#cisco",
+      "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/index.html",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: Cisco AI Defense. Tier: top_company. Homepage: https://www.cisco.com/site/us/en/products/security/ai-defense/index.html. Sources: {'type': 'official_blog', 'url': 'https://www.cisco.com/c/en/us/products/security/ai-defense.html', 'watch_for': ['AI Defense', 'AI security', 'runtime', 'validation']}.",
+      "metadata": {
+        "id": "cisco",
+        "name": "Cisco AI Defense",
+        "tier": "top_company",
+        "homepage": "https://www.cisco.com/site/us/en/products/security/ai-defense/index.html",
+        "sources": [
+          {
+            "type": "official_blog",
+            "url": "https://www.cisco.com/c/en/us/products/security/ai-defense.html",
+            "watch_for": [
+              "AI Defense",
+              "AI security",
+              "runtime",
+              "validation"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S215",
+      "title": "Update source: Wiz AI Security",
+      "type": "update_source",
+      "object_id": "wiz",
+      "local_path": "data/update_sources.json#wiz",
+      "url": "https://www.wiz.io/solutions/ai-security",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: Wiz AI Security. Tier: top_company. Homepage: https://www.wiz.io/solutions/ai-security. Sources: {'type': 'official_blog', 'url': 'https://www.wiz.io/blog', 'watch_for': ['AI-SPM', 'AI security', 'Bedrock', 'Vertex', 'OpenAI']}.",
+      "metadata": {
+        "id": "wiz",
+        "name": "Wiz AI Security",
+        "tier": "top_company",
+        "homepage": "https://www.wiz.io/solutions/ai-security",
+        "sources": [
+          {
+            "type": "official_blog",
+            "url": "https://www.wiz.io/blog",
+            "watch_for": [
+              "AI-SPM",
+              "AI security",
+              "Bedrock",
+              "Vertex",
+              "OpenAI"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S216",
+      "title": "Update source: CrowdStrike AI Security",
+      "type": "update_source",
+      "object_id": "crowdstrike",
+      "local_path": "data/update_sources.json#crowdstrike",
+      "url": "https://www.crowdstrike.com/",
+      "tags": [
+        "update_source",
+        "top_company"
+      ],
+      "text": "Update source registry. Vendor: CrowdStrike AI Security. Tier: top_company. Homepage: https://www.crowdstrike.com/. Sources: {'type': 'official_blog', 'url': 'https://www.crowdstrike.com/en-us/blog/', 'watch_for': ['AI security', 'Falcon', 'Charlotte AI', 'agent']}.",
+      "metadata": {
+        "id": "crowdstrike",
+        "name": "CrowdStrike AI Security",
+        "tier": "top_company",
+        "homepage": "https://www.crowdstrike.com/",
+        "sources": [
+          {
+            "type": "official_blog",
+            "url": "https://www.crowdstrike.com/en-us/blog/",
+            "watch_for": [
+              "AI security",
+              "Falcon",
+              "Charlotte AI",
+              "agent"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S217",
+      "title": "Update source: Promptfoo",
+      "type": "update_source",
+      "object_id": "promptfoo",
+      "local_path": "data/update_sources.json#promptfoo",
+      "url": "https://github.com/promptfoo/promptfoo",
+      "tags": [
+        "update_source",
+        "tool"
+      ],
+      "text": "Update source registry. Vendor: Promptfoo. Tier: tool. Homepage: https://github.com/promptfoo/promptfoo. Sources: {'type': 'github_releases', 'url': 'https://api.github.com/repos/promptfoo/promptfoo/releases', 'watch_for': ['redteam', 'plugin', 'agent', 'MCP', 'jailbreak']}.",
+      "metadata": {
+        "id": "promptfoo",
+        "name": "Promptfoo",
+        "tier": "tool",
+        "homepage": "https://github.com/promptfoo/promptfoo",
+        "sources": [
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/promptfoo/promptfoo/releases",
+            "watch_for": [
+              "redteam",
+              "plugin",
+              "agent",
+              "MCP",
+              "jailbreak"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S218",
+      "title": "Update source: LLM Guard",
+      "type": "update_source",
+      "object_id": "llm-guard",
+      "local_path": "data/update_sources.json#llm-guard",
+      "url": "https://github.com/protectai/llm-guard",
+      "tags": [
+        "update_source",
+        "tool"
+      ],
+      "text": "Update source registry. Vendor: LLM Guard. Tier: tool. Homepage: https://github.com/protectai/llm-guard. Sources: {'type': 'github_releases', 'url': 'https://api.github.com/repos/protectai/llm-guard/releases', 'watch_for': ['scanner', 'PII', 'prompt injection', 'secrets']}.",
+      "metadata": {
+        "id": "llm-guard",
+        "name": "LLM Guard",
+        "tier": "tool",
+        "homepage": "https://github.com/protectai/llm-guard",
+        "sources": [
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/protectai/llm-guard/releases",
+            "watch_for": [
+              "scanner",
+              "PII",
+              "prompt injection",
+              "secrets"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S219",
+      "title": "Update source: Arize Phoenix",
+      "type": "update_source",
+      "object_id": "arize-phoenix",
+      "local_path": "data/update_sources.json#arize-phoenix",
+      "url": "https://github.com/Arize-ai/phoenix",
+      "tags": [
+        "update_source",
+        "tool"
+      ],
+      "text": "Update source registry. Vendor: Arize Phoenix. Tier: tool. Homepage: https://github.com/Arize-ai/phoenix. Sources: {'type': 'github_releases', 'url': 'https://api.github.com/repos/Arize-ai/phoenix/releases', 'watch_for': ['tracing', 'evals', 'agents', 'observability']}.",
+      "metadata": {
+        "id": "arize-phoenix",
+        "name": "Arize Phoenix",
+        "tier": "tool",
+        "homepage": "https://github.com/Arize-ai/phoenix",
+        "sources": [
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/Arize-ai/phoenix/releases",
+            "watch_for": [
+              "tracing",
+              "evals",
+              "agents",
+              "observability"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S220",
+      "title": "Update source: LangChain / LangGraph",
+      "type": "update_source",
+      "object_id": "langchain",
+      "local_path": "data/update_sources.json#langchain",
+      "url": "https://github.com/langchain-ai/langchain",
+      "tags": [
+        "update_source",
+        "framework"
+      ],
+      "text": "Update source registry. Vendor: LangChain / LangGraph. Tier: framework. Homepage: https://github.com/langchain-ai/langchain. Sources: {'type': 'github_releases', 'url': 'https://api.github.com/repos/langchain-ai/langchain/releases', 'watch_for': ['LangGraph', 'agent', 'tool', 'MCP', 'security']}.",
+      "metadata": {
+        "id": "langchain",
+        "name": "LangChain / LangGraph",
+        "tier": "framework",
+        "homepage": "https://github.com/langchain-ai/langchain",
+        "sources": [
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/langchain-ai/langchain/releases",
+            "watch_for": [
+              "LangGraph",
+              "agent",
+              "tool",
+              "MCP",
+              "security"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S221",
+      "title": "Update source: LlamaIndex",
+      "type": "update_source",
+      "object_id": "llamaindex",
+      "local_path": "data/update_sources.json#llamaindex",
+      "url": "https://github.com/run-llama/llama_index",
+      "tags": [
+        "update_source",
+        "framework"
+      ],
+      "text": "Update source registry. Vendor: LlamaIndex. Tier: framework. Homepage: https://github.com/run-llama/llama_index. Sources: {'type': 'github_releases', 'url': 'https://api.github.com/repos/run-llama/llama_index/releases', 'watch_for': ['agent', 'tool', 'MCP', 'RAG', 'security']}.",
+      "metadata": {
+        "id": "llamaindex",
+        "name": "LlamaIndex",
+        "tier": "framework",
+        "homepage": "https://github.com/run-llama/llama_index",
+        "sources": [
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/run-llama/llama_index/releases",
+            "watch_for": [
+              "agent",
+              "tool",
+              "MCP",
+              "RAG",
+              "security"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S222",
+      "title": "Update source: Model Context Protocol",
+      "type": "update_source",
+      "object_id": "modelcontextprotocol",
+      "local_path": "data/update_sources.json#modelcontextprotocol",
+      "url": "https://modelcontextprotocol.io/",
+      "tags": [
+        "update_source",
+        "protocol"
+      ],
+      "text": "Update source registry. Vendor: Model Context Protocol. Tier: protocol. Homepage: https://modelcontextprotocol.io/. Sources: {'type': 'docs_page', 'url': 'https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices', 'watch_for': ['security', 'OAuth', 'tool', 'server', 'permission']}; {'type': 'github_releases', 'url': 'https://api.github.com/repos/modelcontextprotocol/specification/releases', 'watch_for': ['security', 'authorization', 'transport', 'tool']}.",
+      "metadata": {
+        "id": "modelcontextprotocol",
+        "name": "Model Context Protocol",
+        "tier": "protocol",
+        "homepage": "https://modelcontextprotocol.io/",
+        "sources": [
+          {
+            "type": "docs_page",
+            "url": "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices",
+            "watch_for": [
+              "security",
+              "OAuth",
+              "tool",
+              "server",
+              "permission"
+            ]
+          },
+          {
+            "type": "github_releases",
+            "url": "https://api.github.com/repos/modelcontextprotocol/specification/releases",
+            "watch_for": [
+              "security",
+              "authorization",
+              "transport",
+              "tool"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "S223",
+      "title": "Roadmap board: Review official-source evidence candidates",
+      "type": "roadmap_board_item",
+      "object_id": "now-evidence-review",
+      "local_path": "data/roadmap_board.json#now:now-evidence-review",
+      "url": "data/roadmap_board.json#now:now-evidence-review",
+      "tags": [
+        "roadmap_board",
+        "now",
+        "active"
+      ],
+      "text": "Roadmap board item. Column: now. Title: Review official-source evidence candidates. Status: active. Owner: maintainers.",
+      "metadata": {
+        "id": "now-evidence-review",
+        "title": "Review official-source evidence candidates",
+        "status": "active",
+        "owner": "maintainers",
+        "column": "now"
+      }
+    },
+    {
+      "source_id": "S224",
+      "title": "Roadmap board: Map MCP / A2A updates to benchmark cases",
+      "type": "roadmap_board_item",
+      "object_id": "now-mcp-benchmark",
+      "local_path": "data/roadmap_board.json#now:now-mcp-benchmark",
+      "url": "data/roadmap_board.json#now:now-mcp-benchmark",
+      "tags": [
+        "roadmap_board",
+        "now",
+        "active"
+      ],
+      "text": "Roadmap board item. Column: now. Title: Map MCP / A2A updates to benchmark cases. Status: active. Owner: maintainers.",
+      "metadata": {
+        "id": "now-mcp-benchmark",
+        "title": "Map MCP / A2A updates to benchmark cases",
+        "status": "active",
+        "owner": "maintainers",
+        "column": "now"
+      }
+    },
+    {
+      "source_id": "S225",
+      "title": "Roadmap board: Generate PR-ready evidence diffs from update candidates",
+      "type": "roadmap_board_item",
+      "object_id": "next-pr-automation",
+      "local_path": "data/roadmap_board.json#next:next-pr-automation",
+      "url": "data/roadmap_board.json#next:next-pr-automation",
+      "tags": [
+        "roadmap_board",
+        "next",
+        "planned"
+      ],
+      "text": "Roadmap board item. Column: next. Title: Generate PR-ready evidence diffs from update candidates. Status: planned. Owner: automation.",
+      "metadata": {
+        "id": "next-pr-automation",
+        "title": "Generate PR-ready evidence diffs from update candidates",
+        "status": "planned",
+        "owner": "automation",
+        "column": "next"
+      }
+    },
+    {
+      "source_id": "S226",
+      "title": "Roadmap board: Add LLM-assisted update reviewer with citation audit",
+      "type": "roadmap_board_item",
+      "object_id": "next-claim-review",
+      "local_path": "data/roadmap_board.json#next:next-claim-review",
+      "url": "data/roadmap_board.json#next:next-claim-review",
+      "tags": [
+        "roadmap_board",
+        "next",
+        "planned"
+      ],
+      "text": "Roadmap board item. Column: next. Title: Add LLM-assisted update reviewer with citation audit. Status: planned. Owner: automation.",
+      "metadata": {
+        "id": "next-claim-review",
+        "title": "Add LLM-assisted update reviewer with citation audit",
+        "status": "planned",
+        "owner": "automation",
+        "column": "next"
+      }
+    },
+    {
+      "source_id": "S227",
+      "title": "Roadmap board: Validate runtime MCP tool permission claims",
+      "type": "roadmap_board_item",
+      "object_id": "bench-runtime-policy",
+      "local_path": "data/roadmap_board.json#benchmark_needed:bench-runtime-policy",
+      "url": "data/roadmap_board.json#benchmark_needed:bench-runtime-policy",
+      "tags": [
+        "roadmap_board",
+        "benchmark_needed",
+        "needs_benchmark"
+      ],
+      "text": "Roadmap board item. Column: benchmark_needed. Title: Validate runtime MCP tool permission claims. Status: needs_benchmark. Owner: benchmark.",
+      "metadata": {
+        "id": "bench-runtime-policy",
+        "title": "Validate runtime MCP tool permission claims",
+        "status": "needs_benchmark",
+        "owner": "benchmark",
+        "column": "benchmark_needed"
+      }
+    },
+    {
+      "source_id": "S228",
+      "title": "Roadmap board: Validate agent-card spoofing and A2A trust abuse detection",
+      "type": "roadmap_board_item",
+      "object_id": "bench-agent-card",
+      "local_path": "data/roadmap_board.json#benchmark_needed:bench-agent-card",
+      "url": "data/roadmap_board.json#benchmark_needed:bench-agent-card",
+      "tags": [
+        "roadmap_board",
+        "benchmark_needed",
+        "needs_benchmark"
+      ],
+      "text": "Roadmap board item. Column: benchmark_needed. Title: Validate agent-card spoofing and A2A trust abuse detection. Status: needs_benchmark. Owner: benchmark.",
+      "metadata": {
+        "id": "bench-agent-card",
+        "title": "Validate agent-card spoofing and A2A trust abuse detection",
+        "status": "needs_benchmark",
+        "owner": "benchmark",
+        "column": "benchmark_needed"
+      }
+    },
+    {
+      "source_id": "S229",
+      "title": "Roadmap board: Publish benchmark-backed tool leaderboard",
+      "type": "roadmap_board_item",
+      "object_id": "later-leaderboard",
+      "local_path": "data/roadmap_board.json#later:later-leaderboard",
+      "url": "data/roadmap_board.json#later:later-leaderboard",
+      "tags": [
+        "roadmap_board",
+        "later",
+        "later"
+      ],
+      "text": "Roadmap board item. Column: later. Title: Publish benchmark-backed tool leaderboard. Status: later. Owner: maintainers.",
+      "metadata": {
+        "id": "later-leaderboard",
+        "title": "Publish benchmark-backed tool leaderboard",
+        "status": "later",
+        "owner": "maintainers",
+        "column": "later"
       }
     }
   ]

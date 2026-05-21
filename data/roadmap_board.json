@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "version": "v1.1",
+    "description": "Public roadmap board for update intelligence review."
+  },
+  "columns": {
+    "now": [
+      {
+        "id": "now-evidence-review",
+        "title": "Review official-source evidence candidates",
+        "status": "active",
+        "owner": "maintainers"
+      },
+      {
+        "id": "now-mcp-benchmark",
+        "title": "Map MCP / A2A updates to benchmark cases",
+        "status": "active",
+        "owner": "maintainers"
+      }
+    ],
+    "next": [
+      {
+        "id": "next-pr-automation",
+        "title": "Generate PR-ready evidence diffs from update candidates",
+        "status": "planned",
+        "owner": "automation"
+      },
+      {
+        "id": "next-claim-review",
+        "title": "Add LLM-assisted update reviewer with citation audit",
+        "status": "planned",
+        "owner": "automation"
+      }
+    ],
+    "benchmark_needed": [
+      {
+        "id": "bench-runtime-policy",
+        "title": "Validate runtime MCP tool permission claims",
+        "status": "needs_benchmark",
+        "owner": "benchmark"
+      },
+      {
+        "id": "bench-agent-card",
+        "title": "Validate agent-card spoofing and A2A trust abuse detection",
+        "status": "needs_benchmark",
+        "owner": "benchmark"
+      }
+    ],
+    "under_review": [],
+    "later": [
+      {
+        "id": "later-leaderboard",
+        "title": "Publish benchmark-backed tool leaderboard",
+        "status": "later",
+        "owner": "maintainers"
+      }
+    ],
+    "rejected": []
+  }
+}

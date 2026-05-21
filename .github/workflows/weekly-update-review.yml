@@ -1,0 +1,29 @@
+name: Weekly Update Review Report
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  weekly-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Generate review report
+        run: |
+          python agents/benchmark_recommender.py
+          python agents/evidence_diff_builder.py
+          python agents/pr_generator.py
+          python agents/update_review_report.py
+      - name: Upload review report
+        uses: actions/upload-artifact@v4
+        with:
+          name: update-review-report
+          path: outputs/update_review_report.md

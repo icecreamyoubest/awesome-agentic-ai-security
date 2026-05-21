@@ -33,6 +33,29 @@
       "evidence_updated": [
         "Introduced claim-level evidence requirements and validation status model."
       ]
+    },
+    {
+      "release": "Q2-2026-v1.1",
+      "version": "v1.1",
+      "summary": "Added update review and PR automation: benchmark recommendations, evidence diffs, PR candidates, and roadmap board.",
+      "added_features": [
+        "Benchmark Recommendation Engine",
+        "Evidence Diff Builder",
+        "Auto PR Candidate Generator",
+        "Roadmap Board UI",
+        "Weekly Update Review Report"
+      ],
+      "added_files": [
+        "agents/benchmark_recommender.py",
+        "agents/evidence_diff_builder.py",
+        "agents/pr_generator.py",
+        "data/updates/evidence_diffs.json",
+        "data/updates/benchmark_recommendations.json",
+        "data/roadmap_board.json"
+      ],
+      "evidence_updated": [
+        "Automated update intelligence now produces reviewable diffs instead of direct catalog mutations."
+      ]
     }
   ]
 }
