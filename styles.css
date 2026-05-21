@@ -122,3 +122,32 @@ footer { border-top:1px solid var(--line); padding:30px 20px; text-align:center;
   .tag.stage { background: #10243a; color: #9ec5ff; border-color: #244b78; }
 }
 .lifecycle-card .risk-code { text-transform: uppercase; }
+
+/* v0.4 evidence, matrix, benchmark additions */
+.tag.control {
+  color: var(--green);
+  border-color: color-mix(in srgb, var(--green) 30%, var(--line));
+  background: color-mix(in srgb, var(--green) 8%, var(--bg2));
+  font-weight: 800;
+}
+.tag.capability {
+  color: var(--blue);
+  border-color: color-mix(in srgb, var(--blue) 30%, var(--line));
+  background: color-mix(in srgb, var(--blue) 8%, var(--bg2));
+}
+.control-table td:nth-child(2), .control-table td:nth-child(3), .control-table td:nth-child(4) { min-width: 220px; }
+.heatmap-wrap table { min-width: 980px; }
+.heatmap th { text-align: center; }
+.heatmap td:not(:first-child) { text-align: center; font-weight: 900; }
+.heat-cell { min-width: 68px; color: transparent; border-left: 1px solid var(--line); }
+.heat-cell.level-0 { background: transparent; }
+.heat-cell.level-1 { background: color-mix(in srgb, var(--accent2) 16%, var(--panel)); color: var(--muted); }
+.heat-cell.level-2 { background: color-mix(in srgb, var(--accent2) 28%, var(--panel)); color: var(--text); }
+.heat-cell.level-3 { background: color-mix(in srgb, var(--accent2) 42%, var(--panel)); color: #1a1a1a; }
+.heat-cell.level-4 { background: color-mix(in srgb, var(--accent) 46%, var(--panel)); color: #fff; }
+.heat-cell.level-5 { background: color-mix(in srgb, var(--purple) 60%, var(--panel)); color: #fff; }
+.mini-title { margin: 12px 0 6px; color: var(--muted); font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; }
+.usecase-card { min-height: 260px; }
+@media (max-width: 880px) {
+  .control-table, .heatmap { min-width: 900px; }
+}

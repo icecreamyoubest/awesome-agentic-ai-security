@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Awesome Agentic AI Security Catalog",
-    "description": "Open, maintainable catalog of AI, LLM, agentic, MCP, and Agentic SecOps security tools with OWASP Agentic Applications Top 10 mapping, lifecycle coverage, and heuristic scoring.",
+    "description": "Open catalog of AI, LLM, agentic and MCP security tools with OWASP ASI mapping, lifecycle coverage, evidence levels, risk-control-tool matrix, and benchmark scaffolding.",
     "updated": "2026-05-21",
     "dimensions": {
       "red_team": "Red teaming and adversarial evaluation depth",
@@ -135,7 +135,7 @@
       "Tool Security",
       "Vulnerability Management"
     ],
-    "version": "0.3.0",
+    "version": "0.4.0",
     "agentic_owasp": {
       "ASI01": "Agent Goal Hijack",
       "ASI02": "Tool Misuse and Exploitation",

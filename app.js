@@ -1,4 +1,5 @@
 let catalog = { meta: {}, tools: [] };
+let controlsCatalog = { control_matrix: [], use_cases: [], mcp_benchmark: [], evidence_levels: {} };
 let currentView = "grid";
 
 const $ = (id) => document.getElementById(id);
@@ -182,6 +183,89 @@ function renderTable(items, persona) {
   }).join("");
 }
 
+
+function renderControlMatrix() {
+  const body = $("controlMatrixBody");
+  if (!body) return;
+  const risks = catalog.meta.agentic_owasp || {};
+  body.innerHTML = (controlsCatalog.control_matrix || []).map(row => {
+    const mappedTools = catalog.tools
+      .filter(t => (t.agentic_owasp || []).includes(row.asi))
+      .sort((a,b) => (b.scores?.agentic_readiness || 0) - (a.scores?.agentic_readiness || 0))
+      .slice(0, 8);
+    return `<tr>
+      <td><strong>${escapeHtml(row.asi)}</strong><br><span class="small">${escapeHtml(risks[row.asi] || "")}</span></td>
+      <td>${(row.controls || []).map(x => `<span class="tag control">${escapeHtml(x)}</span>`).join(" ")}</td>
+      <td>${(row.capabilities || []).map(x => `<span class="tag capability">${escapeHtml(x)}</span>`).join(" ")}</td>
+      <td>${mappedTools.map(t => `<span class="tag">${escapeHtml(t.name)}</span>`).join(" ") || "—"}</td>
+    </tr>`;
+  }).join("");
+}
+
+function renderLifecycleHeatmap() {
+  const head = $("heatmapHead");
+  const body = $("heatmapBody");
+  if (!head || !body) return;
+  const stages = Object.entries(catalog.meta.lifecycle_stages || {});
+  const tools = [...catalog.tools]
+    .sort((a,b) => (b.scores?.lifecycle_coverage || 0) - (a.scores?.lifecycle_coverage || 0))
+    .slice(0, 35);
+  head.innerHTML = `<tr><th>Tool</th>${stages.map(([code,name]) => `<th title="${escapeAttr(name)}">${escapeHtml(shortStage(name))}</th>`).join("")}</tr>`;
+  body.innerHTML = tools.map(t => `<tr>
+    <td><strong>${escapeHtml(t.name)}</strong><br><span class="small">${escapeHtml(t.org)}</span></td>
+    ${stages.map(([code,name]) => {
+      const active = (t.lifecycle_stages || []).includes(code);
+      const strength = active ? Math.max(1, Math.min(5, Number(t.scores?.lifecycle_coverage || 1))) : 0;
+      return `<td class="heat-cell level-${Math.round(strength)}" title="${escapeAttr(t.name + ' · ' + name)}">${active ? '●' : ''}</td>`;
+    }).join("")}
+  </tr>`).join("");
+}
+
+function shortStage(name) {
+  return String(name).replace("Augment / Fine-tune Data", "Data").replace("Develop & Experiment", "Dev").replace("Test & Evaluate", "Test").replace("Scope & Plan", "Plan");
+}
+
+function renderUseCases() {
+  const el = $("useCaseGrid");
+  if (!el) return;
+  el.innerHTML = (controlsCatalog.use_cases || []).map(uc => {
+    const candidates = catalog.tools
+      .filter(t => (uc.asi || []).some(code => (t.agentic_owasp || []).includes(code)))
+      .sort((a,b) => (b.scores?.agentic_readiness || 0) - (a.scores?.agentic_readiness || 0))
+      .slice(0, 7);
+    return `<div class="risk-card usecase-card">
+      <div class="risk-code">${escapeHtml(uc.id.replaceAll("_", " "))}</div>
+      <h3>${escapeHtml(uc.title)}</h3>
+      <p>${escapeHtml(uc.description)}</p>
+      <div class="mini-title">Capabilities</div>
+      <div class="risk-tools">${(uc.required_capabilities || []).map(x => `<span>${escapeHtml(x)}</span>`).join("")}</div>
+      <div class="mini-title">Candidate tools</div>
+      <div class="risk-tools">${candidates.map(t => `<span>${escapeHtml(t.name)}</span>`).join("")}</div>
+    </div>`;
+  }).join("");
+}
+
+function renderMcpBenchmark() {
+  const body = $("mcpBenchmarkBody");
+  if (!body) return;
+  const risks = catalog.meta.agentic_owasp || {};
+  body.innerHTML = (controlsCatalog.mcp_benchmark || []).map(test => `<tr>
+    <td><strong>${escapeHtml(test.id)}</strong></td>
+    <td>${escapeHtml(test.scenario)}</td>
+    <td>${(test.asi || []).map(code => `<span class="tag agentic" title="${escapeAttr(risks[code] || "")}">${escapeHtml(code)}</span>`).join(" ")}</td>
+    <td>${(test.expected_controls || []).map(x => `<span class="tag control">${escapeHtml(x)}</span>`).join(" ")}</td>
+    <td class="small">${escapeHtml(test.status || "planned")}</td>
+  </tr>`).join("");
+}
+
+function renderEvidenceModel() {
+  const el = $("evidenceGrid");
+  if (!el) return;
+  el.innerHTML = Object.entries(controlsCatalog.evidence_levels || {}).map(([k,v]) => `
+    <div class="dimension"><strong>${escapeHtml(titleCase(k))}</strong><span>${escapeHtml(v)}</span></div>
+  `).join("");
+}
+
 function renderMatrix() {
   const frameworks = catalog.meta.frameworks || [];
   $("matrixHead").innerHTML = `<tr><th>Tool</th><th>Type</th>${frameworks.map(f => `<th>${escapeHtml(f)}</th>`).join("")}</tr>`;
@@ -319,8 +403,12 @@ function setView(view) {
 
 async function init() {
   try {
-    const res = await fetch("./data/tools.json", { cache: "no-store" });
+    const [res, controlsRes] = await Promise.all([
+      fetch("./data/tools.json", { cache: "no-store" }),
+      fetch("./data/controls.json", { cache: "no-store" })
+    ]);
     catalog = await res.json();
+    controlsCatalog = await controlsRes.json();
     $("statTools").textContent = catalog.tools.length;
     $("statCategories").textContent = catalog.meta.categories.length;
     $("statFrameworks").textContent = catalog.meta.frameworks.length;
@@ -333,6 +421,11 @@ async function init() {
     renderDimensions();
     renderLifecycle();
     renderAgenticOwasp();
+    renderControlMatrix();
+    renderLifecycleHeatmap();
+    renderUseCases();
+    renderMcpBenchmark();
+    renderEvidenceModel();
     renderScoreModels();
   } catch (err) {
     document.body.insertAdjacentHTML("afterbegin", `<div class="note"><strong>Failed to load catalog:</strong> ${escapeHtml(err.message)}</div>`);

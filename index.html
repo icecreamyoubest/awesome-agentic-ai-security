@@ -12,12 +12,15 @@
   <a class="brand" href="#top" aria-label="Open AI Security Tools Catalog">
     <span class="brand-icon">🛡️</span>
     <span>Open AI / Agentic Security Tools Catalog</span>
-    <span id="versionBadge" class="version-badge">v0.3</span>
+    <span id="versionBadge" class="version-badge">v0.4</span>
   </a>
   <nav class="nav">
     <a href="#catalog">Catalog</a>
     <a href="#agentic-owasp">Agentic OWASP</a>
     <a href="#lifecycle">Lifecycle</a>
+    <a href="#control-matrix">Controls</a>
+    <a href="#use-cases">Use cases</a>
+    <a href="#mcp-benchmark">MCP benchmark</a>
     <a href="#matrix">Matrix</a>
     <a href="#scoring">Scoring</a>
     <a href="#contribute">Contribute</a>
@@ -32,12 +35,13 @@
     <p>
       A maintainable catalog for comparing guardrails, red-team tools, AI-SPM platforms,
       agent/MCP security scanners, data security tools, and observability platforms.
-      v0.3 adds OWASP Agentic Applications mapping, Agentic Readiness Score, and MCP Security Score.
+      v0.4 adds evidence levels, ASI risk-control-tool matrix, lifecycle heatmap, use-case views, MCP benchmark scaffolding, schema validation, and contribution workflow.
     </p>
     <div class="hero-actions">
       <a class="button primary" href="#catalog">Explore catalog</a>
       <a class="button" href="./data/tools.json" target="_blank" rel="noopener">Open tools.json</a>
       <a class="button" href="#agentic-owasp">View Agentic OWASP mapping</a>
+      <a class="button" href="#control-matrix">Risk → Control matrix</a>
     </div>
     <div class="stats">
       <div><strong id="statTools">—</strong><span>tools</span></div>
@@ -165,6 +169,79 @@
     <div id="agenticGrid" class="risk-grid"></div>
   </section>
 
+
+
+  <section id="control-matrix" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>ASI Risk → Control → Tool matrix</h2>
+        <p>Translates OWASP Agentic Top 10 risks into implementable control patterns and shortlistable tool capabilities. Use this as an architecture-review bridge between threat taxonomy and product selection.</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="control-table">
+        <thead>
+          <tr>
+            <th>ASI Risk</th>
+            <th>Core controls</th>
+            <th>Tool capabilities to look for</th>
+            <th>Mapped tools from catalog</th>
+          </tr>
+        </thead>
+        <tbody id="controlMatrixBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="lifecycle-heatmap" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Lifecycle heatmap</h2>
+        <p>Coverage heatmap across OWASP Agentic SecOps lifecycle stages. Darker cells mean the tool is mapped to the lifecycle stage and has stronger lifecycle coverage score.</p>
+      </div>
+    </div>
+    <div class="table-wrap heatmap-wrap">
+      <table class="heatmap">
+        <thead id="heatmapHead"></thead>
+        <tbody id="heatmapBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="use-cases" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Use-case decision view</h2>
+        <p>Start from the thing you need to secure, then shortlist tools by capability. This view is intentionally control-oriented rather than vendor-oriented.</p>
+      </div>
+    </div>
+    <div id="useCaseGrid" class="risk-grid"></div>
+  </section>
+
+  <section id="mcp-benchmark" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>MCP Security Benchmark v0.1</h2>
+        <p>Initial benchmark scaffold for reviewing MCP clients, servers, registries, OAuth flows, tool descriptors, and sandbox boundaries. Use it as a test-plan seed for future automated harnesses.</p>
+      </div>
+      <a class="button" href="./data/controls.json" target="_blank" rel="noopener">Open benchmark JSON</a>
+    </div>
+    <div class="table-wrap">
+      <table class="control-table">
+        <thead>
+          <tr>
+            <th>Test ID</th>
+            <th>Scenario</th>
+            <th>Mapped ASI</th>
+            <th>Expected controls</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="mcpBenchmarkBody"></tbody>
+      </table>
+    </div>
+  </section>
+
   <section id="matrix" class="panel">
     <div class="panel-head">
       <div>
@@ -206,6 +283,26 @@
     </details>
   </section>
 
+
+
+  <section id="methodology" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Scoring methodology and evidence model</h2>
+        <p>Scores are not certifications. They are transparent, community-maintained heuristics designed to help reviewers create shortlists and identify evidence gaps.</p>
+      </div>
+    </div>
+    <div id="evidenceGrid" class="dimension-grid"></div>
+    <details class="formula" open>
+      <summary>Recommended evidence policy</summary>
+      <p>Prefer conservative scoring. Increase scores only when the tool has explicit product documentation, open-source implementation evidence, OWASP landscape inclusion, reproducible community verification, or a submitted benchmark result.</p>
+    </details>
+    <details class="formula" open>
+      <summary>Lifecycle coverage scoring</summary>
+      <p><code>0 = no mapped coverage · 1 = inferred / indirect · 2 = vendor-public claim · 3 = OWASP landscape + vendor docs · 4 = community-tested · 5 = benchmark-backed</code></p>
+    </details>
+  </section>
+
   <section id="contribute" class="panel contribute">
     <h2>How to update and maintain</h2>
     <div class="steps">
@@ -219,7 +316,7 @@
       </div>
       <div>
         <h3>3. Validate before commit</h3>
-        <p>Run a JSON parse check, then open <code>index.html</code> locally. For larger projects, add a GitHub Action that validates schema, detects missing fields, and checks links.</p>
+        <p>Run a JSON parse check and validate against <code>data/schema.json</code>, then open <code>index.html</code> locally. The included GitHub Action validates schema, ASI codes, score ranges, duplicate IDs, and Hugging Face metadata.</p>
       </div>
       <div>
         <h3>4. Deploy to Hugging Face</h3>

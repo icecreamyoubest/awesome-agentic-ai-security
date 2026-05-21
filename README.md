@@ -14,7 +14,7 @@ A static, data-driven catalog for comparing **AI security, LLM security, agentic
 
 This project is designed to run as a **Hugging Face Static Space**. It uses plain HTML, CSS, JavaScript, and a maintainable `data/tools.json` file.
 
-## v0.3 additions
+## v0.4 additions
 
 - Aligned ASI labels with **OWASP Top 10 for Agentic Applications 2026**.
 - Added **OWASP AI Security Solutions Landscape Q2 2026** lifecycle mapping.
@@ -24,6 +24,12 @@ This project is designed to run as a **Hugging Face Static Space**. It uses plai
 - Added `source_basis` and `evidence_level` fields for maintainability.
 - Added `supply_chain` as a scoring dimension.
 - Added **Agentic SecOps Lead** persona.
+- Added evidence-level model for transparent confidence tracking.
+- Added ASI Risk → Control → Tool matrix.
+- Added lifecycle coverage heatmap.
+- Added use-case decision view for MCP, red-team, production protection, enterprise governance, multi-agent monitoring, coding agents, and RAG/memory security.
+- Added MCP Security Benchmark v0.1 test-plan scaffold in `data/controls.json`.
+- Added `data/schema.json`, `CONTRIBUTING.md`, and GitHub Actions validation workflow.
 
 ## References and attribution
 
@@ -46,8 +52,12 @@ OWASP materials are licensed by OWASP under Creative Commons terms as stated in 
 ├── index.html
 ├── styles.css
 ├── app.js
+├── CONTRIBUTING.md
+├── .github/workflows/validate-catalog.yml
 └── data/
-    └── tools.json
+    ├── tools.json
+    ├── controls.json
+    └── schema.json
 ```
 
 ## Data model
@@ -130,6 +140,8 @@ Scores are heuristic and community-maintained. They are meant to help shortlist 
 
 ```bash
 python -m json.tool data/tools.json > /tmp/tools.validated.json
+python -m json.tool data/controls.json > /tmp/controls.validated.json
+python scripts/validate_catalog.py  # when using the GitHub workflow helper
 python -m http.server 7860
 ```
 
@@ -145,3 +157,18 @@ Then open `http://localhost:7860`.
 ## Disclaimer
 
 This is a community-maintained shortlist and scoring aid, not a certification or procurement decision. Verify vendor claims, product status, licenses, data handling, deployment topology, and integration depth before relying on any tool in production.
+
+
+## Evidence levels
+
+Use the following confidence labels when updating entries:
+
+- `official_owasp_landscape`: appears in OWASP AI Security Solutions Landscape or ASI taxonomy-support material.
+- `official_vendor_docs`: explicit public vendor/project documentation.
+- `community_verified`: reproducible community verification through PR notes.
+- `benchmark_backed`: reproducible test or benchmark evidence.
+- `inferred_mapping`: reasonable inference from public capabilities; needs validation.
+
+## v0.4 roadmap notes
+
+The current MCP benchmark is a manual test-plan scaffold. Future versions should add executable test harnesses for descriptor poisoning, OAuth response poisoning, tool permission overreach, sandbox escape, RCE, tool-output injection, and cross-agent trust abuse.
