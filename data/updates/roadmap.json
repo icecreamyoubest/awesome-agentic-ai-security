@@ -1,7 +1,51 @@
 {
   "meta": {
     "version": "v1.0",
-    "generated_at": "2026-05-21T08:27:54Z"
+    "generated_at": "2026-05-21T09:14:51Z"
   },
-  "roadmap_items": []
+  "roadmap_items": [
+    {
+      "id": "roadmap_d22ed58f915a7821eadf9467",
+      "title": "Watched page update candidate: OWASP GenAI Security Project docs_page",
+      "vendor": "OWASP GenAI Security Project",
+      "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+      "priority": "critical",
+      "signals": [
+        "code_execution_security",
+        "red_team",
+        "roadmap",
+        "tool_security"
+      ],
+      "mapped_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI05"
+      ],
+      "status": "needs_review",
+      "created_at": "2026-05-21T09:14:51Z"
+    },
+    {
+      "id": "roadmap_56caf9ff3c84cf6183b9e125",
+      "title": "Watched page update candidate: OWASP GenAI Security Project docs_page",
+      "vendor": "OWASP GenAI Security Project",
+      "url": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+      "priority": "critical",
+      "signals": [
+        "MCP_security",
+        "code_execution_security",
+        "red_team",
+        "roadmap",
+        "tool_security"
+      ],
+      "mapped_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI04",
+        "ASI05",
+        "ASI07"
+      ],
+      "status": "needs_review",
+      "created_at": "2026-05-21T09:14:51Z"
+    }
+  ]
 }
