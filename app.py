@@ -435,16 +435,32 @@ def show_claim_test_mapping() -> Tuple[str, str]:
     return "\n".join(md), json.dumps(data, indent=2, ensure_ascii=False)
 
 
-def assess_real_mcp_server_ui(server_url: str, mode: str, token: str) -> Tuple[str, str, str, str]:
-    """Run schema-only MCP server risk assessment and return Markdown, JSON, and downloadable reports."""
+def assess_real_mcp_server_ui(
+    server_url: str,
+    mode: str,
+    token: str,
+    profile: str,
+    timeout: float,
+    connector_config: str,
+    data_sensitivity: str,
+    authorized: bool,
+    allow_high_risk: bool,
+) -> Tuple[str, str, str, str]:
+    """Run universal MCP risk assessment and return Markdown, JSON, and downloadable reports."""
     target = (server_url or "demo://local").strip() or "demo://local"
+    cfg = (connector_config or "").strip() or None
     try:
         report = assess_mcp_server(
             server_url=target,
             token=token or "",
             mode=mode or "auto",
-            profile="schema_only",
+            profile=profile or "schema_only",
             output_dir=str(ROOT / "outputs/mcp_assessments"),
+            timeout=float(timeout or 45),
+            connector_config=cfg,
+            data_sensitivity=data_sensitivity or "medium",
+            authorized=bool(authorized),
+            allow_high_risk=bool(allow_high_risk),
         )
     except Exception as exc:
         payload = {"error": str(exc), "server_url": target, "mode": mode}
@@ -583,24 +599,37 @@ A runnable Agentic AI security validation platform that connects scenario intake
         demo.load(show_claim_test_mapping, outputs=[cte_md, cte_json])
 
 
-    with gr.Tab("12. Real MCP Server Assessment"):
+    with gr.Tab("12. Universal MCP Assessment"):
         gr.Markdown("""
-Assess a real MCP-compatible server or Hugging Face / Gradio-style Space in **schema-only** mode. This performs discovery and static tool-schema risk classification; it does not execute third-party tools.
+Assess live MCP servers, Hugging Face / Gradio MCP Spaces, OpenAI-style MCP connector configs, and documentation references.
+
+Default mode is safe schema/config review. Real execution measurement is available only when you explicitly select `safe_probe` or `authorized_runtime_validation` and acknowledge authorization.
 
 Examples:
 - `demo://local`
-- `https://huggingface.co/spaces/OWNER/SPACE` with `gradio_config` mode
-- `https://your-mcp-server.example.com/mcp` with `jsonrpc` mode
+- `https://mcp-tools-deepseek-ocr-experimental.hf.space/gradio_api/mcp/`
+- `https://huggingface.co/spaces/OWNER/SPACE`
+- OpenAI connector config JSON pasted in the connector config field
 """)
-        mcp_assess_url = gr.Textbox(label="MCP server or Hugging Face Space URL", value="demo://local")
-        mcp_assess_mode = gr.Dropdown(["auto", "jsonrpc", "gradio_config"], value="auto", label="Discovery mode")
+        mcp_assess_url = gr.Textbox(label="MCP server / HF Space / docs URL", value="demo://local")
+        mcp_assess_mode = gr.Dropdown(["auto", "jsonrpc_streamable_http", "sse", "gradio_config", "gradio_info"], value="auto", label="Discovery mode")
+        mcp_assess_profile = gr.Dropdown(["schema_only", "connector_config_review", "safe_probe", "authorized_runtime_validation", "offline_docs_review"], value="schema_only", label="Assessment profile")
+        mcp_assess_timeout = gr.Slider(10, 120, value=45, step=5, label="Timeout seconds")
         mcp_assess_token = gr.Textbox(label="Optional bearer token", value="", type="password")
-        mcp_assess_btn = gr.Button("Run schema-only MCP risk assessment")
+        mcp_connector_config = gr.Code(language="json", label="Optional OpenAI-style MCP connector config", value="")
+        mcp_data_sensitivity = gr.Dropdown(["low", "medium", "high", "regulated"], value="medium", label="Data sensitivity")
+        mcp_authorized = gr.Checkbox(label="I confirm I own or am authorized to execute probes against this MCP server", value=False)
+        mcp_allow_high_risk = gr.Checkbox(label="Allow high-risk tool calls during authorized runtime validation only", value=False)
+        mcp_assess_btn = gr.Button("Run universal MCP risk assessment")
         mcp_assess_md = gr.Markdown()
         mcp_assess_json = gr.Code(language="json", label="Assessment JSON")
         mcp_assess_md_file = gr.File(label="Download Markdown report")
         mcp_assess_json_file = gr.File(label="Download JSON report")
-        mcp_assess_btn.click(assess_real_mcp_server_ui, inputs=[mcp_assess_url, mcp_assess_mode, mcp_assess_token], outputs=[mcp_assess_md, mcp_assess_json, mcp_assess_md_file, mcp_assess_json_file])
+        mcp_assess_btn.click(
+            assess_real_mcp_server_ui,
+            inputs=[mcp_assess_url, mcp_assess_mode, mcp_assess_token, mcp_assess_profile, mcp_assess_timeout, mcp_connector_config, mcp_data_sensitivity, mcp_authorized, mcp_allow_high_risk],
+            outputs=[mcp_assess_md, mcp_assess_json, mcp_assess_md_file, mcp_assess_json_file],
+        )
 
     with gr.Tab("13. Grounded Q&A"):
         question = gr.Textbox(label="Question", value="Which tools should I evaluate for MCP runtime security and ASI02 tool misuse?")

@@ -1,0 +1,12 @@
+{
+  "checklist": [
+    "Is the remote MCP server official, verified, or organization-owned?",
+    "Does connector configuration use HTTPS server_url?",
+    "Is require_approval explicitly set for high-impact tool calls?",
+    "Are OAuth scopes least-privilege and time-bound?",
+    "Is data sent to remote MCP server minimized and logged?",
+    "Are tool outputs treated as untrusted model context?",
+    "Are allowed tools constrained to the business workflow?",
+    "Is there an audit trail for tool calls and user approval?"
+  ]
+}
