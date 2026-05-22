@@ -535,6 +535,16 @@ def build_assessment_pack_ui() -> Tuple[str, str, str]:
     md += "## Files\n" + "\n".join(f"- `{f}`" for f in result.get("manifest", {}).get("files", []))
     return md, json.dumps(result, indent=2, ensure_ascii=False), str(manifest_path)
 
+
+def run_multi_agent_demo_ui() -> Tuple[str, str, str, str]:
+    from multi_agent_demo.run_multi_agent_demo import run_demo
+    report, md_path, json_path = run_demo(
+        ROOT / "examples/multi_agent_refund_scenario.json",
+        ROOT / "outputs/multi_agent_demo",
+    )
+    md = md_path.read_text(encoding="utf-8") if md_path.exists() else "Multi-agent demo report not generated."
+    return md, json.dumps(report, indent=2, ensure_ascii=False), str(md_path), str(json_path)
+
 SCENARIOS = load_scenarios()
 TOOLS = list_tools()
 TOOL_CHOICES = ["crm.lookup", "email.draft", "file.read", "memory.search", "ticket.create", "crm.refund", "email.send", "file.delete", "shell.run", "package.install", "unknown.admin_helper"]
@@ -696,6 +706,16 @@ Examples:
         )
 
 
+
+
+    with gr.Tab("13. Real Multi-Agent Demo"):
+        gr.Markdown("Run a realistic multi-agent refund workflow with coordinator, support, finance, compliance, and notification agents. The demo exercises A2A trust, MCP-style tool calls, runtime policy gates, HITL, and audit logging.")
+        ma_btn = gr.Button("Run real multi-agent demo")
+        ma_md = gr.Markdown()
+        ma_json = gr.Code(language="json", label="Multi-agent demo report JSON")
+        ma_md_file = gr.File(label="Download multi-agent Markdown report")
+        ma_json_file = gr.File(label="Download multi-agent JSON report")
+        ma_btn.click(run_multi_agent_demo_ui, outputs=[ma_md, ma_json, ma_md_file, ma_json_file])
 
     with gr.Tab("13. A2A Risk Assessment"):
         gr.Markdown("Assess agent cards, delegation edges, and trust graph risks for ASI03/04/07/08/10.")
