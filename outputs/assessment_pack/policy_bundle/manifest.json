@@ -1,0 +1,15 @@
+{
+  "bundle": "agentic_policy_bundle",
+  "files": [
+    "mcp_tool_policy.yaml",
+    "opa_tool_policy.rego"
+  ],
+  "mapped_asi": [
+    "ASI02",
+    "ASI03",
+    "ASI04",
+    "ASI07",
+    "ASI08",
+    "ASI10"
+  ]
+}

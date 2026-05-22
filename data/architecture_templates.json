@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "version": "v0.9",
+    "updated": "2026-05-21",
+    "description": "Scenario-to-architecture templates used by the architecture generator."
+  },
+  "templates": [
+    {
+      "id": "mcp_runtime_security_gateway",
+      "title": "MCP Runtime Security Gateway",
+      "triggers": [
+        "mcp",
+        "tool_use",
+        "external_api",
+        "agent_runtime"
+      ],
+      "asi": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI07"
+      ],
+      "components": [
+        "Agent Runtime",
+        "MCP Gateway / PEP",
+        "Tool Descriptor Validator",
+        "Policy Decision Point",
+        "Ephemeral Credential Broker",
+        "Sandboxed Tool Runtime",
+        "Audit / OTel / SIEM"
+      ],
+      "controls": [
+        "tool descriptor validation",
+        "least privilege tool scopes",
+        "per-action authorization",
+        "sandboxed execution",
+        "egress allowlist",
+        "immutable tool-call audit"
+      ],
+      "mermaid": "flowchart LR\n  User-->AgentRuntime[Agent Runtime]\n  AgentRuntime-->PEP[MCP Gateway / PEP]\n  PEP-->Validator[Tool Descriptor Validator]\n  PEP-->PDP[Policy Decision Point]\n  PDP-->Creds[Ephemeral Credential Broker]\n  PEP-->Sandbox[Sandboxed Tool Runtime]\n  Sandbox-->API[External APIs / Tools]\n  PEP-->Audit[Audit / OTel / SIEM]"
+    },
+    {
+      "id": "agentic_red_team_pipeline",
+      "title": "Agentic Red Team Evaluation Pipeline",
+      "triggers": [
+        "red_team",
+        "test_evaluate",
+        "prompt_injection",
+        "goal_drift",
+        "multi_agent"
+      ],
+      "asi": [
+        "ASI01",
+        "ASI02",
+        "ASI08",
+        "ASI10"
+      ],
+      "components": [
+        "Scenario Library",
+        "Attack Orchestrator",
+        "Target Agent Harness",
+        "Evaluator",
+        "Evidence Store",
+        "CI/CD Gate"
+      ],
+      "controls": [
+        "multi-turn attack simulation",
+        "goal drift tests",
+        "tool misuse tests",
+        "coverage report",
+        "regression gating"
+      ],
+      "mermaid": "flowchart LR\n  Library[Attack Scenario Library]-->Orchestrator[Attack Orchestrator]\n  Orchestrator-->Harness[Target Agent Harness]\n  Harness-->Evaluator[Evaluator]\n  Evaluator-->Evidence[Evidence Store]\n  Evidence-->Gate[CI/CD Quality Gate]"
+    },
+    {
+      "id": "enterprise_agent_governance_control_plane",
+      "title": "Enterprise Agent Governance Control Plane",
+      "triggers": [
+        "governance",
+        "monitor",
+        "operate",
+        "identity",
+        "multi_agent",
+        "a2a"
+      ],
+      "asi": [
+        "ASI03",
+        "ASI04",
+        "ASI07",
+        "ASI08",
+        "ASI10"
+      ],
+      "components": [
+        "Agent Registry",
+        "Capability Cards",
+        "Policy Registry",
+        "NHI / Token Broker",
+        "A2A Trust Graph",
+        "Telemetry Lake",
+        "Governance Dashboard"
+      ],
+      "controls": [
+        "agent inventory",
+        "signed capability manifests",
+        "policy versioning",
+        "NHI lifecycle",
+        "attested A2A trust graph",
+        "quarterly evidence review"
+      ],
+      "mermaid": "flowchart TB\n  Registry[Agent Registry]-->Cards[Capability Cards]\n  Cards-->Policy[Policy Registry]\n  Policy-->Broker[NHI / Token Broker]\n  Registry-->Trust[A2A Trust Graph]\n  Trust-->Telemetry[Telemetry Lake]\n  Telemetry-->Dash[Governance Dashboard]"
+    },
+    {
+      "id": "secure_coding_agent_sandbox",
+      "title": "Secure Coding Agent Sandbox",
+      "triggers": [
+        "coding_agent",
+        "code_execution",
+        "rce",
+        "package_install",
+        "developer_workflow"
+      ],
+      "asi": [
+        "ASI04",
+        "ASI05",
+        "ASI09"
+      ],
+      "components": [
+        "Coding Agent",
+        "Pre-execution Policy Gate",
+        "Package Provenance Scanner",
+        "Ephemeral Workspace",
+        "Network Egress Proxy",
+        "Human Approval",
+        "Diff / Audit Log"
+      ],
+      "controls": [
+        "deny production credentials",
+        "sandbox execution",
+        "package pinning",
+        "pre-execution static checks",
+        "preview without side effects",
+        "human approval for destructive actions"
+      ],
+      "mermaid": "flowchart LR\n  Dev[Developer]-->Agent[Coding Agent]\n  Agent-->Gate[Pre-execution Policy Gate]\n  Gate-->Pkg[Package Provenance Scanner]\n  Gate-->Work[Ephemeral Workspace]\n  Work-->Proxy[Network Egress Proxy]\n  Gate-->HITL[Human Approval]\n  Work-->Audit[Diff / Audit Log]"
+    }
+  ]
+}

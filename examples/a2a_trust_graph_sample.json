@@ -1,0 +1,59 @@
+{
+  "agents": [
+    {
+      "id": "planner",
+      "name": "Planner Agent",
+      "endpoint": "https://agents.example.com/planner",
+      "signed": true,
+      "auth": "mtls",
+      "capabilities": [
+        "task planning",
+        "delegate"
+      ]
+    },
+    {
+      "id": "finance_worker",
+      "name": "Finance Worker",
+      "endpoint": "https://agents.example.com/finance",
+      "signed": false,
+      "auth": "bearer",
+      "allow_delegation": true,
+      "capabilities": [
+        "refund",
+        "payment transfer",
+        "crm write"
+      ]
+    },
+    {
+      "id": "observer",
+      "name": "External Observer",
+      "endpoint": "http://external.example.com/agent",
+      "signed": false,
+      "auth": "none",
+      "public_registration": true,
+      "capabilities": [
+        "review",
+        "webhook"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "planner",
+      "to": "finance_worker",
+      "scopes": [
+        "write:refund",
+        "read:crm"
+      ],
+      "signed": true
+    },
+    {
+      "from": "observer",
+      "to": "finance_worker",
+      "scopes": [
+        "*"
+      ],
+      "signed": false
+    }
+  ]
+}

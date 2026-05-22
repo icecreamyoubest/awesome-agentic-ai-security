@@ -1,0 +1,31 @@
+{
+  "framework": "langgraph",
+  "nodes": 5,
+  "tools": 3,
+  "signals": [
+    "tool_use",
+    "mcp_tools",
+    "memory_or_rag",
+    "external_api",
+    "multi_step_graph"
+  ],
+  "mapped_asi": [
+    "ASI02",
+    "ASI03",
+    "ASI04",
+    "ASI06",
+    "ASI07",
+    "ASI08"
+  ],
+  "recommended_benchmarks": [
+    "MCPV2-ASI02-001",
+    "MCPV2-ASI04-002",
+    "RAG-ASI06-001"
+  ],
+  "recommended_controls": [
+    "tool-call PEP/PDP",
+    "graph-level audit trace",
+    "memory provenance",
+    "human approval for high-impact tools"
+  ]
+}

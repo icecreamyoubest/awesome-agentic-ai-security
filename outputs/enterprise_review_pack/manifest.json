@@ -1,0 +1,82 @@
+{
+  "scenario": "scenario_templates/enterprise_copilot_with_rag.json",
+  "scenario_name": "Enterprise Copilot with RAG and MCP Tools",
+  "files": [
+    "outputs/enterprise_review_pack/executive_summary.md",
+    "outputs/enterprise_review_pack/architecture_review.md",
+    "outputs/enterprise_review_pack/asi_control_matrix.md",
+    "outputs/enterprise_review_pack/benchmark_validation_report.md",
+    "outputs/enterprise_review_pack/residual_risk_register.md",
+    "outputs/enterprise_review_pack/implementation_roadmap.md"
+  ],
+  "benchmark_summary": {
+    "demo_runtime": {
+      "total_cases": 10,
+      "passed": 10,
+      "failed": 0,
+      "pass_rate": 1.0,
+      "asi_breakdown": {
+        "ASI04": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0
+        },
+        "ASI05": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0
+        },
+        "ASI02": {
+          "total": 3,
+          "passed": 3,
+          "failed": 0
+        },
+        "ASI07": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0
+        },
+        "ASI03": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0
+        },
+        "ASI01": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0
+        },
+        "ASI06": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0
+        },
+        "ASI10": {
+          "total": 1,
+          "passed": 1,
+          "failed": 0
+        },
+        "ASI08": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0
+        },
+        "ASI09": {
+          "total": 1,
+          "passed": 1,
+          "failed": 0
+        }
+      }
+    },
+    "real_mcp_gateway": {
+      "total_cases": 4,
+      "passed": 4,
+      "pass_rate": 1.0
+    },
+    "llm_guard_adapter": {
+      "total_cases": 4,
+      "passed": 4,
+      "pass_rate": 1.0
+    }
+  }
+}

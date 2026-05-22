@@ -1,0 +1,13 @@
+{
+  "pack": "Agentic Security Assessment Pack",
+  "files": [
+    "01_executive_summary.md",
+    "02_mcp_assessment.md",
+    "03_a2a_assessment.md",
+    "04_runtime_monitoring.md",
+    "05_remediation_plan.md",
+    "06_policy_bundle.md",
+    "07_evidence_appendix.md",
+    "policy_bundle/"
+  ]
+}

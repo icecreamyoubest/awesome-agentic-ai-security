@@ -1,0 +1,133 @@
+{
+  "tool": {
+    "id": "noma-security",
+    "name": "Noma Security",
+    "org": "Noma Security"
+  },
+  "claim": "MCP discovery and runtime policy enforcement",
+  "matched_claim_templates": [
+    {
+      "id": "claim-mcp-runtime-security",
+      "title": "MCP runtime security and tool-call governance"
+    },
+    {
+      "id": "claim-secure-coding-agent",
+      "title": "Secure coding agent sandbox and RCE prevention"
+    },
+    {
+      "id": "claim-memory-rag-security",
+      "title": "RAG and memory protection"
+    }
+  ],
+  "mapped_asi": [
+    "ASI01",
+    "ASI02",
+    "ASI03",
+    "ASI04",
+    "ASI05",
+    "ASI06",
+    "ASI07",
+    "ASI08",
+    "ASI09",
+    "ASI10"
+  ],
+  "required_evidence": [
+    "Official product documentation showing MCP/tool support",
+    "Runtime policy enforcement example or integration guide",
+    "Audit log or telemetry output for tool calls",
+    "Benchmark result for descriptor poisoning or over-permissioned tool use",
+    "Sandbox or execution isolation documentation",
+    "Dependency/package provenance checks",
+    "Pre-execution code validation or policy gate",
+    "RCE-style benchmark result",
+    "RAG/memory integration docs",
+    "Sensitive data or prompt-carrier detection docs",
+    "Tenant isolation or provenance controls",
+    "Benchmark result for cross-tenant memory bleed"
+  ],
+  "existing_evidence_types": [
+    "incident_mapping",
+    "scoring_rationale",
+    "vendor_or_community_mapping"
+  ],
+  "current_evidence_confidence": {
+    "owasp_landscape": 1,
+    "vendor_docs": 0,
+    "public_benchmark": 0,
+    "community_review": 0,
+    "incident_mapping": 0,
+    "last_verified": "2026-05-21",
+    "confidence_score": 1.5
+  },
+  "current_status": "partial_evidence",
+  "missing_evidence": [
+    "Attach official vendor documentation for this claim",
+    "Run benchmark cases and attach result evidence"
+  ],
+  "validation_tests": [
+    {
+      "id": "MCP-ASI04-001",
+      "title": "MCP-ASI04-001",
+      "asi": [
+        "ASI04"
+      ]
+    },
+    {
+      "id": "MCP-ASI02-004",
+      "title": "MCP-ASI02-004",
+      "asi": [
+        "ASI02",
+        "ASI03"
+      ]
+    },
+    {
+      "id": "MCP-ASI07-003",
+      "title": "MCP-ASI07-003",
+      "asi": [
+        "ASI07",
+        "ASI03"
+      ]
+    },
+    {
+      "id": "MCP-ASI05-002",
+      "title": "MCP-ASI05-002",
+      "asi": [
+        "ASI05",
+        "ASI02"
+      ]
+    },
+    {
+      "id": "MCP-ASI04-009",
+      "title": "MCP-ASI04-009",
+      "asi": [
+        "ASI04",
+        "ASI05"
+      ]
+    },
+    {
+      "id": "HITL-ASI09-010",
+      "title": "HITL-ASI09-010",
+      "asi": [
+        "ASI09",
+        "ASI01"
+      ]
+    },
+    {
+      "id": "RAG-ASI06-007",
+      "title": "RAG-ASI06-007",
+      "asi": [
+        "ASI06",
+        "ASI08"
+      ]
+    },
+    {
+      "id": "MCP-ASI01-005",
+      "title": "MCP-ASI01-005",
+      "asi": [
+        "ASI01",
+        "ASI06"
+      ]
+    }
+  ],
+  "next_step": "Run the suggested benchmark cases and add benchmark_backed evidence before upgrading the claim confidence."
+}

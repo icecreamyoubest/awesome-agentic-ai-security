@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open AI / Agentic Security Tools Catalog</title>
+  <meta name="description" content="Open catalog of AI, LLM, agentic, and MCP security tools with OWASP Agentic Applications mapping, framework compatibility, and scoring." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Open AI Security Tools Catalog">
+    <span class="brand-icon">🛡️</span>
+    <span>Open AI / Agentic Security Tools Catalog</span>
+    <span id="versionBadge" class="version-badge">v0.9</span>
+  </a>
+  <nav class="nav">
+    <a href="#catalog">Catalog</a>
+    <a href="#agentic-owasp">Agentic OWASP</a>
+    <a href="#lifecycle">Lifecycle</a>
+    <a href="#control-matrix">Controls</a>
+    <a href="#asi-lifecycle-matrix">ASI × Lifecycle</a>
+    <a href="#compare">Compare</a>
+    <a href="#evidence-hub">Evidence</a>
+    <a href="#use-cases">Use cases</a>
+    <a href="#mcp-benchmark">MCP benchmark</a>
+    <a href="#reference-architectures">Architectures</a>
+    <a href="#incident-mapping">Incidents</a>
+    <a href="#submit-tool">Submit tool</a>
+    <a href="#validation-agent">Validation Agent</a>
+    <a href="#grounded-qa">Grounded Q&A</a>
+    <a href="#qa-advisor">Q&A Advisor</a>
+    <a href="#claim-verifier">Claim verifier</a>
+    <a href="#architecture-generator">Architecture generator</a>
+    <a href="#release-pipeline">Releases</a>
+    <a href="#matrix">Matrix</a>
+    <a href="#scoring">Scoring</a>
+    <a href="#contribute">Contribute</a>
+    <a href="https://genai.owasp.org/initiatives/agentic-security-initiative/" target="_blank" rel="noopener">OWASP ASI ↗</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="eyebrow">Open-source friendly · Hugging Face Static Space · Data-driven · Agentic-ready</div>
+    <h1>AI, LLM, agentic, and MCP security tools mapped to real security decisions.</h1>
+    <p>
+      A maintainable catalog for comparing guardrails, red-team tools, AI-SPM platforms,
+      agent/MCP security scanners, data security tools, and observability platforms.
+      v0.9 adds an executable MCP benchmark runner, evidence confidence scoring, ASI coverage depth, reference architectures, incident-to-benchmark mapping, and a tool submission generator.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="#catalog">Explore catalog</a>
+      <a class="button" href="./data/tools.json" target="_blank" rel="noopener">Open tools.json</a>
+      <a class="button" href="#agentic-owasp">View Agentic OWASP mapping</a>
+      <a class="button" href="#control-matrix">Risk → Control matrix</a>
+      <a class="button" href="#compare">Compare tools</a>
+    </div>
+    <div class="stats">
+      <div><strong id="statTools">—</strong><span>tools</span></div>
+      <div><strong id="statCategories">—</strong><span>categories</span></div>
+      <div><strong id="statFrameworks">—</strong><span>frameworks</span></div>
+      <div><strong id="statUpdated">—</strong><span>updated</span></div>
+    </div>
+  </section>
+
+  <section class="note">
+    <strong>Important:</strong> scores are heuristic and community-maintained. Use this as a shortlist and evaluation starting point,
+    not as a vendor certification. Re-validate claims, deployment options, legal terms, product status, and integration details during procurement or POC.
+  </section>
+
+  <section id="catalog" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Catalog</h2>
+        <p>Filter by category, vendor type, framework, deployment mode, Agentic OWASP risk, and target persona.</p>
+      </div>
+      <div class="view-buttons" role="group" aria-label="View mode">
+        <button id="gridView" class="active" type="button">Grid</button>
+        <button id="tableView" type="button">Table</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label class="control wide">
+        <span>Search</span>
+        <input id="search" placeholder="Search name, org, category, OWASP, ASI, MCP, framework…" />
+      </label>
+      <label class="control">
+        <span>Category</span>
+        <select id="categoryFilter"><option value="">All categories</option></select>
+      </label>
+      <label class="control">
+        <span>Vendor type</span>
+        <select id="typeFilter"><option value="">All types</option></select>
+      </label>
+      <label class="control">
+        <span>Framework</span>
+        <select id="frameworkFilter"><option value="">All frameworks</option></select>
+      </label>
+      <label class="control">
+        <span>Deployment</span>
+        <select id="deploymentFilter"><option value="">All modes</option></select>
+      </label>
+      <label class="control">
+        <span>Lifecycle stage</span>
+        <select id="lifecycleFilter"><option value="">All stages</option></select>
+      </label>
+      <label class="control">
+        <span>Agentic OWASP</span>
+        <select id="agenticFilter"><option value="">All Agentic OWASP risks</option></select>
+      </label>
+      <label class="control">
+        <span>Score for</span>
+        <select id="personaFilter"></select>
+      </label>
+      <label class="control">
+        <span>Sort</span>
+        <select id="sortBy">
+          <option value="persona">Persona score</option>
+          <option value="agentic_readiness">Agentic Readiness</option>
+          <option value="mcp_security">MCP Security</option>
+          <option value="lifecycle_coverage">Lifecycle coverage</option>
+          <option value="supply_chain">Supply chain score</option>
+          <option value="name">Name</option>
+          <option value="runtime">Runtime score</option>
+          <option value="red_team">Red-team score</option>
+          <option value="agent_security">Agent security score</option>
+          <option value="enterprise">Enterprise score</option>
+          <option value="self_host">Self-host score</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="result-line">
+      <span id="resultCount">—</span>
+      <button id="resetFilters" type="button">Reset filters</button>
+    </div>
+
+    <div id="cards" class="cards"></div>
+
+    <div id="tableWrap" class="table-wrap hidden">
+      <table class="tool-table">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Type</th>
+            <th>Primary categories</th>
+            <th>ASI risks</th>
+            <th>Frameworks</th>
+            <th>Agentic</th>
+            <th>MCP</th>
+            <th>Runtime</th>
+            <th>Red Team</th>
+            <th>Persona</th>
+          </tr>
+        </thead>
+        <tbody id="toolRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="lifecycle" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>OWASP Agentic SecOps lifecycle coverage</h2>
+        <p>Maps tools to the OWASP AI Security Solutions Landscape lifecycle: scope and plan, augment/fine-tune data, develop and experiment, test and evaluate, release, deploy, operate, monitor, and govern.</p>
+      </div>
+      <a class="button" href="https://genai.owasp.org/ai-security-solutions-landscape/" target="_blank" rel="noopener">OWASP landscape ↗</a>
+    </div>
+    <div id="lifecycleGrid" class="risk-grid"></div>
+  </section>
+
+  <section id="agentic-owasp" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>OWASP Agentic Applications Top 10 / ASI mapping</h2>
+        <p>v0.3 maps tools against agent-specific risks such as goal hijack, tool misuse, identity abuse, agentic supply chain, memory poisoning, inter-agent communication, cascading failures, and rogue agents.</p>
+      </div>
+      <a class="button" href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/" target="_blank" rel="noopener">OWASP resource ↗</a>
+    </div>
+    <div id="agenticGrid" class="risk-grid"></div>
+  </section>
+
+
+
+  <section id="control-matrix" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>ASI Risk → Control → Tool matrix</h2>
+        <p>Translates OWASP Agentic Top 10 risks into implementable control patterns and shortlistable tool capabilities. Use this as an architecture-review bridge between threat taxonomy and product selection.</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="control-table">
+        <thead>
+          <tr>
+            <th>ASI Risk</th>
+            <th>Core controls</th>
+            <th>Tool capabilities to look for</th>
+            <th>Mapped tools from catalog</th>
+          </tr>
+        </thead>
+        <tbody id="controlMatrixBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="asi-lifecycle-matrix" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>ASI × Lifecycle control matrix</h2>
+        <p>Connects each OWASP Agentic risk to concrete controls across planning, development, testing, release, deployment, operations, monitoring, and governance.</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="asi-life-table">
+        <thead id="asiLifecycleHead"></thead>
+        <tbody id="asiLifecycleBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="compare" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Compare tools</h2>
+        <p>Select up to four tools from the catalog cards, then compare runtime, red-team, agentic, MCP, lifecycle, evidence, deployment, and best-fit personas.</p>
+      </div>
+      <button class="button" type="button" id="clearCompare">Clear comparison</button>
+    </div>
+    <div class="compare-hint" id="compareHint">No tools selected yet. Use the Compare checkbox on a tool card.</div>
+    <div class="table-wrap hidden" id="compareWrap">
+      <table class="compare-table">
+        <thead id="compareHead"></thead>
+        <tbody id="compareBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="evidence-hub" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Evidence Hub</h2>
+        <p>Evidence records explain why a tool is mapped to ASI risks, lifecycle stages, and scores. This is designed for PR review and audit-friendly maintenance.</p>
+      </div>
+      <a class="button" href="./data/evidence.json" target="_blank" rel="noopener">Open evidence.json</a>
+    </div>
+    <div class="controls compact-controls">
+      <label class="control wide">
+        <span>Evidence search</span>
+        <input id="evidenceSearch" placeholder="Search tool, source, claim, ASI, lifecycle…" />
+      </label>
+      <label class="control">
+        <span>Evidence type</span>
+        <select id="evidenceTypeFilter"><option value="">All evidence types</option></select>
+      </label>
+    </div>
+    <div id="evidenceList" class="evidence-list"></div>
+  </section>
+
+  <section id="lifecycle-heatmap" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Lifecycle heatmap</h2>
+        <p>Coverage heatmap across OWASP Agentic SecOps lifecycle stages. Darker cells mean the tool is mapped to the lifecycle stage and has stronger lifecycle coverage score.</p>
+      </div>
+    </div>
+    <div class="table-wrap heatmap-wrap">
+      <table class="heatmap">
+        <thead id="heatmapHead"></thead>
+        <tbody id="heatmapBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="use-cases" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Use-case decision view</h2>
+        <p>Start from the thing you need to secure, then shortlist tools by capability. This view is intentionally control-oriented rather than vendor-oriented.</p>
+      </div>
+    </div>
+    <div id="useCaseGrid" class="risk-grid"></div>
+  </section>
+
+  <section id="mcp-benchmark" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>MCP Security Benchmark v0.1</h2>
+        <p>Initial benchmark scaffold for reviewing MCP clients, servers, registries, OAuth flows, tool descriptors, and sandbox boundaries. Use it as a test-plan seed for future automated harnesses.</p>
+      </div>
+      <a class="button" href="./benchmarks/mcp_security_benchmark_v01.jsonl" target="_blank" rel="noopener">Open benchmark JSONL</a>
+      <a class="button" href="./data/controls.json" target="_blank" rel="noopener">Open controls JSON</a>
+    </div>
+    <div class="table-wrap">
+      <table class="control-table">
+        <thead>
+          <tr>
+            <th>Test ID</th>
+            <th>Scenario</th>
+            <th>Mapped ASI</th>
+            <th>Expected controls</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="mcpBenchmarkBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+
+<section id="reference-architectures" class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>Reference architectures</h2>
+      <p>Architecture patterns that connect ASI risks, controls, candidate tools, and implementation gaps. These are intended for architecture review and POC planning.</p>
+    </div>
+    <a class="button" href="./data/reference_architectures.json" target="_blank" rel="noopener">Open architecture JSON</a>
+  </div>
+  <div id="architectureGrid" class="architecture-grid"></div>
+</section>
+
+<section id="incident-mapping" class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>Incident → ASI → Benchmark mapping</h2>
+      <p>Maps public agentic/MCP/A2A incident patterns to OWASP ASI risks and benchmark cases. Use this to justify why a benchmark case exists and which controls it exercises.</p>
+    </div>
+    <a class="button" href="./data/incidents.json" target="_blank" rel="noopener">Open incidents JSON</a>
+  </div>
+  <div class="table-wrap">
+    <table class="control-table">
+      <thead>
+        <tr>
+          <th>Incident pattern</th>
+          <th>Mapped ASI</th>
+          <th>Benchmark cases</th>
+          <th>Controls</th>
+        </tr>
+      </thead>
+      <tbody id="incidentMappingBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="submit-tool" class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>Tool submission JSON generator</h2>
+      <p>Generate a structured contribution template. Static Spaces cannot submit PRs directly, so copy the JSON into a GitHub issue or pull request.</p>
+    </div>
+    <a class="button" href="./data/tool_submission_template.json" target="_blank" rel="noopener">Open blank template</a>
+  </div>
+  <div class="submit-grid">
+    <label class="control"><span>Tool name</span><input id="submitName" placeholder="Example: SecureMCP Gateway" /></label>
+    <label class="control"><span>Organization</span><input id="submitOrg" placeholder="Vendor / community" /></label>
+    <label class="control"><span>URL</span><input id="submitUrl" placeholder="https://..." /></label>
+    <label class="control"><span>Vendor type</span><select id="submitType"><option>open_source</option><option>startup</option><option>enterprise</option><option>cloud_provider</option><option>community</option></select></label>
+    <label class="control wide"><span>Evidence claim</span><input id="submitClaim" placeholder="What public evidence supports the mapping?" /></label>
+    <label class="control wide"><span>ASI codes</span><input id="submitAsi" placeholder="ASI02, ASI04, ASI07" /></label>
+  </div>
+  <div class="hero-actions"><button id="generateSubmission" class="button primary" type="button">Generate JSON</button><button id="copySubmission" class="button" type="button">Copy JSON</button></div>
+  <pre id="submissionOutput" class="json-output"></pre>
+</section>
+
+  <section id="matrix" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Framework compatibility matrix</h2>
+        <p>native = official/direct integration, generic = API/wrapper-level integration, partial = possible with glue code.</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="matrix">
+        <thead id="matrixHead"></thead>
+        <tbody id="matrixBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="scoring" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Scoring model</h2>
+        <p>The project separates raw dimensions from persona weighting so the same tool can rank differently for CISO, AppSec, Red Team, MLOps, PM, startup builder, agent architect, or MCP security reviewer.</p>
+      </div>
+    </div>
+    <div id="dimensionGrid" class="dimension-grid"></div>
+    <details class="formula" open>
+      <summary>Persona score formula</summary>
+      <code>persona_score = weighted_average(selected_dimension_scores, persona_weights) × 20</code>
+      <p>Raw dimensions use a 1–5 scale. Persona score is normalized to 0–100 for easier comparison.</p>
+    </details>
+    <details class="formula" open>
+      <summary>Agentic Readiness Score</summary>
+      <p id="agenticFormula"></p>
+      <p>Use this score when selecting tools for autonomous agents, multi-step workflows, tool execution, delegated tasks, or production agent runtime control.</p>
+    </details>
+    <details class="formula" open>
+      <summary>MCP Security Score</summary>
+      <p id="mcpFormula"></p>
+      <p>Use this score when reviewing MCP clients, third-party MCP servers, tool permissions, server inventory, tool output sanitization, sandboxing, and MCP supply-chain exposure.</p>
+      <div id="mcpDimensionGrid" class="dimension-grid compact"></div>
+    </details>
+  </section>
+
+
+
+  <section id="methodology" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Scoring methodology and evidence model</h2>
+        <p>Scores are not certifications. They are transparent, community-maintained heuristics designed to help reviewers create shortlists and identify evidence gaps.</p>
+      </div>
+    </div>
+    <div id="evidenceGrid" class="dimension-grid"></div>
+    <details class="formula" open>
+      <summary>Recommended evidence policy</summary>
+      <p>Prefer conservative scoring. Increase scores only when the tool has explicit product documentation, open-source implementation evidence, OWASP landscape inclusion, reproducible community verification, or a submitted benchmark result.</p>
+    </details>
+    <details class="formula" open>
+      <summary>Evidence confidence score</summary>
+      <p><code>confidence = OWASP landscape + vendor docs + benchmark-backed evidence + community review + incident mapping - staleness penalty</code>. Tool cards and detail pages expose this score to distinguish validated claims from inferred mappings.</p>
+    </details>
+    <details class="formula" open>
+      <summary>ASI coverage depth</summary>
+      <p><code>0 = no coverage · 1 = inferred · 2 = explicit / OWASP or vendor-public claim · 3 = benchmark-backed or implementation-verified</code>. This prevents a flat risk tag from looking stronger than the evidence supports.</p>
+    </details>
+    <details class="formula" open>
+      <summary>Lifecycle coverage scoring</summary>
+      <p><code>0 = no mapped coverage · 1 = inferred / indirect · 2 = vendor-public claim · 3 = OWASP landscape + vendor docs · 4 = community-tested · 5 = benchmark-backed</code></p>
+    </details>
+  </section>
+
+
+  <section id="validation-agent" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Solution & Tool Validation Agent</h2>
+        <p>A deterministic rule-based agent for turning an agentic AI scenario into OWASP ASI risk mapping, recommended security stack, evidence checks, and benchmark validation plan.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div>
+        <h3>1. Parse scenario</h3>
+        <p>Reads a scenario JSON describing frameworks, MCP/A2A/tool use, RAG or memory, external APIs, high-impact actions, and deployment constraints.</p>
+      </div>
+      <div>
+        <h3>2. Map OWASP ASI risks</h3>
+        <p>Maps architecture signals to ASI01–ASI10 using explicit deterministic rules, not model-generated scores.</p>
+      </div>
+      <div>
+        <h3>3. Recommend tools</h3>
+        <p>Ranks tools by risk coverage, lifecycle fit, framework support, deployment constraints, Agentic Readiness, MCP Security, and evidence confidence.</p>
+      </div>
+      <div>
+        <h3>4. Validate evidence</h3>
+        <p>Checks whether each recommended tool has OWASP landscape, vendor-public, community, or benchmark-backed evidence.</p>
+      </div>
+      <div>
+        <h3>5. Plan benchmark execution</h3>
+        <p>Selects MCP/A2A benchmark cases from <code>benchmarks/mcp_security_benchmark_v01.json</code> and produces score update suggestions.</p>
+      </div>
+      <div>
+        <h3>Run locally</h3>
+        <p><code>python agents/solution_validator_agent.py --scenario examples/mcp_rag_agent_scenario.json --output outputs/mcp_rag_agent_solution_report.md</code></p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="grounded-qa" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Grounded LLM Q&A Agent</h2>
+        <p>An optional LLM-assisted Q&A layer that retrieves from <code>data/source_index.json</code> first, then forces indexed source citations such as <code>[S001]</code> to reduce hallucinated tool claims, scores, and OWASP mappings.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div>
+        <h3>1. Build source index</h3>
+        <p><code>python agents/build_source_index.py --output data/source_index.json</code></p>
+      </div>
+      <div>
+        <h3>2. Ask offline</h3>
+        <p><code>python agents/grounded_qa_agent.py --question "Which tools should I evaluate for MCP runtime security?" --provider none</code></p>
+      </div>
+      <div>
+        <h3>3. Ask with LLM</h3>
+        <p><code>OPENAI_API_KEY=... python agents/grounded_qa_agent.py --question "Design a validation plan" --provider openai-compatible --model gpt-4o-mini --fallback-on-uncited</code></p>
+      </div>
+      <div>
+        <h3>4. Citation audit</h3>
+        <p>The CLI checks whether cited source IDs were retrieved. If the LLM gives uncited or unsupported output, use <code>--fallback-on-uncited</code> to return an extractive answer instead.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="qa-advisor" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Ask the Agentic Security Advisor</h2>
+        <p>Browser-side retrieval over <code>data/source_index.json</code>. It returns source-linked findings and an audit summary; use the CLI LLM mode when you need model-generated synthesis.</p>
+      </div>
+    </div>
+    <div class="advisor-grid">
+      <label class="control wide">
+        <span>Question</span>
+        <textarea id="qaQuestion" rows="4" placeholder="Example: How should I secure a LangGraph + MCP + RAG customer support agent?"></textarea>
+      </label>
+      <div class="advisor-actions">
+        <button id="runQaAdvisor" class="button primary" type="button">Retrieve answer</button>
+        <button id="sampleQaAdvisor" class="button" type="button">Load sample</button>
+      </div>
+    </div>
+    <div id="qaAdvisorOutput" class="answer-box"></div>
+    <div id="answerAuditPanel" class="answer-box audit-box"></div>
+  </section>
+
+  <section id="claim-verifier" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Tool Claim Verifier</h2>
+        <p>Decompose a vendor/tool claim into ASI risks, required evidence, benchmark tests, and current catalog confidence.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <label class="control">
+        <span>Tool</span>
+        <select id="claimToolSelect"></select>
+      </label>
+      <label class="control wide">
+        <span>Claim</span>
+        <input id="claimText" placeholder="Example: MCP discovery and runtime policy enforcement" />
+      </label>
+      <button id="runClaimVerifier" class="button primary" type="button">Verify claim</button>
+    </div>
+    <div id="claimVerifierOutput" class="answer-box"></div>
+    <p class="small">CLI equivalent: <code>python agents/claim_verifier.py --tool noma-security --claim "MCP discovery and runtime policy enforcement"</code></p>
+  </section>
+
+  <section id="architecture-generator" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Architecture Generator</h2>
+        <p>Generate reference architecture patterns from common scenario signals. The CLI version can render a Markdown report with Mermaid diagrams.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <label class="control wide">
+        <span>Scenario signals</span>
+        <input id="archSignals" placeholder="mcp rag vector_db external_api identity monitor" />
+      </label>
+      <button id="runArchitectureGenerator" class="button primary" type="button">Generate architecture</button>
+    </div>
+    <div id="architectureOutput" class="answer-box"></div>
+  </section>
+
+  <section id="release-pipeline" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Quarterly Evidence Update Pipeline</h2>
+        <p>Track catalog, benchmark, incident, and evidence changes by release so the project can follow the OWASP-style quarterly update cadence.</p>
+      </div>
+    </div>
+    <div id="releaseTimeline" class="dimension-grid"></div>
+  </section>
+
+
+
+  <section id="auto-update-intelligence" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Automated Update Intelligence</h2>
+        <p>Monitor official sources for AI security tool releases, top-company security features, roadmap signals, incidents, and standards updates. Outputs are reviewable candidates, not automatic score changes.</p>
+      </div>
+    </div>
+    <div class="metric-row" id="updateStatusCards"></div>
+    <div class="two-col">
+      <div class="answer-box">
+        <h3>Latest candidate updates</h3>
+        <div id="pendingUpdatesList" class="compact-list"></div>
+      </div>
+      <div class="answer-box">
+        <h3>Roadmap signals</h3>
+        <div id="roadmapUpdatesList" class="compact-list"></div>
+      </div>
+    </div>
+    <div class="answer-box">
+      <h3>Watched source categories</h3>
+      <div id="updateSourcesList" class="tag-cloud"></div>
+      <p class="small">Manual run: <code>python agents/auto_update_pipeline.py --network --max-per-source 5</code>. GitHub workflow: <code>.github/workflows/auto-update-intelligence.yml</code>.</p>
+    </div>
+  </section>
+
+
+  <section id="update-review-automation" class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Update Review & PR Automation</h2>
+        <p>Convert discovered vendor, framework, MCP/A2A, and standards updates into reviewable benchmark recommendations, evidence diffs, and PR candidates. Automation proposes changes; humans approve them.</p>
+      </div>
+    </div>
+    <div class="metric-row" id="updateReviewCards"></div>
+    <div class="two-col">
+      <div class="answer-box">
+        <h3>Benchmark recommendations</h3>
+        <div id="benchmarkRecommendationsList" class="compact-list"></div>
+      </div>
+      <div class="answer-box">
+        <h3>Evidence diffs</h3>
+        <div id="evidenceDiffsList" class="compact-list"></div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="answer-box">
+        <h3>PR candidates</h3>
+        <div id="prCandidatesList" class="compact-list"></div>
+      </div>
+      <div class="answer-box">
+        <h3>Roadmap board</h3>
+        <div id="roadmapBoard" class="roadmap-board"></div>
+      </div>
+    </div>
+    <p class="small">Manual loop: <code>python agents/auto_update_pipeline.py --network</code> → <code>benchmark_recommender.py</code> → <code>evidence_diff_builder.py</code> → <code>pr_generator.py</code>. GitHub workflow: <code>.github/workflows/auto-update-pr.yml</code>.</p>
+  </section>
+
+  <section id="contribute" class="panel contribute">
+    <h2>How to update and maintain</h2>
+    <div class="steps">
+      <div>
+        <h3>1. Add or edit a tool</h3>
+        <p>Edit <code>data/tools.json</code>. Keep each score between 1 and 5 and add a short <code>maintainer_notes</code> field explaining caveats.</p>
+      </div>
+      <div>
+        <h3>2. Map Agentic OWASP / ASI</h3>
+        <p>Add <code>agentic_owasp</code>, <code>lifecycle_stages</code>, <code>agentic_scores</code>, and <code>mcp_scores</code>. Prefer conservative scoring unless the tool has evidence for runtime enforcement, MCP coverage, agent identity controls, or specific OWASP lifecycle support.</p>
+      </div>
+      <div>
+        <h3>3. Add evidence or benchmark results</h3>
+        <p>Add supporting records to <code>data/evidence.json</code>. For MCP / A2A tests, add or update cases in <code>benchmarks/mcp_security_benchmark_v01.jsonl</code> and attach runner output from <code>benchmarks/results/</code>.</p>
+      </div>
+      <div>
+        <h3>4. Validate before commit</h3>
+        <p>Run a JSON parse check and validate against <code>data/schema.json</code>, then open <code>index.html</code> locally. The included GitHub Action validates schema, ASI codes, score ranges, duplicate IDs, and Hugging Face metadata.</p>
+      </div>
+      <div>
+        <h3>5. Deploy to Hugging Face</h3>
+        <p>Create a Hugging Face Space, choose Static SDK, and commit <code>README.md</code>, <code>index.html</code>, <code>styles.css</code>, <code>app.js</code>, and <code>data/tools.json</code>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<div id="toolModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="toolModalTitle">
+  <div class="modal-backdrop" data-close-modal="true"></div>
+  <div class="modal-card">
+    <button class="modal-close" type="button" data-close-modal="true">×</button>
+    <div id="toolModalContent"></div>
+  </div>
+</div>
+
+<footer>
+  <p>Community-maintained catalog. Last updated from <code>data/tools.json</code>. Contributions welcome.</p>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>

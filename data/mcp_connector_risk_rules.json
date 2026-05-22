@@ -1,0 +1,11 @@
+{
+  "connector_config_checks": [
+    "server_url provenance and HTTPS",
+    "connector_id trust level",
+    "OAuth scopes and token lifetime",
+    "approval policy for high-impact tools",
+    "allowed_tools allowlist",
+    "context minimization to remote MCP server",
+    "audit log for tool calls and remote data sharing"
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "assessment_type": "a2a_agent_card_assessment",
+  "summary": {
+    "agents": 3,
+    "high_risk_agents": 1,
+    "average_risk_score": 4.33,
+    "risk_level": "high",
+    "mapped_asi": [
+      "ASI02",
+      "ASI03",
+      "ASI04",
+      "ASI07",
+      "ASI08",
+      "ASI10"
+    ]
+  },
+  "agents": [
+    {
+      "agent": "Planner Agent",
+      "endpoint": "https://agents.example.com/planner",
+      "capabilities": [
+        "task planning",
+        "delegate"
+      ],
+      "signals": [],
+      "mapped_asi": [],
+      "risk_score": 0.0,
+      "risk_level": "low",
+      "required_controls": [
+        "agent identity registry",
+        "immutable agent action audit"
+      ]
+    },
+    {
+      "agent": "Finance Worker",
+      "endpoint": "https://agents.example.com/finance",
+      "capabilities": [
+        "refund",
+        "payment transfer",
+        "crm write"
+      ],
+      "signals": [
+        "delegation_enabled",
+        "high_impact_capability_claim",
+        "unsigned_agent_card"
+      ],
+      "mapped_asi": [
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI07",
+        "ASI08",
+        "ASI10"
+      ],
+      "risk_score": 5.0,
+      "risk_level": "medium",
+      "required_controls": [
+        "agent identity registry",
+        "capability allowlist",
+        "delegation depth limit",
+        "descriptor provenance verification",
+        "human approval for high-impact actions",
+        "immutable agent action audit",
+        "per-action authorization",
+        "signed agent cards"
+      ]
+    },
+    {
+      "agent": "External Observer",
+      "endpoint": "http://external.example.com/agent",
+      "capabilities": [
+        "review",
+        "webhook"
+      ],
+      "signals": [
+        "external_routing_or_webhook",
+        "missing_or_weak_agent_auth",
+        "open_agent_registration",
+        "unencrypted_agent_endpoint",
+        "unsigned_agent_card"
+      ],
+      "mapped_asi": [
+        "ASI03",
+        "ASI04",
+        "ASI07",
+        "ASI08",
+        "ASI10"
+      ],
+      "risk_score": 8.0,
+      "risk_level": "high",
+      "required_controls": [
+        "TLS enforcement",
+        "agent identity registry",
+        "closed registration",
+        "descriptor provenance verification",
+        "egress allowlist",
+        "immutable agent action audit",
+        "mTLS or token-bound agent auth",
+        "message integrity validation",
+        "per-agent scoped credentials",
+        "protocol pinning",
+        "registry approval workflow",
+        "signed agent cards"
+      ]
+    }
+  ],
+  "trust_graph": {
+    "nodes": [
+      "finance_worker",
+      "observer",
+      "planner"
+    ],
+    "edges": 2,
+    "risky_edges": [
+      {
+        "from": "planner",
+        "to": "finance_worker",
+        "scopes": [
+          "write:refund",
+          "read:crm"
+        ],
+        "signals": [
+          "broad_or_write_scope"
+        ]
+      },
+      {
+        "from": "observer",
+        "to": "finance_worker",
+        "scopes": [
+          "*"
+        ],
+        "signals": [
+          "unsigned_delegation",
+          "broad_or_write_scope"
+        ]
+      }
+    ],
+    "mapped_asi": [
+      "ASI03",
+      "ASI07",
+      "ASI08"
+    ]
+  }
+}

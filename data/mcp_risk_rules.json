@@ -1,0 +1,18 @@
+{
+  "version": "v1.5",
+  "high_risk_verbs": ["delete", "remove", "drop", "send", "transfer", "refund", "execute", "exec", "run", "shell", "install", "write", "update", "publish", "deploy", "create_user", "admin", "sudo"],
+  "sensitive_fields": ["token", "secret", "password", "apikey", "api_key", "credential", "oauth", "auth", "email", "amount", "iban", "ssn", "nric", "path", "url", "webhook", "command", "cmd", "code", "query", "file", "repository", "repo"],
+  "descriptor_injection_patterns": ["ignore previous", "ignore all previous", "system prompt", "developer message", "hidden instruction", "exfiltrate", "send to", "do not reveal", "bypass", "jailbreak", "override", "act as", "secretly", "without user", "silent", "background"],
+  "external_access_patterns": ["http://", "https://", "webhook", "callback", "download", "upload", "fetch", "curl", "wget"],
+  "capability_weights": {
+    "read": 0.05,
+    "write": 0.18,
+    "execute": 0.25,
+    "destructive": 0.25,
+    "financial": 0.22,
+    "identity": 0.20,
+    "network": 0.15,
+    "memory": 0.13,
+    "unknown": 0.10
+  }
+}

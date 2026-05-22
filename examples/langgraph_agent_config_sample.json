@@ -1,0 +1,22 @@
+{
+  "nodes": [
+    "intake",
+    "retrieve",
+    "plan",
+    "execute",
+    "review"
+  ],
+  "tools": [
+    "mcp.crm.lookup",
+    "mcp.email.send",
+    "mcp.file.read"
+  ],
+  "memory": {
+    "type": "vector_db",
+    "tenant_isolated": false
+  },
+  "external_apis": [
+    "crm",
+    "email"
+  ]
+}

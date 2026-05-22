@@ -1,0 +1,123 @@
+{
+  "ASI01": {
+    "risk": "Agent Goal Hijack",
+    "controls": [
+      "intent validation",
+      "goal lock",
+      "input sanitization",
+      "goal-drift alerting"
+    ],
+    "benchmarks": [
+      "MCP-ASI01-005"
+    ]
+  },
+  "ASI02": {
+    "risk": "Tool Misuse",
+    "controls": [
+      "tool allowlist",
+      "pre-execution PEP/PDP",
+      "argument schema validation",
+      "tool budget/rate limit"
+    ],
+    "benchmarks": [
+      "MCP-ASI02-004"
+    ]
+  },
+  "ASI03": {
+    "risk": "Identity and Privilege Abuse",
+    "controls": [
+      "per-agent identity",
+      "short-lived scoped tokens",
+      "per-action authorization",
+      "delegation chain validation"
+    ],
+    "benchmarks": [
+      "IDENTITY-ASI03-001"
+    ]
+  },
+  "ASI04": {
+    "risk": "Agentic Supply Chain",
+    "controls": [
+      "descriptor provenance",
+      "signed agent/tool manifests",
+      "registry allowlist",
+      "package scanning"
+    ],
+    "benchmarks": [
+      "MCP-ASI04-001",
+      "MCP-ASI04-009"
+    ]
+  },
+  "ASI05": {
+    "risk": "Unexpected Code Execution",
+    "controls": [
+      "sandboxed execution",
+      "deny shell/eval by default",
+      "egress control",
+      "static scan before execution"
+    ],
+    "benchmarks": [
+      "MCP-ASI05-002"
+    ]
+  },
+  "ASI06": {
+    "risk": "Memory & Context Poisoning",
+    "controls": [
+      "memory segmentation",
+      "source provenance",
+      "tenant isolation",
+      "memory rollback/quarantine"
+    ],
+    "benchmarks": [
+      "RAG-ASI06-007"
+    ]
+  },
+  "ASI07": {
+    "risk": "Insecure Inter-Agent Communication",
+    "controls": [
+      "mTLS",
+      "signed messages",
+      "agent-card attestation",
+      "anti-replay nonce"
+    ],
+    "benchmarks": [
+      "A2A-ASI07-006"
+    ]
+  },
+  "ASI08": {
+    "risk": "Cascading Failures",
+    "controls": [
+      "circuit breaker",
+      "blast-radius cap",
+      "delegation depth limit",
+      "runtime anomaly detector"
+    ],
+    "benchmarks": [
+      "A2A-ASI08-002"
+    ]
+  },
+  "ASI09": {
+    "risk": "Human-Agent Trust Exploitation",
+    "controls": [
+      "HITL for high-impact actions",
+      "risk UI",
+      "side-effect preview",
+      "approval audit"
+    ],
+    "benchmarks": [
+      "HITL-ASI09-010"
+    ]
+  },
+  "ASI10": {
+    "risk": "Rogue Agents",
+    "controls": [
+      "behavioral attestation",
+      "kill switch",
+      "agent quarantine",
+      "watchdog agent"
+    ],
+    "benchmarks": [
+      "A2A-ASI10-001"
+    ]
+  }
+}

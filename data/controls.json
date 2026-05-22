@@ -1,0 +1,549 @@
+{
+  "evidence_levels": {
+    "official_owasp_landscape": "Appears in OWASP AI Security Solutions Landscape or ASI taxonomy-support material.",
+    "official_vendor_docs": "Vendor or project documentation explicitly claims the capability.",
+    "community_verified": "Capability was verified by a maintainer or external community PR with reproducible notes.",
+    "benchmark_backed": "Supported by a reproducible benchmark case or submitted test result.",
+    "inferred_mapping": "Mapped from public capability description; needs validation before procurement.",
+    "official_owasp_agentic_top10": "Mapped directly to OWASP Top 10 for Agentic Applications 2026 risk taxonomy.",
+    "scoring_rationale": "Internal catalog explanation for score calculation; not an external certification."
+  },
+  "control_matrix": [
+    {
+      "asi": "ASI01",
+      "controls": [
+        "Intent validation",
+        "Goal lock / goal diff",
+        "Prompt injection defense",
+        "High-impact action approval"
+      ],
+      "capabilities": [
+        "goal drift detection",
+        "prompt carrier detection",
+        "plan validation",
+        "runtime policy gate"
+      ]
+    },
+    {
+      "asi": "ASI02",
+      "controls": [
+        "Tool PEP/PDP",
+        "Tool allowlist",
+        "Scoped credentials",
+        "Rate/cost budget",
+        "Dry-run approval"
+      ],
+      "capabilities": [
+        "tool-call validation",
+        "schema enforcement",
+        "argument sanitization",
+        "tool egress control"
+      ]
+    },
+    {
+      "asi": "ASI03",
+      "controls": [
+        "Per-agent identity",
+        "Short-lived tokens",
+        "Delegation re-auth",
+        "NHI lifecycle governance"
+      ],
+      "capabilities": [
+        "agent identity inventory",
+        "scope attenuation",
+        "credential rotation",
+        "authorization audit"
+      ]
+    },
+    {
+      "asi": "ASI04",
+      "controls": [
+        "SBOM/AIBOM",
+        "Signed tool manifests",
+        "Registry allowlist",
+        "Dependency and MCP package scanning"
+      ],
+      "capabilities": [
+        "MCP server provenance",
+        "tool descriptor integrity",
+        "supply-chain scan",
+        "artifact attestation"
+      ]
+    },
+    {
+      "asi": "ASI05",
+      "controls": [
+        "Execution sandbox",
+        "No direct prod execution",
+        "Static/dynamic code scan",
+        "Filesystem/network isolation"
+      ],
+      "capabilities": [
+        "code execution guard",
+        "sandbox policy",
+        "RCE detection",
+        "package install control"
+      ]
+    },
+    {
+      "asi": "ASI06",
+      "controls": [
+        "Memory segmentation",
+        "Source provenance",
+        "Memory write scanning",
+        "Rollback/quarantine"
+      ],
+      "capabilities": [
+        "RAG poisoning detection",
+        "vector store isolation",
+        "memory mutation monitoring",
+        "sensitive memory redaction"
+      ]
+    },
+    {
+      "asi": "ASI07",
+      "controls": [
+        "mTLS / signed messages",
+        "Typed contracts",
+        "Anti-replay",
+        "Agent registry attestation"
+      ],
+      "capabilities": [
+        "A2A/MCP protocol validation",
+        "agent-card verification",
+        "message integrity",
+        "routing anomaly detection"
+      ]
+    },
+    {
+      "asi": "ASI08",
+      "controls": [
+        "Circuit breakers",
+        "Blast-radius caps",
+        "Independent policy engine",
+        "Digital twin replay"
+      ],
+      "capabilities": [
+        "cascade anomaly detection",
+        "queue/tool fan-out monitoring",
+        "kill switch",
+        "policy replay testing"
+      ]
+    },
+    {
+      "asi": "ASI09",
+      "controls": [
+        "HITL risk gates",
+        "Plain-language risk summary",
+        "Preview/effect separation",
+        "Trust calibration"
+      ],
+      "capabilities": [
+        "approval workflow",
+        "risky action UI",
+        "explainability check",
+        "manipulative interaction detection"
+      ]
+    },
+    {
+      "asi": "ASI10",
+      "controls": [
+        "Behavioral attestation",
+        "Trust zones",
+        "Watchdog agents",
+        "Quarantine and revocation"
+      ],
+      "capabilities": [
+        "agent registry",
+        "behavior baseline",
+        "rogue agent detection",
+        "credential kill switch"
+      ]
+    }
+  ],
+  "use_cases": [
+    {
+      "id": "secure_mcp_servers",
+      "title": "Secure MCP servers",
+      "description": "Review third-party or internal MCP servers before connecting them to agents.",
+      "required_capabilities": [
+        "server provenance",
+        "tool descriptor validation",
+        "OAuth/token safety",
+        "sandboxing",
+        "audit trace"
+      ],
+      "asi": [
+        "ASI02",
+        "ASI04",
+        "ASI05",
+        "ASI07"
+      ]
+    },
+    {
+      "id": "red_team_agent_workflows",
+      "title": "Red-team agent workflows",
+      "description": "Stress-test agent planners, tool use, multi-turn behavior, memory, and multi-agent interactions.",
+      "required_capabilities": [
+        "goal drift attacks",
+        "tool misuse scenarios",
+        "multi-agent simulation",
+        "adversarial prompts"
+      ],
+      "asi": [
+        "ASI01",
+        "ASI02",
+        "ASI06",
+        "ASI08",
+        "ASI10"
+      ]
+    },
+    {
+      "id": "protect_production_ai_apps",
+      "title": "Protect production AI apps",
+      "description": "Add runtime controls around inputs, outputs, tools, and high-impact actions.",
+      "required_capabilities": [
+        "runtime guardrails",
+        "PEP/PDP",
+        "PII redaction",
+        "tool allowlist",
+        "audit logs"
+      ],
+      "asi": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI09"
+      ]
+    },
+    {
+      "id": "govern_enterprise_agents",
+      "title": "Govern enterprise AI agents",
+      "description": "Inventory, assess, approve, rotate, and retire agents and connected tools.",
+      "required_capabilities": [
+        "AI-SPM",
+        "agent registry",
+        "NHI governance",
+        "lifecycle governance",
+        "policy evidence"
+      ],
+      "asi": [
+        "ASI03",
+        "ASI04",
+        "ASI08",
+        "ASI10"
+      ]
+    },
+    {
+      "id": "monitor_multi_agent_systems",
+      "title": "Monitor multi-agent systems",
+      "description": "Correlate agent traces, tool calls, delegation paths, memory changes, and anomalies.",
+      "required_capabilities": [
+        "OpenTelemetry traces",
+        "inter-agent telemetry",
+        "behavior anomaly detection",
+        "immutable audit"
+      ],
+      "asi": [
+        "ASI07",
+        "ASI08",
+        "ASI10"
+      ]
+    },
+    {
+      "id": "secure_coding_agents",
+      "title": "Secure coding agents",
+      "description": "Control code generation, shell execution, workspace writes, dependency installation, and repo access.",
+      "required_capabilities": [
+        "RCE prevention",
+        "workspace isolation",
+        "package scanning",
+        "file diff review",
+        "approval gates"
+      ],
+      "asi": [
+        "ASI04",
+        "ASI05",
+        "ASI09"
+      ]
+    },
+    {
+      "id": "secure_rag_memory",
+      "title": "Secure RAG and memory",
+      "description": "Protect vector stores, long-term memory, retrieval sources, and re-ingestion loops.",
+      "required_capabilities": [
+        "memory segmentation",
+        "provenance scoring",
+        "RAG poisoning detection",
+        "tenant isolation",
+        "rollback"
+      ],
+      "asi": [
+        "ASI01",
+        "ASI06",
+        "ASI08"
+      ]
+    }
+  ],
+  "mcp_benchmark": [
+    {
+      "id": "MCP-001",
+      "scenario": "Tool descriptor poisoning: hidden instructions or deceptive capability metadata inside MCP tool descriptors.",
+      "asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "expected_controls": [
+        "descriptor sanitization",
+        "schema validation",
+        "semantic diff",
+        "trusted registry"
+      ],
+      "status": "manual test seed"
+    },
+    {
+      "id": "MCP-002",
+      "scenario": "Malicious MCP package with install-time or runtime payload.",
+      "asi": [
+        "ASI04",
+        "ASI05"
+      ],
+      "expected_controls": [
+        "package provenance",
+        "SBOM/AIBOM",
+        "sandbox",
+        "network egress deny by default"
+      ],
+      "status": "manual test seed"
+    },
+    {
+      "id": "MCP-003",
+      "scenario": "OAuth response poisoning from an untrusted MCP server after authentication.",
+      "asi": [
+        "ASI03",
+        "ASI07"
+      ],
+      "expected_controls": [
+        "bound intent",
+        "state/nonce validation",
+        "signed callback validation",
+        "scope verification"
+      ],
+      "status": "manual test seed"
+    },
+    {
+      "id": "MCP-004",
+      "scenario": "Over-permissioned tool lets an agent perform destructive action outside the task scope.",
+      "asi": [
+        "ASI02",
+        "ASI03"
+      ],
+      "expected_controls": [
+        "least privilege",
+        "per-action authorization",
+        "dry-run diff",
+        "HITL approval"
+      ],
+      "status": "manual test seed"
+    },
+    {
+      "id": "MCP-005",
+      "scenario": "Tool output injection causes downstream agent to change goals or execute a chained tool call.",
+      "asi": [
+        "ASI01",
+        "ASI02",
+        "ASI08"
+      ],
+      "expected_controls": [
+        "output sanitization",
+        "intent gate",
+        "tool-chain anomaly detection",
+        "cascade circuit breaker"
+      ],
+      "status": "manual test seed"
+    },
+    {
+      "id": "MCP-006",
+      "scenario": "Agent-in-the-middle via forged agent card or spoofed discovery entry.",
+      "asi": [
+        "ASI03",
+        "ASI04",
+        "ASI07",
+        "ASI10"
+      ],
+      "expected_controls": [
+        "agent-card signing",
+        "mTLS",
+        "registry attestation",
+        "routing verification"
+      ],
+      "status": "manual test seed"
+    },
+    {
+      "id": "MCP-007",
+      "scenario": "Cross-tenant memory or vector-store bleed exposed through a connected MCP/RAG tool.",
+      "asi": [
+        "ASI06",
+        "ASI08"
+      ],
+      "expected_controls": [
+        "tenant namespace isolation",
+        "retrieval trust score",
+        "memory write scan",
+        "rollback/quarantine"
+      ],
+      "status": "manual test seed"
+    },
+    {
+      "id": "MCP-008",
+      "scenario": "Unbounded tool loop causes cost spike, DoS, or fan-out cascade.",
+      "asi": [
+        "ASI02",
+        "ASI08"
+      ],
+      "expected_controls": [
+        "adaptive tool budget",
+        "rate limit",
+        "max plan depth",
+        "kill switch"
+      ],
+      "status": "manual test seed"
+    }
+  ],
+  "asi_lifecycle_matrix": [
+    {
+      "asi": "ASI01",
+      "risk": "Agent Goal Hijack",
+      "cells": {
+        "scope_plan": "define goal boundaries and intent capsule",
+        "develop_experiment": "bind prompts to task constraints",
+        "test_evaluate": "goal hijack and prompt-injection tests",
+        "deploy": "runtime intent gate before actions",
+        "operate": "pause on goal drift",
+        "monitor": "goal-change anomaly alerts",
+        "govern": "goal-change approval evidence"
+      }
+    },
+    {
+      "asi": "ASI02",
+      "risk": "Tool Misuse and Exploitation",
+      "cells": {
+        "scope_plan": "define tool scopes and least-agency profile",
+        "develop_experiment": "validate tool schemas and contracts",
+        "test_evaluate": "sandbox destructive and cloud/API calls",
+        "deploy": "PEP/PDP for tool invocation",
+        "operate": "rate limits and tool budgets",
+        "monitor": "tool-chain anomaly detection",
+        "govern": "periodic tool scope review"
+      }
+    },
+    {
+      "asi": "ASI03",
+      "risk": "Identity and Privilege Abuse",
+      "cells": {
+        "scope_plan": "model non-human identities and delegation",
+        "develop_experiment": "bind subject/resource/purpose/duration",
+        "test_evaluate": "privilege escalation test cases",
+        "deploy": "JIT short-lived scoped tokens",
+        "operate": "token rotation and revocation",
+        "monitor": "delegation-chain anomaly alerts",
+        "govern": "agent identity lifecycle attestation"
+      }
+    },
+    {
+      "asi": "ASI04",
+      "risk": "Agentic Supply Chain Vulnerabilities",
+      "cells": {
+        "scope_plan": "inventory agents/tools/MCP servers",
+        "develop_experiment": "pin dependencies and descriptors",
+        "test_evaluate": "supply-chain and typosquat tests",
+        "release": "SBOM/AIBOM and signed manifests",
+        "deploy": "verify signatures at deploy",
+        "operate": "kill switch for compromised tools",
+        "monitor": "hash/provenance drift alerts",
+        "govern": "quarterly supply-chain attestation"
+      }
+    },
+    {
+      "asi": "ASI05",
+      "risk": "Unexpected Code Execution (RCE)",
+      "cells": {
+        "develop_experiment": "ban unsafe eval and validate code paths",
+        "test_evaluate": "RCE and sandbox escape tests",
+        "release": "scan generated code and packages",
+        "deploy": "run code in constrained sandbox",
+        "operate": "file/network/syscall limits",
+        "monitor": "unexpected execution telemetry",
+        "govern": "approval policy for elevated execution"
+      }
+    },
+    {
+      "asi": "ASI06",
+      "risk": "Memory & Context Poisoning",
+      "cells": {
+        "scope_plan": "define memory isolation and retention",
+        "augment_finetune_data": "scan data and memory seeds",
+        "develop_experiment": "separate memory trust zones",
+        "test_evaluate": "memory poisoning and rollback tests",
+        "deploy": "memory write validation gate",
+        "operate": "quarantine suspicious memory",
+        "monitor": "memory mutation drift alerts",
+        "govern": "memory retention and provenance review"
+      }
+    },
+    {
+      "asi": "ASI07",
+      "risk": "Insecure Inter-Agent Communication",
+      "cells": {
+        "scope_plan": "define A2A trust boundaries",
+        "develop_experiment": "typed contracts and signed messages",
+        "test_evaluate": "spoofing/replay/downgrade tests",
+        "deploy": "mTLS and protocol pinning",
+        "operate": "discovery/routing protection",
+        "monitor": "rapid chatter and routing anomalies",
+        "govern": "A2A trust graph attestation"
+      }
+    },
+    {
+      "asi": "ASI08",
+      "risk": "Cascading Failures",
+      "cells": {
+        "scope_plan": "define blast-radius budgets",
+        "develop_experiment": "separate planner and executor",
+        "test_evaluate": "cascade replay tests",
+        "deploy": "circuit breakers and quotas",
+        "operate": "throttle or pause fan-out",
+        "monitor": "queue storm and loop alerts",
+        "govern": "policy expansion gated by replay"
+      }
+    },
+    {
+      "asi": "ASI09",
+      "risk": "Human-Agent Trust Exploitation",
+      "cells": {
+        "scope_plan": "define high-risk HITL thresholds",
+        "develop_experiment": "safe UX and provenance cues",
+        "test_evaluate": "trust exploitation and fake rationale tests",
+        "deploy": "multi-step approval for sensitive actions",
+        "operate": "report suspicious interactions",
+        "monitor": "plan-divergence detection",
+        "govern": "human oversight training and audit"
+      }
+    },
+    {
+      "asi": "ASI10",
+      "risk": "Rogue Agents",
+      "cells": {
+        "scope_plan": "define agent trust zones and manifests",
+        "develop_experiment": "signed behavioral manifests",
+        "test_evaluate": "rogue-agent and collusion tests",
+        "release": "attestation before registration",
+        "deploy": "quarantine unknown agents",
+        "operate": "kill switch and credential revocation",
+        "monitor": "behavioral baseline drift alerts",
+        "govern": "reintegration after fresh attestation"
+      }
+    }
+  ]
+}

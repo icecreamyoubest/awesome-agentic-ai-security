@@ -1,0 +1,29 @@
+tool_policies:
+  default:
+    deny_unknown_tools: true
+    audit_required: true
+    require_schema_validation: true
+  high_impact_tools:
+    tools:
+      - "email.send"
+      - "crm.refund"
+      - "file.delete"
+      - "package.install"
+      - "shell.run"
+    require_human_approval: true
+    scoped_token_ttl_seconds: 300
+  egress:
+    default: "deny"
+    allowlisted_domains:
+      - "company.com"
+identity_scope_policy:
+  per_agent_identity: true
+  short_lived_tokens: true
+  deny_privilege_inheritance: true
+mapped_asi:
+  - "ASI02"
+  - "ASI03"
+  - "ASI04"
+  - "ASI07"
+  - "ASI08"
+  - "ASI10"

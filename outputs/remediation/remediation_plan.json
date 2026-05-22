@@ -1,0 +1,122 @@
+{
+  "assessment_type": "remediation_plan",
+  "mapped_asi": [
+    "ASI02",
+    "ASI03",
+    "ASI04",
+    "ASI07",
+    "ASI08",
+    "ASI10"
+  ],
+  "items": [
+    {
+      "asi": "ASI02",
+      "risk": "Tool Misuse",
+      "recommended_controls": [
+        "tool allowlist",
+        "pre-execution PEP/PDP",
+        "argument schema validation",
+        "tool budget/rate limit"
+      ],
+      "validation_benchmarks": [
+        "MCP-ASI02-004"
+      ],
+      "implementation_notes": [
+        "Place PEP/PDP before tool or agent action execution.",
+        "Record policy decision, subject, tool/action, arguments, and outcome in immutable audit logs.",
+        "Treat generated model/tool output as untrusted until validated."
+      ]
+    },
+    {
+      "asi": "ASI03",
+      "risk": "Identity and Privilege Abuse",
+      "recommended_controls": [
+        "per-agent identity",
+        "short-lived scoped tokens",
+        "per-action authorization",
+        "delegation chain validation"
+      ],
+      "validation_benchmarks": [
+        "IDENTITY-ASI03-001"
+      ],
+      "implementation_notes": [
+        "Place PEP/PDP before tool or agent action execution.",
+        "Record policy decision, subject, tool/action, arguments, and outcome in immutable audit logs.",
+        "Treat generated model/tool output as untrusted until validated."
+      ]
+    },
+    {
+      "asi": "ASI04",
+      "risk": "Agentic Supply Chain",
+      "recommended_controls": [
+        "descriptor provenance",
+        "signed agent/tool manifests",
+        "registry allowlist",
+        "package scanning"
+      ],
+      "validation_benchmarks": [
+        "MCP-ASI04-001",
+        "MCP-ASI04-009"
+      ],
+      "implementation_notes": [
+        "Place PEP/PDP before tool or agent action execution.",
+        "Record policy decision, subject, tool/action, arguments, and outcome in immutable audit logs.",
+        "Treat generated model/tool output as untrusted until validated."
+      ]
+    },
+    {
+      "asi": "ASI07",
+      "risk": "Insecure Inter-Agent Communication",
+      "recommended_controls": [
+        "mTLS",
+        "signed messages",
+        "agent-card attestation",
+        "anti-replay nonce"
+      ],
+      "validation_benchmarks": [
+        "A2A-ASI07-006"
+      ],
+      "implementation_notes": [
+        "Place PEP/PDP before tool or agent action execution.",
+        "Record policy decision, subject, tool/action, arguments, and outcome in immutable audit logs.",
+        "Treat generated model/tool output as untrusted until validated."
+      ]
+    },
+    {
+      "asi": "ASI08",
+      "risk": "Cascading Failures",
+      "recommended_controls": [
+        "circuit breaker",
+        "blast-radius cap",
+        "delegation depth limit",
+        "runtime anomaly detector"
+      ],
+      "validation_benchmarks": [
+        "A2A-ASI08-002"
+      ],
+      "implementation_notes": [
+        "Place PEP/PDP before tool or agent action execution.",
+        "Record policy decision, subject, tool/action, arguments, and outcome in immutable audit logs.",
+        "Treat generated model/tool output as untrusted until validated."
+      ]
+    },
+    {
+      "asi": "ASI10",
+      "risk": "Rogue Agents",
+      "recommended_controls": [
+        "behavioral attestation",
+        "kill switch",
+        "agent quarantine",
+        "watchdog agent"
+      ],
+      "validation_benchmarks": [
+        "A2A-ASI10-001"
+      ],
+      "implementation_notes": [
+        "Place PEP/PDP before tool or agent action execution.",
+        "Record policy decision, subject, tool/action, arguments, and outcome in immutable audit logs.",
+        "Treat generated model/tool output as untrusted until validated."
+      ]
+    }
+  ]
+}
