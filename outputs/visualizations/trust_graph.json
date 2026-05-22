@@ -1,0 +1,104 @@
+{
+  "nodes": [
+    {
+      "id": "coordinator_agent",
+      "label": "Coordinator Agent",
+      "trust_zone": "orchestration",
+      "type": "agent",
+      "capabilities": [
+        "plan",
+        "delegate",
+        "summarize"
+      ]
+    },
+    {
+      "id": "support_agent",
+      "label": "Support Agent",
+      "trust_zone": "customer_support",
+      "type": "agent",
+      "capabilities": [
+        "order_lookup",
+        "ticket_create"
+      ]
+    },
+    {
+      "id": "finance_agent",
+      "label": "Finance Agent",
+      "trust_zone": "finance",
+      "type": "agent",
+      "capabilities": [
+        "refund_prepare",
+        "refund_execute"
+      ]
+    },
+    {
+      "id": "compliance_agent",
+      "label": "Compliance Agent",
+      "trust_zone": "governance",
+      "type": "agent",
+      "capabilities": [
+        "risk_review",
+        "approval_gate"
+      ]
+    },
+    {
+      "id": "notification_agent",
+      "label": "Notification Agent",
+      "trust_zone": "communications",
+      "type": "agent",
+      "capabilities": [
+        "email_draft",
+        "email_send"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "trust_edge_1",
+      "source": "coordinator_agent",
+      "target": "support_agent",
+      "scope": "order_lookup",
+      "signed": true,
+      "decision": "trusted"
+    },
+    {
+      "id": "trust_edge_2",
+      "source": "coordinator_agent",
+      "target": "finance_agent",
+      "scope": "refund_prepare",
+      "signed": true,
+      "decision": "trusted"
+    },
+    {
+      "id": "trust_edge_3",
+      "source": "finance_agent",
+      "target": "compliance_agent",
+      "scope": "approval_gate",
+      "signed": true,
+      "decision": "trusted"
+    },
+    {
+      "id": "trust_edge_4",
+      "source": "coordinator_agent",
+      "target": "notification_agent",
+      "scope": "email_draft",
+      "signed": true,
+      "decision": "trusted"
+    },
+    {
+      "id": "blocked_attack_forged_agent_card_5",
+      "source": "unknown_admin_helper",
+      "target": "finance_agent",
+      "scope": "approval_gate",
+      "signed": false,
+      "decision": "blocked",
+      "reason": "Forged or unsigned agent card cannot participate in privileged workflow.",
+      "mapped_asi": [
+        "ASI03",
+        "ASI04",
+        "ASI07",
+        "ASI10"
+      ]
+    }
+  ]
+}

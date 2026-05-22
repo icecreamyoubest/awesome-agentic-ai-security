@@ -153,3 +153,10 @@ outputs/mcp_assessments/
 ## v1.6 Real MCP Endpoint Assessment Improvements
 
 The Real MCP Server Assessment connector now supports generic JSON-RPC MCP endpoints, Hugging Face / Gradio MCP endpoints, Hugging Face Space URLs, Gradio `/config` and `/gradio_api/info` fallbacks, and documentation-reference URLs such as OpenAI's MCP and connectors guide. Discovery failures are reported as `inconclusive` with `risk_score: null` to avoid false low-risk results.
+
+
+## v1.9.1 Interactive Visualization Dashboard
+
+This version adds an interactive visualization tab for the real multi-agent demo. It generates a clickable agent/tool/policy graph, execution timeline replay, audit explorer, ASI coverage dashboard, and downloadable visualization bundle.
+
+Run `python app.py` and open **14. Interactive Visualization**.

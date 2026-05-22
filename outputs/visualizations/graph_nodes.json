@@ -1,0 +1,184 @@
+[
+  {
+    "id": "coordinator_agent",
+    "label": "Coordinator Agent",
+    "type": "agent",
+    "role": "Plans the workflow and delegates tasks.",
+    "trust_zone": "orchestration",
+    "capabilities": [
+      "plan",
+      "delegate",
+      "summarize"
+    ],
+    "allowed_tools": [],
+    "risk_level": "low",
+    "asi": [],
+    "color": "#2563eb"
+  },
+  {
+    "id": "support_agent",
+    "label": "Support Agent",
+    "type": "agent",
+    "role": "Looks up customer/order information and creates support tickets.",
+    "trust_zone": "customer_support",
+    "capabilities": [
+      "order_lookup",
+      "ticket_create"
+    ],
+    "allowed_tools": [
+      "crm.lookup",
+      "ticket.create"
+    ],
+    "risk_level": "medium",
+    "asi": [],
+    "color": "#2563eb"
+  },
+  {
+    "id": "finance_agent",
+    "label": "Finance Agent",
+    "type": "agent",
+    "role": "Handles refund preparation and refund execution after approval.",
+    "trust_zone": "finance",
+    "capabilities": [
+      "refund_prepare",
+      "refund_execute"
+    ],
+    "allowed_tools": [
+      "crm.refund"
+    ],
+    "risk_level": "medium",
+    "asi": [],
+    "color": "#2563eb"
+  },
+  {
+    "id": "compliance_agent",
+    "label": "Compliance Agent",
+    "type": "agent",
+    "role": "Checks policy, approval requirement, and risk indicators.",
+    "trust_zone": "governance",
+    "capabilities": [
+      "risk_review",
+      "approval_gate"
+    ],
+    "allowed_tools": [
+      "memory.search"
+    ],
+    "risk_level": "medium",
+    "asi": [],
+    "color": "#2563eb"
+  },
+  {
+    "id": "notification_agent",
+    "label": "Notification Agent",
+    "type": "agent",
+    "role": "Drafts or sends customer notification.",
+    "trust_zone": "communications",
+    "capabilities": [
+      "email_draft",
+      "email_send"
+    ],
+    "allowed_tools": [
+      "email.draft",
+      "email.send"
+    ],
+    "risk_level": "medium",
+    "asi": [],
+    "color": "#2563eb"
+  },
+  {
+    "id": "policy_engine",
+    "label": "Policy Engine / PEP-PDP",
+    "type": "policy",
+    "role": "Pre-execution policy gate for tool calls and high-impact actions.",
+    "risk_level": "control",
+    "asi": [
+      "ASI02",
+      "ASI03",
+      "ASI09"
+    ],
+    "color": "#7c3aed"
+  },
+  {
+    "id": "audit_log",
+    "label": "Audit Log",
+    "type": "audit",
+    "role": "Evidence sink for agent messages, tool calls, decisions, and controls.",
+    "risk_level": "control",
+    "asi": [
+      "ASI08",
+      "ASI10"
+    ],
+    "color": "#059669"
+  },
+  {
+    "id": "crm.lookup",
+    "label": "crm.lookup",
+    "type": "tool",
+    "role": "MCP-style tool exposed to agents.",
+    "risk_level": "low",
+    "asi": [],
+    "color": "#22c55e"
+  },
+  {
+    "id": "ticket.create",
+    "label": "ticket.create",
+    "type": "tool",
+    "role": "MCP-style tool exposed to agents.",
+    "risk_level": "low",
+    "asi": [],
+    "color": "#22c55e"
+  },
+  {
+    "id": "memory.search",
+    "label": "memory.search",
+    "type": "tool",
+    "role": "MCP-style tool exposed to agents.",
+    "risk_level": "medium",
+    "asi": [],
+    "color": "#f59e0b"
+  },
+  {
+    "id": "crm.refund",
+    "label": "crm.refund",
+    "type": "tool",
+    "role": "MCP-style tool exposed to agents.",
+    "risk_level": "high",
+    "asi": [],
+    "color": "#ef4444"
+  },
+  {
+    "id": "email.draft",
+    "label": "email.draft",
+    "type": "tool",
+    "role": "MCP-style tool exposed to agents.",
+    "risk_level": "medium",
+    "asi": [],
+    "color": "#f59e0b"
+  },
+  {
+    "id": "unknown.admin_helper",
+    "label": "unknown.admin_helper",
+    "type": "tool",
+    "role": "MCP-style tool exposed to agents.",
+    "risk_level": "high",
+    "asi": [
+      "ASI02",
+      "ASI04"
+    ],
+    "color": "#ef4444"
+  },
+  {
+    "id": "unknown_admin_helper",
+    "label": "Unknown Admin Helper",
+    "type": "attacker",
+    "role": "Untrusted or forged peer agent.",
+    "risk_level": "high",
+    "asi": [
+      "ASI03",
+      "ASI04",
+      "ASI07",
+      "ASI10"
+    ],
+    "color": "#dc2626"
+  }
+]

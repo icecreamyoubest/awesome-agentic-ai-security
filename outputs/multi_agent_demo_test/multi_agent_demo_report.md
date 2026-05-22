@@ -1,7 +1,7 @@
 # Real Multi-Agent Security Demo Report
 
 **Scenario:** Multi-agent refund and customer notification workflow  
-**Generated at:** `2026-05-22T07:52:06Z`  
+**Generated at:** `2026-05-22T07:49:35Z`  
 **Overall status:** `validated_demo`  
 **Containment rate:** 5/5 = 100%
 

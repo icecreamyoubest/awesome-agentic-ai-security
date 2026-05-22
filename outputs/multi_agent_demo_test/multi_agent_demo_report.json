@@ -1,7 +1,7 @@
 {
   "scenario_id": "multi_agent_refund_scenario",
   "scenario_name": "Multi-agent refund and customer notification workflow",
-  "generated_at": "2026-05-22T07:52:06Z",
+  "generated_at": "2026-05-22T07:49:35Z",
   "agents": [
     {
       "id": "coordinator_agent",
@@ -221,8 +221,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_a58419d3541c",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_e1ef8c358e3a",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "crm.lookup",
@@ -248,8 +248,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_922885a90f8d",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_f6953c35a40c",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "ticket.create",
@@ -272,8 +272,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_f11ca99470b9",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_a9a8ffc4e10d",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "memory.search",
@@ -298,8 +298,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_3a12d9209c48",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_767fefaac5a6",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "crm.refund",
@@ -322,8 +322,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_7a89d48962a0",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_04c2f3caf260",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "email.draft",
@@ -464,8 +464,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_7cb2906c975c",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_8bb530e4a705",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "crm.lookup",
@@ -491,8 +491,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_85d4b7cbabb9",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_5364fabc2b04",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "ticket.create",
@@ -517,8 +517,8 @@
               "tool_allowlist",
               "typed_tool_registry"
             ],
-            "trace_id": "trace_3beda9c0db08",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_74c8c738e2ee",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": null
         },
@@ -537,8 +537,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_c0e75333cd75",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_9d1dfa8b5cff",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "memory.search",
@@ -563,8 +563,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_72e76b0fcd65",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_facb7738714a",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "crm.refund",
@@ -587,8 +587,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_8add8e3d7f95",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_e7c7b14e4d33",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "email.draft",
@@ -703,8 +703,8 @@
               "intent_diffing",
               "planner_boundary"
             ],
-            "trace_id": "trace_9c8a03902390",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_e513648449e1",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": null
         },
@@ -723,8 +723,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_e1a891ef29e3",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_5572495c36f2",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "ticket.create",
@@ -747,8 +747,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_2b266b54d169",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_d3eb03def522",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "memory.search",
@@ -773,8 +773,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_41622359d760",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_a0fa8330856c",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "crm.refund",
@@ -800,8 +800,8 @@
               "intent_diffing",
               "planner_boundary"
             ],
-            "trace_id": "trace_8599412cea0d",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_53ddcc6b2189",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": null
         }
@@ -908,8 +908,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_0df651dafefc",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_083f431f6f77",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "crm.lookup",
@@ -935,8 +935,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_d97f95147983",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_b8691c9f7757",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "ticket.create",
@@ -959,8 +959,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_cedf960618c9",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_5d832f2f9301",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "memory.search",
@@ -988,8 +988,8 @@
               "pre_execution_approval",
               "least_agency"
             ],
-            "trace_id": "trace_9ae3beec6297",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_8cac459fa6ad",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": null
         },
@@ -1008,8 +1008,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_8396f1da985a",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_7991da217234",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "email.draft",
@@ -1122,8 +1122,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_9982d063fc44",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_a0306c920b77",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "crm.lookup",
@@ -1149,8 +1149,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_2189b6e8008d",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_79c4f75ad5b4",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "ticket.create",
@@ -1176,8 +1176,8 @@
               "sandboxed_execution",
               "deny_shell_expansion"
             ],
-            "trace_id": "trace_8567f10a2d34",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_2bb78117a9aa",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": null
         },
@@ -1199,8 +1199,8 @@
               "pre_execution_approval",
               "least_agency"
             ],
-            "trace_id": "trace_40cdd9fa0500",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_82b4bc29301b",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": null
         },
@@ -1219,8 +1219,8 @@
               "argument_validation",
               "audit_logging"
             ],
-            "trace_id": "trace_7dee16d35684",
-            "timestamp": "2026-05-22T07:52:06Z"
+            "trace_id": "trace_38c6e496564d",
+            "timestamp": "2026-05-22T07:49:35Z"
           },
           "result": {
             "tool": "email.draft",

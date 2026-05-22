@@ -545,6 +545,27 @@ def run_multi_agent_demo_ui() -> Tuple[str, str, str, str]:
     md = md_path.read_text(encoding="utf-8") if md_path.exists() else "Multi-agent demo report not generated."
     return md, json.dumps(report, indent=2, ensure_ascii=False), str(md_path), str(json_path)
 
+
+def run_interactive_visualization_ui() -> Tuple[str, str, str, str]:
+    """Run the multi-agent demo, build interactive visualization data, and return embeddable dashboard HTML."""
+    from multi_agent_demo.run_multi_agent_demo import run_demo
+    from visualization.dashboard_builder import build_visualization_bundle, render_interactive_dashboard, build_dashboard_markdown
+
+    # Ensure demo report and audit log are fresh.
+    run_demo(
+        ROOT / "examples/multi_agent_refund_scenario.json",
+        ROOT / "outputs/multi_agent_demo",
+    )
+    bundle = build_visualization_bundle(
+        ROOT / "outputs/multi_agent_demo/multi_agent_demo_report.json",
+        ROOT / "outputs/visualizations",
+    )
+    html_path = ROOT / "outputs/visualizations/interactive_dashboard.html"
+    bundle_path = ROOT / "outputs/visualizations/visualization_bundle.json"
+    summary_md = build_dashboard_markdown(bundle)
+    dashboard_html = html_path.read_text(encoding="utf-8") if html_path.exists() else render_interactive_dashboard(bundle)
+    return dashboard_html, summary_md, str(html_path), str(bundle_path)
+
 SCENARIOS = load_scenarios()
 TOOLS = list_tools()
 TOOL_CHOICES = ["crm.lookup", "email.draft", "file.read", "memory.search", "ticket.create", "crm.refund", "email.send", "file.delete", "shell.run", "package.install", "unknown.admin_helper"]
@@ -716,6 +737,17 @@ Examples:
         ma_md_file = gr.File(label="Download multi-agent Markdown report")
         ma_json_file = gr.File(label="Download multi-agent JSON report")
         ma_btn.click(run_multi_agent_demo_ui, outputs=[ma_md, ma_json, ma_md_file, ma_json_file])
+
+    with gr.Tab("14. Interactive Visualization"):
+        gr.Markdown("""
+Interactive visual analytics for the real multi-agent security demo. Run the visualization to generate a fresh demo trace, then click graph nodes, edges, timeline events, ASI risks, and audit rows to drill into evidence.
+""")
+        viz_btn = gr.Button("Run demo and build interactive visualization")
+        viz_html = gr.HTML(label="Interactive dashboard")
+        viz_summary = gr.Markdown()
+        viz_html_file = gr.File(label="Download interactive HTML dashboard")
+        viz_bundle_file = gr.File(label="Download visualization bundle JSON")
+        viz_btn.click(run_interactive_visualization_ui, outputs=[viz_html, viz_summary, viz_html_file, viz_bundle_file])
 
     with gr.Tab("13. A2A Risk Assessment"):
         gr.Markdown("Assess agent cards, delegation edges, and trust graph risks for ASI03/04/07/08/10.")
