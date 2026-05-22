@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "version": "v1.1",
+    "generated_by": "agents/pr_generator.py",
+    "count": 1
+  },
+  "candidates": [
+    {
+      "id": "pr-diff-63c9cbaed1d60dbe7ce18b48",
+      "tool_id": "activefence-ai-security",
+      "update_id": "63c9cbaed1d60dbe7ce18b48",
+      "title": "Review evidence update for activefence-ai-security",
+      "source_url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+      "proposed_changes": {
+        "evidence_added": {
+          "type": "official_vendor_docs",
+          "source": "OWASP GenAI Security Project",
+          "claim": "This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
+          "last_verified": "2026-05-21T08:27:48Z"
+        },
+        "asi_depth_review": {},
+        "benchmark_recommendations": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "status": "ready_for_human_review",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+name: Validate catalog
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate JSON syntax
+        run: |
+          python -m json.tool data/tools.json > /tmp/tools.validated.json
+          python -m json.tool data/controls.json > /tmp/controls.validated.json
+          python -m json.tool data/schema.json > /tmp/schema.validated.json
+      - name: Validate catalog semantics
+        run: python scripts/validate_catalog.py

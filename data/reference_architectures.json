@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "version": "v0.6",
+    "updated": "2026-05-21"
+  },
+  "architectures": [
+    {
+      "id": "mcp_runtime_security_gateway",
+      "title": "MCP Runtime Security Gateway",
+      "best_for": "Production MCP clients, third-party MCP servers, and tool execution flows",
+      "threats": [
+        "ASI02 Tool Misuse",
+        "ASI04 Agentic Supply Chain",
+        "ASI05 Unexpected Code Execution",
+        "ASI07 Insecure Inter-Agent Communication"
+      ],
+      "components": [
+        "MCP Gateway / PEP",
+        "Tool Descriptor Validator",
+        "Policy Decision Point",
+        "Ephemeral Credential Broker",
+        "Sandboxed Tool Runtime",
+        "Egress Allowlist",
+        "Audit / OTel / SIEM"
+      ],
+      "controls": [
+        "Validate tool schemas and descriptors before registration",
+        "Pin trusted MCP servers and tool versions",
+        "Issue short-lived tool credentials per invocation",
+        "Run code/tools in sandbox with filesystem/network limits",
+        "Log every tool call, argument, result, and policy decision"
+      ],
+      "candidate_tools": [
+        "Agentic Radar",
+        "Noma Security",
+        "SPLX",
+        "Prisma AIRS",
+        "LLM Guard",
+        "Promptfoo"
+      ],
+      "open_gaps": [
+        "No universal MCP security conformance suite yet",
+        "Vendor claims need benchmark-backed validation"
+      ]
+    },
+    {
+      "id": "agentic_red_team_evaluation_pipeline",
+      "title": "Agentic Red Team Evaluation Pipeline",
+      "best_for": "Pre-production testing of agent workflows, tool misuse, goal drift, and prompt injection",
+      "threats": [
+        "ASI01 Agent Goal Hijack",
+        "ASI02 Tool Misuse",
+        "ASI06 Memory & Context Poisoning",
+        "ASI09 Human-Agent Trust Exploitation"
+      ],
+      "components": [
+        "Scenario Library",
+        "Attack Orchestrator",
+        "Mock Tools / Sandboxes",
+        "Evaluator / Judge",
+        "Regression Gate",
+        "Evidence Store"
+      ],
+      "controls": [
+        "Run multi-turn adversarial scenarios",
+        "Validate goal and action drift",
+        "Test tool-output injection and RAG poisoning",
+        "Block promotion if ASR exceeds threshold",
+        "Archive results as release evidence"
+      ],
+      "candidate_tools": [
+        "Promptfoo",
+        "PyRIT",
+        "Garak",
+        "Mindgard",
+        "DeepTeam"
+      ],
+      "open_gaps": [
+        "Multi-agent collusion and deception scoring remains immature"
+      ]
+    },
+    {
+      "id": "enterprise_agent_governance_control_plane",
+      "title": "Enterprise Agent Governance Control Plane",
+      "best_for": "Inventory, identity, policy, versioning, and lifecycle governance for enterprise agents",
+      "threats": [
+        "ASI03 Identity and Privilege Abuse",
+        "ASI04 Supply Chain",
+        "ASI08 Cascading Failures",
+        "ASI10 Rogue Agents"
+      ],
+      "components": [
+        "Agent Registry",
+        "NHI / Agent Identity Provider",
+        "Policy-as-Code Repository",
+        "Capability Cards",
+        "Approval Workflow",
+        "Evidence and Attestation Store"
+      ],
+      "controls": [
+        "Register agents with capability descriptors",
+        "Bind tokens to subject, audience, purpose, and duration",
+        "Review tool scopes and delegation policies",
+        "Enforce version expiration and retirement",
+        "Correlate policy evidence to NIST AI RMF / ISO 42001 / EU AI Act"
+      ],
+      "candidate_tools": [
+        "Noma Security",
+        "Prisma AIRS",
+        "Wiz AI-SPM",
+        "HiddenLayer",
+        "Cisco AI Defense",
+        "Lasso Security"
+      ],
+      "open_gaps": [
+        "Agent identity standards are still emerging across platforms"
+      ]
+    },
+    {
+      "id": "secure_coding_agent_sandbox",
+      "title": "Secure Coding Agent Sandbox",
+      "best_for": "Cursor, Copilot, Claude Code, Gemini CLI, and internal coding agents",
+      "threats": [
+        "ASI04 Supply Chain",
+        "ASI05 Unexpected Code Execution",
+        "ASI09 Human-Agent Trust Exploitation"
+      ],
+      "components": [
+        "Workspace Sandbox",
+        "Package Allowlist",
+        "Static Scan Gate",
+        "Command Policy",
+        "Diff Preview",
+        "Secrets Scanner",
+        "Network Egress Control"
+      ],
+      "controls": [
+        "Prevent direct access to production secrets",
+        "Require review before config or CI changes",
+        "Block dangerous commands and unpinned package installs",
+        "Scan generated code and lockfiles",
+        "Keep immutable execution logs"
+      ],
+      "candidate_tools": [
+        "Promptfoo",
+        "PyRIT",
+        "Pangea AI Guard",
+        "LLM Guard",
+        "Snyk/Aqua-style supply-chain scanners"
+      ],
+      "open_gaps": [
+        "Developer-experience friction can cause bypasses if controls are too strict"
+      ]
+    }
+  ]
+}

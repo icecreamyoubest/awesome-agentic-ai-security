@@ -1,0 +1,40 @@
+name: Sync static Space to Hugging Face
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  validate-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate catalog
+        run: python scripts/validate_catalog.py
+      - name: Install huggingface hub
+        run: pip install -U huggingface_hub
+      - name: Upload to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE: ${{ secrets.HF_SPACE }}
+        run: |
+          python - <<'PY'
+          import os
+          from huggingface_hub import HfApi
+          token = os.environ.get('HF_TOKEN')
+          repo_id = os.environ.get('HF_SPACE')
+          if not token or not repo_id:
+              raise SystemExit('HF_TOKEN and HF_SPACE secrets are required')
+          api = HfApi(token=token)
+          api.upload_folder(
+              folder_path='.',
+              repo_id=repo_id,
+              repo_type='space',
+              ignore_patterns=['.git/*', '.github/*', '__pycache__/*', '*.zip'],
+              commit_message='Sync Agentic AI Security catalog from GitHub'
+          )
+          PY

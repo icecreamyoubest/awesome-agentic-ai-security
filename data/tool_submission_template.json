@@ -1,0 +1,60 @@
+{
+  "name": "",
+  "org": "",
+  "vendor_type": "open_source | startup | enterprise | cloud_provider",
+  "license": "",
+  "url": "",
+  "docs": "",
+  "category": [],
+  "description": "",
+  "frameworks": {},
+  "owasp": [],
+  "agentic_owasp": [],
+  "lifecycle_stages": [],
+  "deployment": [],
+  "targets": [],
+  "scores": {
+    "red_team": 1,
+    "runtime": 1,
+    "agent_security": 1,
+    "data_security": 1,
+    "observability": 1,
+    "compliance": 1,
+    "enterprise": 1,
+    "oss_maturity": 1,
+    "self_host": 1,
+    "ease": 1,
+    "supply_chain": 1
+  },
+  "agentic_scores": {
+    "goal_integrity": 1,
+    "tool_security": 1,
+    "identity_control": 1,
+    "memory_security": 1,
+    "runtime_enforcement": 1,
+    "auditability": 1,
+    "multi_agent_coverage": 1,
+    "mcp_security": 1
+  },
+  "mcp_scores": {
+    "server_inventory": 1,
+    "third_party_server_risk": 1,
+    "tool_permissioning": 1,
+    "authn_authz": 1,
+    "input_output_sanitization": 1,
+    "audit_trace": 1,
+    "sandboxing": 1,
+    "supply_chain": 1
+  },
+  "evidence": [
+    {
+      "type": "official_vendor_docs | community_verified | inferred_mapping",
+      "source": "",
+      "claim": "",
+      "url": "",
+      "last_verified": "YYYY-MM-DD",
+      "confidence": "low | medium | high"
+    }
+  ],
+  "maintainer_notes": ""
+}

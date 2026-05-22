@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "version": "v1.0",
+    "updated": "2026-05-21T08:27:48Z"
+  },
+  "last_run": "2026-05-21T08:27:48Z",
+  "mode": "offline",
+  "watched_sources": 26,
+  "pending_updates": 1,
+  "triaged_updates": 1,
+  "last_error": null,
+  "next_steps": [
+    "Review data/updates/pending_updates.json",
+    "Run update_triage_agent.py",
+    "Open PR for accepted catalog/evidence changes"
+  ],
+  "updated": "2026-05-21T08:27:51Z"
+}

@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "version": "v1.3",
+    "description": "End-to-end Agentic AI security validation lifecycle. The lifecycle converts an agent scenario into risk mapping, controls, architecture, runtime validation, benchmark evidence, claim review, update intelligence, and exportable reports.",
+    "default_scenario": "scenario_templates/enterprise_copilot_with_rag.json"
+  },
+  "stages": [
+    {
+      "id": "scope_plan",
+      "name": "Scope & Plan",
+      "objective": "Define agent goals, roles, framework, tool surface, memory model, identity model, and initial OWASP ASI risk profile.",
+      "inputs": ["scenario JSON", "business goal", "frameworks", "tools", "memory", "external APIs"],
+      "outputs": ["scenario summary", "ASI risk map", "initial control objectives"],
+      "recommended_checks": ["NHI inventory", "tool scope boundary", "memory isolation requirement", "threat model"]
+    },
+    {
+      "id": "design_architecture",
+      "name": "Design Architecture",
+      "objective": "Generate a reference architecture with PEP/PDP, MCP gateway, policy enforcement, sandbox, audit, and evidence paths.",
+      "inputs": ["scenario", "risk map", "reference architecture templates"],
+      "outputs": ["architecture markdown", "Mermaid diagram", "control architecture"],
+      "recommended_checks": ["least agency", "policy boundary", "audit boundary", "tool execution boundary"]
+    },
+    {
+      "id": "tool_selection",
+      "name": "Tool Selection",
+      "objective": "Recommend tools according to risk coverage, lifecycle coverage, framework fit, deployment fit, evidence confidence, MCP score, and persona fit.",
+      "inputs": ["tools.json", "evidence.json", "controls.json", "scenario"],
+      "outputs": ["recommended stack", "coverage gaps", "evidence checklist"],
+      "recommended_checks": ["claim evidence", "deployment compatibility", "self-host requirement", "enterprise readiness"]
+    },
+    {
+      "id": "runtime_protection",
+      "name": "Runtime Protection Demo",
+      "objective": "Run the demo MCP-style tool runtime through policy gates before tool execution and generate audit evidence.",
+      "inputs": ["demo runtime", "policy engine", "tool call sample"],
+      "outputs": ["policy decision", "audit log", "blocked/allowed evidence"],
+      "recommended_checks": ["descriptor poisoning", "argument RCE pattern", "HITL high-impact action", "scope mismatch"]
+    },
+    {
+      "id": "benchmark_validation",
+      "name": "Benchmark Validation",
+      "objective": "Run MCP/A2A/RAG benchmark cases and generate benchmark-backed validation reports.",
+      "inputs": ["benchmark suite", "demo runtime adapter"],
+      "outputs": ["validation report", "pass rate", "case-level result", "score update suggestions"],
+      "recommended_checks": ["MCP-ASI04-001", "MCP-ASI02-004", "MCP-ASI05-002", "A2A-ASI07-006", "RAG-ASI06-007"]
+    },
+    {
+      "id": "claim_evidence_review",
+      "name": "Claim & Evidence Review",
+      "objective": "Validate vendor/tool claims against evidence records, benchmark recommendations, and human-review checklists.",
+      "inputs": ["claim", "tool profile", "evidence records", "benchmark recommendations"],
+      "outputs": ["claim verification", "missing evidence", "recommended benchmark tests", "review status"],
+      "recommended_checks": ["official source", "not marketing-only", "ASI mapping supported", "no score increase without benchmark"]
+    },
+    {
+      "id": "report_export",
+      "name": "Report Export",
+      "objective": "Export architecture review, solution report, benchmark report, evidence report, and lifecycle report for audit or portfolio use.",
+      "inputs": ["all previous outputs"],
+      "outputs": ["lifecycle report markdown", "lifecycle report JSON", "downloadable evidence artifacts"],
+      "recommended_checks": ["limitations disclosed", "evidence paths included", "residual risks listed"]
+    },
+    {
+      "id": "continuous_update",
+      "name": "Continuous Update & PR Review",
+      "objective": "Track official product/security updates, triage them, recommend benchmark validation, generate evidence diffs and PR candidates for human approval.",
+      "inputs": ["update_sources.json", "pending updates", "triaged updates"],
+      "outputs": ["roadmap board", "evidence diffs", "benchmark recommendations", "PR candidates"],
+      "recommended_checks": ["source official", "human review before merge", "benchmark-backed score changes only"]
+    }
+  ]
+}
