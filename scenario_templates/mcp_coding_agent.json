@@ -1,9 +1,0 @@
-{
-  "name": "MCP Coding Agent Sandbox",
-  "description": "A coding agent that can inspect repositories, install dependencies, execute tests, and call MCP tools.",
-  "frameworks": ["OpenAI Agents SDK", "MCP"],
-  "architecture": ["coding_agent", "mcp", "tool_use", "code_execution", "package_install", "file_system"],
-  "lifecycle_stage": ["develop_experiment", "test_evaluate", "release", "deploy", "operate", "monitor"],
-  "risk_focus": ["ASI01", "ASI02", "ASI04", "ASI05", "ASI07", "ASI08", "ASI10"],
-  "constraints": {"sandbox_required": true, "self_host": true}
-}

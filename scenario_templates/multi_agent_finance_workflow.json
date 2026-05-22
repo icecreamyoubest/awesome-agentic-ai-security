@@ -1,9 +1,0 @@
-{
-  "name": "Multi-Agent Finance Workflow",
-  "description": "A finance workflow with planner, approval, CRM, email, payment, and audit agents.",
-  "frameworks": ["LangGraph", "A2A", "MCP"],
-  "architecture": ["multi_agent", "a2a", "mcp", "tool_use", "oauth", "human_approval", "audit_logs"],
-  "lifecycle_stage": ["scope_plan", "test_evaluate", "deploy", "operate", "monitor", "govern"],
-  "risk_focus": ["ASI01", "ASI02", "ASI03", "ASI07", "ASI08", "ASI09", "ASI10"],
-  "constraints": {"enterprise_ready": true, "audit_required": true}
-}

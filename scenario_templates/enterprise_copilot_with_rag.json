@@ -1,9 +1,0 @@
-{
-  "name": "Enterprise Copilot with RAG and MCP Tools",
-  "description": "An internal enterprise copilot using RAG, long-term memory, MCP tools, and external SaaS APIs.",
-  "frameworks": ["LangChain/LangGraph", "MCP"],
-  "architecture": ["rag", "vector_db", "long_term_memory", "mcp", "tool_use", "external_api", "oauth"],
-  "lifecycle_stage": ["scope_plan", "develop_experiment", "test_evaluate", "deploy", "operate", "monitor", "govern"],
-  "risk_focus": ["ASI01", "ASI02", "ASI03", "ASI04", "ASI06", "ASI07", "ASI08"],
-  "constraints": {"self_host": true, "enterprise_ready": true, "open_source_preferred": false}
-}
