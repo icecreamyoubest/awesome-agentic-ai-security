@@ -2,17 +2,17 @@
   "meta": {
     "version": "v1.1",
     "generated_by": "agents/evidence_diff_builder.py",
-    "count": 1
+    "count": 39
   },
   "diffs": [
     {
-      "id": "diff-63c9cbaed1d60dbe7ce18b48",
-      "update_id": "63c9cbaed1d60dbe7ce18b48",
+      "id": "diff-d22ed58f915a7821eadf9467",
+      "update_id": "d22ed58f915a7821eadf9467",
       "tool_id": "activefence-ai-security",
       "change_type": "evidence_added",
       "status": "pending_review",
       "source_url": "https://genai.owasp.org/ai-security-solutions-landscape/",
-      "source_title": "Offline smoke-test update candidate",
+      "source_title": "Watched page update candidate: OWASP GenAI Security Project docs_page",
       "before": {
         "evidence_records": "unchanged",
         "score_change": "none"
@@ -21,15 +21,1617 @@
         "proposed_evidence": {
           "type": "official_vendor_docs",
           "source": "OWASP GenAI Security Project",
-          "claim": "This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
-          "supports": [],
+          "claim": "Solutions Landscape - OWASP Gen AI Security Project Skip to content Join us in London, 6/2 – 6/4 InfoSecurity Europe – OWASP GenAI and Agentic Security Summit | Register Now! GETTING STARTED Introduction MEETINGS CONTRIBUTING EVENTS GLOSSARY RESOURCES All LLM TOP 10 LLM TOP 10 FOR 2025 LLM TOP 10 FOR 2023/24 CHEAT SHEETS WHITEPAPERS TOOLS LEARNING VIDEOS SOLUTIONS DIRECTORY ROADMAP NEWSLETTER PROJECT INITIATIVES AI Security Landscape AIBOM Generator GOVERNANCE CHECKLIST Threat Intelligence AGENTIC APP SECURITY Secure AI Adoption AI Red Teaming Data Security BLOG ABOUT Mission and Charter Governance LEADERSHIP INDUSTRY RECOGNITION CONTRIBUTORS SPONSORS SUPPORTERS SPONSORSHIP NEWSROOM CONTACT BRANDING GEN AI SECURITY Solution landscape AI Security Solutions Landscape The landscape includes traditional and emerging security controls addressing LLM and Generative AI risks in the OWASP Top 10. It is not a comprehensive list or an endorsement but a community resource of open source and proprietary solutions. Contributions are open and reviewed for accuracy. Download Guide Get Cheat Sheets Watch the video See a Solution Missing? Submit - LLM/GenAI Solution Submit - Agentic AI Solution All Scope & Plan Augment/Fine Tune Data Develop & Experiment Test & Evaluate Deploy Operate Monitor Govern Open Source Commercial All LLM07:23 LLM06:23 LLM05:23 LLM04:23 LLM03:23 LLM02:23 LLM01:23 LLM10:23 LLM09:23 LLM08:23 All Commercial Stage: Test & Evaluate Vulcan Adversarial Testing , Bias and Fai",
+          "supports": [
+            "ASI01",
+            "ASI02",
+            "ASI05"
+          ],
           "confidence": "medium",
           "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
-          "last_verified": "2026-05-21T08:27:48Z"
+          "last_verified": "2026-06-08T08:32:21Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI01": "review 1→2 only if official docs explicitly support the control",
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI05": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI07-003",
+          "MCP-ASI02-004",
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "MCP-ASI08-008",
+          "MCP-ASI01-005"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-56caf9ff3c84cf6183b9e125",
+      "update_id": "56caf9ff3c84cf6183b9e125",
+      "tool_id": "activefence-ai-security",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+      "source_title": "Watched page update candidate: OWASP GenAI Security Project docs_page",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "OWASP GenAI Security Project",
+          "claim": "Agentic Security Initiative - OWASP Gen AI Security Project Skip to content Join us at RSAC 2026 in SF – Annual Gen AI Security Summit and Open Workshop – March 25th | Register Now! GETTING STARTED Introduction MEETINGS CONTRIBUTING GLOSSARY RESOURCES All CHEAT SHEETS WHITEPAPERS TOOLS LEARNING VIDEOS SOLUTIONS DIRECTORY NEWSLETTER PROJECT INITIATIVES LLM TOP 10 LLM TOP 10 FOR 2025 LLM TOP 10 FOR 2023/24 AI Security Landscape AIBOM Generator GOVERNANCE CHECKLIST Threat Intelligence AGENTIC APP SECURITY Secure AI Adoption AI Red Teaming Data Security ROADMAP BLOG ABOUT Mission and Charter EVENTS LEADERSHIP CONTRIBUTORS SPONSORS SUPPORTERS SPONSORSHIP NEWSROOM Governance INDUSTRY RECOGNITION CONTACT BRANDING GEN AI SECURITY Initiatives Agentic Security Initiative Securing autonomous agents and multi-step AI workflows The Agentic Security Research Initiative explores the emerging security implications of agentic systems, particularly those utilizing advanced frameworks (e.g., LangGraph, AutoGPT, CrewAI) and novel capabilities like Llama 3’s agentic features. Join the Initiative Resource Links: #team-genai-agentic-security-initiative Github Initiative Charter What’s New Resources Learning Videos Blog A Practical Guide for Secure MCP Server Development A Practical Guide for Secure MCP Server Development provides actionable guidance for securing Model Context Protocol (MCP) servers—the critical connection point between AI assistants and external Download Now OWASP Top 10 for Agenti",
+          "supports": [
+            "ASI01",
+            "ASI02",
+            "ASI04",
+            "ASI05",
+            "ASI07"
+          ],
+          "confidence": "medium",
+          "url": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+          "last_verified": "2026-06-08T08:32:21Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI01": "review 1→2 only if official docs explicitly support the control",
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI04": "review 1→2 only if official docs explicitly support the control",
+          "ASI05": "review 1→2 only if official docs explicitly support the control",
+          "ASI07": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI04-001",
+          "MCP-ASI02-004",
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "RAG-ASI06-007",
+          "MCP-ASI01-005",
+          "A2A-ASI07-006",
+          "MCP-ASI07-003"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-f3f68bb93d513222ac7c3b9f",
+      "update_id": "f3f68bb93d513222ac7c3b9f",
+      "tool_id": "openai",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://platform.openai.com/docs/guides/safety-best-practices",
+      "source_title": "Watched page update candidate: OpenAI docs_page",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "OpenAI",
+          "claim": "Safety best practices | OpenAI API Home API Docs Guides and concepts for the OpenAI API API reference Endpoints, parameters, and responses Codex Docs Guides, concepts, and product docs for Codex Use cases Example workflows and tasks teams hand to Codex ChatGPT Apps SDK Build apps to extend ChatGPT Commerce Build commerce flows in ChatGPT Ads Publish and measure ads in ChatGPT Resources Showcase Demo apps to get inspired Blog Learnings and experiences from developers Cookbook Notebook examples for building with OpenAI models Learn Docs, videos, and demo apps for building with OpenAI Community Programs, meetups, and support for builders Start searching API Dashboard Search the API docs Search docs Suggested responses create reasoning_effort realtime prompt caching Primary navigation API API Reference Codex ChatGPT Resources Search docs Suggested responses create reasoning_effort realtime prompt caching Get started Overview Quickstart Models Pricing SDKs and CLI OpenAI SDK Agents SDK OpenAI CLI Latest: GPT-5.5 Prompt guidance Core concepts Text generation Code generation Images and vision Audio and speech Structured output Function calling Responses API Using tools Agents SDK Overview Quickstart Agent definitions Models and providers Running agents Sandbox agents Orchestration Guardrails Results and state Integrations and observability Evaluate agent workflows Voice agents ChatKit Overview Customize Widgets Actions Advanced integrations Tools Web search MCP and Connectors Secure",
+          "supports": [
+            "ASI02",
+            "ASI04",
+            "ASI05",
+            "ASI07",
+            "ASI08",
+            "ASI10"
+          ],
+          "confidence": "medium",
+          "url": "https://platform.openai.com/docs/guides/safety-best-practices",
+          "last_verified": "2026-06-08T08:32:21Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI04": "review 1→2 only if official docs explicitly support the control",
+          "ASI05": "review 1→2 only if official docs explicitly support the control",
+          "ASI07": "review 1→2 only if official docs explicitly support the control",
+          "ASI08": "review 1→2 only if official docs explicitly support the control",
+          "ASI10": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI04-001",
+          "MCP-ASI02-004",
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "A2A-ASI07-006",
+          "MCP-ASI07-003",
+          "MCP-ASI08-008"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-c03e04d0f5b12be1ea523f55",
+      "update_id": "c03e04d0f5b12be1ea523f55",
+      "tool_id": "anthropic",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://www.anthropic.com/news",
+      "source_title": "Watched page update candidate: Anthropic official_blog",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Anthropic",
+          "claim": "Newsroom \\ Anthropic Skip to main content Skip to footer Research Economic Futures Commitments Learn News Try Claude Newsroom Press inquires press@anthropic.com Non-media inquiries How to get support Media assets Download press kit Introducing Claude Opus 4.8 Product May 28, 2026 An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work. Announcements Jun 2, 2026 Expanding Project Glasswing We’re extending Project Glasswing to approximately 150 new organizations in more than fifteen countries. Announcements May 25, 2026 Anthropic co-founder Chris Olah's remarks on Pope Leo XIV's encyclical \"Magnifica humanitas\" The full text of Chris Olah's remarks on the Pope's encyclical on AI. Announcements May 19, 2026 Widening the conversation on frontier AI Over the past several months, we’ve been organizing dialogues with groups whose work and traditions bear on the questions raised by AI. Announcements Apr 24, 2026 An update on our election safeguards We explain what we’re doing to ensure Claude plays a positive role in the US midterms and other major elections around the world this year. News Search Date Category Title Jun 3, 2026 Announcements Introducing the Services Track and Partner Hub of the Claude Partner Network Jun 3, 2026 Policy What we learned mapping a year’s worth of AI-enabled cyber threats Jun 2, 2026 Announcements Expanding Project Glasswing Jun 1, 2026 Announc",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://www.anthropic.com/news",
+          "last_verified": "2026-06-08T08:32:22Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "HITL-ASI09-010"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-e7319e154baf5c78224b22a0",
+      "update_id": "e7319e154baf5c78224b22a0",
+      "tool_id": "anthropic",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://docs.anthropic.com/",
+      "source_title": "Watched page update candidate: Anthropic docs_page",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Anthropic",
+          "claim": "Documentation - Claude API Docs Loading... Messages Managed Agents Admin Resources API reference English Console Log in Browse Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Solutions AI agents Code modernization Coding Customer support Education Financial services Government Life sciences Partners Amazon Bedrock Google Cloud's Vertex AI Learn Blog Courses Use cases Connectors Customer stories Engineering at Anthropic Events Powered by Claude Service partners Startups program Company Anthropic Careers Economic Futures Research News Responsible Scaling Policy Security and compliance Transparency Learn Blog Courses Use cases Connectors Customer stories Engineering at Anthropic Events Powered by Claude Service partners Startups program Help and security Availability Status Support Discord Terms and policies Privacy policy Responsible disclosure policy Terms of service: Commercial Terms of service: Consumer Usage policy Claude Platform Start building with Claude Everything you need to integrate Claude into your applications. From first API call to production. What do you want to build? ⌘K Quickstart Get API key API reference Python TypeScript Go Java Ruby PHP C# cURL CLI import anthropic client = anthropic.Anthropic() message = client.messages.create( model = \"claude-opus-4-8\" , max_tokens = 1024 , messages = [{ \"role\" : \"user\" , \"content\" : \"Hello, Cla",
+          "supports": [
+            "ASI05"
+          ],
+          "confidence": "medium",
+          "url": "https://docs.anthropic.com/",
+          "last_verified": "2026-06-08T08:32:23Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI05": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI07-003",
+          "MCP-ASI02-004",
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "MCP-ASI08-008"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-69356c1a654f3e05623aed52",
+      "update_id": "69356c1a654f3e05623aed52",
+      "tool_id": "azure-content-safety",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/",
+      "source_title": "Watched page update candidate: Microsoft Azure AI release_notes",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Microsoft Azure AI",
+          "claim": "Azure AI Content Safety documentation - Quickstarts, Tutorials, API Reference - Foundry Tools | Microsoft Learn Skip to main content This browser is no longer supported. Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. Download Microsoft Edge More info about Internet Explorer and Microsoft Edge Table of contents Read in English Edit Azure AI Content Safety documentation The cloud-based Azure AI Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. About Azure AI Content Safety Overview What is Azure AI Content Safety? Get started Content Safety Studio Concept Harm categories What's new What's new in Azure AI Content Safety Image moderation Concept Harm categories Custom categories (preview) Quickstart Using Content Safety Studio Using the REST API or client SDKs multimodal (/azure/machine-learning/concept-retrieval-augmented-generation How-To Guide Use custom categories (standard) (preview) Use custom categories (rapid) (preview) Text moderation Concept Harm categories Custom categories (preview) Groundedness detection Quickstart Using Content Safety Studio Using the REST API or client SDKs Detect groundedness in LLM responses How-To Guide Use custom categories (standard) (preview) Use custom categories (rapid) (preview) Use a blocklist User input risk detection Concept Prompt Shield",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/",
+          "last_verified": "2026-06-08T08:32:23Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "RAG-ASI06-007",
+          "HITL-ASI09-010",
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-216553de8ff935c8bd3eff4e",
+      "update_id": "216553de8ff935c8bd3eff4e",
+      "tool_id": "azure-content-safety",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://azure.microsoft.com/en-us/blog/topics/security/",
+      "source_title": "Watched page update candidate: Microsoft Azure AI official_blog",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Microsoft Azure AI",
+          "claim": "Security | Microsoft Azure Blog | Microsoft Azure Skip to content Skip to main content Microsoft Azure Azure Azure Home Explore Products Popular Popular View all products (200+) Microsoft Foundry Azure Copilot GitHub Copilot Azure Kubernetes Service (AKS) Azure Cosmos DB Azure Database for PostgreSQL Azure Arc​ Microsoft Fabric Linux virtual machines in Azure AI + Machine learning AI + Machine learning Foundry Models Foundry Agent Service Foundry IQ Foundry Tools Foundry Control Plane Observability in Foundry Control Plane Azure OpenAI in Foundry Models Azure Speech in Foundry Tools Azure Machine Learning Databases + analytics Databases + analytics View all databases Azure Cosmos DB Azure DocumentDB Azure SQL Azure Database for PostgreSQL Azure Managed Redis Microsoft Fabric Azure Databricks Compute Compute Linux virtual machines in Azure Windows Server on Azure Azure Functions Azure Virtual Machine Scale Sets Azure API Management Containers Containers Azure Container Apps Azure Kubernetes Service (AKS) Azure Kubernetes Fleet Manager Azure Container Registry Azure Red Hat OpenShift Azure Container Instances​ Azure Container Storage Hybrid + multicloud Hybrid + multicloud Azure Arc​ Azure Local Microsoft Defender for Cloud Azure Monitor Microsoft Sentinel Azure Migrate Solutions Featured Featured View all solutions (40+) Cloud solutions for small and medium businesses Cloud migration and modernization center Data analytics for AI Azure Databases AI apps and agents Microsoft Ma",
+          "supports": [
+            "ASI02",
+            "ASI06",
+            "ASI08",
+            "ASI10"
+          ],
+          "confidence": "medium",
+          "url": "https://azure.microsoft.com/en-us/blog/topics/security/",
+          "last_verified": "2026-06-08T08:32:41Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI06": "review 1→2 only if official docs explicitly support the control",
+          "ASI08": "review 1→2 only if official docs explicitly support the control",
+          "ASI10": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "RAG-ASI06-007",
+          "A2A-ASI07-006",
+          "MCP-ASI08-008",
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-247228a09d6bbe4b70d6ba99",
+      "update_id": "247228a09d6bbe4b70d6ba99",
+      "tool_id": "aws-bedrock-guardrails",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://aws.amazon.com/bedrock/guardrails/",
+      "source_title": "Watched page update candidate: AWS Bedrock release_notes",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "AWS Bedrock",
+          "claim": "Generative AI Data Governance – Amazon Bedrock Guardrails – AWS Skip to main content Filter: All English Contact us AWS Marketplace Support My account Search Filter: All Sign in to console Create account Amazon Bedrock Overview Getting Started Capabilities Agents Pricing More Generative AI Amazon Bedrock Guardrails Amazon Bedrock Guardrails Implement safeguards customized to your application requirements and responsible AI policies Get started with Guardrails Try free demo Build configurable safeguards Amazon Bedrock Guardrails helps you safely build and deploy responsible generative AI applications with confidence. With industry-leading safety protections that block up to 88% of harmful content and deliver auditable, mathematically verifiable explanations for validation decisions with 99% accuracy, Guardrails provides configurable safeguards to help detect and filter harmful text and image content, redact sensitive information, detect model hallucinations, and more. Guardrails work consistently across any foundation model whether you're using models in Amazon Bedrock or self-hosted models including third-party models such as OpenAI and Google Gemini — giving you the same safety, privacy, and responsible AI controls across all your generative AI applications. Play Explore cross-account safeguards You can now centrally manage AI safety controls across all AWS accounts in your organization while keeping your AI applications aligned with your responsible AI policies. Read the bl",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://aws.amazon.com/bedrock/guardrails/",
+          "last_verified": "2026-06-08T08:32:41Z"
         },
         "proposed_asi_depth_change": {},
         "recommended_benchmarks": [
           "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-d03f151a7d22c491bf6f8a37",
+      "update_id": "d03f151a7d22c491bf6f8a37",
+      "tool_id": "aws-bedrock-guardrails",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/",
+      "source_title": "Watched page update candidate: AWS Bedrock official_blog",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "AWS Bedrock",
+          "claim": "Artificial Intelligence Skip to Main Content Filter: All English Contact us AWS Marketplace Support My account Search Filter: All Sign in to console Create account AWS Blogs Home Blogs Editions Artificial Intelligence AWS launches frontier agents for security testing and cloud operations by Swami Sivasubramanian on 31 MAR 2026 in Announcements , Artificial Intelligence , Security & Governance , Thought Leadership Permalink Comments Share I’m excited to announce that AWS Security Agent on-demand penetration testing and AWS DevOps Agent are now generally available, representing a new class of AI capabilities we announced at re:Invent called frontier agents. These autonomous systems work independently to achieve goals, scale massively to tackle concurrent tasks, and run persistently for hours or days without constant human oversight. Together, these agents are changing the way we secure and operate software. In preview, customers and partners report that AWS Security Agent compresses penetration testing timelines from weeks to hours and the AWS DevOps Agent supports 3–5x faster incident resolution. NVIDIA Nemotron 3 Ultra now available on Amazon SageMaker JumpStart by Dan Ferguson , Malav Shastri , and Vivek Gangasani on 04 JUN 2026 in Amazon SageMaker JumpStart , Announcements Permalink Comments Share Deploy NVIDIA Nemotron 3 Ultra on Amazon SageMaker JumpStart. Get 5x faster inference and 30% lower cost for agentic AI workloads with this frontier reasoning model. How to build ",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://aws.amazon.com/blogs/machine-learning/",
+          "last_verified": "2026-06-08T08:32:41Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "HITL-ASI09-010",
+          "MCP-ASI08-008"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-a62ad3c1047966f12a22fa53",
+      "update_id": "a62ad3c1047966f12a22fa53",
+      "tool_id": "google-model-armor",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://cloud.google.com/security/products/model-armor",
+      "source_title": "Watched page update candidate: Google Cloud / Vertex AI docs_page",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Google Cloud / Vertex AI",
+          "claim": "Model Armor | Google Cloud Page Contents New: Model Armor now offers in-line protection for Gemini Enterprise Agent Platform, Langchain, and more. Learn more. Model Armor Protect AI prompts, responses, and agent interactions Runtime security for generative and agentic AI, Model Armor provides comprehensive protections against prompt injection, sensitive data leaks, and harmful content. Try Model Armor free Read documentation Model Armor offers a free tier; try it today . Product highlights Screens AI prompts, responses, and agent interactions Detects and prevents sensitive data leaks Blocks prompt injection, jailbreaking, and malware Get an executive summary on Model Armor Features AI model and agent threat detection Proactively identifies and blocks prompt injection and jailbreaking techniques designed to manipulate or compromise LLMs and agents. It also detects malicious URLs embedded in prompts or responses before they can cause harm. Granular content safety Provides fine-grained control of harmful, unethical, or undesirable content, such as hate speech, harassment, sexually explicit material, and dangerous topics. Use adjustable confidence thresholds to allow organizations to precisely tune enforcement based on specific application context, user base, and risk tolerance. Integrated sensitive data protection Integrated with Google Cloud's Sensitive Data Protection service and specifically adapted for the unpredictability of AI-generated text. Model Armor helps prevent the ",
+          "supports": [
+            "ASI01",
+            "ASI02",
+            "ASI05"
+          ],
+          "confidence": "medium",
+          "url": "https://cloud.google.com/security/products/model-armor",
+          "last_verified": "2026-06-08T08:32:42Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI01": "review 1→2 only if official docs explicitly support the control",
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI05": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "RAG-ASI06-007",
+          "MCP-ASI08-008",
+          "MCP-ASI01-005",
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-b98b6a47921d3827a745f029",
+      "update_id": "b98b6a47921d3827a745f029",
+      "tool_id": "google-model-armor",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+      "source_title": "Watched page update candidate: Google Cloud / Vertex AI release_notes",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Google Cloud / Vertex AI",
+          "claim": "Vertex AI release notes | Generative AI on Vertex AI | Google Cloud Documentation Skip to main content Technology areas close AI and ML Application development Application hosting Compute Data analytics and pipelines Databases Distributed, hybrid, and multicloud Industry solutions Migration Networking Observability and monitoring Security Storage Cross-product tools close Access and resources management Costs and usage management Infrastructure as code SDK, languages, frameworks, and tools / Console English Deutsch Español – América Latina Français Português – Brasil 中文 – 简体 日本語 한국어 Sign in Vertex AI Generative AI on Vertex AI Start free Guides API reference Vertex AI Cookbook Prompt gallery Resources FAQ Pricing Technology areas More Guides API reference Vertex AI Cookbook Prompt gallery Resources FAQ Pricing Cross-product tools More Console Resources Getting help Quotas and limits Throughput quota Release notes Current Archive Security bulletins Locations Deployments and endpoints Data residency Supported capabilities Vertex AI and zero data retention Service Level Agreement Deprecations and migrations Deprecations Generative AI module in Vertex AI SDK AI and ML Application development Application hosting Compute Data analytics and pipelines Databases Distributed, hybrid, and multicloud Industry solutions Migration Networking Observability and monitoring Security Storage Access and resources management Costs and usage management Infrastructure as code SDK, languages, framew",
+          "supports": [
+            "ASI02",
+            "ASI05",
+            "ASI06",
+            "ASI08",
+            "ASI10"
+          ],
+          "confidence": "medium",
+          "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+          "last_verified": "2026-06-08T08:32:43Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI05": "review 1→2 only if official docs explicitly support the control",
+          "ASI06": "review 1→2 only if official docs explicitly support the control",
+          "ASI08": "review 1→2 only if official docs explicitly support the control",
+          "ASI10": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "RAG-ASI06-007",
+          "MCP-ASI08-008",
+          "MCP-ASI02-004",
+          "A2A-ASI07-006"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-20ea6978c2e338d59241f4f1",
+      "update_id": "20ea6978c2e338d59241f4f1",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA/garak/releases/tag/v0.15.1",
+      "source_title": "v0.15.1",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed ### New plugins * probes: add ProPILE probes for PII leakage detection by @stefanoamorelli in https://github.com/NVIDIA/garak/pull/1504 * generator: add `simonw/llm` library support by @Nakul-Rajpal in https://github.com/NVIDIA/garak/pull/1633 ### New features * Support JSON and file output modes in garak.analyze.qual_review by @0x3df in https://github.com/NVIDIA/garak/pull/1641 ### Improved plugins * Fix ggml generator call output handling by @zw5 in https://github.com/NVIDIA/garak/pull/1733 * fix: handle None response.choices in OpenAICompatible by @Christbowel in https://github.com/NVIDIA/garak/pull/1654 * Handle local paths in Hugging Face file probe by @musaabhasan in https://github.com/NVIDIA/garak/pull/1740 * fix(detectors): keep packagehallucination entries with invalid dates by @ChrisJr404 in https://github.com/NVIDIA/garak/pull/1738 * Fix malformed MISP tag on snowball detectors by @adityasingh2400 in https://github.com/NVIDIA/garak/pull/1796 * fix(divergence): guard max_tokens override when the generator lacks it by @adityasingh2400 in https://github.com/NVIDIA/garak/pull/1795 * allow promptinject probes to limit `generation_params` by @jmartin-tech in ",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA/garak/releases/tag/v0.15.1",
+          "last_verified": "2026-06-08T08:32:43Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "MCP-ASI07-003",
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-554330eb659a5821625e99e6",
+      "update_id": "554330eb659a5821625e99e6",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA/garak/releases/tag/v0.15.0",
+      "source_title": "v0.15.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed ### New plugins * probes: Add multi-turn GOAT probe by @saichandrapandraju in https://github.com/NVIDIA/garak/pull/1424 * probes: Agent breaker by @eliyacohen-hub in https://github.com/NVIDIA/garak/pull/1628 * probes: Added system prompt extraction probe by @Nakul-Rajpal in https://github.com/NVIDIA/garak/pull/1538 * probes: add homoglyph obfuscation prompts to smuggling probe by @dentity007 in https://github.com/NVIDIA/garak/pull/1660 * detectors: Add ModernBERT refusal detector by @patriciapampanelli in https://github.com/NVIDIA/garak/pull/1650 * generators: NeMoGuardrails server support by @jmartin-tech in https://github.com/NVIDIA/garak/pull/1675 * generators: test generator with reasoning traces by @leondz in https://github.com/NVIDIA/garak/pull/1697 ### New features * Agent breaker probe by @eliyacohen-hub in https://github.com/NVIDIA/garak/pull/1628 adds support for testing tools available to target systems. ### Improved plugins * generators: add mTLS client certificate authentication to REST generator by @JakeBx in https://github.com/NVIDIA/garak/pull/1681 * generators: Add support for reasoning models to Bedrock generator by @TheTeaCat in https://github.c",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA/garak/releases/tag/v0.15.0",
+          "last_verified": "2026-06-08T08:32:43Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-2763f50d45807c543b8f0414",
+      "update_id": "2763f50d45807c543b8f0414",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA/garak/releases/tag/v0.14.1",
+      "source_title": "v0.14.1",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed ### New plugins * generator: Add WebSocket generator for real-time LLM security testing by @dyrtyData in https://github.com/NVIDIA/garak/pull/1379 ### New features * OpenAI Harmony format for audio inputs by @erickgalinkin in https://github.com/NVIDIA/garak/pull/1618 * add probe tier to `--list_probes` by @leoneperdigao in https://github.com/NVIDIA/garak/pull/1571 * Add Bootstrap Confidence Intervals for Attack Success Rates by @patriciapampanelli in https://github.com/NVIDIA/garak/pull/1577 #### Notice: Breaking changes in this release * remove deprecated nemollm generator and dependencies by @jmartin-tech in https://github.com/NVIDIA/garak/pull/1643 ### Improved plugins * probes: activate sata & badchars by @leondz in https://github.com/NVIDIA/garak/pull/1623 * Add résumé prompt injection examples by @Sid-V5 in https://github.com/NVIDIA/garak/pull/1616 * fix: binary inclusion of jailbreak components now selects correctly by @leondz in https://github.com/NVIDIA/garak/pull/1621 * Improve Jinja Injection Detection by @erickgalinkin in https://github.com/NVIDIA/garak/pull/1609 ### Documentation * docs: reorganise detector metrics out of code reference section by @le",
+          "supports": [
+            "ASI01",
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA/garak/releases/tag/v0.14.1",
+          "last_verified": "2026-06-08T08:32:43Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI01": "review 1→2 only if official docs explicitly support the control",
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI08-008",
+          "MCP-ASI01-005",
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-24d43cc8b059dc60cd21a5e2",
+      "update_id": "24d43cc8b059dc60cd21a5e2",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA/garak/releases/tag/v0.14.0",
+      "source_title": "v0.14.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed ### New features * feature: support JSON config as well as YAML by @patriciapampanelli in https://github.com/NVIDIA/garak/pull/1490 * feature: remove `--generate_autodan` CLI option by @sinhaabhiraj0 in https://github.com/NVIDIA/garak/pull/1521 * expand items in report `entry_type:eval` by @leondz in https://github.com/NVIDIA/garak/pull/1547 * reporting: tier biased security aggregate by @leondz in https://github.com/NVIDIA/garak/pull/1329 * feature: Report Generator refactor by @otavionvidia in https://github.com/NVIDIA/garak/pull/1573 * feature: Add detector evaluation doc and benchmark results by @patriciapampanelli in https://github.com/NVIDIA/garak/pull/1597 * task: calibration data updates winter 2026 by @jmartin-tech in https://github.com/NVIDIA/garak/pull/1599 #### Notice: Breaking changes in this release * Modified format of `eval` and `digest` entires in JSONL report See \"Run analysis\" documentation for more details of compatibility expectations. * Fully redesigned HTML reports * Removal of `--generate_autodan` cli option ### Improved plugins * Fix atkgen verbose output displaying incorrect conversation turns by @snehalvartak in https://github.com/NVIDIA",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA/garak/releases/tag/v0.14.0",
+          "last_verified": "2026-06-08T08:32:44Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "MCP-ASI08-008"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-2110a414b64d60832c16c144",
+      "update_id": "2110a414b64d60832c16c144",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA/garak/releases/tag/v0.13.3",
+      "source_title": "v0.13.3",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed ### New plugins * probe: Api key probe + detector by @martinebl in https://github.com/NVIDIA/garak/pull/1406 * probe: zero width bad char injection by @Har1sh-k in https://github.com/NVIDIA/garak/pull/1489 * generator: AWS bedrock generator by @fabriziorocco in https://github.com/NVIDIA/garak/pull/1462 ### New features * enable consistent PRNG access in generators by @jmartin-tech in https://github.com/NVIDIA/garak/pull/1496 ### Improved plugins * probe: Add more unreal pkghallu targets by @leondz in https://github.com/NVIDIA/garak/pull/1480 * feature: `OpenAICompatible` classes do one generation at a time by default by @leondz in https://github.com/NVIDIA/garak/pull/1524 ### Documentation * docs: add test for file extensions in docs dir by @leondz in https://github.com/NVIDIA/garak/pull/1474 * docs: describe probe module doc standard; implement it in all probe modules by @leondz in https://github.com/NVIDIA/garak/pull/1473 * docs(fix): Format list in RST by @mikemckiernan in https://github.com/NVIDIA/garak/pull/1491 * docs: add projects file for tracking garak ecosystem by @leondz in https://github.com/NVIDIA/garak/pull/1493 * doc: rm links to doc source; show li",
+          "supports": [
+            "ASI05"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA/garak/releases/tag/v0.13.3",
+          "last_verified": "2026-06-08T08:32:44Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI05": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI05-002",
+          "MCP-ASI04-009"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-bc756b11f43e657c4c2d2980",
+      "update_id": "bc756b11f43e657c4c2d2980",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.22.0",
+      "source_title": "v0.22.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's changed The three major features in this release are: * **Anonymous usage reporting**: Basic usage reporting is documented with clear privacy boundaries and opt-out controls. The telemetry reference explains what fields are collected, what data is excluded, how local audit files work, and how to opt out with NEMO_GUARDRAILS_NO_USAGE_STATS=1, DO_NOT_TRACK=1, or the ~/.config/nemoguardrails/do_not_track file. * **LangChain decoupling**: We have had many customers ask us to be less dependent on LangChain. Now, LangChain is optional. For OpenAI-compatible LLMs, we now ship with a built-in client over httpx that offers better direct support. For others, you can bring LangChain back with NEMOGUARDRAILS_LLM_FRAMEWORK=langchain, and install the matching provider package. * **IORails milestone 2**: The second phase of our new, more efficient orchestration engine. This brings us closer to feature parity to LLMRails by including streaming, OpenTelemetry, and reasoning-model support. We also added _speculative generation_ in non-streaming mode, which runs input rails in parallel with the main application LLM response generation. This hides the latency of input rails while still guara",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.22.0",
+          "last_verified": "2026-06-08T08:32:44Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-c978da0e3fade029802b96ed",
+      "update_id": "c978da0e3fade029802b96ed",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.21.0",
+      "source_title": "v0.21.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed This release introduces `IORails`, a new optimized Input/Output rail engine that supports parallel execution of NemoGuard rails (content-safety, topic-safety, and jailbreak detection) with logging and unique request IDs. A new `check_async` method in `LLMRails` enables standalone input/output rails validation without requiring a full conversation flow. The guardrails server is now fully OpenAI-compatible (including a new v1/models endpoint), and a new `GuardrailsMiddleware` enables seamless integration with LangChain agents. New community integrations include PolicyAI for content moderation, CrowdStrike AIDR, and regex-based detection rails. Embedding index initialization is now lazy, improving startup performance. Streaming internals have been cleaned up along with a major documentation revamp. ### 🚀 Features - *(library)* Update Trend Micro Vision One AI Guard official endpoint ([#1546](https://github.com/NVIDIA-NeMo/Guardrails/issues/1546)) - *(llmrails)* Add check_async method for input/output rails validation ([#1605](https://github.com/NVIDIA-NeMo/Guardrails/issues/1605)) - *(server)* Make guardrails server OpenAI compatible ([#1340](https://github.com/NVIDI",
+          "supports": [
+            "ASI01"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.21.0",
+          "last_verified": "2026-06-08T08:32:44Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI01": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI01-005"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-44cc7370ed14748551408f78",
+      "update_id": "44cc7370ed14748551408f78",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.20.0",
+      "source_title": "v0.20.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed This release adds support for reasoning-capable content safety models like Nemotron-Content-Safety-Reasoning-4B (with configurable /think mode for explainable moderation), GLiNER for open-source PII detection, and multilingual refusal messages in content safety rails, along with a major documentation restructuring. Streaming configuration has been simplified (note: the streaming field has been removed from the config). ### 🚀 Features - *(llm)* Propagate model and base URL in LLMCallException; improve error handling ([#1502](https://github.com/NVIDIA-NeMo/Guardrails/issues/1502)) - *(content_safety)* Add support to auto select multilingual refusal bot messages ([#1530](https://github.com/NVIDIA-NeMo/Guardrails/issues/1530)) - *(library)* Adding GLiNER for PII detection (open alternative to PrivateAI) ([#1545](https://github.com/NVIDIA-NeMo/Guardrails/issues/1545)) - *(benchmark)* Implement Mock LLM streaming ([#1564](https://github.com/NVIDIA-NeMo/Guardrails/issues/1564)) - *(library)* Add reasoning guardrail connector ([#1565](https://github.com/NVIDIA-NeMo/Guardrails/issues/1565)) ### 🐛 Bug Fixes - *(models)* Surface relevant exception when initializing langchain",
+          "supports": [
+            "ASI05"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.20.0",
+          "last_verified": "2026-06-08T08:32:44Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI05": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI05-002",
+          "MCP-ASI04-009"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-24a621b456556f8617b84273",
+      "update_id": "24a621b456556f8617b84273",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.19.0",
+      "source_title": "v0.19.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed **LangChain v1.x Support Is Here!** This release brings the highly requested LangChain 1.x compatibility to NeMo Guardrails. Many users in the community have been asking for this upgrade, and we're excited to deliver it. NeMo Guardrails now works with the latest LangChain ecosystem, including support for the new content blocks API that enables better handling of reasoning traces and tool calls. This release also introduces several important bug fixes including an important fix related to async streaming for the `nim` or `nvidia_ai_endpoints` provider. ### 🚀 Features - Support langchain v1 ([#1472](https://github.com/NVIDIA/NeMo-Guardrails/issues/1472)) - *(llm)* Add LangChain 1.x content blocks support for reasoning and tool calls ([#1496](https://github.com/NVIDIA/NeMo-Guardrails/issues/1496)) - *(benchmark)* Add Procfile to run Guardrails and mock LLMs ([#1490](https://github.com/NVIDIA/NeMo-Guardrails/issues/1490)) - *(benchmark)*: Add AIPerf run script (([#1501](https://github.com/NVIDIA/NeMo-Guardrails/issues/1501))) ### 🐛 Bug Fixes - *(llm)* Add async streaming support to ChatNVIDIA provider patch ([#1504](https://github.com/NVIDIA/NeMo-Guardrails/issues/150",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.19.0",
+          "last_verified": "2026-06-08T08:32:44Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-c8761a9353b8f45461bccb92",
+      "update_id": "c8761a9353b8f45461bccb92",
+      "tool_id": "garak",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.18.0",
+      "source_title": "v0.18.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "NVIDIA AI Security",
+          "claim": "## What's Changed This release introduces BotThinking events, allowing you to apply guardrails to an LLM's reasoning traces. We added support for embedding providers: Azure OpenAI, Cohere, and Google. We also added an integration with Cisco AI Defense. For performance, in-memory caching can be used for Nemoguard [content-safety](https://build.nvidia.com/nvidia/llama-3_1-nemoguard-8b-content-safety), [topic-control](https://build.nvidia.com/nvidia/llama-3_1-nemoguard-8b-topic-control), and [jailbreak](https://build.nvidia.com/nvidia/nemoguard-jailbreak-detect) models to reduce latency. Other additions include automatic provider inference for LangChain LLMs and custom HTTP header support for ChatNVIDIA. Reasoning trace extraction is refactored to use LangChain's `additional_kwargs`. Traces are no longer prepended to the bot's message but are now in a separate `reasoning` field. Please update any custom parsing logic. Additionally, `stream_async` will now correctly raise an error if output rail streaming is disabled. We've fixed several stability bugs, especially for parallel execution. This includes ensuring the stop flag is now correctly set for policy violations and exceptions in p",
+          "supports": [
+            "ASI01",
+            "ASI06"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.18.0",
+          "last_verified": "2026-06-08T08:32:44Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI01": "review 1→2 only if official docs explicitly support the control",
+          "ASI06": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "RAG-ASI06-007",
+          "MCP-ASI08-008",
+          "MCP-ASI01-005"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-f951e937bd3fe32738d896e7",
+      "update_id": "f951e937bd3fe32738d896e7",
+      "tool_id": "cortex-cloud-ai-security",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://www.paloaltonetworks.com/blog/",
+      "source_title": "Watched page update candidate: Palo Alto Networks Prisma AIRS official_blog",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Palo Alto Networks Prisma AIRS",
+          "claim": "Palo Alto Networks Blog | Stay protected in an AI world You are using an outdated browser. Please upgrade your browser to improve your experience. Protect Against Russia-Ukraine Cyber Activity --> Idira Identity Security Platform Reaches FedRAMP High Milestone Executive Summary: Palo Alto Networks has achieved FedRAMP High Authorization for its Identity Security Platform, providing federal agencies with a precertified, SaaS-delivered path to Zero Trust. This milestone enables agencies to protect their most sensitive unclassified data while accelerating Authorization to Operate (ATO) through a unified, platform-based approach to privileged access and identity governance.... Government Identity Security Products and Services Public Sector Zero Trust Security Jun 03, 2026 By Rahul Dubey Latest Blogs CIO/CISO , Network Perimeter , Reports , Secure the Enterprise , Threat Brief , Threat Prevention , Threat Research How AI and Evasion Demand a Radical Shift in Network Threat Prevention Jun 04, 2026 By Anand Oswal and Srinivas Avasarala AI and Cybersecurity , AI Security , Announcement Reinventing Security for the Agentic NVIDIA AI Factory Jun 01, 2026 By Shrikant Brahmbhatt , Lee Space and Nadav Shai Kanon Announcement A 4X Gartner Magic Quadrant for EPP Leader. Built for the Agentic Era. May 29, 2026 By Hadar Oren AI Security Securing and Governing AI Agents At Scale Through A Unified AI Gateway May 29, 2026 By Anand Oswal Announcement , Partners , Products and Services The “Why” ",
+          "supports": [
+            "ASI03"
+          ],
+          "confidence": "medium",
+          "url": "https://www.paloaltonetworks.com/blog/",
+          "last_verified": "2026-06-08T08:32:47Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI03": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI07-003",
+          "MCP-ASI02-004",
+          "HITL-ASI09-010",
+          "MCP-ASI08-008"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-633d6487c5b26dcf3f6be032",
+      "update_id": "633d6487c5b26dcf3f6be032",
+      "tool_id": "wiz-ai-spm",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://www.wiz.io/blog",
+      "source_title": "Watched page update candidate: Wiz AI Security official_blog",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Wiz AI Security",
+          "claim": "Wiz Blog | Latest stories about Cloud Security Sign in Experiencing an incident? Wiz Pricing Get a demo Platform Solutions Pricing Resources Customers Company Get a demo All Research AI Product & Company News Security Product Public Sector Data Security CIRT Blog Featured AI Threat Readiness Pillar 1: Reduce Critical Exposures & Scan with AI Shaked Rotlevi June 4, 2026 Diving into the first pillar of the AI Threat Readiness Framework and how Wiz helps Eliminate Critical API Attack Paths with Wiz API SPM Mike McGuire , Gilad Hoze , Saar Shtalryd , Bar Vaserman June 1, 2026 Wiz API SPM is now GA, enabling customers to discover APIs, assess APIs for exploitability, and prioritize remediation to mitigate the risk of an API-related breach. Miasma: Supply Chain Attack Targeting RedHat npm Packages Merav Bar , Rami McCarthy June 1, 2026 Detect and mitigate malicious npm packages linked to the latest npm supply chain attack, based on the open sourced Mini Shai-Hulud malware. State of Post Quantum Cryptography Scott Piper May 28, 2026 Discussion of PQC relevant statistics that we see across our customers and other data sources. Evidence at the Moment of Attack. Answers at AI Speed. Shashank Golla , Itay Gershon May 27, 2026 Wiz Sensor Forensics is now generally available - automatically capturing forensic artifacts at the moment of detection and using AI to accelerate investigation for SOC and IR teams. Commit to Compromise: A New Threat Actor Targeting the Cryptocurrency Industry's S",
+          "supports": [
+            "ASI05"
+          ],
+          "confidence": "medium",
+          "url": "https://www.wiz.io/blog",
+          "last_verified": "2026-06-08T08:32:48Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI05": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "MCP-ASI08-008"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-6a39da2223d845f1e4395049",
+      "update_id": "6a39da2223d845f1e4395049",
+      "tool_id": "activefence-ai-security",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://www.crowdstrike.com/en-us/blog/",
+      "source_title": "Watched page update candidate: CrowdStrike AI Security official_blog",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "CrowdStrike AI Security",
+          "claim": "Cybersecurity Blog | CrowdStrike Blog Featured 3 Principles to Safely Scale Agentic AI Jun 05, 2026 ISO 42001:2023 and the New Reality of Cloud AI Data Risk Jun 04, 2026 How to Stop AI-Driven Data Loss Jun 02, 2026 CrowdStrike Brings Enterprise-Grade Security to the AI Factory with NVIDIA Vera BlueField-4 STX Jun 01, 2026 Recent 3 Principles to Safely Scale Agentic AI Jun 05, 2026 ISO 42001:2023 and the New Reality of Cloud AI Data Risk Jun 04, 2026 How to Stop AI-Driven Data Loss Jun 02, 2026 CrowdStrike Brings Enterprise-Grade Security to the AI Factory with NVIDIA Vera BlueField-4 STX Jun 01, 2026 Video Video Highlights the 4 Key Steps to Successful Incident Response Dec 02, 2019 Helping Non-Security Stakeholders Understand ATT&CK in 10 Minutes or Less [VIDEO] Feb 21, 2019 Analyzing Targeted Intrusions Through the ATT&CK Framework Lens [VIDEO] Jan 22, 2019 Qatar’s Commercial Bank Chooses CrowdStrike Falcon®: A Partnership Based on Trust [VIDEO] Aug 20, 2018 Category Agentic SOC Agentic SOC New Claude Integration Brings Audit Data into the Falcon Platform 05/21/26 How Charlotte AI AgentWorks Fuels Security's Agentic Ecosystem 03/25/26 CrowdStrike Services and Agentic MDR Put the Agentic SOC in Reach 03/24/26 4 Ways Businesses Use CrowdStrike Charlotte AI to Transform Security Operations 03/12/26 Cloud & Application Security Cloud & Application Security Falcon AIDR Detects Threats at the Prompt Layer in Kubernetes AI Applications 05/13/26 CrowdStrike Named a Leader in Frost ",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://www.crowdstrike.com/en-us/blog/",
+          "last_verified": "2026-06-08T08:32:48Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "HITL-ASI09-010"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-9d776eec56fdc8fcfe7e3e7e",
+      "update_id": "9d776eec56fdc8fcfe7e3e7e",
+      "tool_id": "promptfoo",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/promptfoo/promptfoo/releases/tag/0.121.14",
+      "source_title": "0.121.14",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Promptfoo",
+          "claim": "## [0.121.14](https://github.com/promptfoo/promptfoo/compare/0.121.13...0.121.14) (2026-06-02) ### Features * add A2A provider ([#9586](https://github.com/promptfoo/promptfoo/issues/9586)) ([963b264](https://github.com/promptfoo/promptfoo/commit/963b264ba22d621282d0bf82efdae2b5defe6d59)) * **assertions:** add agent-rubric grader ([#9453](https://github.com/promptfoo/promptfoo/issues/9453)) ([cadb3c5](https://github.com/promptfoo/promptfoo/commit/cadb3c500277464f05244c8bc8525c2725aa5c22)) * **build:** publish a lightweight promptfoo/contracts subpath ([#9535](https://github.com/promptfoo/promptfoo/issues/9535)) ([6e89fd4](https://github.com/promptfoo/promptfoo/commit/6e89fd45abc97696a70079cddcb659492acc66d0)) * **cli:** add seeded random sampling ([#9522](https://github.com/promptfoo/promptfoo/issues/9522)) ([6e4ba60](https://github.com/promptfoo/promptfoo/commit/6e4ba60eba69ff696d0404aabf5453311214c500)) * **eval:** extract eval-creator readiness and validation modules ([#9397](https://github.com/promptfoo/promptfoo/issues/9397)) ([d3af118](https://github.com/promptfoo/promptfoo/commit/d3af1180405e82786461eae5bf85e50ce6b73f3a)) * **eval:** surface trace linkage on result rows ([#90",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/promptfoo/promptfoo/releases/tag/0.121.14",
+          "last_verified": "2026-06-08T08:32:49Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "A2A-ASI07-006"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-2fc977f3a0ef7aeb17d42e85",
+      "update_id": "2fc977f3a0ef7aeb17d42e85",
+      "tool_id": "promptfoo",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/promptfoo/promptfoo/releases/tag/0.121.13",
+      "source_title": "0.121.13",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Promptfoo",
+          "claim": "## [0.121.13](https://github.com/promptfoo/promptfoo/compare/0.121.12...0.121.13) (2026-05-28) ### Features * add MiniMax provider ([#8207](https://github.com/promptfoo/promptfoo/issues/8207)) ([ebd78f6](https://github.com/promptfoo/promptfoo/commit/ebd78f6b9c22c4a61050e8f767aee211729415a2)) * **anthropic:** add support for Claude Opus 4.8 ([#9500](https://github.com/promptfoo/promptfoo/issues/9500)) ([e090730](https://github.com/promptfoo/promptfoo/commit/e0907306ecf388a27e606407eef7a89f6c6d92bc)) * **assertions:** add ignore option to trajectory:tool-args-match ([#9466](https://github.com/promptfoo/promptfoo/issues/9466)) ([6423f2a](https://github.com/promptfoo/promptfoo/commit/6423f2a5c95ed84a3210806eda222a23d0a30c01)) * **assertions:** add metadata shortcut to assertion context ([#6863](https://github.com/promptfoo/promptfoo/issues/6863)) ([5264680](https://github.com/promptfoo/promptfoo/commit/5264680f1bb5372fbebc1a780b0e6c8f77455b2a)) * **assertions:** support glob patterns in trajectory:tool-args-match ignore ([#9484](https://github.com/promptfoo/promptfoo/issues/9484)) ([18b3eef](https://github.com/promptfoo/promptfoo/commit/18b3eefd48a2ff8dd6ee69160e86523823ee10e3)) * **as",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/promptfoo/promptfoo/releases/tag/0.121.13",
+          "last_verified": "2026-06-08T08:32:49Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "RAG-ASI06-007",
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-9fd120b8d7b3066f61b18446",
+      "update_id": "9fd120b8d7b3066f61b18446",
+      "tool_id": "phoenix",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v17.2.0",
+      "source_title": "arize-phoenix: v17.2.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Arize Phoenix",
+          "claim": "## [17.2.0](https://github.com/Arize-ai/phoenix/compare/arize-phoenix-v17.1.0...arize-phoenix-v17.2.0) (2026-06-03) ### Features * add PXI route info tool ([#13591](https://github.com/Arize-ai/phoenix/issues/13591)) ([f51fbfa](https://github.com/Arize-ai/phoenix/commit/f51fbfa40ca4340e7282f405c0b5002f7cad58e8)) ### Bug Fixes * **app:** scope assistant chat history to deployment root path ([#13615](https://github.com/Arize-ai/phoenix/issues/13615)) ([e6a10f2](https://github.com/Arize-ai/phoenix/commit/e6a10f2bee405430ed4433157bb6da207b6dce09)) * refresh prompts table periodically ([#13614](https://github.com/Arize-ai/phoenix/issues/13614)) ([df105ec](https://github.com/Arize-ai/phoenix/commit/df105ec7c6cfa697f8abe3d731a4ddcc85f4952f)) ### Documentation * expand PXI guide with skills, controls, and extensibility ([#13611](https://github.com/Arize-ai/phoenix/issues/13611)) ([d40e340](https://github.com/Arize-ai/phoenix/commit/d40e3406368c43c53ebf799c8ff7f465986297b3))",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v17.2.0",
+          "last_verified": "2026-06-08T08:32:49Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI07-003",
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-ca101c7e99021cd25dd42742",
+      "update_id": "ca101c7e99021cd25dd42742",
+      "tool_id": "phoenix",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v17.1.0",
+      "source_title": "arize-phoenix: v17.1.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Arize Phoenix",
+          "claim": "## [17.1.0](https://github.com/Arize-ai/phoenix/compare/arize-phoenix-v17.0.0...arize-phoenix-v17.1.0) (2026-06-02) ### Features * **playground:** add PXI load_dataset tool ([#13558](https://github.com/Arize-ai/phoenix/issues/13558)) ([96678ef](https://github.com/Arize-ai/phoenix/commit/96678efd16ec9675e048caceba1308b6ed138e2e)) * **pxi:** LLM-evaluator authoring for the PXI agent ([#13579](https://github.com/Arize-ai/phoenix/issues/13579)) ([1ead013](https://github.com/Arize-ai/phoenix/commit/1ead0136a771cbb10d87de11e4c4be083bcc67e0)) * skill loading display ([#13576](https://github.com/Arize-ai/phoenix/issues/13576)) ([73185b4](https://github.com/Arize-ai/phoenix/commit/73185b42711042e11cbe64fb42344097f50237b3)) * warning colors, search off icon ([#13593](https://github.com/Arize-ai/phoenix/issues/13593)) ([7ec6ace](https://github.com/Arize-ai/phoenix/commit/7ec6acee68e795e8ae34de607848a8f821ed30ad)) ### Bug Fixes * **server:** don't let docs MCP init failure abort server startup ([#13595](https://github.com/Arize-ai/phoenix/issues/13595)) ([c31598d](https://github.com/Arize-ai/phoenix/commit/c31598da294f7ef438e826bbd55c200b10f68316))",
+          "supports": [
+            "ASI02",
+            "ASI04",
+            "ASI07"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v17.1.0",
+          "last_verified": "2026-06-08T08:32:49Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI04": "review 1→2 only if official docs explicitly support the control",
+          "ASI07": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI04-001",
+          "MCP-ASI02-004",
+          "MCP-ASI04-009",
+          "A2A-ASI07-006",
+          "MCP-ASI07-003"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-088b54c9d6f73ad38cee1e5a",
+      "update_id": "088b54c9d6f73ad38cee1e5a",
+      "tool_id": "phoenix",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v16.6.0",
+      "source_title": "arize-phoenix: v16.6.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Arize Phoenix",
+          "claim": "## [16.6.0](https://github.com/Arize-ai/phoenix/compare/arize-phoenix-v16.5.0...arize-phoenix-v16.6.0) (2026-06-02) ### Features * add PXI playground model switching tool ([#13499](https://github.com/Arize-ai/phoenix/issues/13499)) ([ad2013a](https://github.com/Arize-ai/phoenix/commit/ad2013a2103681501d53827417094c0a68cfe03e)) * **agents:** add web search globe toggle to agent chat ([#13564](https://github.com/Arize-ai/phoenix/issues/13564)) ([1fed5aa](https://github.com/Arize-ai/phoenix/commit/1fed5aa37858ed2adbdb2060e12f3ddfa5810344)) * **pxi:** code-evaluator authoring ([#13397](https://github.com/Arize-ai/phoenix/issues/13397)) ([cef8f13](https://github.com/Arize-ai/phoenix/commit/cef8f131dcca2e3c81b5f83bca403959c0d7b95f)) ### Documentation * add Go LLM provider integration docs ([#13373](https://github.com/Arize-ai/phoenix/issues/13373)) ([352cb3c](https://github.com/Arize-ai/phoenix/commit/352cb3ceebda7bd6ad062cdd0f9f991c76d053d6))",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v16.6.0",
+          "last_verified": "2026-06-08T08:32:49Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-65815e5d81e7edb13447ef21",
+      "update_id": "65815e5d81e7edb13447ef21",
+      "tool_id": "phoenix",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v16.5.0",
+      "source_title": "arize-phoenix: v16.5.0",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Arize Phoenix",
+          "claim": "## [16.5.0](https://github.com/Arize-ai/phoenix/compare/arize-phoenix-v16.4.0...arize-phoenix-v16.5.0) (2026-06-01) ### Features * add playground save prompt tool ([#13517](https://github.com/Arize-ai/phoenix/issues/13517)) ([1641957](https://github.com/Arize-ai/phoenix/commit/164195778c58c7aaa43c0e00314045f15b3c6796)) * **agent:** rewind, fork, and copy controls for chat messages ([#13524](https://github.com/Arize-ai/phoenix/issues/13524)) ([f5df5ec](https://github.com/Arize-ai/phoenix/commit/f5df5ecc6e719755d981c54eada3e896772ac4bc)) * **agents:** add annotate-spans skill for the PXI agent ([#13523](https://github.com/Arize-ai/phoenix/issues/13523)) ([4b4f7a7](https://github.com/Arize-ai/phoenix/commit/4b4f7a745dc3faf587fdf9c1a0c1e4bdea762eee)) * **agents:** add read_prompt_tools and write_prompt_tools to PXI ([#13509](https://github.com/Arize-ai/phoenix/issues/13509)) ([66a412b](https://github.com/Arize-ai/phoenix/commit/66a412b3122095d56db72713a97e3c0eb6ffb9b0)) * **agents:** add summary argument to PXI bash tool for UI preview ([#13501](https://github.com/Arize-ai/phoenix/issues/13501)) ([16039bd](https://github.com/Arize-ai/phoenix/commit/16039bdf9b7b56811f074c8fb327e2cf86f47",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v16.5.0",
+          "last_verified": "2026-06-08T08:32:49Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "HITL-ASI09-010",
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-397fbf8b34e6499905a501c1",
+      "update_id": "397fbf8b34e6499905a501c1",
+      "tool_id": "langchain-langgraph",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-perplexity%3D%3D1.3.2",
+      "source_title": "langchain-perplexity==1.3.2",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "LangChain / LangGraph",
+          "claim": "Changes since langchain-perplexity==1.3.1 release(perplexity): 1.3.2 (#37925) fix(perplexity): serialize `ToolMessage` and `AIMessage.tool_calls` (#37911)",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-perplexity%3D%3D1.3.2",
+          "last_verified": "2026-06-08T08:32:50Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-40e6b50c7a5c62800cd68932",
+      "update_id": "40e6b50c7a5c62800cd68932",
+      "tool_id": "langchain-langgraph",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.4.1",
+      "source_title": "langchain-core==1.4.1",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "LangChain / LangGraph",
+          "claim": "Changes since langchain-core==1.4.0 release(core): 1.4.1 (#37922) fix(core): remove Bedrock prevalidation from `load` (#37909) docs(core): expand and link `ModelProfile` docstrings (#37904) release(anthropic): 1.4.4 (#37757) chore(core): bump `uuid-utils` to 0.16.0 (#37699) chore(infra): bump `langchain-tests` floor to 1.1.9 (#37610) release(standard-tests): 1.1.9 (#37609) chore: bump idna from 3.11 to 3.15 in /libs/core (#37539) ci(infra): harden Dependabot version-bound preservation (#37510) hotfix: bump lockfiles (#37508) docs(core): note override for `_get_ls_params` (#37503) chore(core,langchain,openai): refresh stale OpenAI model references (#37487) chore: bump langsmith from 0.7.31 to 0.8.0 in /libs/core (#37395) fix(core): accept `Serializable` constructor-envelope wire shape in `_convert_to_message` (#37456) fix(core): preserve chunk `additional_kwargs` across v3 stream assembly (#37435) fix(core): preserve reasoning blocks alongside tool_call in v3 stream (#37434) chore: bump jupyter-server from 2.17.0 to 2.18.0 in /libs/core (#37354) chore: bump mistune from 3.1.4 to 3.2.1 in /libs/core (#37353)",
+          "supports": [
+            "ASI02"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.4.1",
+          "last_verified": "2026-06-08T08:32:50Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-e937bb28b1898808452d9f54",
+      "update_id": "e937bb28b1898808452d9f54",
+      "tool_id": "langchain-langgraph",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.3",
+      "source_title": "langchain==1.3.3",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "LangChain / LangGraph",
+          "claim": "Changes since langchain==1.3.2 release(langchain): 1.3.3 (#37843) chore(langchain): bump `langgraph` to 1.2.4 (#37857) chore(langchain): loosen `langgraph` dep range (#37855) feat(langchain): project subagent runs onto typed run.subagents channel (#37739) feat(langchain): add `interrupt_mode` and `when` predicate to `HumanInTheLoopMiddleware` (#37579)",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.3",
+          "last_verified": "2026-06-08T08:32:50Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "HITL-ASI09-010",
+          "MCP-ASI08-008"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-1e0daeba326f4df5259a41e7",
+      "update_id": "1e0daeba326f4df5259a41e7",
+      "tool_id": "llamaindex",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.22",
+      "source_title": "v0.14.22",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "LlamaIndex",
+          "claim": "# Release Notes ## [2026-05-14] ### llama-index-agent-agentmesh [0.2.0] - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-agentops [0.5.0] - chore(deps): bump the pip group across 55 directories with 3 updates ([#21435](https://github.com/run-llama/llama_index/pull/21435)) - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-aim [0.4.1] - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-argilla [0.5.0] - chore(deps): bump the pip group across 55 directories with 3 updates ([#21435](https://github.com/run-llama/llama_index/pull/21435)) ### llama-index-callbacks-arize-phoenix [0.7.0] - chore(deps): bump the pip group across 55 directories with 3 updates ([#21435](https://github.com/run-llama/llama_index/pull/21435)) - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-honeyhive [0.5.0] - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-langfuse [0.5.0] - chore(deps): bump ",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.22",
+          "last_verified": "2026-06-08T08:32:50Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-f8bbfc0a2d559be721845ddc",
+      "update_id": "f8bbfc0a2d559be721845ddc",
+      "tool_id": "llamaindex",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.20",
+      "source_title": "v0.14.20",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "LlamaIndex",
+          "claim": "# Release Notes ## [2026-04-03] ### llama-index-agent-agentmesh [0.2.0] - fix vulnerability with nltk ([#21275](https://github.com/run-llama/llama_index/pull/21275)) ### llama-index-callbacks-agentops [0.5.0] - chore(deps): bump the uv group across 50 directories with 2 updates ([#21164](https://github.com/run-llama/llama_index/pull/21164)) - chore(deps): bump the uv group across 24 directories with 1 update ([#21219](https://github.com/run-llama/llama_index/pull/21219)) - chore(deps): bump the uv group across 21 directories with 2 updates ([#21221](https://github.com/run-llama/llama_index/pull/21221)) - fix vulnerability with nltk ([#21275](https://github.com/run-llama/llama_index/pull/21275)) ### llama-index-callbacks-aim [0.4.1] - fix vulnerability with nltk ([#21275](https://github.com/run-llama/llama_index/pull/21275)) ### llama-index-callbacks-argilla [0.5.0] - chore(deps): bump the uv group across 58 directories with 1 update ([#21166](https://github.com/run-llama/llama_index/pull/21166)) - chore(deps): bump the uv group across 24 directories with 1 update ([#21219](https://github.com/run-llama/llama_index/pull/21219)) - chore(deps): bump the uv group across 21 directories w",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.20",
+          "last_verified": "2026-06-08T08:32:50Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-8dab09487e0d30ef0cb6badf",
+      "update_id": "8dab09487e0d30ef0cb6badf",
+      "tool_id": "llamaindex",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.19",
+      "source_title": "v0.14.19",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "LlamaIndex",
+          "claim": "# Release Notes ## [2026-03-25] ### llama-index-agent-agentmesh [0.2.0] - chore(deps): bump the uv group across 49 directories with 1 update ([#21083](https://github.com/run-llama/llama_index/pull/21083)) ### llama-index-callbacks-argilla [0.5.0] - chore(deps): bump the uv group across 3 directories with 1 update ([#21069](https://github.com/run-llama/llama_index/pull/21069)) ### llama-index-core [0.14.19] - fix: pass `delete_from_docstore` parameter in `BaseIndex.delete_ref_doc` ([#20990](https://github.com/run-llama/llama_index/pull/20990)) - fix(core): preserve CTE names during schema prefixing in SQLDatabase.run_sql ([#21028](https://github.com/run-llama/llama_index/pull/21028)) - fix(core): align sync retrieval dedup key with async (hash + ref_doc_id) ([#21034](https://github.com/run-llama/llama_index/pull/21034)) - fix(core): raise ValueError instead of returning string from structured_predict ([#21036](https://github.com/run-llama/llama_index/pull/21036)) - fix(core): remove incorrect per-node delete calls in index helpers ([#21050](https://github.com/run-llama/llama_index/pull/21050)) - chore(deps): bump the uv group across 49 directories with 1 update ([#21083](https://git",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.19",
+          "last_verified": "2026-06-08T08:32:50Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "RAG-ASI06-007"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-02c2c2fb26eed841750740f5",
+      "update_id": "02c2c2fb26eed841750740f5",
+      "tool_id": "llamaindex",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.18",
+      "source_title": "v0.14.18",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "LlamaIndex",
+          "claim": "# Release Notes ## [2026-03-16] ### llama-index-agent-agentmesh [0.2.0] - chore: deprecate python 3.9 once and for all ([#20956](https://github.com/run-llama/llama_index/pull/20956)) ### llama-index-agent-azure [0.3.0] - chore: deprecate python 3.9 once and for all ([#20956](https://github.com/run-llama/llama_index/pull/20956)) ### llama-index-callbacks-agentops [0.5.0] - chore: deprecate python 3.9 once and for all ([#20956](https://github.com/run-llama/llama_index/pull/20956)) ### llama-index-callbacks-argilla [0.5.0] - chore: deprecate python 3.9 once and for all ([#20956](https://github.com/run-llama/llama_index/pull/20956)) ### llama-index-callbacks-arize-phoenix [0.7.0] - chore: deprecate python 3.9 once and for all ([#20956](https://github.com/run-llama/llama_index/pull/20956)) ### llama-index-callbacks-honeyhive [0.5.0] - chore: deprecate python 3.9 once and for all ([#20956](https://github.com/run-llama/llama_index/pull/20956)) - chore(deps): bump the uv group across 51 directories with 3 updates ([#20962](https://github.com/run-llama/llama_index/pull/20962)) ### llama-index-callbacks-langfuse [0.5.0] - chore: deprecate python 3.9 once and for all ([#20956](https://github.",
+          "supports": [],
+          "confidence": "medium",
+          "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.18",
+          "last_verified": "2026-06-08T08:32:50Z"
+        },
+        "proposed_asi_depth_change": {},
+        "recommended_benchmarks": [
+          "MCP-ASI02-004"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-79f70c72fa4dd006b5118b4c",
+      "update_id": "79f70c72fa4dd006b5118b4c",
+      "tool_id": "google-model-armor",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices",
+      "source_title": "Watched page update candidate: Model Context Protocol docs_page",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Model Context Protocol",
+          "claim": "Security Best Practices - Model Context Protocol Documentation Index Fetch the complete documentation index at: /llms.txt Use this file to discover all available pages before exploring further. Skip to main content Model Context Protocol home page Search... ⌘ K Ask Assistant Blog GitHub Search... Navigation Security Security Best Practices Documentation Extensions Specification Registry SEPs Community Get started What is MCP? About MCP Architecture Servers Clients Versioning Develop with MCP Connect to local MCP servers Connect to remote MCP Servers Build with Agent Skills Build an MCP server Clients SDKs Security Understanding Authorization in MCP Security Best Practices Developer tools MCP Inspector Debugging Examples Example Servers On this page Introduction Purpose and Scope Attacks and Mitigations Confused Deputy Problem Terminology Vulnerable Conditions Architecture and Attack Flows Attack Description Mitigation Token Passthrough Risks Mitigation Server-Side Request Forgery (SSRF) Attack Description Risks Mitigation Resources and Tools Session Hijacking Session Hijack Prompt Injection Session Hijack Impersonation Attack Description Mitigation Local MCP Server Compromise Attack Description Risks Mitigation Scope Minimization Attack Description Risks Mitigation Common Mistakes Security Security Best Practices Copy page Security considerations, attack vectors, and best practices for MCP implementations Copy page ​ Introduction ​ Purpose and Scope This document provides sec",
+          "supports": [
+            "ASI01",
+            "ASI02",
+            "ASI04",
+            "ASI05",
+            "ASI07"
+          ],
+          "confidence": "medium",
+          "url": "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices",
+          "last_verified": "2026-06-08T08:32:50Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI01": "review 1→2 only if official docs explicitly support the control",
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI04": "review 1→2 only if official docs explicitly support the control",
+          "ASI05": "review 1→2 only if official docs explicitly support the control",
+          "ASI07": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI04-001",
+          "MCP-ASI02-004",
+          "MCP-ASI07-003",
+          "MCP-ASI05-002",
+          "MCP-ASI04-009",
+          "RAG-ASI06-007",
+          "A2A-ASI07-006",
+          "MCP-ASI01-005"
+        ]
+      },
+      "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
+      "review_checklist": [
+        "Source is official or independently verified",
+        "Claim is not marketing-only",
+        "ASI mapping is supported by text evidence",
+        "No score increase unless benchmark-backed or implementation-verified",
+        "Relevant benchmark recommendation exists for runtime/security claims"
+      ]
+    },
+    {
+      "id": "diff-7ee7f3a20c48374b6e5ce1af",
+      "update_id": "7ee7f3a20c48374b6e5ce1af",
+      "tool_id": "google-model-armor",
+      "change_type": "evidence_added",
+      "status": "pending_review",
+      "source_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28-RC",
+      "source_title": "MCP 2026-07-28 RC",
+      "before": {
+        "evidence_records": "unchanged",
+        "score_change": "none"
+      },
+      "after": {
+        "proposed_evidence": {
+          "type": "official_vendor_docs",
+          "source": "Model Context Protocol",
+          "claim": "This release marks the **release candidate (RC)** `2026-07-28` revision of the Model Context Protocol. The specification is available in [draft form](https://modelcontextprotocol.io/specification/draft). For a detailed overview of changes, see [2026-07-28 draft changelog](https://modelcontextprotocol.io/specification/draft/changelog). >[!NOTE] >**To users and implementers:** this specification is not final. Changes may be introduced between the RC and the final release. SDKs will adopt this version at their own pace, and the prior version of the spec may remain in use for an undetermined amount of time. > >Refer to the [Version Negotiation documentation](https://modelcontextprotocol.io/specification/draft/basic/lifecycle#version-negotiation) to learn about the process for clients and servers to determine the version of the protocol being used.",
+          "supports": [
+            "ASI02",
+            "ASI04",
+            "ASI07"
+          ],
+          "confidence": "medium",
+          "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28-RC",
+          "last_verified": "2026-06-08T08:32:51Z"
+        },
+        "proposed_asi_depth_change": {
+          "ASI02": "review 1→2 only if official docs explicitly support the control",
+          "ASI04": "review 1→2 only if official docs explicitly support the control",
+          "ASI07": "review 1→2 only if official docs explicitly support the control"
+        },
+        "recommended_benchmarks": [
+          "MCP-ASI04-001",
+          "MCP-ASI02-004",
+          "RAG-ASI06-007",
+          "MCP-ASI04-009",
+          "A2A-ASI07-006",
+          "MCP-ASI07-003"
         ]
       },
       "reason": "Generated from automated update intelligence. Requires human review before modifying canonical evidence or scores.",
