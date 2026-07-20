@@ -1,7 +1,527 @@
 {
   "meta": {
     "version": "v1.0",
-    "generated_at": "2026-05-21T08:27:54Z"
+    "generated_at": "2026-07-20T06:33:22Z"
   },
-  "suggestions": []
+  "suggestions": [
+    {
+      "id": "patch_f3f68bb93d513222ac7c3b9f",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: OpenAI docs_page",
+      "vendor": "OpenAI",
+      "matched_tools": [
+        "art"
+      ],
+      "url": "https://platform.openai.com/docs/guides/safety-best-practices",
+      "candidate_asi": [
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_c03e04d0f5b12be1ea523f55",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: Anthropic official_blog",
+      "vendor": "Anthropic",
+      "matched_tools": [
+        "art",
+        "presidio",
+        "pyrit"
+      ],
+      "url": "https://www.anthropic.com/news",
+      "candidate_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_e7319e154baf5c78224b22a0",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: Anthropic docs_page",
+      "vendor": "Anthropic",
+      "matched_tools": [
+        "art",
+        "google-model-armor",
+        "presidio",
+        "pyrit"
+      ],
+      "url": "https://docs.anthropic.com/",
+      "candidate_asi": [
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_247228a09d6bbe4b70d6ba99",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: AWS Bedrock release_notes",
+      "vendor": "AWS Bedrock",
+      "matched_tools": [
+        "art",
+        "aws-bedrock-guardrails"
+      ],
+      "url": "https://aws.amazon.com/bedrock/guardrails/",
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_d03f151a7d22c491bf6f8a37",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: AWS Bedrock official_blog",
+      "vendor": "AWS Bedrock",
+      "matched_tools": [
+        "art",
+        "aws-bedrock-guardrails"
+      ],
+      "url": "https://aws.amazon.com/blogs/machine-learning/",
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_a62ad3c1047966f12a22fa53",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: Google Cloud / Vertex AI docs_page",
+      "vendor": "Google Cloud / Vertex AI",
+      "matched_tools": [
+        "google-model-armor",
+        "llm-guard"
+      ],
+      "url": "https://cloud.google.com/security/products/model-armor",
+      "candidate_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_b98b6a47921d3827a745f029",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: Google Cloud / Vertex AI release_notes",
+      "vendor": "Google Cloud / Vertex AI",
+      "matched_tools": [
+        "art",
+        "google-model-armor"
+      ],
+      "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+      "candidate_asi": [
+        "ASI02",
+        "ASI05",
+        "ASI06",
+        "ASI08",
+        "ASI10"
+      ],
+      "candidate_lifecycle_stages": [
+        "augment_finetune_data",
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "monitor",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_554330eb659a5821625e99e6",
+      "type": "evidence_candidate",
+      "title": "v0.15.0",
+      "vendor": "NVIDIA AI Security",
+      "matched_tools": [
+        "art",
+        "garak",
+        "nemo-guardrails"
+      ],
+      "url": "https://github.com/NVIDIA/garak/releases/tag/v0.15.0",
+      "candidate_asi": [
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_2763f50d45807c543b8f0414",
+      "type": "evidence_candidate",
+      "title": "v0.14.1",
+      "vendor": "NVIDIA AI Security",
+      "matched_tools": [
+        "art",
+        "garak",
+        "nemo-guardrails"
+      ],
+      "url": "https://github.com/NVIDIA/garak/releases/tag/v0.14.1",
+      "candidate_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_2110a414b64d60832c16c144",
+      "type": "evidence_candidate",
+      "title": "v0.13.3",
+      "vendor": "NVIDIA AI Security",
+      "matched_tools": [
+        "art",
+        "aws-bedrock-guardrails",
+        "garak",
+        "nemo-guardrails"
+      ],
+      "url": "https://github.com/NVIDIA/garak/releases/tag/v0.13.3",
+      "candidate_asi": [
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_c978da0e3fade029802b96ed",
+      "type": "evidence_candidate",
+      "title": "v0.21.0",
+      "vendor": "NVIDIA AI Security",
+      "matched_tools": [
+        "art",
+        "garak",
+        "nemo-guardrails",
+        "trend-micro-ai-security"
+      ],
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.21.0",
+      "candidate_asi": [
+        "ASI01"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_44cc7370ed14748551408f78",
+      "type": "evidence_candidate",
+      "title": "v0.20.0",
+      "vendor": "NVIDIA AI Security",
+      "matched_tools": [
+        "garak",
+        "nemo-guardrails"
+      ],
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.20.0",
+      "candidate_asi": [
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_f951e937bd3fe32738d896e7",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: Palo Alto Networks Prisma AIRS official_blog",
+      "vendor": "Palo Alto Networks Prisma AIRS",
+      "matched_tools": [
+        "art",
+        "cortex-cloud-ai-security",
+        "prisma-airs"
+      ],
+      "url": "https://www.paloaltonetworks.com/blog/",
+      "candidate_asi": [
+        "ASI03"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "govern",
+        "scope_plan"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_633d6487c5b26dcf3f6be032",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: Wiz AI Security official_blog",
+      "vendor": "Wiz AI Security",
+      "matched_tools": [
+        "art",
+        "wiz-ai-spm"
+      ],
+      "url": "https://www.wiz.io/blog",
+      "candidate_asi": [
+        "ASI05",
+        "ASI06"
+      ],
+      "candidate_lifecycle_stages": [
+        "augment_finetune_data",
+        "deploy",
+        "monitor",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_6a39da2223d845f1e4395049",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: CrowdStrike AI Security official_blog",
+      "vendor": "CrowdStrike AI Security",
+      "matched_tools": [
+        "art",
+        "presidio",
+        "pyrit"
+      ],
+      "url": "https://www.crowdstrike.com/en-us/blog/",
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_51fbbb33712c6fcd53b97521",
+      "type": "evidence_candidate",
+      "title": "0.121.18",
+      "vendor": "Promptfoo",
+      "matched_tools": [
+        "promptfoo"
+      ],
+      "url": "https://github.com/promptfoo/promptfoo/releases/tag/0.121.18",
+      "candidate_asi": [
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_99f0bc61cd3da3443441be37",
+      "type": "evidence_candidate",
+      "title": "arize-phoenix: v19.2.0",
+      "vendor": "Arize Phoenix",
+      "matched_tools": [
+        "art",
+        "phoenix"
+      ],
+      "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v19.2.0",
+      "candidate_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_d5776b2f592a4798d5c35460",
+      "type": "evidence_candidate",
+      "title": "arize-phoenix: v19.1.0",
+      "vendor": "Arize Phoenix",
+      "matched_tools": [
+        "phoenix"
+      ],
+      "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v19.1.0",
+      "candidate_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_bb13523e35d2bd80616ef928",
+      "type": "evidence_candidate",
+      "title": "arize-phoenix: v19.0.0",
+      "vendor": "Arize Phoenix",
+      "matched_tools": [
+        "phoenix"
+      ],
+      "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v19.0.0",
+      "candidate_asi": [
+        "ASI03",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "govern",
+        "operate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_df29a09548b769d51260d778",
+      "type": "evidence_candidate",
+      "title": "arize-phoenix: v18.1.0",
+      "vendor": "Arize Phoenix",
+      "matched_tools": [
+        "phoenix"
+      ],
+      "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v18.1.0",
+      "candidate_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_a2a1e02b04bf7855826a1d13",
+      "type": "evidence_candidate",
+      "title": "langchain==1.3.12",
+      "vendor": "LangChain / LangGraph",
+      "matched_tools": [],
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.12",
+      "candidate_asi": [
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_1e0daeba326f4df5259a41e7",
+      "type": "evidence_candidate",
+      "title": "v0.14.22",
+      "vendor": "LlamaIndex",
+      "matched_tools": [
+        "phoenix"
+      ],
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.22",
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_79f70c72fa4dd006b5118b4c",
+      "type": "evidence_candidate",
+      "title": "Watched page update candidate: Model Context Protocol docs_page",
+      "vendor": "Model Context Protocol",
+      "matched_tools": [
+        "art"
+      ],
+      "url": "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices",
+      "candidate_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    },
+    {
+      "id": "patch_7ee7f3a20c48374b6e5ce1af",
+      "type": "evidence_candidate",
+      "title": "MCP 2026-07-28 RC",
+      "vendor": "Model Context Protocol",
+      "matched_tools": [],
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28-RC",
+      "candidate_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "suggested_change": "Add evidence record or update source_basis only after human validation.",
+      "status": "needs_review"
+    }
+  ]
 }
