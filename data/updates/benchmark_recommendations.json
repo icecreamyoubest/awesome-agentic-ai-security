@@ -2,20 +2,572 @@
   "meta": {
     "version": "v1.1",
     "generated_by": "agents/benchmark_recommender.py",
-    "count": 1
+    "count": 34
   },
   "recommendations": [
     {
-      "id": "benchrec-63c9cbaed1d60dbe7ce18b48",
-      "update_id": "63c9cbaed1d60dbe7ce18b48",
-      "title": "Offline smoke-test update candidate",
+      "id": "benchrec-d22ed58f915a7821eadf9467",
+      "update_id": "d22ed58f915a7821eadf9467",
+      "title": "Watched page update candidate: OWASP GenAI Security Project docs_page",
       "vendor": "OWASP GenAI Security Project",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "MCP-ASI01-005",
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-56caf9ff3c84cf6183b9e125",
+      "update_id": "56caf9ff3c84cf6183b9e125",
+      "title": "Watched page update candidate: OWASP GenAI Security Project docs_page",
+      "vendor": "OWASP GenAI Security Project",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "MCP-ASI01-005",
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-f3f68bb93d513222ac7c3b9f",
+      "update_id": "f3f68bb93d513222ac7c3b9f",
+      "title": "Watched page update candidate: OpenAI docs_page",
+      "vendor": "OpenAI",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-c03e04d0f5b12be1ea523f55",
+      "update_id": "c03e04d0f5b12be1ea523f55",
+      "title": "Watched page update candidate: Anthropic official_blog",
+      "vendor": "Anthropic",
+      "recommended_benchmarks": [
+        "MCP-ASI01-005"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-e7319e154baf5c78224b22a0",
+      "update_id": "e7319e154baf5c78224b22a0",
+      "title": "Watched page update candidate: Anthropic docs_page",
+      "vendor": "Anthropic",
+      "recommended_benchmarks": [
+        "MCP-ASI07-003",
+        "MCP-ASI02-004",
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "MCP-ASI08-008"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: oauth|token|credential|identity|permission|scope|delegat",
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-69356c1a654f3e05623aed52",
+      "update_id": "69356c1a654f3e05623aed52",
+      "title": "Watched page update candidate: Microsoft Azure AI release_notes",
+      "vendor": "Microsoft Azure AI",
+      "recommended_benchmarks": [
+        "RAG-ASI06-007",
+        "HITL-ASI09-010",
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rag|memory|vector|context|retrieval",
+        "Matched keyword pattern: human|approval|consent|hitl|trust|preview"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-247228a09d6bbe4b70d6ba99",
+      "update_id": "247228a09d6bbe4b70d6ba99",
+      "title": "Watched page update candidate: AWS Bedrock release_notes",
+      "vendor": "AWS Bedrock",
+      "recommended_benchmarks": [
+        "MCP-ASI07-003",
+        "MCP-ASI02-004",
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "RAG-ASI06-007",
+        "HITL-ASI09-010",
+        "MCP-ASI08-008"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: oauth|token|credential|identity|permission|scope|delegat",
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install",
+        "Matched keyword pattern: rag|memory|vector|context|retrieval",
+        "Matched keyword pattern: human|approval|consent|hitl|trust|preview",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-d03f151a7d22c491bf6f8a37",
+      "update_id": "d03f151a7d22c491bf6f8a37",
+      "title": "Watched page update candidate: AWS Bedrock official_blog",
+      "vendor": "AWS Bedrock",
+      "recommended_benchmarks": [
+        "MCP-ASI07-003",
+        "MCP-ASI02-004",
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "RAG-ASI06-007",
+        "HITL-ASI09-010",
+        "MCP-ASI08-008"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: oauth|token|credential|identity|permission|scope|delegat",
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install",
+        "Matched keyword pattern: rag|memory|vector|context|retrieval",
+        "Matched keyword pattern: human|approval|consent|hitl|trust|preview",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-a62ad3c1047966f12a22fa53",
+      "update_id": "a62ad3c1047966f12a22fa53",
+      "title": "Watched page update candidate: Google Cloud / Vertex AI docs_page",
+      "vendor": "Google Cloud / Vertex AI",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "RAG-ASI06-007",
+        "MCP-ASI08-008",
+        "MCP-ASI01-005",
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install",
+        "Matched keyword pattern: rag|memory|vector|context|retrieval",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out",
+        "Matched keyword pattern: prompt injection|tool output|indirect"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-b98b6a47921d3827a745f029",
+      "update_id": "b98b6a47921d3827a745f029",
+      "title": "Watched page update candidate: Google Cloud / Vertex AI release_notes",
+      "vendor": "Google Cloud / Vertex AI",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "RAG-ASI06-007",
+        "MCP-ASI08-008",
+        "MCP-ASI02-004",
+        "A2A-ASI07-006"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install",
+        "Matched keyword pattern: rag|memory|vector|context|retrieval",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-11bd47f08a8838185fe81a63",
+      "update_id": "11bd47f08a8838185fe81a63",
+      "title": "v0.16.0",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "RAG-ASI06-007"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rag|memory|vector|context|retrieval"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-20ea6978c2e338d59241f4f1",
+      "update_id": "20ea6978c2e338d59241f4f1",
+      "title": "v0.15.1",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI07-003",
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: oauth|token|credential|identity|permission|scope|delegat"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-554330eb659a5821625e99e6",
+      "update_id": "554330eb659a5821625e99e6",
+      "title": "v0.15.0",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-2763f50d45807c543b8f0414",
+      "update_id": "2763f50d45807c543b8f0414",
+      "title": "v0.14.1",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI08-008",
+        "MCP-ASI01-005",
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out",
+        "Matched keyword pattern: prompt injection|tool output|indirect"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-24d43cc8b059dc60cd21a5e2",
+      "update_id": "24d43cc8b059dc60cd21a5e2",
+      "title": "v0.14.0",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI08-008"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-a59ba35a99a110db1ece22f2",
+      "update_id": "a59ba35a99a110db1ece22f2",
+      "title": "v0.23.0",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI07-003",
+        "MCP-ASI02-004",
+        "RAG-ASI06-007",
+        "MCP-ASI08-008",
+        "A2A-ASI07-006"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: oauth|token|credential|identity|permission|scope|delegat",
+        "Matched keyword pattern: rag|memory|vector|context|retrieval",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-bc756b11f43e657c4c2d2980",
+      "update_id": "bc756b11f43e657c4c2d2980",
+      "title": "v0.22.0",
+      "vendor": "NVIDIA AI Security",
       "recommended_benchmarks": [
         "MCP-ASI02-004"
       ],
       "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
       "reasons": [
         "No specific pattern matched; default to tool-misuse validation if available."
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-c978da0e3fade029802b96ed",
+      "update_id": "c978da0e3fade029802b96ed",
+      "title": "v0.21.0",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI01-005"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-44cc7370ed14748551408f78",
+      "update_id": "44cc7370ed14748551408f78",
+      "title": "v0.20.0",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-24a621b456556f8617b84273",
+      "update_id": "24a621b456556f8617b84273",
+      "title": "v0.19.0",
+      "vendor": "NVIDIA AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-f951e937bd3fe32738d896e7",
+      "update_id": "f951e937bd3fe32738d896e7",
+      "title": "Watched page update candidate: Palo Alto Networks Prisma AIRS official_blog",
+      "vendor": "Palo Alto Networks Prisma AIRS",
+      "recommended_benchmarks": [
+        "MCP-ASI07-003",
+        "MCP-ASI02-004",
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "MCP-ASI08-008"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: oauth|token|credential|identity|permission|scope|delegat",
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-633d6487c5b26dcf3f6be032",
+      "update_id": "633d6487c5b26dcf3f6be032",
+      "title": "Watched page update candidate: Wiz AI Security official_blog",
+      "vendor": "Wiz AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-6a39da2223d845f1e4395049",
+      "update_id": "6a39da2223d845f1e4395049",
+      "title": "Watched page update candidate: CrowdStrike AI Security official_blog",
+      "vendor": "CrowdStrike AI Security",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "A2A-ASI07-006",
+        "HITL-ASI09-010",
+        "MCP-ASI08-008"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install",
+        "Matched keyword pattern: a2a|agent card|agent-card|inter-agent|registry|discovery",
+        "Matched keyword pattern: human|approval|consent|hitl|trust|preview",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-51fbbb33712c6fcd53b97521",
+      "update_id": "51fbbb33712c6fcd53b97521",
+      "title": "0.121.18",
+      "vendor": "Promptfoo",
+      "recommended_benchmarks": [
+        "MCP-ASI05-002",
+        "MCP-ASI04-009"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-1a44963e606f0e7b7e38b37d",
+      "update_id": "1a44963e606f0e7b7e38b37d",
+      "title": "0.121.17",
+      "vendor": "Promptfoo",
+      "recommended_benchmarks": [
+        "MCP-ASI07-003",
+        "MCP-ASI02-004",
+        "RAG-ASI06-007"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: oauth|token|credential|identity|permission|scope|delegat",
+        "Matched keyword pattern: rag|memory|vector|context|retrieval"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-1eb3d7358269265a32246fdf",
+      "update_id": "1eb3d7358269265a32246fdf",
+      "title": "arize-phoenix-otel: v0.17.0",
+      "vendor": "Arize Phoenix",
+      "recommended_benchmarks": [
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "No specific pattern matched; default to tool-misuse validation if available."
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-0945aedaff4c30d44252be29",
+      "update_id": "0945aedaff4c30d44252be29",
+      "title": "arize-phoenix-evals: v3.4.0",
+      "vendor": "Arize Phoenix",
+      "recommended_benchmarks": [
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "No specific pattern matched; default to tool-misuse validation if available."
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-12568edddb8db310e5aba6bf",
+      "update_id": "12568edddb8db310e5aba6bf",
+      "title": "langchain-openai==1.4.2",
+      "vendor": "LangChain / LangGraph",
+      "recommended_benchmarks": [
+        "MCP-ASI04-001",
+        "MCP-ASI02-004",
+        "RAG-ASI06-007",
+        "MCP-ASI08-008",
+        "MCP-ASI04-009",
+        "A2A-ASI07-006",
+        "MCP-ASI07-003"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: mcp|descriptor|manifest|tool schema|tool metadata",
+        "Matched keyword pattern: rag|memory|vector|context|retrieval",
+        "Matched keyword pattern: loop|rate|cascade|cost|budget|fan-out"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-fcd98570224f0a52e5ab5976",
+      "update_id": "fcd98570224f0a52e5ab5976",
+      "title": "langchain-anthropic==1.5.4",
+      "vendor": "LangChain / LangGraph",
+      "recommended_benchmarks": [
+        "MCP-ASI04-001",
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: mcp|descriptor|manifest|tool schema|tool metadata"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-32471fbdfa1956bd26ee8391",
+      "update_id": "32471fbdfa1956bd26ee8391",
+      "title": "langchain-core==1.5.2",
+      "vendor": "LangChain / LangGraph",
+      "recommended_benchmarks": [
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-1e0daeba326f4df5259a41e7",
+      "update_id": "1e0daeba326f4df5259a41e7",
+      "title": "v0.14.22",
+      "vendor": "LlamaIndex",
+      "recommended_benchmarks": [
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "No specific pattern matched; default to tool-misuse validation if available."
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-f8bbfc0a2d559be721845ddc",
+      "update_id": "f8bbfc0a2d559be721845ddc",
+      "title": "v0.14.20",
+      "vendor": "LlamaIndex",
+      "recommended_benchmarks": [
+        "MCP-ASI02-004"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "No specific pattern matched; default to tool-misuse validation if available."
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-8dab09487e0d30ef0cb6badf",
+      "update_id": "8dab09487e0d30ef0cb6badf",
+      "title": "v0.14.19",
+      "vendor": "LlamaIndex",
+      "recommended_benchmarks": [
+        "RAG-ASI06-007"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: rag|memory|vector|context|retrieval"
+      ],
+      "status": "needs_human_review"
+    },
+    {
+      "id": "benchrec-79f70c72fa4dd006b5118b4c",
+      "update_id": "79f70c72fa4dd006b5118b4c",
+      "title": "Watched page update candidate: Model Context Protocol docs_page",
+      "vendor": "Model Context Protocol",
+      "recommended_benchmarks": [
+        "MCP-ASI04-001",
+        "MCP-ASI02-004",
+        "MCP-ASI07-003",
+        "MCP-ASI05-002",
+        "MCP-ASI04-009",
+        "RAG-ASI06-007",
+        "A2A-ASI07-006"
+      ],
+      "validation_goal": "Validate whether the detected update changes runtime protection, MCP/A2A trust, tool permissions, identity handling, or memory safety before changing catalog scores.",
+      "reasons": [
+        "Matched keyword pattern: mcp|descriptor|manifest|tool schema|tool metadata",
+        "Matched keyword pattern: oauth|token|credential|identity|permission|scope|delegat",
+        "Matched keyword pattern: rce|code execution|sandbox|command|shell|package install",
+        "Matched keyword pattern: rag|memory|vector|context|retrieval",
+        "Matched keyword pattern: a2a|agent card|agent-card|inter-agent|registry|discovery"
       ],
       "status": "needs_human_review"
     }
