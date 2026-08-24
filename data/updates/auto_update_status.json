@@ -1,18 +1,34 @@
 {
   "meta": {
     "version": "v1.0",
-    "updated": "2026-05-21T08:27:48Z"
+    "updated": "2026-08-24T04:21:43Z"
   },
-  "last_run": "2026-05-21T08:27:48Z",
-  "mode": "offline",
+  "last_run": "2026-08-24T04:21:43Z",
+  "mode": "network",
   "watched_sources": 26,
-  "pending_updates": 1,
-  "triaged_updates": 1,
-  "last_error": null,
+  "pending_updates": 33,
+  "triaged_updates": 33,
+  "last_error": [
+    {
+      "vendor": "openai",
+      "source": "https://openai.com/news/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "vendor": "microsoft",
+      "source": "https://azure.microsoft.com/en-us/blog/topics/security/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "vendor": "cisco",
+      "source": "https://www.cisco.com/c/en/us/products/security/ai-defense.html",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
   "next_steps": [
     "Review data/updates/pending_updates.json",
     "Run update_triage_agent.py",
     "Open PR for accepted catalog/evidence changes"
   ],
-  "updated": "2026-05-21T08:27:51Z"
+  "updated": "2026-08-24T04:21:43Z"
 }
