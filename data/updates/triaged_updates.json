@@ -1,25 +1,1131 @@
 {
   "meta": {
     "version": "v1.0",
-    "generated_at": "2026-05-21T08:27:51Z"
+    "generated_at": "2026-09-07T08:34:50Z"
   },
   "triaged_updates": [
     {
-      "id": "63c9cbaed1d60dbe7ce18b48",
+      "id": "d22ed58f915a7821eadf9467",
       "vendor_id": "owasp-genai",
       "vendor_name": "OWASP GenAI Security Project",
       "source_type": "docs_page",
       "source_url": "https://genai.owasp.org/ai-security-solutions-landscape/",
-      "title": "Offline smoke-test update candidate",
-      "summary": "This synthetic candidate validates the update pipeline without network access. It should not be merged as evidence.",
+      "title": "Watched page update candidate: OWASP GenAI Security Project docs_page",
+      "summary": "Solutions Directory - OWASP Gen AI Security Project Skip to content Join us in Orlando, FL 10/11 – 10/15 @ InfoSec World 2026 | Register Now! GETTING STARTED Introduction MEETINGS CONTRIBUTING EVENTS GLOSSARY RESOURCES All LLM TOP 10 LLM TOP 10 FOR 2025 LLM TOP 10 FOR 2023/24 CHEAT SHEETS WHITEPAPERS TOOLS LEARNING VIDEOS SOLUTIONS DIRECTORY ROADMAP NEWSLETTER PROJECT INITIATIVES Top 10 for LLM and GenAI AGENTIC SECURITY AI Bill of Materials Ai Data Security AI Security Governance AI Security Solutions AI Threat Intel & Resp AI Red Teaming BLOG ABOUT Mission and Charter Governance LEADERSHIP INDUSTRY RECOGNITION CONTRIBUTORS SPONSORS SUPPORTERS SPONSORSHIP NEWSROOM CONTACT BRANDING GEN AI SECURITY Solution landscape AI Security Landscape – Solutions Directory The landscape directory includes traditional and emerging security controls addressing Generative AI, Agentic and AI Red Teaming. It is not a comprehensive list or an endorsement but a community resource of open source and proprietary solutions. Submit an Entry Search Simple Search content Clear Learn More about the AI Solutions Landscape Initiative Filters: LLMTop10 2025 Select content LLM Risks 2023 LLM01:25 (53) LLM02:25 (49) LLM06:25 (45) LLM07:25 (44) LLM03:25 (36) LLM04:25 (36) LLM05:25 (36) LLM09:25 (36) LLM10:25 (34) LLM08:25 (33) LLMTop10 2023 Select content LLM Risks 2025 LLM01:25 (53) LLM02:25 (49) LLM06:25 (45) LLM07:25 (44) LLM03:25 (36) LLM04:25 (36) LLM05:25 (36) LLM09:25 (36) LLM10:25 (34) LLM08:25 (33) A",
       "url": "https://genai.owasp.org/ai-security-solutions-landscape/",
-      "published_at": "2026-05-21T08:27:48Z",
-      "detected_at": "2026-05-21T08:27:48Z",
+      "published_at": "2026-09-07T08:34:29Z",
+      "detected_at": "2026-09-07T08:34:29Z",
+      "matched_watch_terms": [
+        "Solutions Landscape",
+        "Agentic"
+      ],
+      "candidate_features": [
+        "code_execution_security",
+        "red_team",
+        "roadmap",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "art"
+      ],
+      "recommended_action": "roadmap_update",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "56caf9ff3c84cf6183b9e125",
+      "vendor_id": "owasp-genai",
+      "vendor_name": "OWASP GenAI Security Project",
+      "source_type": "docs_page",
+      "source_url": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+      "title": "Watched page update candidate: OWASP GenAI Security Project docs_page",
+      "summary": "Agentic Security Initiative - OWASP Gen AI Security Project Skip to content Join us in Orlando, FL 10/11 – 10/15 @ InfoSec World 2026 | Register Now! GETTING STARTED Introduction MEETINGS CONTRIBUTING EVENTS GLOSSARY RESOURCES All LLM TOP 10 LLM TOP 10 FOR 2025 LLM TOP 10 FOR 2023/24 CHEAT SHEETS WHITEPAPERS TOOLS LEARNING VIDEOS SOLUTIONS DIRECTORY ROADMAP NEWSLETTER PROJECT INITIATIVES Top 10 for LLM and GenAI AGENTIC SECURITY AI Bill of Materials Ai Data Security AI Security Governance AI Security Solutions AI Threat Intel & Resp AI Red Teaming BLOG ABOUT Mission and Charter Governance LEADERSHIP INDUSTRY RECOGNITION CONTRIBUTORS SPONSORS SUPPORTERS SPONSORSHIP NEWSROOM CONTACT BRANDING GEN AI SECURITY Initiatives Agentic AI Security Initiative Securing autonomous agents and multi-step AI workflows The Agentic Security Research Initiative explores the emerging security implications of agentic systems, particularly those utilizing advanced frameworks (e.g., LangGraph, AutoGPT, CrewAI) and novel capabilities like Llama 3’s agentic features. Join the Initiative Resource Links: #team-genai-agentic-security-initiative Github Initiative Charter What’s New Resources Learning Videos Blog Agent Control Standard (ACS) Widescale adoption of AI agents depends on trust, and trust requires transparency and control. Enterprises cannot rely on black-box agents operating across cloud, SaaS, on-premises and Learn More Download Now State of Agentic AI Security and Governance 2.01 The State o",
+      "url": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+      "published_at": "2026-09-07T08:34:29Z",
+      "detected_at": "2026-09-07T08:34:29Z",
+      "matched_watch_terms": [
+        "Agentic Security Initiative",
+        "Top 10"
+      ],
+      "candidate_features": [
+        "code_execution_security",
+        "red_team",
+        "roadmap",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "art"
+      ],
+      "recommended_action": "roadmap_update",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "f3f68bb93d513222ac7c3b9f",
+      "vendor_id": "openai",
+      "vendor_name": "OpenAI",
+      "source_type": "docs_page",
+      "source_url": "https://platform.openai.com/docs/guides/safety-best-practices",
+      "title": "Watched page update candidate: OpenAI docs_page",
+      "summary": "Safety best practices | OpenAI API For the complete documentation index, see llms.txt . Markdown versions of documentation pages are available by appending .md to the page URL. ChatGPT Home API Codex Docs Guides, concepts, and product docs for Codex Use cases Example workflows and tasks teams can take on with ChatGPT or Codex Docs Use cases Training Resources ChatGPT Plugins Extend ChatGPT and Codex Workspace Agents Trigger published ChatGPT workspace agents Commerce Build commerce flows in ChatGPT Ads Publish and measure ads in ChatGPT Resources Showcase Demo apps to get inspired Blog Learnings and experiences from developers Cookbook Notebook examples for building with OpenAI models Learn Docs, videos, and demo apps for building with OpenAI Community Programs, meetups, and support for builders Start searching API Dashboard Try ChatGPT Overview Models Agents Tools Voice & Audio Production API reference Search the API docs Search docs Suggested responses create reasoning_effort realtime prompt caching Primary navigation API Codex ChatGPT Docs Use cases Training Resources Resources Search docs Suggested responses create reasoning_effort realtime prompt caching Overview Models Agents Tools Voice & Audio Production API reference Overview Models Agents Tools Voice & Audio Production API reference Docs Production Home Get started Quickstart Using GPT-6 Astra Key concepts Core concepts Responses API Conversation state Background mode Streaming WebSocket mode Mid-turn steering Multi",
+      "url": "https://platform.openai.com/docs/guides/safety-best-practices",
+      "published_at": "2026-09-07T08:34:29Z",
+      "detected_at": "2026-09-07T08:34:29Z",
+      "matched_watch_terms": [
+        "safety"
+      ],
+      "candidate_features": [
+        "code_execution_security",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "art"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "c03e04d0f5b12be1ea523f55",
+      "vendor_id": "anthropic",
+      "vendor_name": "Anthropic",
+      "source_type": "official_blog",
+      "source_url": "https://www.anthropic.com/news",
+      "title": "Watched page update candidate: Anthropic official_blog",
+      "summary": "Newsroom \\ Anthropic Skip to main content Skip to footer Research Policy Commitments Learn News Try Claude Newsroom Press inquiries press@anthropic.com Non-media inquiries How to get support Media assets Download press kit Introducing Claude Fable 5.1 and Claude Mythos 5.1 Announcements Sep 1, 2026 Our most advanced models for coding and knowledge work. Their research capabilities also offer an early glimpse of how AI models will contribute to scientific progress. Announcements Aug 27, 2026 Previewing the Model Hardware Standard We’re opening a research preview of the Model Hardware Standard (MHS), a shared specification for AI agents to safely operate physical devices, to a first group of scientific research labs and advanced manufacturers. Announcements Aug 14, 2026 How Claude’s text watermark works In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether it affects Claude’s outputs, and why we’re making this change. Product Jul 24, 2026 Introducing Claude Opus 5 Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work. Features Jul 6, 2026 The Making of Claude Code The inside story of how Claude Code went from an internal CLI to Anthropic's coding agent, told by researchers, engineers and early users who built it. News Search Date Category Title Sep 1, 2026 Announcements Developing Enterprise Frontier Safeguards wi",
+      "url": "https://www.anthropic.com/news",
+      "published_at": "2026-09-07T08:34:30Z",
+      "detected_at": "2026-09-07T08:34:30Z",
+      "matched_watch_terms": [
+        "agent"
+      ],
+      "candidate_features": [],
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "art"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "e7319e154baf5c78224b22a0",
+      "vendor_id": "anthropic",
+      "vendor_name": "Anthropic",
+      "source_type": "docs_page",
+      "source_url": "https://docs.anthropic.com/",
+      "title": "Watched page update candidate: Anthropic docs_page",
+      "summary": "Documentation - Claude Platform Docs Claude Platform Docs Messages Managed Agents Admin Resources  Best practices Models & pricing CLI, SDKs, and libraries Claude API skill Release notes  API reference  English   Console Log in  Claude Platform Start building with Claude Everything you need to integrate Claude into your applications. From first API call to production.  Search Ctrl K  Quickstart  Get API key  API reference Python TypeScript Go Java Ruby PHP C# cURL CLI  import anthropic client = anthropic.Anthropic() message = client.messages.create( model = \"claude-opus-5\" , max_tokens = 1024 , messages = [{ \"role\" : \"user\" , \"content\" : \"Hello, Claude\" }] ) for block in message.content: if block.type == \"text\" : print (block.text) Platform Choose how you build Pick the developer surface that matches your approach, and the infrastructure that fits your stack. Messages Direct model access. You construct every turn, manage conversation state, and write your own tool loop.  Quickstart  API reference  Client SDKs Managed Agents Fully managed agent infrastructure. Deploy and manage autonomous agents in stateful sessions with persistent event history.  Quickstart  API reference  Define your agent Claude is also available on these cloud platforms:  Amazon Bedrock   Google Cloud   Microsoft Foundry  Developer journey From idea to production Follow the lifecycle or jump to what you need. Messages Managed Agents 1 Get started  Quickstart   Get API key   Choo",
+      "url": "https://docs.anthropic.com/",
+      "published_at": "2026-09-07T08:34:30Z",
+      "detected_at": "2026-09-07T08:34:30Z",
       "matched_watch_terms": [],
+      "candidate_features": [
+        "code_execution_security",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "google-model-armor",
+        "presidio",
+        "pyrit"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "69356c1a654f3e05623aed52",
+      "vendor_id": "microsoft",
+      "vendor_name": "Microsoft Azure AI",
+      "source_type": "release_notes",
+      "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/",
+      "title": "Watched page update candidate: Microsoft Azure AI release_notes",
+      "summary": "Azure AI Content Safety documentation - Quickstarts, Tutorials, API Reference - Foundry Tools | Microsoft Learn Skip to main content This browser is no longer supported. Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. Download Microsoft Edge More info about Internet Explorer and Microsoft Edge Table of contents Read in English Edit Azure AI Content Safety documentation The cloud-based Azure AI Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. About Azure AI Content Safety Overview What is Azure AI Content Safety? Get started Content Safety Studio Concept Harm categories What's new What's new in Azure AI Content Safety Image moderation Concept Harm categories Custom categories (preview) Quickstart Using Content Safety Studio Using the REST API or client SDKs multimodal (/azure/machine-learning/concept-retrieval-augmented-generation How-To Guide Use custom categories (standard) (preview) Use custom categories (rapid) (preview) Text moderation Concept Harm categories Custom categories (preview) Groundedness detection Quickstart Using Content Safety Studio Using the REST API or client SDKs Detect groundedness in LLM responses How-To Guide Use custom categories (standard) (preview) Use custom categories (rapid) (preview) Use a blocklist User input risk detection Concept Prompt Shield",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/",
+      "published_at": "2026-09-07T08:34:30Z",
+      "detected_at": "2026-09-07T08:34:30Z",
+      "matched_watch_terms": [
+        "Prompt Shield",
+        "Content Safety",
+        "groundedness"
+      ],
+      "candidate_features": [
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "test_evaluate"
+      ],
+      "priority": "medium",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "azure-content-safety",
+        "presidio",
+        "pyrit"
+      ],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "247228a09d6bbe4b70d6ba99",
+      "vendor_id": "aws",
+      "vendor_name": "AWS Bedrock",
+      "source_type": "release_notes",
+      "source_url": "https://aws.amazon.com/bedrock/guardrails/",
+      "title": "Watched page update candidate: AWS Bedrock release_notes",
+      "summary": "Generative AI Data Governance – Amazon Bedrock Guardrails – AWS Skip to main content Filter: All English Contact us AWS Marketplace Support My account re:Invent Discover AWS Products Solutions Pricing Resources Search Filter: All Sign in to console Create account Explore topics re:Invent 2026 The session catalog is live. Explore what's waiting for you Customer Stories See how customers innovate with AWS data & AI Independent Software Vendors AI for software & tech: build, scale, and monetize AI for Small Businesses Solutions designed for your business. Delivered by AWS Partners Agent Toolkit Give AI coding agents up-to-date docs and AWS resource access Amazon Quick Answers grounded in your actual business data News & announcements AWS blog About AWS AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently Why AWS Getting Started Security Compliance Trust Center Sustainability Global Infrastructure Featured Products Analytics Application Integration Artificial Intelligence Business Applications Compute Customer Experience Databases Developer Tools End User Computing Game Tech Management Tools Media Services Migration & Modernization Multicloud & Hybrid Networking & Content Delivery Operations Security & Identity Storage Supply Chain Browse all products Featured Products Get started with one of these featured services or browse all Browse all products Amazon Quick AI-powered assistant for work with re",
+      "url": "https://aws.amazon.com/bedrock/guardrails/",
+      "published_at": "2026-09-07T08:34:41Z",
+      "detected_at": "2026-09-07T08:34:41Z",
+      "matched_watch_terms": [
+        "Guardrails",
+        "Bedrock"
+      ],
+      "candidate_features": [
+        "RAG_memory_security",
+        "agent_identity",
+        "code_execution_security",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI03",
+        "ASI05",
+        "ASI06"
+      ],
+      "candidate_lifecycle_stages": [
+        "augment_finetune_data",
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "monitor",
+        "operate",
+        "scope_plan",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "aws-bedrock-guardrails"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "d03f151a7d22c491bf6f8a37",
+      "vendor_id": "aws",
+      "vendor_name": "AWS Bedrock",
+      "source_type": "official_blog",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/",
+      "title": "Watched page update candidate: AWS Bedrock official_blog",
+      "summary": "Artificial Intelligence Skip to Main Content Filter: All English Contact us AWS Marketplace Support My account re:Invent Discover AWS Products Solutions Pricing Resources Search Filter: All Sign in to console Create account Explore topics Event Register now for AWS re:Invent 2026 Data Migration On-prem databases weren't built for agentic AI. Amazon RDS is Independent Software Vendors AI for software & tech: build, scale, and monetize AI for Small Businesses Solutions designed for your business. Delivered by AWS Partners Artificial Intelligence (AI) Accelerate AI from experimentation to production with AWS AI agents AgentCore: One platform to build, connect and optimize agents News & announcements AWS blog About AWS AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently Why AWS Getting Started Security Compliance Trust Center Sustainability Global Infrastructure Featured Products Analytics Application Integration Artificial Intelligence Business Applications Compute Customer Experience Databases Developer Tools End User Computing Game Tech Management Tools Media Services Migration & Modernization Multicloud & Hybrid Networking & Content Delivery Operations Security & Identity Storage Supply Chain Browse all products Featured Products Get started with one of these featured services or browse all Browse all products Amazon Quick AI-powered assistant for work with research, business insights, automati",
+      "url": "https://aws.amazon.com/blogs/machine-learning/",
+      "published_at": "2026-09-07T08:34:41Z",
+      "detected_at": "2026-09-07T08:34:41Z",
+      "matched_watch_terms": [
+        "agents",
+        "security"
+      ],
+      "candidate_features": [
+        "RAG_memory_security",
+        "agent_identity",
+        "code_execution_security",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI03",
+        "ASI05",
+        "ASI06"
+      ],
+      "candidate_lifecycle_stages": [
+        "augment_finetune_data",
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "monitor",
+        "operate",
+        "scope_plan",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "aws-bedrock-guardrails"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "a62ad3c1047966f12a22fa53",
+      "vendor_id": "google",
+      "vendor_name": "Google Cloud / Vertex AI",
+      "source_type": "docs_page",
+      "source_url": "https://cloud.google.com/security/products/model-armor",
+      "title": "Watched page update candidate: Google Cloud / Vertex AI docs_page",
+      "summary": "Model Armor | Google Cloud Page Contents New: Model Armor now offers in-line protection for Gemini Enterprise Agent Platform, Langchain, and more. Learn more. Model Armor Protect AI prompts, responses, and agent interactions Runtime security for generative and agentic AI, Model Armor provides comprehensive protections against prompt injection, sensitive data leaks, and harmful content. Try Model Armor free Read documentation Model Armor offers a free tier; try it today . Product highlights Screens AI prompts, responses, and agent interactions Detects and prevents sensitive data leaks Blocks prompt injection, jailbreaking, and malware Get an executive summary on Model Armor Features AI model and agent threat detection Proactively identifies and blocks prompt injection and jailbreaking techniques designed to manipulate or compromise LLMs and agents. It also detects malicious URLs embedded in prompts or responses before they can cause harm. Granular content safety Provides fine-grained control of harmful, unethical, or undesirable content, such as hate speech, harassment, sexually explicit material, and dangerous topics. Use adjustable confidence thresholds to allow organizations to precisely tune enforcement based on specific application context, user base, and risk tolerance. Integrated sensitive data protection Integrated with Google Cloud's Sensitive Data Protection service and specifically adapted for the unpredictability of AI-generated text. Model Armor helps prevent the ",
+      "url": "https://cloud.google.com/security/products/model-armor",
+      "published_at": "2026-09-07T08:34:42Z",
+      "detected_at": "2026-09-07T08:34:42Z",
+      "matched_watch_terms": [
+        "Model Armor",
+        "prompt injection",
+        "jailbreak",
+        "safety"
+      ],
+      "candidate_features": [
+        "code_execution_security",
+        "guardrails"
+      ],
+      "candidate_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "google-model-armor",
+        "llm-guard"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "b98b6a47921d3827a745f029",
+      "vendor_id": "google",
+      "vendor_name": "Google Cloud / Vertex AI",
+      "source_type": "release_notes",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+      "title": "Watched page update candidate: Google Cloud / Vertex AI release_notes",
+      "summary": "Vertex AI release notes | Generative AI on Vertex AI | Google Cloud Documentation Skip to main content Documentation close Get Started Get Started with Google Cloud Product List Cloud Customer Care Featured Products Agent Platform Apigee API Management BigQuery Compute Engine Cloud CDN Cloud Run Cloud Storage Cloud SQL Gemini Enterprise Google Kubernetes Engine Looker Cross-product Tools Access and resources management Costs and usage management Infrastructure as code SDK, languages, frameworks, and tools Technology Areas AI and ML Application development Application hosting Compute Data analytics and pipelines Databases Distributed, hybrid, and multicloud Industry solutions Migration Networking Observability and monitoring Security Storage / Console English Deutsch Español – América Latina Français Português – Brasil 中文 – 简体 日本語 한국어 Sign in Vertex AI Generative AI on Vertex AI Start free Guides API reference Vertex AI Cookbook Prompt gallery Resources FAQ Pricing Documentation More Guides API reference Vertex AI Cookbook Prompt gallery Resources FAQ Pricing Console Resources Getting help Quotas and limits Throughput quota Release notes Current Archive Security bulletins Locations Deployments and endpoints Data residency Supported capabilities Vertex AI and zero data retention Service Level Agreement Deprecations and migrations Deprecations Generative AI module in Vertex AI SDK Get Started Get Started with Google Cloud Product List Cloud Customer Care Featured Products Agent ",
+      "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+      "published_at": "2026-09-07T08:34:43Z",
+      "detected_at": "2026-09-07T08:34:43Z",
+      "matched_watch_terms": [
+        "agent"
+      ],
+      "candidate_features": [
+        "RAG_memory_security",
+        "code_execution_security",
+        "observability",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI05",
+        "ASI06",
+        "ASI08",
+        "ASI10"
+      ],
+      "candidate_lifecycle_stages": [
+        "augment_finetune_data",
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "monitor",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "google-model-armor"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "11bd47f08a8838185fe81a63",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/garak/releases",
+      "title": "v0.16.0",
+      "summary": "## What's Changed ### New features * Feature: technique and intent annotation and initial IntentProbe iteration by `garak-maintainers` in https://github.com/NVIDIA/garak/pull/1984 \"Power is in tearing attacks to pieces and putting them together again in shapes of your own choosing.\" This initial feature represents the first step in enabling users to provided their own context and requirements for target expectations and enable identification of attack vectors that show the edges of the underlying systems safeguards and runtime posture from new perspectives. This feature includes the initial groundwork for bringing user context into account during evaluation of a target. In its first iteration, it provides a new facet of information while keeping the existing probes primarily unchanged. The _trait_ and _intent_ concepts are explored, with _policy_ introduced only as a reference definition. Further iteration and community feedback will guide how these new concepts are consumed, and influence how the broader Context Aware Scanning feature evolves. * arch: support & data for trait/intent, and for policy datatype by @leondz in https://github.com/NVIDIA/garak/pull/1421 * cas feature: int",
+      "url": "https://github.com/NVIDIA/garak/releases/tag/v0.16.0",
+      "published_at": "2026-08-04T19:03:13Z",
+      "detected_at": "2026-09-07T08:34:44Z",
+      "matched_watch_terms": [
+        "probe"
+      ],
       "candidate_features": [],
       "candidate_asi": [],
       "candidate_lifecycle_stages": [],
       "priority": "low",
+      "status": "needs_review",
+      "matched_tools": [
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "20ea6978c2e338d59241f4f1",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/garak/releases",
+      "title": "v0.15.1",
+      "summary": "## What's Changed ### New plugins * probes: add ProPILE probes for PII leakage detection by @stefanoamorelli in https://github.com/NVIDIA/garak/pull/1504 * generator: add `simonw/llm` library support by @Nakul-Rajpal in https://github.com/NVIDIA/garak/pull/1633 ### New features * Support JSON and file output modes in garak.analyze.qual_review by @0x3df in https://github.com/NVIDIA/garak/pull/1641 ### Improved plugins * Fix ggml generator call output handling by @zw5 in https://github.com/NVIDIA/garak/pull/1733 * fix: handle None response.choices in OpenAICompatible by @Christbowel in https://github.com/NVIDIA/garak/pull/1654 * Handle local paths in Hugging Face file probe by @musaabhasan in https://github.com/NVIDIA/garak/pull/1740 * fix(detectors): keep packagehallucination entries with invalid dates by @ChrisJr404 in https://github.com/NVIDIA/garak/pull/1738 * Fix malformed MISP tag on snowball detectors by @adityasingh2400 in https://github.com/NVIDIA/garak/pull/1796 * fix(divergence): guard max_tokens override when the generator lacks it by @adityasingh2400 in https://github.com/NVIDIA/garak/pull/1795 * allow promptinject probes to limit `generation_params` by @jmartin-tech in ",
+      "url": "https://github.com/NVIDIA/garak/releases/tag/v0.15.1",
+      "published_at": "2026-06-05T17:24:50Z",
+      "detected_at": "2026-09-07T08:34:44Z",
+      "matched_watch_terms": [
+        "probe",
+        "detector"
+      ],
+      "candidate_features": [],
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "priority": "low",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "554330eb659a5821625e99e6",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/garak/releases",
+      "title": "v0.15.0",
+      "summary": "## What's Changed ### New plugins * probes: Add multi-turn GOAT probe by @saichandrapandraju in https://github.com/NVIDIA/garak/pull/1424 * probes: Agent breaker by @eliyacohen-hub in https://github.com/NVIDIA/garak/pull/1628 * probes: Added system prompt extraction probe by @Nakul-Rajpal in https://github.com/NVIDIA/garak/pull/1538 * probes: add homoglyph obfuscation prompts to smuggling probe by @dentity007 in https://github.com/NVIDIA/garak/pull/1660 * detectors: Add ModernBERT refusal detector by @patriciapampanelli in https://github.com/NVIDIA/garak/pull/1650 * generators: NeMoGuardrails server support by @jmartin-tech in https://github.com/NVIDIA/garak/pull/1675 * generators: test generator with reasoning traces by @leondz in https://github.com/NVIDIA/garak/pull/1697 ### New features * Agent breaker probe by @eliyacohen-hub in https://github.com/NVIDIA/garak/pull/1628 adds support for testing tools available to target systems. ### Improved plugins * generators: add mTLS client certificate authentication to REST generator by @JakeBx in https://github.com/NVIDIA/garak/pull/1681 * generators: Add support for reasoning models to Bedrock generator by @TheTeaCat in https://github.c",
+      "url": "https://github.com/NVIDIA/garak/releases/tag/v0.15.0",
+      "published_at": "2026-05-01T18:17:24Z",
+      "detected_at": "2026-09-07T08:34:44Z",
+      "matched_watch_terms": [
+        "probe",
+        "detector",
+        "agent"
+      ],
+      "candidate_features": [
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "2763f50d45807c543b8f0414",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/garak/releases",
+      "title": "v0.14.1",
+      "summary": "## What's Changed ### New plugins * generator: Add WebSocket generator for real-time LLM security testing by @dyrtyData in https://github.com/NVIDIA/garak/pull/1379 ### New features * OpenAI Harmony format for audio inputs by @erickgalinkin in https://github.com/NVIDIA/garak/pull/1618 * add probe tier to `--list_probes` by @leoneperdigao in https://github.com/NVIDIA/garak/pull/1571 * Add Bootstrap Confidence Intervals for Attack Success Rates by @patriciapampanelli in https://github.com/NVIDIA/garak/pull/1577 #### Notice: Breaking changes in this release * remove deprecated nemollm generator and dependencies by @jmartin-tech in https://github.com/NVIDIA/garak/pull/1643 ### Improved plugins * probes: activate sata & badchars by @leondz in https://github.com/NVIDIA/garak/pull/1623 * Add résumé prompt injection examples by @Sid-V5 in https://github.com/NVIDIA/garak/pull/1616 * fix: binary inclusion of jailbreak components now selects correctly by @leondz in https://github.com/NVIDIA/garak/pull/1621 * Improve Jinja Injection Detection by @erickgalinkin in https://github.com/NVIDIA/garak/pull/1609 ### Documentation * docs: reorganise detector metrics out of code reference section by @le",
+      "url": "https://github.com/NVIDIA/garak/releases/tag/v0.14.1",
+      "published_at": "2026-04-03T15:24:32Z",
+      "detected_at": "2026-09-07T08:34:44Z",
+      "matched_watch_terms": [
+        "probe",
+        "detector",
+        "jailbreak"
+      ],
+      "candidate_features": [
+        "guardrails"
+      ],
+      "candidate_asi": [
+        "ASI01",
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "24d43cc8b059dc60cd21a5e2",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/garak/releases",
+      "title": "v0.14.0",
+      "summary": "## What's Changed ### New features * feature: support JSON config as well as YAML by @patriciapampanelli in https://github.com/NVIDIA/garak/pull/1490 * feature: remove `--generate_autodan` CLI option by @sinhaabhiraj0 in https://github.com/NVIDIA/garak/pull/1521 * expand items in report `entry_type:eval` by @leondz in https://github.com/NVIDIA/garak/pull/1547 * reporting: tier biased security aggregate by @leondz in https://github.com/NVIDIA/garak/pull/1329 * feature: Report Generator refactor by @otavionvidia in https://github.com/NVIDIA/garak/pull/1573 * feature: Add detector evaluation doc and benchmark results by @patriciapampanelli in https://github.com/NVIDIA/garak/pull/1597 * task: calibration data updates winter 2026 by @jmartin-tech in https://github.com/NVIDIA/garak/pull/1599 #### Notice: Breaking changes in this release * Modified format of `eval` and `digest` entires in JSONL report See \"Run analysis\" documentation for more details of compatibility expectations. * Fully redesigned HTML reports * Removal of `--generate_autodan` cli option ### Improved plugins * Fix atkgen verbose output displaying incorrect conversation turns by @snehalvartak in https://github.com/NVIDIA",
+      "url": "https://github.com/NVIDIA/garak/releases/tag/v0.14.0",
+      "published_at": "2026-02-04T17:31:04Z",
+      "detected_at": "2026-09-07T08:34:44Z",
+      "matched_watch_terms": [
+        "detector"
+      ],
+      "candidate_features": [],
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "priority": "medium",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "e03251068e982b6042f94595",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/NeMo-Guardrails/releases",
+      "title": "v0.24.0",
+      "summary": "## What's Changed NeMo Guardrails 0.24.0 substantially expands the built-in rails available through IORails. IORails can now execute 59 of the library's 67 action-backed input and output surfaces, including community integrations and rails that transform content, while sharing the same underlying rail implementations with LLMRails. Three related foundations make this possible: - **`RailOutcome`: decide once, render many.** A rail action returns one engine-neutral allow, block, or transform result that either LLMRails or IORails can enforce. - **Rail manifests: declare, don't infer.** Built-in rails describe their configuration, actions, execution surfaces, requirements, and privacy properties so both engines can discover and use them without maintaining separate support lists. - **Shared outbound HTTP.** Built-in integrations now use a common client boundary for connection pooling, retries, TLS, error handling, lifecycle management, and privacy-safe tracing and metrics. This release also adds F5 Guardrails integration, server health endpoints, multiple namespaced self-check rails, output checking through `/v1/checks`, and extensive correctness improvements for streaming, provider e",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.24.0",
+      "published_at": "2026-08-26T19:31:04Z",
+      "detected_at": "2026-09-07T08:34:45Z",
+      "matched_watch_terms": [
+        "guardrails",
+        "rails"
+      ],
+      "candidate_features": [
+        "code_execution_security"
+      ],
+      "candidate_asi": [
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "a59ba35a99a110db1ece22f2",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/NeMo-Guardrails/releases",
+      "title": "v0.23.0",
+      "summary": "## What's Changed This release expands tool calling and observability in `IORails`. Tool calling now works for streaming and non-streaming requests, including local rails that validate model-emitted tool calls and application-returned tool results. The OpenAI-compatible server also supports tool calling and adds a new `/v1/checks` endpoint for running input or output rails without generating a new model response. NeMo Guardrails 0.23.0 also adds lightweight Hugging Face classifier rails, context bloat detection, and a Polygraf integration for PII detection and masking. Exact NumPy search replaces Annoy as the default embedding index, removing the native C++ dependency while preserving existing similarity-threshold semantics. Distribution wheels are now approximately ten times smaller. `IORails` OpenTelemetry support now includes opt-in content capture and richer request, response, and token-usage attributes. LangChain integrations add support for the OpenAI Responses API and Harmony response format models. This release requires Pydantic `>=2.5, =2.5,<3.0` and migrate validators and model APIs to Pydantic 2 ([#967](https://github.com/NVIDIA-NeMo/Guardrails/issues/967)) ## New Contri",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.23.0",
+      "published_at": "2026-07-01T16:22:19Z",
+      "detected_at": "2026-09-07T08:34:45Z",
+      "matched_watch_terms": [
+        "guardrails",
+        "rails"
+      ],
+      "candidate_features": [
+        "observability",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI08",
+        "ASI10"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "monitor",
+        "test_evaluate"
+      ],
+      "priority": "medium",
+      "status": "needs_review",
+      "matched_tools": [
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "bc756b11f43e657c4c2d2980",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/NeMo-Guardrails/releases",
+      "title": "v0.22.0",
+      "summary": "## What's changed The three major features in this release are: * **Anonymous usage reporting**: Basic usage reporting is documented with clear privacy boundaries and opt-out controls. The telemetry reference explains what fields are collected, what data is excluded, how local audit files work, and how to opt out with NEMO_GUARDRAILS_NO_USAGE_STATS=1, DO_NOT_TRACK=1, or the ~/.config/nemoguardrails/do_not_track file. * **LangChain decoupling**: We have had many customers ask us to be less dependent on LangChain. Now, LangChain is optional. For OpenAI-compatible LLMs, we now ship with a built-in client over httpx that offers better direct support. For others, you can bring LangChain back with NEMOGUARDRAILS_LLM_FRAMEWORK=langchain, and install the matching provider package. * **IORails milestone 2**: The second phase of our new, more efficient orchestration engine. This brings us closer to feature parity to LLMRails by including streaming, OpenTelemetry, and reasoning-model support. We also added _speculative generation_ in non-streaming mode, which runs input rails in parallel with the main application LLM response generation. This hides the latency of input rails while still guara",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.22.0",
+      "published_at": "2026-05-22T20:25:31Z",
+      "detected_at": "2026-09-07T08:34:45Z",
+      "matched_watch_terms": [
+        "guardrails",
+        "rails"
+      ],
+      "candidate_features": [],
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "priority": "medium",
+      "status": "needs_review",
+      "matched_tools": [
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "c978da0e3fade029802b96ed",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/NeMo-Guardrails/releases",
+      "title": "v0.21.0",
+      "summary": "## What's Changed This release introduces `IORails`, a new optimized Input/Output rail engine that supports parallel execution of NemoGuard rails (content-safety, topic-safety, and jailbreak detection) with logging and unique request IDs. A new `check_async` method in `LLMRails` enables standalone input/output rails validation without requiring a full conversation flow. The guardrails server is now fully OpenAI-compatible (including a new v1/models endpoint), and a new `GuardrailsMiddleware` enables seamless integration with LangChain agents. New community integrations include PolicyAI for content moderation, CrowdStrike AIDR, and regex-based detection rails. Embedding index initialization is now lazy, improving startup performance. Streaming internals have been cleaned up along with a major documentation revamp. ### 🚀 Features - *(library)* Update Trend Micro Vision One AI Guard official endpoint ([#1546](https://github.com/NVIDIA-NeMo/Guardrails/issues/1546)) - *(llmrails)* Add check_async method for input/output rails validation ([#1605](https://github.com/NVIDIA-NeMo/Guardrails/issues/1605)) - *(server)* Make guardrails server OpenAI compatible ([#1340](https://github.com/NVIDI",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.21.0",
+      "published_at": "2026-03-12T13:22:49Z",
+      "detected_at": "2026-09-07T08:34:45Z",
+      "matched_watch_terms": [
+        "guardrails",
+        "rails"
+      ],
+      "candidate_features": [
+        "guardrails"
+      ],
+      "candidate_asi": [
+        "ASI01"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "garak",
+        "nemo-guardrails",
+        "trend-micro-ai-security"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "44cc7370ed14748551408f78",
+      "vendor_id": "nvidia",
+      "vendor_name": "NVIDIA AI Security",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/NVIDIA/NeMo-Guardrails/releases",
+      "title": "v0.20.0",
+      "summary": "## What's Changed This release adds support for reasoning-capable content safety models like Nemotron-Content-Safety-Reasoning-4B (with configurable /think mode for explainable moderation), GLiNER for open-source PII detection, and multilingual refusal messages in content safety rails, along with a major documentation restructuring. Streaming configuration has been simplified (note: the streaming field has been removed from the config). ### 🚀 Features - *(llm)* Propagate model and base URL in LLMCallException; improve error handling ([#1502](https://github.com/NVIDIA-NeMo/Guardrails/issues/1502)) - *(content_safety)* Add support to auto select multilingual refusal bot messages ([#1530](https://github.com/NVIDIA-NeMo/Guardrails/issues/1530)) - *(library)* Adding GLiNER for PII detection (open alternative to PrivateAI) ([#1545](https://github.com/NVIDIA-NeMo/Guardrails/issues/1545)) - *(benchmark)* Implement Mock LLM streaming ([#1564](https://github.com/NVIDIA-NeMo/Guardrails/issues/1564)) - *(library)* Add reasoning guardrail connector ([#1565](https://github.com/NVIDIA-NeMo/Guardrails/issues/1565)) ### 🐛 Bug Fixes - *(models)* Surface relevant exception when initializing langchain",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/releases/tag/v0.20.0",
+      "published_at": "2026-01-22T08:44:24Z",
+      "detected_at": "2026-09-07T08:34:45Z",
+      "matched_watch_terms": [
+        "guardrails",
+        "rails"
+      ],
+      "candidate_features": [
+        "code_execution_security"
+      ],
+      "candidate_asi": [
+        "ASI05"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "garak",
+        "nemo-guardrails"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "f951e937bd3fe32738d896e7",
+      "vendor_id": "palo-alto",
+      "vendor_name": "Palo Alto Networks Prisma AIRS",
+      "source_type": "official_blog",
+      "source_url": "https://www.paloaltonetworks.com/blog/",
+      "title": "Watched page update candidate: Palo Alto Networks Prisma AIRS official_blog",
+      "summary": "Palo Alto Networks Blog | Stay protected in an AI world You are using an outdated browser. Please upgrade your browser to improve your experience. Protect Against Russia-Ukraine Cyber Activity --> Unit 42 Defends Organizations Against Next-Gen Frontier AI Risks with Anthropic’s Mythos 5 Frontier AI has compressed attack timelines from weeks to minutes. AI Security Unit 42 Aug 21, 2026 By Sam Rubin Latest Blogs Partners Building Securely From Day One: Palo Alto Networks Partners with the Zendes... Sep 02, 2026 By Shahar Kodraty Partners Making the Most of the Cloud Marketplace Opportunity Sep 01, 2026 By Michael Khoury Partners Celebrating excellence: Palo Alto Networks announces the 2026 North America... Aug 26, 2026 By Anar Desai Announcement , Products and Services , Threat Intelligence , Unit 42 Putting OpenAI Cyber Models to Work for Defenders Aug 12, 2026 By Sam Rubin Announcement , Products and Services Palo Alto Networks Recognized as the Only Vendor to be Named a 4X Leader in... Aug 10, 2026 By Anupam Upadhyaya Announcement , Products and Services Strengthening Security of AI Coding: Prisma AIRS API Integration with OpenA... Aug 07, 2026 By Srikanth Hanumanula and Spencer Thellmann POPULAR BLOGS The 3CX Supply Chain Attack: When Trusted Software Turns Malicious Cortex XDR's AI stopped the 3CX supply chain attack days before the security industry knew it existed. See how behaviora... Cortex Email Security Module: Defending Against Evolving Email Threats Discover how Co",
+      "url": "https://www.paloaltonetworks.com/blog/",
+      "published_at": "2026-09-07T08:34:45Z",
+      "detected_at": "2026-09-07T08:34:45Z",
+      "matched_watch_terms": [
+        "Prisma AIRS",
+        "AI security"
+      ],
+      "candidate_features": [],
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "priority": "medium",
+      "status": "needs_review",
+      "matched_tools": [
+        "art",
+        "cortex-cloud-ai-security",
+        "prisma-airs"
+      ],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "633d6487c5b26dcf3f6be032",
+      "vendor_id": "wiz",
+      "vendor_name": "Wiz AI Security",
+      "source_type": "official_blog",
+      "source_url": "https://www.wiz.io/blog",
+      "title": "Watched page update candidate: Wiz AI Security official_blog",
+      "summary": "Wiz Blog | Latest stories about Cloud Security Sign in Experiencing an incident? Wiz Pricing Get a demo Platform Solutions Pricing Resources Customers Company Get a demo All Research AI Product & Company News Security Product Public Sector Data Security CIRT Wiz Agents Blog Featured How Developers Prevent Production Risk at the Source Mike McGuire September 3, 2026 Fixing security vulnerabilities in code takes seconds, while patching in production creates high operational costs and risk. Discover how empowering developers as your first line of defense eliminates exposure across every phase of your software pipeline. Introducing Continuous Vulnerability Assessment: Real-Time Defense for the AI Threat Era Aviram Ben Kalifa , Omri Kornblau , Yoav Franko , Shaked Rotlevi September 1, 2026 Detect exposure to new vulnerabilities the moment they are published with Wiz CVA Inside 90 days of attacks on AI infrastructure Yaara Shriki August 27, 2026 Wiz honeypots uncover active campaigns targeting LiteLLM, MCP servers, and AI frameworks through RCE, blind prompt injection, and memory credential theft. From Concept to Context Engine: How Wiz Built AI-Powered Data Discovery Daniel Lazarev , Dan Segev , Mor Matalon , Erez Voitiz August 27, 2026 Inside the multi-agent pipeline and feedback loops that turned a bucket scanner into a context engine. Version Control DFIR: a Cheatsheet to GitHub, GitLab, Bitbucket, and Azure DevOps Shira Ayal , Sean Johnstone August 27, 2026 A practitioner’s gu",
+      "url": "https://www.wiz.io/blog",
+      "published_at": "2026-09-07T08:34:45Z",
+      "detected_at": "2026-09-07T08:34:45Z",
+      "matched_watch_terms": [
+        "AI security"
+      ],
+      "candidate_features": [
+        "MCP_security",
+        "RAG_memory_security",
+        "code_execution_security",
+        "guardrails"
+      ],
+      "candidate_asi": [
+        "ASI01",
+        "ASI02",
+        "ASI04",
+        "ASI05",
+        "ASI06",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "augment_finetune_data",
+        "deploy",
+        "develop_experiment",
+        "monitor",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "wiz-ai-spm"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "6a39da2223d845f1e4395049",
+      "vendor_id": "crowdstrike",
+      "vendor_name": "CrowdStrike AI Security",
+      "source_type": "official_blog",
+      "source_url": "https://www.crowdstrike.com/en-us/blog/",
+      "title": "Watched page update candidate: CrowdStrike AI Security official_blog",
+      "summary": "Cybersecurity Blog | CrowdStrike Blog Featured CrowdStrike Extends Endpoint Security to Stop Software Supply Chain Attacks Sep 02, 2026 CrowdStrike Delivers the Next Evolution of the Agentic SOC Sep 02, 2026 CrowdStrike Announces Agentic Identity Provider Sep 02, 2026 CrowdStrike Falcon Guardian Defines the Next Generation of AI Security Sep 01, 2026 Recent CrowdStrike Extends Endpoint Security to Stop Software Supply Chain Attacks Sep 02, 2026 CrowdStrike Delivers the Next Evolution of the Agentic SOC Sep 02, 2026 CrowdStrike Announces Agentic Identity Provider Sep 02, 2026 CrowdStrike Falcon Guardian Defines the Next Generation of AI Security Sep 01, 2026 Video Video Highlights the 4 Key Steps to Successful Incident Response Dec 02, 2019 Helping Non-Security Stakeholders Understand ATT&CK in 10 Minutes or Less [VIDEO] Feb 21, 2019 Analyzing Targeted Intrusions Through the ATT&CK Framework Lens [VIDEO] Jan 22, 2019 Qatar’s Commercial Bank Chooses CrowdStrike Falcon®: A Partnership Based on Trust [VIDEO] Aug 20, 2018 Category Agentic SOC Agentic SOC CrowdStrike Delivers the Next Evolution of the Agentic SOC 09/02/26 Teaching AI to Reason Through Detection Triage 08/17/26 How AI-leading Security Teams Are Building the Agentic SOC 07/06/26 New Claude Integration Brings Audit Data into the Falcon Platform 05/21/26 Cloud & Application Security Cloud & Application Security CrowdStrike Named Strongest Overall Leader in 2026 Frost Radar™: Cloud Workload Protection Platforms 08/20/26",
+      "url": "https://www.crowdstrike.com/en-us/blog/",
+      "published_at": "2026-09-07T08:34:46Z",
+      "detected_at": "2026-09-07T08:34:46Z",
+      "matched_watch_terms": [
+        "AI security",
+        "Falcon",
+        "agent"
+      ],
+      "candidate_features": [
+        "agent_identity"
+      ],
+      "candidate_asi": [
+        "ASI03"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "govern",
+        "scope_plan"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "art"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "2c06bacd717bd6cc32e39de4",
+      "vendor_id": "promptfoo",
+      "vendor_name": "Promptfoo",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/promptfoo/promptfoo/releases",
+      "title": "0.122.1",
+      "summary": "## [0.122.1](https://github.com/promptfoo/promptfoo/compare/0.122.0...0.122.1) (2026-08-26) ### Features * **eval:** distinguish scan footprint from incurred token usage ([#10497](https://github.com/promptfoo/promptfoo/issues/10497)) ([8df8ef0](https://github.com/promptfoo/promptfoo/commit/8df8ef0148a838be26a08a1124a733563db178d7)) * **providers:** add Gemini 3.7 Flash and Flash-Lite ([#10389](https://github.com/promptfoo/promptfoo/issues/10389)) ([bc6b189](https://github.com/promptfoo/promptfoo/commit/bc6b189ba7a2f21098a2e52c9f46063c62a6f696)) * **redteam:** account for multi-turn attacker and grading tokens ([#10407](https://github.com/promptfoo/promptfoo/issues/10407)) ([33cc8bc](https://github.com/promptfoo/promptfoo/commit/33cc8bc90e07d6c4ba36c83001cca1b4726b7593)) * **redteam:** report generation, target, attacker, and grading tokens ([#10408](https://github.com/promptfoo/promptfoo/issues/10408)) ([0891e4e](https://github.com/promptfoo/promptfoo/commit/0891e4e9e49d1c63df6379b1dfbb79bac659e331)) * **tracing:** add test-case roots and universal target spans ([#10328](https://github.com/promptfoo/promptfoo/issues/10328)) ([334586e](https://github.com/promptfoo/promptfoo/commit/3",
+      "url": "https://github.com/promptfoo/promptfoo/releases/tag/0.122.1",
+      "published_at": "2026-08-26T20:33:34Z",
+      "detected_at": "2026-09-07T08:34:46Z",
+      "matched_watch_terms": [
+        "redteam"
+      ],
+      "candidate_features": [],
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "priority": "low",
+      "status": "needs_review",
+      "matched_tools": [
+        "promptfoo"
+      ],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "149e9b3c6e4da23d102f9c70",
+      "vendor_id": "arize-phoenix",
+      "vendor_name": "Arize Phoenix",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/Arize-ai/phoenix/releases",
+      "title": "arize-phoenix-client: v3.4.0",
+      "summary": "## [3.4.0](https://github.com/Arize-ai/phoenix/compare/arize-phoenix-client-v3.3.0...arize-phoenix-client-v3.4.0) (2026-09-03) ### ⚠ BREAKING CHANGES * **server:** GET /v1/model_providers no longer returns custom providers or a `next_cursor`, and built-in entries expose `provider` rather than `kind` + `provider_key`. Custom providers move to GET /v1/custom_model_providers. The endpoint is unreleased, so no published client is affected. ### Features * **agents:** PXI tool to file GitHub issues with a user-supplied token ([#15780](https://github.com/Arize-ai/phoenix/issues/15780)) ([e3b3dd5](https://github.com/Arize-ai/phoenix/commit/e3b3dd55ae45db7e73329b8ad33331af7fc26389)) * **app:** add Z.ai as a built-in GLM model provider ([#15857](https://github.com/Arize-ai/phoenix/issues/15857)) ([58b7017](https://github.com/Arize-ai/phoenix/commit/58b7017284e2f7b4391397ce2080cb67a23e066c)) * **client:** add prompt deletion ([#15736](https://github.com/Arize-ai/phoenix/issues/15736)) ([5610755](https://github.com/Arize-ai/phoenix/commit/5610755353a1c05a90868232de22995942653085)) * **client:** record Harbor jobs in Phoenix ([#15547](https://github.com/Arize-ai/phoenix/issues/15547)) ([f7c6cb3",
+      "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-client-v3.4.0",
+      "published_at": "2026-09-04T02:39:59Z",
+      "detected_at": "2026-09-07T08:34:47Z",
+      "matched_watch_terms": [
+        "agents"
+      ],
+      "candidate_features": [
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "phoenix"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "959a05baa924a5a6eac2e855",
+      "vendor_id": "arize-phoenix",
+      "vendor_name": "Arize Phoenix",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/Arize-ai/phoenix/releases",
+      "title": "arize-phoenix: v20.7.0",
+      "summary": "## [20.7.0](https://github.com/Arize-ai/phoenix/compare/arize-phoenix-v20.6.0...arize-phoenix-v20.7.0) (2026-09-03) ### Features * **server:** move the MCP server to FastMCP 4 and the stateless protocol ([#15903](https://github.com/Arize-ai/phoenix/issues/15903)) ([f11c885](https://github.com/Arize-ai/phoenix/commit/f11c885c063f1c9b6146693cda401c5d645d8294)) ### Bug Fixes * **agents:** record the tool name on pxi llm tool schemas ([#15693](https://github.com/Arize-ai/phoenix/issues/15693)) ([3f01ebb](https://github.com/Arize-ai/phoenix/commit/3f01ebbd4ebdf86ba324f60b8482437ca152d340)) * **mcp/sql:** make AnalyticsSqlError a real exception ([#15906](https://github.com/Arize-ai/phoenix/issues/15906)) ([59c7934](https://github.com/Arize-ai/phoenix/commit/59c79341a79c67f26965d4e1434a0f15337e27b3)) * **model-pricing:** sync minimax pricing from LiteLLM ([#15901](https://github.com/Arize-ai/phoenix/issues/15901)) ([e346f8a](https://github.com/Arize-ai/phoenix/commit/e346f8af40d8d1631060da925d375faa21970861)), closes [#15592](https://github.com/Arize-ai/phoenix/issues/15592) ### Performance Improvements * **traces:** correlate and scope filtered trace query lowering ([#15788](https://gith",
+      "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v20.7.0",
+      "published_at": "2026-09-03T20:59:35Z",
+      "detected_at": "2026-09-07T08:34:47Z",
+      "matched_watch_terms": [
+        "agents"
+      ],
+      "candidate_features": [
+        "MCP_security",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "phoenix"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "795d38d031ad69e98bc11d8b",
+      "vendor_id": "arize-phoenix",
+      "vendor_name": "Arize Phoenix",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/Arize-ai/phoenix/releases",
+      "title": "@arizeai/phoenix-mcp@4.3.7",
+      "summary": "### Patch Changes - Updated dependencies [58b7017] - @arizeai/phoenix-client@7.8.0",
+      "url": "https://github.com/Arize-ai/phoenix/releases/tag/%40arizeai/phoenix-mcp%404.3.7",
+      "published_at": "2026-09-03T05:50:28Z",
+      "detected_at": "2026-09-07T08:34:47Z",
+      "matched_watch_terms": [],
+      "candidate_features": [
+        "MCP_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "phoenix"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "c90891a20c7064f4d1e9fbe9",
+      "vendor_id": "langchain",
+      "vendor_name": "LangChain / LangGraph",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/langchain-ai/langchain/releases",
+      "title": "langchain-core==1.6.2",
+      "summary": "Changes since langchain-core==1.6.1 release(core): 1.6.2 (#40209) feat(openai): support async tools (#40208) chore(deps): bump mistune from 3.3.0 to 3.3.3 in /libs/core (#40150) chore(deps): bump tornado from 6.5.7 to 6.5.8 in /libs/core (#40113) fix(core): avoid mutation in google-genai standard content (#40023) fix(core): avoid mutation in bedrock converse standard content (#40022)",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.6.2",
+      "published_at": "2026-09-04T21:29:42Z",
+      "detected_at": "2026-09-07T08:34:48Z",
+      "matched_watch_terms": [
+        "tool"
+      ],
+      "candidate_features": [
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "test_evaluate"
+      ],
+      "priority": "medium",
       "status": "needs_review",
       "matched_tools": [],
       "recommended_action": "review_only",
@@ -28,7 +1134,288 @@
         "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
         "Is a benchmark case or incident mapping needed?"
       ],
-      "triaged_at": "2026-05-21T08:27:51Z"
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "6fe68509f06b78636c0f0ef5",
+      "vendor_id": "langchain",
+      "vendor_name": "LangChain / LangGraph",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/langchain-ai/langchain/releases",
+      "title": "langchain==1.4.0",
+      "summary": "Changes since langchain==1.3.18 docs(langchain): runnable `langchain.mcp` examples (#39976) feat(langchain): `langchain.mcp` namespace, `MCPAdapter` (#39939) perf(anthropic,langchain): omit middleware trace inputs (#40098) fix(langchain): include model destination in agent tool routing (#38355) chore(langchain): bump vcrpy test dependency minimum to `>=8.2.0` (#39942)",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.0",
+      "published_at": "2026-09-03T16:59:53Z",
+      "detected_at": "2026-09-07T08:34:48Z",
+      "matched_watch_terms": [
+        "agent",
+        "tool",
+        "MCP"
+      ],
+      "candidate_features": [
+        "MCP_security",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "15fce490f7e5b7c23b890602",
+      "vendor_id": "langchain",
+      "vendor_name": "LangChain / LangGraph",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/langchain-ai/langchain/releases",
+      "title": "langchain==1.4.0a4",
+      "summary": "Initial release release(langchain): 1.4.0a4 test(langchain): cover mixed-era ClientGroup and group elicitation Update libs/langchain_v1/langchain/mcp/adapter.py fix(langchain): drive MCP elicitation via member session for fastmcp 4.0.1 fix(sdk): use latest fastmcp and rm reentrant impl cr cr refactor(langchain): inline MCP client arming into `__init__` refactor(langchain): stamp an arm marker instead of introspecting the handler closure fix(langchain): gate MCP interrupt routing on the negotiated protocol era refactor(langchain): drop MCP `elicitation` flag, derive interrupt routing from the client fix(sdk): add _ReentrantClientGroup fix(langchain): narrow `MCPAdapter.client` union in mcp tests for mypy chore(langchain): format `mcp/adapter.py` release(langchain): 1.4.0a3 feat(langchain): group MCP tool metadata under an `mcp` namespace refactor(langchain): stop exporting `MCPAdapterTarget` from `langchain.mcp` refactor(langchain): rename `convert_mcp_tool_to_langchain_tool` to `as_langchain_tool` refactor(langchain): rename `MCPAdapter.get_tools` to `list_tools` feat(langchain): expose `cache_mode` on `MCPAdapter.get_tools` chore(langchain): require `fastmcp` 4.0.0 feat(langchain)",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.0a4",
+      "published_at": "2026-09-02T05:35:20Z",
+      "detected_at": "2026-09-07T08:34:48Z",
+      "matched_watch_terms": [
+        "tool",
+        "MCP"
+      ],
+      "candidate_features": [
+        "MCP_security",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "llamafirewall"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "b88a41d5d72e02cdd0b710b5",
+      "vendor_id": "langchain",
+      "vendor_name": "LangChain / LangGraph",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/langchain-ai/langchain/releases",
+      "title": "langchain==1.4.0a3",
+      "summary": "Third alpha of the `1.4.0` line. This release focuses on the new `langchain.mcp` namespace for adapting MCP servers into LangChain tools. ## `langchain.mcp` highlights - **`MCPAdapter`** adapts any target `fastmcp.Client` accepts — a URL, a local script, an in-process server, an `MCPConfig` naming several servers, or a pre-built client — as well as a FastMCP `ClientGroup` for a fleet of servers behind one client. - **`MCPAdapter.list_tools(*, cache_mode=\"use\")`** discovers and adapts tools, with optional client-side response caching (SEP-2549): `use` serves a cached list within the server's TTL hint, `refresh` repopulates it, `bypass` skips it. - **`as_langchain_tool(tool, client, *, elicitation=None)`** converts a single MCP tool for callers managing their own client. - **Tool metadata** is grouped under an `mcp` namespace on each tool: the tool's `annotations` (snake_case) and `_meta` under `metadata[\"mcp\"][\"tool\"]`, and the serving server's identity under `metadata[\"mcp\"][\"server\"]`. - **`elicitation=\"interrupt\"`** surfaces a server's mid-call questions as LangGraph interrupts, so a human answers and the run resumes. ```python from langchain.agents import create_agent from langc",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.0a3",
+      "published_at": "2026-09-01T17:19:30Z",
+      "detected_at": "2026-09-07T08:34:48Z",
+      "matched_watch_terms": [
+        "LangGraph",
+        "agent",
+        "tool",
+        "MCP"
+      ],
+      "candidate_features": [
+        "MCP_security",
+        "agent_identity",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "operate",
+        "scope_plan",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "llamafirewall"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "e25e32d450bc37d6a9977114",
+      "vendor_id": "llamaindex",
+      "vendor_name": "LlamaIndex",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/run-llama/llama_index/releases",
+      "title": "v0.14.24",
+      "summary": "# Release Notes ## [2026-08-19] ### llama-index-core [0.14.24] - fix: close HotpotQA evaluator file handles ([#22113](https://github.com/run-llama/llama_index/pull/22113)) - fix(core): preserve oversized leaf nodes in CodeSplitter ([#22119](https://github.com/run-llama/llama_index/pull/22119)) - fix: preserve multiblock chat history writes ([#22124](https://github.com/run-llama/llama_index/pull/22124)) - fix(core): skip empty nodes in HTMLNodeParser ([#22125](https://github.com/run-llama/llama_index/pull/22125)) - fix(core): respect mmr_threshold=0 in MMR embedding search ([#22126](https://github.com/run-llama/llama_index/pull/22126)) - fix: keep all nodes per document in IngestionPipeline upserts (re-submit of #22046, not a dup of #21456) ([#22133](https://github.com/run-llama/llama_index/pull/22133)) - fix: don't mark \\*args/\\*\\*kwargs as required tool parameters ([#22135](https://github.com/run-llama/llama_index/pull/22135)) - fix(core): default MetadataFilters condition to AND when None ([#22155](https://github.com/run-llama/llama_index/pull/22155)) - fix: honor agent structured_output_fn/output_cls inside AgentWorkflow ([#22162](https://github.com/run-llama/llama_index/pull/22",
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.24",
+      "published_at": "2026-08-19T18:48:01Z",
+      "detected_at": "2026-09-07T08:34:49Z",
+      "matched_watch_terms": [
+        "agent",
+        "tool"
+      ],
+      "candidate_features": [
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "test_evaluate"
+      ],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "llamafirewall"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "1e0daeba326f4df5259a41e7",
+      "vendor_id": "llamaindex",
+      "vendor_name": "LlamaIndex",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/run-llama/llama_index/releases",
+      "title": "v0.14.22",
+      "summary": "# Release Notes ## [2026-05-14] ### llama-index-agent-agentmesh [0.2.0] - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-agentops [0.5.0] - chore(deps): bump the pip group across 55 directories with 3 updates ([#21435](https://github.com/run-llama/llama_index/pull/21435)) - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-aim [0.4.1] - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-argilla [0.5.0] - chore(deps): bump the pip group across 55 directories with 3 updates ([#21435](https://github.com/run-llama/llama_index/pull/21435)) ### llama-index-callbacks-arize-phoenix [0.7.0] - chore(deps): bump the pip group across 55 directories with 3 updates ([#21435](https://github.com/run-llama/llama_index/pull/21435)) - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-honeyhive [0.5.0] - mass uv lock --upgrade ([#21638](https://github.com/run-llama/llama_index/pull/21638)) ### llama-index-callbacks-langfuse [0.5.0] - chore(deps): bump ",
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.22",
+      "published_at": "2026-05-14T20:22:24Z",
+      "detected_at": "2026-09-07T08:34:49Z",
+      "matched_watch_terms": [
+        "agent"
+      ],
+      "candidate_features": [],
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [
+        "phoenix"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "f8bbfc0a2d559be721845ddc",
+      "vendor_id": "llamaindex",
+      "vendor_name": "LlamaIndex",
+      "source_type": "github_releases",
+      "source_url": "https://api.github.com/repos/run-llama/llama_index/releases",
+      "title": "v0.14.20",
+      "summary": "# Release Notes ## [2026-04-03] ### llama-index-agent-agentmesh [0.2.0] - fix vulnerability with nltk ([#21275](https://github.com/run-llama/llama_index/pull/21275)) ### llama-index-callbacks-agentops [0.5.0] - chore(deps): bump the uv group across 50 directories with 2 updates ([#21164](https://github.com/run-llama/llama_index/pull/21164)) - chore(deps): bump the uv group across 24 directories with 1 update ([#21219](https://github.com/run-llama/llama_index/pull/21219)) - chore(deps): bump the uv group across 21 directories with 2 updates ([#21221](https://github.com/run-llama/llama_index/pull/21221)) - fix vulnerability with nltk ([#21275](https://github.com/run-llama/llama_index/pull/21275)) ### llama-index-callbacks-aim [0.4.1] - fix vulnerability with nltk ([#21275](https://github.com/run-llama/llama_index/pull/21275)) ### llama-index-callbacks-argilla [0.5.0] - chore(deps): bump the uv group across 58 directories with 1 update ([#21166](https://github.com/run-llama/llama_index/pull/21166)) - chore(deps): bump the uv group across 24 directories with 1 update ([#21219](https://github.com/run-llama/llama_index/pull/21219)) - chore(deps): bump the uv group across 21 directories w",
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.20",
+      "published_at": "2026-04-03T19:55:51Z",
+      "detected_at": "2026-09-07T08:34:49Z",
+      "matched_watch_terms": [
+        "agent"
+      ],
+      "candidate_features": [],
+      "candidate_asi": [],
+      "candidate_lifecycle_stages": [],
+      "priority": "high",
+      "status": "needs_review",
+      "matched_tools": [],
+      "recommended_action": "review_only",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
+    },
+    {
+      "id": "79f70c72fa4dd006b5118b4c",
+      "vendor_id": "modelcontextprotocol",
+      "vendor_name": "Model Context Protocol",
+      "source_type": "docs_page",
+      "source_url": "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices",
+      "title": "Watched page update candidate: Model Context Protocol docs_page",
+      "summary": "Security Best Practices - Model Context Protocol Documentation Index Fetch the complete documentation index at: /llms.txt Use this file to discover all available pages before exploring further. Skip to main content Model Context Protocol home page Version 2026-07-28 (latest) Search... ⌘ K Ask Assistant ⌘ I Blog GitHub Search... Navigation Security Security Best Practices Documentation Specification Extensions Registry SEPs Community Get started What is MCP? About MCP Architecture Servers Clients Versioning Develop with MCP Connect to local MCP servers Connect to remote MCP Servers Build with Agent Skills Build an MCP server Clients SDKs Security Understanding Authorization in MCP Security Best Practices Developer tools Inspector Debugging Examples Example Servers On this page Introduction Purpose and Scope Attacks and Mitigations Confused Deputy Problem Terminology Vulnerable Conditions Architecture and Attack Flows Attack Description Mitigation Token Passthrough Risks Mitigation Server-Side Request Forgery (SSRF) Attack Description Risks Mitigation SSRF Against Authorization Servers Resources and Tools State Handle Hijacking Attack Description Mitigation Local MCP Server Compromise Attack Description Risks Mitigation OAuth Authorization URL Validation Attack Description Risks Mitigation stdio Transport Security in Proxy Scenarios Attack Description Risks Mitigation Mix-Up Attacks Attack Description Mitigation Localhost Redirect URI Impersonation Attack Description Mitigation",
+      "url": "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices",
+      "published_at": "2026-09-07T08:34:49Z",
+      "detected_at": "2026-09-07T08:34:49Z",
+      "matched_watch_terms": [
+        "security",
+        "OAuth",
+        "tool",
+        "server"
+      ],
+      "candidate_features": [
+        "MCP_security",
+        "agent_identity",
+        "code_execution_security",
+        "tool_security"
+      ],
+      "candidate_asi": [
+        "ASI02",
+        "ASI03",
+        "ASI04",
+        "ASI05",
+        "ASI07"
+      ],
+      "candidate_lifecycle_stages": [
+        "deploy",
+        "develop_experiment",
+        "govern",
+        "operate",
+        "test_evaluate"
+      ],
+      "priority": "critical",
+      "status": "needs_review",
+      "matched_tools": [
+        "art"
+      ],
+      "recommended_action": "create_evidence_candidate",
+      "review_questions": [
+        "Is this an official vendor/standard source?",
+        "Does the update change tool capability, risk coverage, roadmap, or evidence confidence?",
+        "Is a benchmark case or incident mapping needed?"
+      ],
+      "triaged_at": "2026-09-07T08:34:50Z"
     }
   ]
 }
